@@ -1,0 +1,752 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>[AI] 8/8</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="6985fb8d-c551-4d0e-aff3-f77390d23e8c" class="page sans"><header><h1 class="page-title">[AI] 8/8</h1><p class="page-description"></p></header><div class="page-body"><p id="9a9042e8-5773-46b5-82d5-552459c57cdf" class="">
+</p><p id="73a3c9a0-5953-46a7-9c23-d12a8f908d43" class="">
+</p><p id="d12f775c-d192-48ce-9b47-7664709f9239" class="">일을 잘하면 → 선택지가 넓어짐, 하고싶은 일을 할 수 있다</p><p id="4c273afc-4197-4a63-8624-53d734c28c28" class="">
+</p><p id="30b8d450-11e4-4a39-a87a-67aca5154335" class="">
+</p><p id="49ad0e6e-ae4d-471c-83af-35beb2aff4a9" class="">
+</p><p id="d1702d48-0b56-40c8-a261-dd204253ebf8" class="">쇼핑카트 재설계</p><p id="26ce53e4-56c4-43e2-8fcb-2fb32053a877" class="">
+</p><ol type="1" id="f93778e8-7a08-46f9-b736-d8147d207939" class="numbered-list" start="1"><li>기한이 주어짐</li></ol><p id="d6739ce6-2e79-4f6d-b6bb-0e6acedf6fa7" class="">
+</p><ol type="1" id="c9ea08fd-a730-4f30-b7c4-9552e0d77be3" class="numbered-list" start="2"><li>구성원들이 각자 다른 전공자 출신</li></ol><p id="d9520d85-b7e6-401d-9e29-8ce1ad6a086d" class="">
+</p><ol type="1" id="709f2155-f480-4ae3-96e6-e3e09717676b" class="numbered-list" start="3"><li>딥다이브 브레인스토밍 정리되지않은 아이디어, 타인 아이디어에 편승하기 등<p id="643a3212-29df-42c8-a8e8-657f6b3b4415" class="">비평하려하면 종을 울려서 막음, 합리적인 이야기만 하면 혁신적인 아이디어</p><p id="6e7b9ea7-7c18-496e-a1a9-ca8585fbfc4a" class="">나오기 어려움 초점이 있는 혼돈 완료 후 투표 하루 ㅇ안에 만들 수 있는 아이디어 아니면 투표하지않는다</p><p id="d5b95f52-5b59-4096-989e-136cba10d6a4" class="">
+</p></li></ol><p id="a1166f2c-e8dc-4f20-be6e-e459f1ce5d7c" class="">
+</p><p id="c4334a17-dab4-45d9-b563-40f529be4ba0" class="">
+</p><p id="bf065fe6-3ab2-42fa-be66-667aaaa8ca0e" class="">
+</p><p id="d7e05c2a-1a4a-40e8-ae63-301653c64027" class="">
+</p><p id="f081579e-1cbc-4082-81ec-81ff272be93d" class="">Be를 잊어버리면 Do가 제대로 일어나지 않는다.</p><p id="dfa2ce34-416c-4bcf-a2e8-79303525a121" class="">프로젝트의 목표는</p><p id="020d5386-baa4-4bba-9ca7-61d76f1373b0" class="">
+</p><ol type="1" id="ca289ffc-39f6-4218-86bd-ad500ee75358" class="numbered-list" start="1"><li>결과의 퀄리티</li></ol><p id="ec3f49c2-33f5-4931-bbe2-eeff9bb17b61" class="">
+</p><ol type="1" id="98a9194e-d783-428d-9a1a-f95660cab016" class="numbered-list" start="2"><li>결과가 나오는데 사용되는 시간</li></ol><p id="fe701ba4-1944-4c0a-b45f-8f2ae8cdeac5" class="">
+</p><ol type="1" id="c75e84ff-ee42-4ffa-9ab6-4d1438819ae0" class="numbered-list" start="3"><li>비용과 시간 절감</li></ol><p id="06b324ca-446c-45dc-9c7b-576b22e1368a" class="">
+</p><p id="69f0cf16-494b-40d5-843f-3c4f4e8eea0c" class="">
+</p><ul id="50af9946-6ddf-4eae-8a02-22f37df2f086" class="bulleted-list"><li style="list-style-type:disc">S M A R T</li></ul><p id="37d7d446-f131-41b8-8d53-a49205005cdc" class="">S 목표가 구체적인가?</p><p id="b37e9b29-5dee-4bda-bd06-54bbebf303b8" class="">M 측정할 수 있는가?</p><p id="c0ada969-001b-4140-9ed9-794d41d1e18a" class="">A 현실적 도전적인가?</p><p id="1db5a04f-1a3b-414e-a6c1-96d8c41716cd" class="">R 중요한가?</p><p id="6d59dae1-5031-4e13-a8e4-593f0f8aed66" class="">T 기한은 명시했나?</p><p id="1e4416b7-9b81-454e-8585-21f7285562c3" class="">
+</p><p id="9cdc607a-aa87-4e98-9b67-415591165f7d" class="">목표설정은 위 5개가 갖춰져야하는데 쉽지는 않다.</p><p id="fc997a23-44cf-4c90-9961-e10702297fdc" class="">5개 중 몇개를 고르라면</p><p id="bee83a0f-a7f0-4080-a4ce-dc9da59fd915" class="">측정가능성 / 기한 / 구체성 3개는 목표달성의 최소조건</p><p id="0509ae90-71b2-4321-ae30-028e4c565b4e" class="">
+</p><p id="7bbd2db5-755b-4556-ba5c-d6aaa550dcb6" class="">이 프로젝트가 끝나면 X를 이룰 수 있어야한다</p><p id="766b8cb5-7a2e-463b-a3bd-923ef67be8c8" class="">
+</p><p id="61ea406e-bf3e-494b-84c6-4ba9782e699a" class="">A값 20</p><p id="0307fe9f-d899-458b-afb0-7e2166fc3f27" class="">[2] 17 ~26</p><p id="78e04afe-04e7-44ff-86a9-f7514382abaa" class="">
+</p><p id="b9fe3d6c-c7a1-405e-be78-d87d1cf1a32c" class="">B값 = (22-25)+(21-23)+(22-24)+(21-23) / 4</p><p id="bf13555a-52d6-47c1-94c2-c27e74366f6c" class="">(현재목표 - 전라운드 달성)</p><p id="dd7377a6-ff64-4316-9718-927b2a397dc4" class="">
+</p><p id="318bb10b-40f7-410f-ad5f-d886aa441466" class="">얼마나 향상하려 하는가? </p><p id="0a47e52b-03e7-48d8-ad04-009dbfd99243" class="">향상하려는 마음과 의욕을 보여주는 값</p><p id="cd01b2b7-c6b5-495e-8d4a-e895be64b454" class="">2.5 &lt;&lt; &lt;&lt; 2.25</p><p id="72c47e28-1103-4c59-80ba-08e4c9948787" class="">(22-25)+(21-23)+(22-24)+(21-23) / 4</p><p id="59e4654d-d921-4641-b2fd-1131f5af7e8b" class="">-7.5</p><p id="6860ab93-6a26-46d7-b448-5796f0483681" class="">
+</p><p id="9ec669ff-c013-41ec-b40f-851b086956f6" class="">C값 = </p><p id="01841265-7a54-4be4-913b-b5f33cdda441" class="">
+</p><p id="f7d5b8be-68a9-4a6f-be92-7ad6791344ff" class="">(22-23)+(21-24)+(22-23)+(21-22) / 4  </p><p id="d341161d-9447-4e85-9fd7-3240a7ee4aab" class="">3라 1</p><p id="ba39d713-a4a1-4683-a343-27814d345626" class="">4라 </p><p id="13c29f65-f0d1-40f1-9e2c-012771b4ddee" class="">5라</p><p id="527f783c-15e3-46b2-96cd-9500dbfe889a" class="">6라  / -5.25 . 23 24 23 22 . 23</p><p id="ed14eab5-5ffe-40c1-a808-1a79a68157a9" class="">
+</p><p id="f14c073c-71bd-4f6b-a09c-ac9beb04d0bb" class="">E값 G8 - P7</p><p id="0e12cb9d-d110-4ea6-85ce-a0a21c5cf155" class="">
+</p><p id="13b6d36b-691f-47cd-bbac-0292eba57c85" class="">20-21</p><p id="566c393b-e2e6-46df-8471-ca6425bff13b" class="">-1</p><p id="100f334c-d0a3-45c0-add7-4cb27463e584" class="">
+</p><p id="85af9e8f-d982-48d1-8374-f435b0243d5b" class="">
+</p><p id="b7bf4f12-f1c2-4401-9140-955d36055183" class="">
+</p><p id="0a1150e8-ee10-4c04-bced-4c0c6f332e61" class="">문제 구조화 → </p><p id="2c411800-550c-454a-a679-3864c55a3899" class="">
+</p><p id="1c344165-d8a2-4601-a78b-3190211f9f2a" class="">그루핑&gt; 상위업무 하위업무</p><p id="225bd6d5-04fc-413e-9ace-0f2c89ce8732" class="">
+</p><p id="4faea129-710b-4b3f-8209-a67eb7ffc319" class="">요구와 제약사항</p><p id="56e4a851-e43b-487d-a26c-6cbb9d78f78c" class="">요구자 → 이해관계자</p><p id="60e9148c-a277-4dff-8332-31767c2162b8" class="">
+</p><p id="55e47dbd-b376-4d3a-8dc5-ccb7141846ff" class="">
+</p><p id="79d68296-d81a-4f73-9616-6a639c28c080" class="">서울시</p><p id="7b2785ee-c19f-4de4-8771-aa5249b09d76" class="">취업 퀄리티 &lt; 취업 성공률</p><p id="04641320-3f0e-4f90-abb2-a8f427e01703" class="">
+</p><p id="c4484695-1787-44a9-9416-571bb2968cb0" class="">이해관계자들끼리 요구사항이 다르다</p><p id="9e93d422-882d-48f7-baff-fb9de0fee263" class="">리더는 이 요구사항들을 취합하여 판단해야함</p><p id="d199d34e-e55f-4d64-ba16-4de9003e6939" class="">
+</p><p id="69f52920-90c5-49f7-9f6f-de77e9886ad7" class="">
+</p><p id="c69f29d4-db43-4117-80d4-25d19b6316dc" class="">투입요소의 제약조건 / 시간의 제약조건 / 결과의 제약조건</p><p id="aa5bcc82-d78c-4960-b2de-dea15f22fb41" class="">
+</p><p id="04cacd3a-1172-430d-8885-5a12614dc8cc" class="">역할과 책임</p><p id="8666a5cb-aed6-4c06-b900-bb09c2fb1c57" class="">
+</p><p id="bd21bf53-fc58-49d8-9800-7ac577525b8f" class="">
+</p><p id="79ca1ebe-5ece-4dba-995f-7790516eb187" class="">
+</p><p id="d97ca9fc-93c9-45e2-9455-1e4bc8cc7da3" class="">과정</p><p id="80c345a3-3376-4f3c-9cf1-818cd08a1df3" class="">
+</p><p id="5689d392-434d-4df5-a765-8313a813eb3b" class="">예측은 상상력의 문제</p><p id="11483f9e-b959-4fc6-8d2f-edc676c79b2f" class="">
+</p><p id="fd51801c-c249-49c0-b3f6-369fe659ae68" class="">예상되는 리스크</p><p id="8ac684d4-5120-4a1f-b93b-7217bf23cdaf" class="">
+</p><p id="a19fedb2-d9c8-4283-8527-a7d7f3c81009" class="">리스크 A면 대책이 필요함, 발생 전 대책 발생 후 대책</p><p id="e90afc91-826b-42da-9909-2119eb274061" class="">
+</p><p id="f5c1d086-782a-4941-9db1-ac4fe999f595" class="">
+</p><p id="63cfa801-b56b-4884-94fe-4b4de7b261e8" class="">5</p><p id="b3c3ea97-d6d9-4fb7-9d96-97efb193820d" class="">4</p><p id="be119c48-55cf-44d1-a3eb-f882adf517e6" class="">5</p><p id="058f9c2c-afdf-4159-a24b-0ada065d1548" class="">6</p><p id="eecf6a53-71e7-4af4-ae70-f0c041e640ba" class="">4</p><p id="cbcbc8c2-4cab-4f71-815b-3fab85f2dc57" class="">
+</p><p id="51932661-a05a-4e61-8ddc-717d4afd7dea" class="">5</p><p id="4ef6afe0-352a-4519-b38f-dc0bca19f6dd" class="">5</p><p id="495836d4-6375-4c8f-8069-b8c7e2df0411" class="">4</p><p id="ba55236e-352a-466f-b994-333482c91aa3" class="">5</p><p id="8426e96c-2752-4e38-a41e-afc940b4c9b5" class="">4</p><p id="3692e886-6bda-471c-b3d6-b23e252a8d93" class="">
+</p><p id="405af516-f019-4533-8b53-bc732a03f1ea" class="">아무도 배우려 하지 않지만</p><p id="3e32d124-570b-4456-826f-0c533b2ae8d9" class="">입사하여 꼭 배워야 하는 것이 있다.</p><p id="c2129551-ad71-4c03-82d3-dd9c9edc39c5" class="">그것은 아주 기초적인 기술로서</p><p id="f39f000e-d4fb-4a4e-b163-54be9be51a04" class="">‘생각’ 을 정리해서</p><p id="deb7f1c6-67ae-4c45-bbdb-a8b42bae3b45" class="">‘말’이나 ‘글’ 로 ‘표현’하는 것이다.</p><p id="5775225b-8c38-4e91-ae0e-6b2d5654bb2d" class="">
+</p><p id="7d694e36-8911-44b6-92a0-60918a502764" class="">
+</p><p id="8a00854b-e0cc-4e8f-b0e5-06718369b162" class="">‘보고’ 는                 ‘연락’ 은                    ‘상담’ 은</p><p id="72b821af-fe37-4149-91f8-d15abe0be1fe" class="">→   지시한 사람      →   이해관계자와     →   권한을 쥔 사람과</p><p id="4891ad86-bc07-4de8-bf34-d6c407469edf" class="">
+</p><p id="109eb565-4fc0-4a0e-b6bb-23d4d5dc5631" class="">
+</p><p id="0234be8d-b706-4a07-ac68-711ea25ec0eb" class="">목적과 목표를 명확히 한다 &gt;해야할일을구조화한다&gt;요구와제약사항을파악한다</p><p id="abce7103-1616-48f8-83e5-c567604cf3e8" class="">&gt;우선순위를정한다&gt;역할과책임을분명히한다&gt;일정계획을세운다</p><p id="c5eb8b50-eb76-489c-ac4a-1d0a7f5367b1" class="">&gt;위협과기회를예측한다&gt;신뢰의관계를형성한다&gt;끊임없이소통한다</p><p id="48dd55f3-4fb9-44ab-b5a9-b2a3a4872eb6" class="">
+</p><p id="aa57add8-aa85-4ff3-8069-9feca1412aa1" class="">2차전지 &gt; 바이오 &gt; AI 등</p><p id="0f796fed-b7e1-4bb1-bb1e-de48f1ff02c2" class="">
+</p><p id="41cb15c6-a101-44de-b02a-1209a52f7e18" class="">
+</p><p id="97a7831c-bc43-4518-9084-7adb840bf4b9" class="">회사마다 일업무와 받는 돈이 차이가 있다 비례하진않음</p><p id="d3bdbd1b-5348-418d-87e5-d73f0825f1d2" class="">김선일 강사님</p><p id="6ea8fc54-e087-432a-9c14-598376882738" class="">
+</p><p id="79d69ecc-48bc-4ef3-962d-9417b5edef38" class="">
+</p><p id="0469c6bd-06d9-463e-8f49-e8574ce25a51" class="">일할때 생산성을 올리기 위한 마인드</p><p id="37dad284-0649-44ef-b55c-366d6800e8e7" class="">
+</p><p id="b68cd6cf-b174-465e-b0a7-0d0af2214e4e" class="">방식 못 깸 &gt; 새로운 방식 &lt; 처음 진입한 사람들, 이런걸 왜 이렇게하지?? &lt; 이 시각을</p><p id="2c780220-dd9a-40e1-b038-01a7c235c5f4" class="">가지는 것이 가장 중요하다, 처음 입사 시 액셀이 있는데, 계산기를 쓰고 액셀을 안씀</p><p id="0f80c90a-19c2-4d32-a94d-ac3d22a6090f" class="">입사하자마자 액셀을 쓰는게 낫다싶어서 액셀 독학해서 회사 있는거 액셀로 바꿔버림</p><p id="0dde9f2c-d406-48db-aeed-0a89cec05d72" class="">하루종일 하던거 1시간만에 하고 놀아 적게일하고 일할 수 있는 뭔가가 생기게되었다</p><p id="ebb6ea7e-a689-4a00-841b-b168dcd579cc" class="">
+</p><p id="f5ab8fb3-af9c-415f-a837-d002735e1940" class="">강의하면서 농사를 지음 강의는 부직업 비닐하우스에 농사짓는데</p><p id="adcd8bfa-361e-4586-9d92-0b0d47984d31" class="">고향서 농사짓는 사람 과거 그대로 지음, 왜 저럴까 보이는 부분이 있음</p><p id="ce50c307-728e-4bbc-be2d-f5954dc13d87" class="">물공급 어플로 모터로 껐다켰다 할수있음</p><p id="868be840-9b8b-4829-8cd8-cd2de278f762" class="">알리익스프레스에서 2만원 주고 껐다켰다하는거 구매함</p><p id="f2d5d350-b5cd-4152-84a4-3b3e2c00fad7" class="">ㄴ이게 안되면 현장으로 가는거</p><p id="fb58157b-c934-488b-96d2-2052ddd25dab" class="">하다못해 농사를 짓는 분야에도 ai가 들어감, 모든게 변해감, 이런 변화를 보려면</p><p id="4b702f40-42c4-4ab7-a41e-b68e719e71b8" class="">ai를 통해서 업무프로세스를 혁신하는 사람, 기존 사람은 이래왔어&lt;근데 ai로 이러면</p><p id="9b2cb91a-e3d1-4e95-8b96-e0d1dbcafd95" class="">이렇게 바뀔거야 제시해주는 사람이 된다면</p><p id="fb0cd984-e74d-4f8e-8e52-c0f1f0c3f492" class="">
+</p><p id="585cb14e-62d4-4e28-a4a9-0f64102cd185" class="">서로가 도움이 되는 직업이 되지않을까, 활용분야는 무궁무진함,</p><p id="bae62bc9-0d8f-4400-a5c4-3ea0840d2a8b" class="">우리나라가 ai를 잘 할 수 있을까 네이버때는 언어문제가 있었지만</p><p id="a9b6281f-d09a-43cb-b8a2-e74d1f6c8467" class="">의문은 있음, ai시대 한글,영어 검색 차이가 별로 없어짐, </p><p id="87f8b5cc-2e4a-4d60-98c6-801f464adda9" class="">미국 경쟁력있는 회사를 따라갈 수 있을까?는 의문</p><p id="bff3a3e6-8f82-4431-8b52-3ffa0a38f245" class="">
+</p><p id="8c531df7-cc3a-4059-9ad9-7d52273c0e9d" class="">일을 잘하려면 다른 생각을 가져야함</p><p id="04da2b45-e2b4-43df-ad28-a4db70cb4d83" class="">기존에 생각대로가면 </p><p id="c2080bcb-8054-40ad-b4db-1904c60a6060" class="">
+</p><p id="5d8795fe-bb28-4b1c-9e1e-dc242490ac5d" class="">회사가 원하는 유능한 인재 상은 바꾸길 원함</p><p id="901ca4c2-878f-41c1-9715-ae41cbd99eac" class="">새로운거 적용이 원하는 사항 본질</p><p id="9c0a5642-9196-4fc6-be3b-c7034bb53ab6" class="">
+</p><p id="1b1dfd30-0034-4d36-a49b-02214e47b6cd" class="">
+</p><p id="2d24538d-deda-48a8-ab42-470a70c2f5c7" class="">
+</p><p id="eaf0f929-ac72-4c66-b42a-3c4d0594283a" class="">
+</p><p id="8fcfd9d4-8af0-4a1a-9e3d-73ab5812cadf" class="">
+</p><p id="b443ed44-4a0e-41c5-bf14-3debba2f96c4" class="">
+</p><p id="6892e5c2-c887-4b5d-987e-ee1f59e2543a" class="">
+</p><p id="1f353ffe-6c12-46b1-bb11-f3939ad32ec9" class="">
+</p><p id="32f64b8f-a725-480d-a9bc-683c3ebabc49" class="">
+</p><p id="34cdbc2f-0bdf-48b0-921b-8502557cdd99" class="">
+</p><p id="ea042f97-0b8e-4efb-a394-d82a4a1964db" class="">
+</p><p id="d395fd29-4c0a-45a6-be61-37adfada16fe" class="">
+</p><p id="605af174-c7a1-4383-a1d0-b5ae252e5897" class="">
+</p><p id="bda8122a-168c-4a37-af13-27870cc0ba97" class="">
+</p></div></article></body></html>

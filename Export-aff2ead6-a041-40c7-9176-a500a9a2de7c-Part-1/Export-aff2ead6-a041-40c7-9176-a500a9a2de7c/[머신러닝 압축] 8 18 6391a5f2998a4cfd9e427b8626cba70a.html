@@ -1,0 +1,808 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>[머신러닝 압축] 8/18</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="6391a5f2-998a-4cfd-9e42-7b8626cba70a" class="page sans"><header><h1 class="page-title">[머신러닝 압축] 8/18</h1><p class="page-description"></p></header><div class="page-body"><p id="5b739d07-c971-4a1c-b9ea-7dd316234ce8" class="">
+</p><p id="7417dd14-6e3a-40ee-a129-82215f055b19" class="">
+</p><p id="41581ca9-d827-40a7-a035-b42ae44cecbc" class="">
+</p><p id="5b7fa248-889f-4c57-b900-3382a116d6cf" class="">[머신러닝]</p><p id="b0322d83-7378-45eb-bc02-3a275902e456" class="">생각하는 기계 - 이미테이션 게임</p><p id="ea113061-80e6-49bd-8fe2-f82efd54da7a" class="">우리는 현재 뇌과학으로 개를 왜 개라고 인식하는지</p><p id="197a79c6-cdcf-4fec-a33d-b66704ad20b9" class="">설명하는 방법이 없어, 심리학에서 이야기하는 심리적 이야기지 어떻게 생각하는지는 아무도 몰라</p><p id="e36f972e-21be-49b9-acc1-29bcbd1bd923" class="">머릿속에서 메커니즘이 일어나는 원인을 설명하지 못함</p><p id="832376de-8e4f-48d3-9171-e1af8c6b9d5f" class="">
+</p><p id="ca763cce-0aec-444b-968c-fc3d479a7b47" class="">인공지능 박사님 입장에선 인간이 어떻게 생각하는지 정확히 알 수 있다? &gt;장병철 교수님, 불가능하다고 생각한다</p><p id="59842472-88f4-486f-b443-d5d3d5482844" class="">그걸 알면 생식의 기능을 제외하고 구현하는것, 신이 되는 것, 메커니즘 설명 불가능할거</p><p id="46232353-00b0-4b0b-98b5-505886eaaaac" class="">
+</p><p id="93c0626e-41b6-47ef-add5-df48f6a2761d" class="">기계는 수학적 메커니즘이 있어야한다, </p><p id="6cf28c2f-732d-463e-b353-956f6ef96d1f" class="">인간의 머리가 할 수 있는 행위를 기계는 모방한다, 우리의 머리를 만드는게 아니라</p><p id="61ab65ba-af84-4c2f-8c6a-ff82faee48ef" class="">모방하는거, 컴퓨터 프로그램으로 모방하는것, 수학적인 방법으로 프로그래밍 언어로 구현한 것,</p><p id="b9d3ce44-373e-42ed-863a-b219b31c6d1a" class="">
+</p><p id="e9222f72-e521-4aff-a2d2-04beacab2497" class="">* 계산은 컴퓨터가 할 수 있으니, 컴퓨터가 할 수 있게 입력해주면됨</p><p id="e7440b02-1367-4f48-8f00-8df22eb5581e" class="">
+</p><p id="2b2ba21e-1e48-44ce-89d0-4ccb7de516de" class="">* 논리추론 좋아하면, 데니얼캐너만의 경제심리학자가 쓴 ‘생각에 관한 생각’ 이라는 책을 추천함</p><p id="5934a670-fbdf-4eed-a506-41ac0a63627a" class="">   ㄴ요슈아라는 인공지능 학자가 언급함 현대의 딥러닝은 시스템1에 집착하는데 시스템2에 가야 new nips 뉴립스 </p><p id="468e3108-c769-4db8-8637-ccc9c1964059" class="">   켜놓고 점심먹으러가 제프린튼, 요슈아벤지어&lt; 다 있음</p><p id="29d7eb34-d416-4d58-821f-a5c6b5966909" class="">
+</p><p id="40137bce-123a-492a-abac-5edb21257e7c" class="">
+</p><p id="04e2b677-f134-4abb-97ef-ba3fcd7bac71" class="">머신러닝, 기계가 데이터를 통해서 예측가능한 문제를 해결하기위해서 어떠한 통찰을 얻어내는것(머신러닝을 통해서)</p><p id="4eca158d-deaa-4972-b180-e1fa2e2dd985" class="">분석할 수 있는 알고리즘 머신러닝 안에 일부로 딥러닝이 들어가는 것,</p><p id="58ccbf51-e4c7-4b3e-a34b-1a2143305c62" class="">
+</p><p id="97100ea4-9d28-43cf-ace6-55c1cc73dbf4" class="">★있어빌러티 up</p><p id="120a33b0-19e3-4ee6-97e2-2a4d1bc71d83" class="">
+</p><p id="b6a308d7-84f1-4f09-9692-c96afa2f8bbd" class="">일반적으로 기계학습 모델은 앞에서 본 것처럼 데이터를 기반으로,<div class="indented"><ul id="fc54cf23-7a49-4dad-a382-6b5f0f6ee17d" class="bulleted-list"><li style="list-style-type:disc">지도학습, 비지도학습, 강화학습으로 나눌 수 있음</li></ul></div></p><p id="5ee49aea-3aa6-4171-936e-13110d04faa0" class="">
+</p><p id="6783b670-1840-4df3-8e7b-4e7f3a99cb2f" class="">다른 방법으로는 수학적 배경에 따라, 다음과 같이 나눌 수 있음</p><p id="bef1f589-6f82-468c-b598-5611c3b9383e" class=""> </p><p id="e7396705-a38f-46dd-989c-d334fd76974f" class="">
+</p><p id="d3abc703-8480-4e96-b96f-ffaa4c615015" class="">
+</p><p id="483e954b-2971-4425-b440-68f82f80f842" class="">- Similarity-Based Learning&lt;유사도 </p><p id="0419a201-8c2f-4f93-b651-7ada925ee26c" class="">    기하학적거리로 유사도측정</p><p id="fb9e27d4-d5a9-4979-bfe9-552785b6403d" class=""> </p><p id="68e81176-f3f0-4105-9dad-1bba4ff07664" class="">
+</p><p id="f2cc6ea3-268d-4b1d-988a-be70b1eab549" class="">- Information-Based Learning&lt;정보이용</p><p id="46532717-df19-4ed2-9786-a60ba9230d1a" class="">   </p><p id="9d7dc188-153b-46f9-af84-553e451b2e6e" class=""> </p><p id="eec60597-808c-4f0f-ad7b-da27a89ccabf" class="">
+</p><p id="c13a35e2-923c-4f7a-9bd0-1b837221064e" class="">- Probability-Based Learning&lt;확률이용</p><p id="997588d9-1409-436c-a9d1-be71804bd1dc" class="">   </p><p id="52a263fe-d00b-436b-a990-8916c6fdbfea" class="">  </p><p id="774ff766-cbb8-450e-947e-5216b33ee865" class=""> </p><p id="5ea4ed19-72fb-4212-b767-7220828bf40a" class="">- Error-Based Learning&lt;오차이용</p><p id="d7d01b4e-ae23-4bb4-b2fa-852ca078c528" class="">   원본데이터랑 내 데이터간의 오차를 구할 수 있어야한다</p><p id="b4da229d-d961-4554-96f5-9cc2059e778a" class="">
+</p><p id="2eb3eca1-2ea6-4c4d-a465-aa9da84855c7" class="">
+</p><p id="cd46e9bd-d69c-4aa7-a7b9-3bb8822690e0" class="">
+</p><p id="f533b67f-cd6a-4442-8d54-2a74172037bf" class="">수학적 기법이 있는거라 모델이라씀, 알고리즘은 명시적 조건을 나열한걸 알고리즘이라함</p><p id="7127a965-794e-4cd4-9d9a-125b0b4660e1" class="">** 모델과 알고리즘은 전혀 다른 것,</p><p id="f0be4ad6-1bfd-434f-8e3a-b3f70b845b72" class="">
+</p><ul id="32e70041-7923-4071-8ef5-75f4587a7e53" class="bulleted-list"><li style="list-style-type:disc">모델은 수학적 기저를 가진 방법</li></ul><ul id="d98b08fe-c7f9-4cb2-b125-2f22eb4c7bc0" class="bulleted-list"><li style="list-style-type:disc">알고리즘은 입력과 출력을 가진 유한시간내에 끝내야하는 표현 방법</li></ul><p id="580fc096-efb9-4b86-a5ba-bc45f3de96a7" class="">
+</p><p id="5247d7a2-7a20-4d03-9e26-d497c41f02e5" class="">
+</p><p id="45b9ab59-5b24-4d62-9fab-a6b6ea6b364d" class="">
+</p><p id="28760911-2523-415b-9be0-c95ddf015ccb" class="">
+</p><p id="bfc4f2e2-ff1a-4590-9bf1-e73c1355a782" class="">
+</p><p id="926a0555-7c74-49df-8d03-7f91f16c576e" class="">[Machine Learning]</p><p id="05584faf-abf0-4b65-ac8f-85aba61ce38e" class="">
+</p><p id="07263223-88c6-4851-b319-187ed92947f9" class="">- Unsupervised Learning</p><p id="bd98b8aa-c606-4aa0-9153-94b8af24cf1b" class="">  * Clustering</p><p id="1095d706-5a0e-4ae7-bfce-13f7758d86c9" class="">  * Dimenslonality Reduction</p><p id="d5287982-739d-498c-9139-8fd7f0e161ab" class="">
+</p><p id="0cb72cd5-83f4-4674-b43d-8f3d2f84a181" class="">
+</p><p id="e06f32cf-81eb-4571-84c1-213acd593272" class="">- Reinforcement Learning</p><p id="23a2e706-3f46-4284-97bb-a01eb3220917" class="">
+</p><p id="78ded0e8-ad25-4f3c-a77c-e9eed768b31d" class="">
+</p><p id="dc9c1246-e6e6-496c-b73c-977b3bbb8910" class="">- Supervised Learning</p><p id="ceb56a99-a53e-408e-97c5-fb2e60624535" class="">   * Regression         회귀, 돌아가는 것_평균으로 돌아간다 모든 자연계의 것들은 평균에 수렴하려는 성질이 있다.</p><p id="bda07c18-c455-44cd-a303-c39f51fea29a" class="">                                컨티뉴얼, ‘연속적’인 수치를 예측할때 그 모델들을 회귀라고 부른다. ex), 내 삼성전자 주가의 수치 연속적인 수치</p><p id="80ce553b-0cf9-45e3-a5d0-35577e43bb67" class="">   * Classification      분류, 이상값들을 예측한다, 얘도 예측을하는데, 이상값이다, 이상적 확률을 예측한다.</p><p id="155b4ad7-73be-499c-8542-8972ca6cd293" class="">                                 내일 삼성전자의 주가가 오를 확률이 90% 내릴 확률이 10% 이건 분류, 신호등 색은 빨강이다 파랑이다도 분류임</p><p id="9868b015-4daf-4570-b5b8-41d5b72a923e" class="">
+</p><p id="db2f135f-ca6e-437f-9971-49d918eaac46" class="">
+</p><p id="0fe6b515-fcbf-4909-91e6-e6ae6011505f" class="">
+</p><p id="101b3740-f8e9-43c6-be2b-e9ae4846904b" class="">액셀에서 추세선 그리는게 회귀이다, 오르락내리락하지만 추세는 내려가는 추세다. 텐던씨(직선)으로 예측하는 것</p><p id="7a124334-c766-4e6c-b3fc-dff7028bc96d" class="">디시전트리는 분류모델로 최초제안했으나, </p><p id="e063570c-ef69-4437-a487-2bab290d6803" class="">★ 대부분의 머신러닝은 회귀와 분류 둘 다 쓴다 </p><p id="f8c4a550-1a97-46c4-97b1-18632437e8c8" class="">리그레이션만 이름 확실히 해놓은거, 리그레이션은 카테고리이름이기도하고, 모델이름이기도함</p><p id="18ef83ef-13a5-48e4-b5bc-fc0c0b94be46" class="">
+</p><p id="921467e3-a91a-4644-aab1-8ad3e609ef9d" class="">
+</p><p id="c5076e2d-22a2-46d4-98cb-c5dcd9c36db9" class="">
+</p><p id="2b9c8c22-0cd8-442c-9f46-0cc9f6c8cc17" class="">머신러닝에서 가장 큰 중요한 점,</p><p id="6fc1bb10-a1f1-47cd-8eac-a1fdbb55d0ef" class="">
+</p><p id="e098e3c5-ab7d-406d-8f3e-3ff14cf8edd6" class="">
+</p><p id="01fb4f11-b16e-4489-ba05-2b536b2577ae" class="">학습이라는 스테이지와 인퍼런스(추론)이라는 스테이지 두 개를 반드시 구분해야한다.</p><p id="03e08a33-cf7d-47a5-a8b5-09c988a8699c" class="">
+</p><p id="fdfcf489-111c-454d-ae94-03830540d32d" class="">
+</p><p id="a7ee2b5f-4245-40b3-b1fa-da5a781a2649" class="">‘지도학습’</p><p id="4d89b835-193b-4cb5-ae52-445ede3362c0" class="">-이거하라고 시키는 것, ‘라벨’이 있다</p><p id="9f46bd1b-a628-4b25-9bad-aee229c83ea7" class="">
+</p><p id="37ffbd0f-dee9-4409-b3e7-a6470b170e5d" class="">
+</p><p id="ac56fba8-13ab-470a-abb4-2d8cb722c148" class="">‘비지도학습’ </p><p id="6c10ce38-0670-47d5-a0df-f72730ad1896" class="">-레이블이 없다. ‘</p><p id="17bb611a-605c-4cfc-a7e6-691d7df5b638" class="">
+</p><p id="781f0538-5d77-4be9-a248-cfc76da123b6" class="">
+</p><p id="e3e2f24b-a352-43fe-825b-17557e47746e" class="">‘강화학습’ </p><p id="856af5bd-bc0c-4039-ac3d-6f8aa127216c" class="">-명시적 데이터가 없다,어떤 상황에서 해본 것이 경험이 되는 것, </p><p id="c06aa7c0-fd00-476a-9178-671e20b75424" class="">벽돌깨기 게임(Bric game), 데이터가 없이 학습함, 데이터가 없고, 상황이 있다</p><p id="d8227538-e692-4127-aa17-8ac43d723971" class="">
+</p><p id="5120832a-5e5b-4a52-9ea2-48ea3e7b6c14" class="">알파고는 강화학습과 지도학습 둘 다 포함</p><p id="c2090d6d-2b18-4ea4-9fc5-28435c828030" class="">현 알파고 제로는 알파고vs 알파고로 새로운 학습을 하고 이전은 기보로 학습</p><p id="c9506626-d67b-40e6-8a6b-9de39d32455a" class="">
+</p><p id="c6566f28-0134-4002-a663-c6ab5ec2d56c" class="">정답(정답이라쓰겠음)이 있는 것이면 지도학습을 쓰는게 맞고,</p><p id="87e05b1e-c8cb-4149-bca8-1837b47092dc" class="">그게 아니라면 비지도학습을 쓰는게 맞음</p><p id="4563e3fc-d9e1-4351-b0f0-83dccdc3a5bc" class="">
+</p><p id="1c9f019c-c115-46c6-986a-0f5234849626" class="">
+</p><p id="330fe3e9-2d23-43ec-b287-56e1a39cc46c" class="">
+</p><p id="b33ec960-adaa-4358-84aa-46b4b474bee7" class="">
+</p><p id="bd0222a5-7f4c-46f8-9306-181d9b97cc62" class="">유사성을 기준으로한다 길이가 x고 무게가 10이면 참치다</p><p id="16c01ba0-0501-4834-a712-1b7edc513fca" class="">* 길이가 20이고 무게가 9.9면 참치일 가능성이 높다</p><p id="2ad60f15-a873-407c-95da-1495f4254208" class="">내가 가진 모든 데이터는 수치로 되어있다, 비슷하다는 측정은 수치로, 그걸 이용해서 예측한다</p><p id="8e5e5172-bc94-4940-bda7-1e6cba2bbe2f" class="">시뮬레리티</p><p id="d6fb1def-f537-42bf-bcd1-5d484c0471ff" class="">인포메이션 베이스드에 가장 유명한 트리 디시전트리</p><p id="36ebc577-fb2e-46f3-9c41-017cfe396fcd" class="">
+</p><p id="1a6bbe9d-b3ab-482d-9f52-1796edc7f62d" class="">
+</p><p id="bd18e200-98af-42e7-9f6d-eea7f978524c" class="">
+</p><p id="e0ef5149-7efa-47cc-b07e-d7b928adcdb5" class="">딥러닝은 Error-Based</p><p id="caa3cb59-829d-47f3-95b1-2b043445ed26" class="">얼마나 틀렸네 다시 다시 오차가 줄어들때까지 공부하는 방식이 Error-Based</p><p id="808c9719-2221-484d-8e96-9d98fedd5e37" class="">
+</p><p id="d15936b1-c502-4e03-a6a2-5b3cd3558f31" class="">
+</p><p id="ed66e2c3-046e-4f5a-a6d3-9a439f112c4a" class="">
+</p><p id="ba1e7ce0-8b97-4da8-88b4-8dc548307871" class=""> KNeighborsClassifier() # 유일하게 공부하지않는 모델임, 게으른모델</p><p id="9f1c3eb7-b883-4a6b-9146-993554657a6a" class="">
+</p><p id="4cf5a111-303f-4246-860a-246fc8faaea9" class="">k- 하이퍼 파라미터, 인간이 정해줘야하는 값, (ex. 진한별의 친구 몇명을 봐라)</p><p id="067a3049-b843-4950-9b52-6fee3eb0501d" class="">설정 안하면 친구 기본적으로 5명 본다, 디폴트값 5</p><p id="dea46cc8-3ea0-496b-ae21-8f3e983e2c40" class="">
+</p><p id="c534bf90-adb6-480c-81bd-5284a1effb7c" class="">
+</p><p id="050ccc11-b53a-4051-b90c-4096a3d0c5b1" class="">
+</p><p id="4d8f0b29-be81-49cb-8526-335405365f2d" class="">
+</p><p id="b5f19389-efa9-4a2d-8a9b-a90e67b1b278" class="">
+</p><p id="06d8c0a6-63b1-4b4e-8c4c-7cdff81a2e9b" class="">x = 데이터</p><p id="c9935fcf-9dc6-4c52-a0a3-26e0ddf52068" class="">y = 타겟</p><p id="24a80128-5aea-4e7f-bfe0-c683816288c1" class="">
+</p><p id="6983406d-146e-492f-a4b5-74f284d2316f" class="">
+</p><p id="70b67a1d-e9ee-4a60-aac6-d15c512c83a5" class="">자료는 데이터와 레이블이 있어야함</p><p id="1ea60137-4e5c-47e8-82e2-3a529d5bb825" class="">학습할때 사용하는 데이터와 레이블을 구분함</p><p id="747e9a66-8bc2-463c-9b1e-3cb168d52fa3" class="">
+</p><p id="ae5baca8-dafa-437e-b3db-0ffa87d0995b" class="">데이터 → 독립변수</p><p id="01b1a6bb-1572-4e59-8ebc-30b4df8a2468" class="">레이블 → 종속변수</p><p id="1bdcb9cb-dcfd-4a3f-83ff-6b50086285ac" class="">
+</p><p id="c461514c-e8bc-4ba8-b2e2-e0fae7e37de7" class="">독립변수를 통해서 종속변수를 예측한다, 종속변수는 타겟이라고 하기도함</p><p id="6f53bcb3-68e6-4938-8fce-c86ce41f13c9" class="">독립변수는 데이터라고도함, 데이터 /  레이블은 타겟</p><p id="6630711f-664d-418e-8617-e6aac9134105" class="">피처 엔 타겟 / 피처 엔 라벨</p><p id="fa849456-fbdf-4acb-bbd3-7b32c4c7907a" class="">(원랜 피처가 다 통용되는 용언데 요샌 저래하더라)</p><p id="c187afcd-c97c-44ca-8169-6de8b990d4ca" class="">
+</p><p id="944090db-5c03-483b-a5bd-8cebd2589b9d" class="">x값</p><p id="6a303317-32e4-4108-ac3b-e80edca8e1a8" class="">피처 = 데이터 = 독립변수 </p><p id="dce8d527-34a0-4751-879b-544819d37368" class="">
+</p><p id="54f648d0-cd6a-4d43-9d14-9de60621a1ca" class="">y값</p><p id="3a03f2c3-1307-41d9-9a70-79284384df78" class="">라벨 = 타겟 = 종속변수</p><p id="b033ab02-0b7f-4097-bb2f-bbf24663b4b7" class="">
+</p><p id="cb6c88b4-5860-4a3f-8023-83fd5c00a8a8" class="">
+</p><p id="9d4e8fa2-b146-48ef-84d6-7323f18089cf" class="">
+</p><p id="6fbed5c6-2e93-437a-94fa-22029c13ce21" class="">
+</p><p id="b0ad1637-6423-4b5e-800f-de50b84ae69e" class="">
+</p><p id="3a18f5a0-18be-4bd0-bcf2-c5ec88693987" class="">수학 모델 4개 중</p><p id="e9fcf7a0-7985-4fbd-a6cf-44a89f483272" class="">시뮬레러티에 속한다, 유사도 측정(거리로 측정)</p><p id="8e68b9ed-be58-4228-99ef-3692e0bead89" class="">KNeighbors 친구 기본적으로 5명본다</p><p id="832b57ec-a0cf-4aad-9af6-5cfe191cd37a" class="">
+</p><p id="f9f75c59-e5cd-4a40-9e8c-95f4f0632c76" class="">
+</p><p id="32fd5578-75c6-4d7a-8502-0210c4df79b6" class="">트레이닝에 사용할 데이터와 테스트에 쓸 데이터 쪼개야한다</p><p id="ed13d476-e9aa-453f-9b36-0c57de082255" class="">
+</p><p id="3d417446-5a5d-4031-a29f-48125d24c999" class="">성능평가를 할때 훈련에 넣지 않을 데이터가 필요하다 1000개 중 200개는 테스트에 쓴다</p><p id="2ac520bb-37b5-43bf-9827-4b9ea9f959f2" class="">
+</p><p id="671e0f79-c9e5-4095-bd3c-3e2fbc24181c" class="">전처리하는 과정에서 섞는 것이 성능에 엄청난 영향을 미친다</p><p id="222ac53f-6090-410d-9952-53c84470034c" class="">
+</p><p id="b1be5fbc-8c49-469e-9cbe-efe2844d566d" class="">
+</p><p id="a7c25d88-9a70-49e5-a5dc-aa42daf4347f" class="">현업에선 주피터나 코랩보단 비주얼스튜디오씀 </p><p id="dd7a29ac-7e4b-4887-aaba-ef2c65dc464c" class="">vs 코드씀</p><p id="e1fc209c-fd8a-4972-a173-3a76019356c9" class="">
+</p><p id="bce8b0dc-1747-4501-80a3-88dbe0425b11" class="">
+</p><p id="bb29d669-a507-489c-abeb-657bb534ec00" class="">영어 90 코딩 70이</p><p id="e9d04106-0112-49ae-ae64-a58cf513b786" class="">코딩 100 영어 50보다 취업이 훨씬 잘 된다</p><p id="c7572fee-9fa4-437b-a604-258e486e38c9" class="">국내던 국외던</p><p id="a417870b-674b-4fec-b904-eea9359eeaef" class="">
+</p><p id="5ac5d762-6242-4b1f-9b47-acb03aa35924" class="">
+</p><p id="30d4c9b9-d5a3-4d9c-a8cf-4246da53059e" class="">
+</p><p id="29085ced-b70f-4dc6-b3d0-fcda0fb668cd" class="">train_scaled = (train_input - mean) / std</p><p id="c65880d5-455d-4c9e-8065-20415eac14bf" class="">
+</p><p id="02e4b252-2ea3-4c76-8292-317fae7cca51" class="">★표준화를 한 다음에 그림을 다시 그려</p><p id="6ba3b505-70d8-487d-a9fe-126523e54558" class="">-1 ~ 1</p><p id="1248677f-deac-469c-b88f-8344530dd199" class="">
+</p><p id="30434aa7-0fbb-48dc-add5-9ba320df381b" class="">
+</p><p id="25e1219d-4aeb-47ea-a3df-f4f28e6c7f73" class="">
+</p><p id="ae6f88b4-f700-4e9a-991c-5db12c494d82" class="">
+</p><p id="492904cb-fe40-471f-809e-b4362b190838" class="">대통령선거할때</p><p id="018f4ec3-4f6c-444a-acc5-2946347cef5e" class="">
+</p><p id="c47395d6-71a7-4f12-904f-b2ea4c7290f4" class="">예측</p><p id="806a8fa0-5373-40be-885c-adbbb21e5bd3" class="">
+</p><p id="01b77964-ba1a-40ff-8a0c-2f48a1c06113" class="">유의수준 0.05 표본오차 ~~</p><p id="f9ff220b-2887-43b7-9c60-39bdd78137d3" class="">
+</p><p id="e0ecb196-5939-42d5-bace-2b83108e63c6" class="">
+</p><p id="be6eaf64-1ce4-41f2-a29c-f3096828f216" class="">
+</p><p id="53cb73a3-f5a6-4954-b96e-512526035670" class="">자연의 숫자는 평균을 토대로 정규분포를 따른다</p><p id="56de5c76-4615-4f39-b788-a07cbddbbfee" class="">
+</p><p id="e568bcab-f63c-433d-8fbe-582a401ed0a3" class="">1000명 샘플 구한 뒤 정규분포를 따르면 원본과 다름 없다고 퉁치기로함</p><p id="e81eae9d-6e7e-4cf5-b91a-cba8f4352b59" class="">
+</p><p id="21834aef-82f0-4627-af09-ed06c44f67a2" class="">유의수준 &lt; 5%정도 잘못 뽑았었을 수도 있으니 유의하고 봐줘~  ←  0.05</p><p id="1137c09f-bfa9-4c98-92ed-f176b639bfda" class="">
+</p><p id="c20cd4f1-2208-4c47-9473-d94648647821" class="">
+</p><p id="72a0ed67-62ef-42ce-9c59-1c3e22fa9706" class="">
+</p><p id="cee2b8bc-a76b-4a9e-9aa8-8bf55627b71d" class="">‘머신러닝’모델은 저 통계학처럼 표준을 대변한다고 말할 수가 없다</p><p id="a32756b8-d00d-42e8-8c63-d1ebdc049468" class="">ㄴ 그럼에도 모집단을 대변한다고 맞춰야함, 머신러닝이 가진 근본적인 문제점</p><p id="28dc7cde-51cb-4915-8f7e-f524327aa3a1" class="">
+</p><p id="f1156852-3958-4056-82c0-fe6b6e806766" class="">★ 샘플을 이용해서 학습해서 모집단(평균)을 맞춰야함</p><p id="e9c1db45-add7-452c-a70f-11987ac5a92d" class="">     근데 샘플은 절대 표준을 대변하지못함 그래서 사실 수학적 엄밀성은 없다고 할 수 있음</p><p id="2f6d1a74-90d1-4a06-9794-25cec4cfe09b" class="">
+</p><p id="df74652d-1628-4ed7-a52f-6ad2d3fb11cc" class="">
+</p><p id="72778af7-3465-45af-a035-63eecf9a7d87" class="">표준화 안시키고 그래프만 보면 잘못된 판단을 할 수 있다</p><p id="18c9df90-7861-4ea2-969f-05719fdc36d0" class="">
+</p><p id="61c83a99-d489-4e44-b083-26f859895c3d" class="">의외로 딥러닝이 아니라, 디시전트리 모델이 </p><p id="9f426e2f-f088-4192-833c-cd68f14d98f0" class="">캐글 1등 등 상금 다 가져감 정형데이터(액셀형태)에서,</p><p id="8fdc1b92-2d05-4ddd-a242-5ed84e056379" class="">
+</p><p id="e65db66e-a8ff-49fb-a324-d2ec79243235" class="">오차기반</p><p id="5c37389f-75c4-4200-b491-cc2f6ebdc622" class="">오차가 가장 적은 ‘직선’ 하나를 찾아내야한다</p><p id="320caf2f-597a-452a-b6c8-1142d4a99b05" class="">
+</p><p id="eb6e4720-6627-493e-ac07-b5db79aa1851" class="">선형회귀    ‘선’형 회귀 데이터, 직선 다차원은 직선으로만 볼 수 있게 표현이 가능하다</p><p id="7b90706f-6e80-4be2-9f30-ed3a6c693e1c" class="">
+</p><p id="35c12f63-c5bb-4f0d-b642-c4397a9f8e49" class="">딥러닝도 오차기반  </p><p id="366b871d-ce92-4207-82ea-f123beb04edf" class="">
+</p><p id="5b823ef2-5c6a-4ccb-a488-376c52546182" class="">다음주 3일은 머신러닝이론할거라함</p><p id="dda0abce-051e-4c0c-9fee-a2d74d34638a" class="">
+</p><p id="dd9b157a-0d92-4e14-b5da-01ad815ce188" class="">
+</p><p id="7573b022-b504-41c3-9b07-d191a9e3c9b4" class="">
+</p><p id="b377c863-e859-4572-8aa4-db44d8909861" class="">
+</p><p id="a20d37f1-0414-4694-854c-6f6b95390e32" class="">머신러닝 기초</p><p id="b10bbe68-e0b1-436b-b52e-d769fe4c9cd5" class="">
+</p><p id="d3f7f680-4861-44a4-abe4-af8bdf70378d" class="">찍어온 사진에 어머테이션하는거 ← 아직안한거 21세기 첨단노가다 ← 사진데이터모으는거 ← 추노 많음 알바생이 3시간만함</p><p id="cc6e2aaa-9a4f-42e0-962f-20075ce50ac7" class="">인공지능에 대해서 아는데 그렇지만 노가다, 가장 직업적으로 빨리 취업할 수 있고</p><p id="2d47e702-97bc-4293-af00-f97af3c43866" class="">적당한 수준에 페이 올려서 엔지니어로 사는데 가장 적당한거</p><p id="82cb9d73-db08-4488-aae5-482ca8fd4f55" class="">데이터 사이언스 &lt; 데이터 전처리하는애들 &lt; 중국집에서 양파깎아줄애들 &lt;쉐프는 못된다</p><p id="4477fed6-05e5-4789-96d1-453d085ccbda" class="">
+</p><p id="78708555-8315-4b14-8de4-9c22e5316bb7" class="">ㄴ 현업에 되게 필요한데 천해보인다는 생각에 안함, 그렇지만 아무나할수있는건아님</p><p id="69b48449-4998-4325-8636-ac5570bf50e2" class="">어떻게 가공해야할지 알아야 가공이 가능, 헬멧 카메라 4개쓰고 비오는날 한양대 돌아다녀야함</p><p id="d9af3692-95b9-45f7-9d33-19fba0c9c6c8" class="">
+</p><p id="37023d57-0a86-42f8-a5f5-79a2ef8bab43" class="">
+</p><p id="3684a932-4598-4ae3-8688-68fa2b073b84" class="">250만원짜리 강의 압축해서 때려넣겠다함</p><p id="2fad0455-8391-48a1-8b49-806e6b237bb6" class="">
+</p><p id="2fa39885-ee90-4e73-8d73-e69c54b35261" class="">문제스코핑 &gt; 데이터모으기 &gt; 데이터정리(탐색{전처리}) // 전처리까지가 8달 코딩이 2달 // &gt; 평가 &gt; 출시</p><p id="3aa22b88-340d-4306-8126-188c520d0e9a" class="">
+</p><p id="6ca8bcb7-2805-43a0-a5e1-2427e9dd1dfe" class="">
+</p><p id="79495082-3e9b-4246-ae19-ae0804b049e0" class="">
+</p><p id="759be3c4-dcd5-4f3d-b0b9-eb368f01512e" class="">
+</p><p id="4e82cc9f-9a4b-4ff5-a939-73af882a1808" class="">
+</p><p id="b1bde865-b131-4443-8dca-ecfd0ef7958f" class="">
+</p><p id="c44b823e-bde0-4287-90b6-18dcc2b72222" class="">
+</p><p id="a6e5d914-bf0c-4654-a29a-7eecd2b4531d" class="">
+</p><p id="928ecb04-8fdd-45f9-be83-ab6cf69c7371" class="">
+</p><p id="23b0924a-c8bc-44fe-8718-c0ca31382e89" class="">
+</p><p id="c14d9756-a79c-4813-bd10-558a62c6d772" class="">
+</p><p id="2e9a1bc2-5841-4804-9111-a1889376d7aa" class="">
+</p><p id="415dda0c-2175-4266-8746-05e4f60a06c2" class="">
+</p><p id="e53fd4c8-3c7b-4eb3-97ba-2f2935b2c4b2" class="">
+</p><p id="f58255ae-66c8-421c-a6d3-7919e48e282e" class="">
+</p><p id="cc7abc1f-e233-46f1-8802-95b4cf16f127" class="">
+</p></div></article></body></html>

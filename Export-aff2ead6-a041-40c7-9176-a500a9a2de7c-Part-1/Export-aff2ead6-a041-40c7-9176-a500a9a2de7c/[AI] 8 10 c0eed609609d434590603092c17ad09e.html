@@ -1,0 +1,835 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>[AI] 8/10</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="c0eed609-609d-4345-9060-3092c17ad09e" class="page sans"><header><h1 class="page-title">[AI] 8/10</h1><p class="page-description"></p></header><div class="page-body"><p id="0029b971-64d2-4c6a-8602-748a427dd904" class="">
+</p><p id="eecb8efd-b9e7-4a3d-a36e-9599c9274cae" class="">파이썬 시각화</p><p id="9bd0b121-5a79-4c49-a905-b2e5b88cba26" class="">
+</p><p id="1837e272-250b-407b-aed8-235a10b5291b" class="">import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sns
+import statsmodels as sm</p><p id="0e83fd4f-ee81-4944-afa7-6e8aef894d92" class="">신호</p><p id="b3918f8a-1fdc-461f-a875-45da179954b1" class="">
+</p><p id="95a35d8d-2140-4d61-8add-99a079f6d927" class=""><a href="https://concat.kr/"><strong>CONCAT</strong></a></p><p id="afbc29d5-5007-4c13-a4da-49a253e07527" class="">
+</p><p id="352821d1-d79d-486c-9a27-64c0ec0dada4" class="">기존엔 15년 분양가 밖에 못봤는데 16년 이후 데이터도 볼 수있게 했다함</p><p id="d10b64a1-710b-40a1-b719-439f1b99c459" class="">데이터 일부보기 head(), tail()</p><p id="797cf8ea-c8e5-4b1e-a11a-ddcaf63250ad" class="">ㄴ데이터타입  요약된 정보를 보고 시각화하기, 수치형데이터와 카테고리형 데이터의차이 수치형그라데이션 카테,오브젝트로 변경해서 0과 1을 구분해서보여주게함</p><p id="87b8bbb5-d12a-4a84-b478-6435a15f2899" class="">
+</p><p id="41fdd2ac-3d7b-402f-9e0e-3131c80df8ec" class="">
+</p><p id="a2fcddfb-84b7-4088-9343-87fa02903971" class="">결측치, missing data 다루기</p><p id="5df2cea8-9e3b-49c2-8db2-7aabb18243fb" class="">수집안됨, 오류생김, 특정시기이후, 특정상황에 필요없어서 일부러 안남김, 사람실수 등</p><p id="a5ed36ab-8c52-47e4-888c-b6c3a7f5f7e5" class="">결측치처리에 따라 데이터의 퀄리티 차이, </p><p id="20b8fba6-44bc-4dff-9583-2ed933c5bcec" class="">
+</p><p id="2c2e9b81-4a31-4ce3-afae-af25bc3cb69f" class="">[결측치 종류]</p><p id="06180e9b-1a3c-42ee-8323-c7887090554d" class="">
+</p><p id="13b178c5-2373-4f25-b8b6-582f1ff3b7fd" class="">mcar</p><p id="0de22558-8d8b-49b6-a30b-f6ff3593d548" class="">
+</p><p id="20b2f09e-1a2b-4b0b-9e97-8b5f5056d66a" class="">mar </p><p id="bed30a62-380e-4788-be7d-fa13b62635e3" class="">
+</p><p id="ea98a5a6-79db-412e-9839-360320d32c07" class="">ni</p><p id="e77a2da2-eafe-4427-a0e5-32f39d3f0bd6" class="">
+</p><p id="3bb326c3-d4da-4106-9ff3-7be810750064" class="">
+</p><p id="0d7956f3-066e-4a98-830c-f807358a2cec" class="">[결측치처리방법]  </p><p id="9bdff74f-53ff-4050-8e57-4b3f11a2b8a3" class="">
+</p><p id="2acbada8-2404-4414-abe0-5f0be5fe5aec" class="">&lt;완전제거법&gt; - 그냥 드랍해버림 ,  df.dropna()</p><p id="8447310d-d57f-42b0-afba-082fbe7e020b" class="">
+</p><p id="7ef14a18-9fd3-4b0b-abb3-0236a333f418" class="">
+</p><p id="70a43872-c07c-4f87-89d4-6790e3d12c39" class="">&lt;단일대체방법&gt; - 평균,중앙,최빈값 등으로 대체, </p><p id="6e3abcd1-e74d-4fb5-87db-67e40d56af06" class="">
+</p><p id="b5838291-470e-4c9d-8f56-5cc392a3ab54" class="">평균값 → 아웃라이어 데이터로 편향이 발생할 수 있음, 다른 유사 데이터의 평균값을 구해서 채워준다</p><p id="08543451-ef92-4cd4-a44e-24bf047352ce" class="">
+</p><p id="f9f64544-944d-437b-bbb8-4982519e8e2c" class="">중앙값 </p><p id="010a307e-052e-4b5f-940d-b16cf758d40f" class="">dataset[’Age’].fillna(dataset[’Age’].median(), inplace = True)</p><p id="98d84848-5f3c-447f-bb1c-6a21a8e8fe2b" class="">
+</p><p id="c6f7a6cd-940d-44cf-af0a-cc689f1f97c4" class="">최빈값 </p><p id="c70ce268-5dfc-4387-a4de-d68c2ba2774d" class="">
+</p><p id="d1f960b4-d02c-430c-a62a-01231f0d54d8" class="">scikit- learn imputer</p><p id="51949785-f7e3-4e81-b2e0-7c962baafb27" class="">
+</p><p id="0513194b-99f0-4b31-b4d3-1de99d80e2ff" class="">
+</p><p id="8501a78f-f139-4db2-b6ef-cdbafbf82bd9" class="">
+</p><p id="cb9c308b-381c-4a5d-8bea-272c3299bb57" class="">&lt;다중대체방법&gt; - ‘결측 완전 무작위로 발생’한다는 가정에서, 대체가능값분포로부터 추출된 값으로 완전한 데이터세트를 만들어 대체</p><p id="9cb450b1-6fe9-48b4-b7c4-8cb1c1a20bf9" class="">
+</p><p id="9fba2838-8541-4cf7-b017-3d2132aeb910" class="">
+</p><p id="ecd948d7-62de-4231-97d4-298cee38b3eb" class="">예측값으로 대체 &gt; 기계학습을 활용</p><p id="8b9b43c4-58cd-4cfd-970d-42e6fb2b8e2d" class="">
+</p><p id="443b75d6-2c9f-4c75-9b38-5f19912f5060" class="">test/train set 합치기 &gt; 결측치여부로 데이터 나누기 &gt; Feature 만들기 &gt;학습시키기 &gt; 예측하기 &gt;예측 데이터 반영하기 &gt; test</p><p id="4b134bd3-f6b4-4a0c-892f-935eaf2fccb6" class="">
+</p><p id="58424a96-66f4-4e65-8542-b883a882d7a6" class="">강사 → 머신러닝 기법으로 예측치 채워봤는데 결과가 좋지않았다함, 예측치미스라고 생가한다함</p><p id="bafceb68-b978-47fb-b2a0-a74b1d82b31a" class="">
+</p><p id="6808c008-b249-4768-9ed3-f2b80cc04b4e" class="">
+</p><p id="4af7c4b8-08c9-40f6-9773-8c0b6f1fd4bc" class="">
+</p><p id="cf385324-394a-407f-986a-aba1f0065416" class="">
+</p><p id="9d6d5f64-0db8-4308-9180-ca95248ff843" class="">★ 데이터분석 파트에 집중해서 프로젝트 내용 발표할 것,</p><p id="71ac4bec-3f47-45c0-804a-bc3a5dbdcd10" class="">
+</p><p id="6d7f667a-22b5-4b02-b225-2e88917d0eb9" class="">
+</p><p id="f4b74418-16c9-413c-9fc5-a8b1be2d05cf" class="">
+</p><p id="6f612d53-3d99-46a4-9565-30ef1f8c3ba9" class="">범주형데이터 &gt; 카테고리</p><p id="27c8d54a-4973-4861-addc-0159603fffc0" class="">
+</p><p id="b1d1f173-2633-4723-965f-3adbb4ddd1a5" class="">카테고리화 → binning bucketing</p><p id="9993f578-1b87-426b-a5ab-f74595cac297" class="">
+</p><p id="d90fec40-49de-44b3-bcc8-cf3cf03fdeb6" class="">연속형 데이터 → binning(bucketing)</p><p id="dc341d76-26e9-411a-84d6-9383a33d5ea9" class="">수치형 데이터 → 카테고리 형태의 데이터</p><p id="b670efc4-9d80-4ee9-bb44-265391ef482f" class="">
+</p><p id="238c0585-ca07-413e-a9fc-87ece823931a" class="">
+</p><p id="4724ccc6-1e4d-4a0c-b78e-00c8489ca946" class="">
+</p><p id="ab4019a0-c1f6-46f8-a905-69846d377ebf" class="">
+</p><p id="3fb4f4ef-715e-48f4-a8a2-1949c4e994a9" class="">텍스터 데이터 다루기</p><p id="2931d110-f3b0-4ffa-933d-700759ea1860" class="">가장 간단하지만 효과적이라 널리 쓰이는 방법</p><p id="da038456-aef2-48dc-855c-3e278d841fef" class="">장.문단.문장,서식과 같은 입력 데이터</p><p id="486115ae-ae63-43d3-83d1-52b958c1b212" class="">
+</p><p id="7f0f6686-aa98-4b4a-bde2-c83f8842c889" class="">
+</p><p id="2f7d2102-7ec1-4958-903a-8127c3f65311" class="">유니크한 단어 모아서 ‘토큰화’, → 토큰화 한 문장 ‘벡터화’</p><p id="ef82cedc-7a76-4397-a24f-70aef4ffeb2c" class="">n-gram 단어를 1~3개씩 묶어줌</p><p id="440b1745-878c-4bde-b635-871655cbc139" class="">uni-gram [”파이콘에” “버스를” ‘타고” “갔다”]</p><p id="a7a7802e-b332-499c-b5ac-1c07ca5b1598" class="">
+</p><p id="ebc17863-c593-4b7f-acc3-780bc75e5bac" class="">Raw data로 부터 Feature 호출</p><p id="dc479288-427d-4f18-a129-d6f19e52a309" class="">
+</p><p id="a9fd66d0-3e47-4af7-a417-7de821426edb" class="">Bag OF Words </p><p id="4b36f4a0-b5b8-40ac-9784-ca6ed0dff6b8" class="">TF 는 특정한 단어가 문서 내에 얼마나 자주 등장하는지를 나타내는 값,</p><p id="a0adbeea-06af-424c-a7c1-d48ecb63e906" class="">ㄴ중요할수도있지만 흔한 단어일수도.. 중요한거 아닐수도있음</p><p id="c4464d4b-bcc6-4e2a-a5e1-63de6e2343d6" class="">
+</p><p id="47d9c0cd-28b7-48b0-9018-1475487912a0" class="">TF-IDF &lt; TF단어에 가중치를 주는 것</p><p id="5efc2faa-a427-4599-894b-e6344332a6a5" class="">
+</p><p id="314b414d-7e79-487e-a2c1-eea7677101fc" class="">
+</p><p id="606070b0-af48-4e99-aaa8-5a7461718696" class="">
+</p><p id="6a2b9da1-c29b-48c5-8463-7d335031e42b" class="">Error Date</p><p id="898319b6-f3b9-4a41-9d47-c5b822842a97" class="">아웃라이어데이터랑 다름, 이건 그냥 잘못입력된 데이터</p><p id="08da90dd-4ad6-46d4-8968-6bc780a2e70d" class="">
+</p><p id="2b79a855-8ace-44d4-aefe-e781d8c30ce0" class="">
+</p><p id="250873ea-422e-4f2a-b346-b7fd9b061f16" class="">
+</p><p id="dbc8adb2-4c10-43a9-aa02-693e6b321f26" class="">Outlier Data</p><p id="1b66ef22-bdd8-47ee-9c69-93917ac50fd9" class="">이상치, 규격에서 벗어난 데이터</p><p id="99deafb1-f6a2-46d4-827a-83c82794a3cf" class="">모델에 편향을 줄 수 있음, 정상치와 이상치의 기준을 어느 지점으로 할 것인지에 대한 모호함</p><p id="67e3f354-2540-4b5f-b5e5-6168cd1eec95" class="">도메인마다 이상치의 기준에 대한 정도가 다름</p><p id="da837bed-3d6b-4cf1-bf13-3f735bb8bf45" class="">
+</p><p id="1eec7b93-b8c5-4b17-a4a4-feb6e354bb7f" class="">결측치 → 빠진 부분의 데이터이고 / 이상치 → 어 이거 이상한데 하는 데이터, </p><p id="adf8d49d-c784-46c4-9e9f-238dd3e1e60d" class="">데이터 수집됐으면 제대로된 데이터가 맞나, 얘로 인해서 학습에 문제가 생길 수 있지 않을까?</p><p id="2585f7eb-fc9a-4ee2-8a5e-cb4eff13c2ba" class="">생각해야함, 그렇기에 이런 이상치를 잘 다뤄야함</p><p id="5b8768ac-e8e5-4c7a-a42c-92a39004a223" class="">이상치라고 무조건 빼는게 아니라, 상황에 맞게 적재적소하기 분석 &amp; 해석해서 반영할 필요가 있음,</p><p id="9ce98020-2850-44c0-bb76-98a938d5a514" class="">
+</p><p id="a2cd4a8f-15f9-40ef-a3b2-208ea11fb2ec" class="">
+</p><p id="eb2dc066-3001-4a80-b08c-49d12f2a5e7e" class="">
+</p><p id="0bf64910-6b8f-417b-b7d1-d56b494973e8" class="">Feature Selection</p><p id="6a60674b-23ab-4014-b611-e6f3490c2b1c" class="">원본데이터에서 불필요한 데이터 Feature</p><p id="1c7ccefc-1d3c-422d-baea-0b361983be5e" class="">
+</p><p id="6e2c7ebb-a561-4bc1-8400-6bf37d736215" class="">★ 대부분의 모델은 각 특성이 정규분포와 비슷할 때 좋은 성능</p><p id="0198bc77-ea43-4f44-b8e5-2b44c1715653" class="">
+</p><p id="bcb7e74d-ee86-4a3a-9e1a-59270d0e8d8e" class="">로그함수의 값을 복원할 떄는 지수함수를 사용 np.exp(log_feature)</p><p id="0e6ace57-a8c8-41c4-953d-ea84b4779928" class="">
+</p><p id="39dad79d-5a1f-4291-89d3-df263399accb" class="">
+</p><p id="35f43020-c1cc-4c31-9a78-e48a2b103b16" class="">Feature Scaling</p><p id="088b0038-8122-49d5-b1a2-6695d52e1bfa" class="">
+</p><p id="94ca1b99-a918-4777-9489-fb9796014cb6" class="">MinMax Scaling</p><p id="93c9df5f-e81e-40ae-9bad-143bbae69343" class="">어느 한 변수가 분산이 너무 클 때</p><p id="bda58018-8769-4718-b41f-16c0f74606ba" class="">평균을 0 분산을 1로 만들어줌</p><p id="76d89b58-511f-4cee-9dd1-c2b224ae36de" class="">
+</p><p id="2a740c44-f054-4f4c-bd6f-4394bdd7a555" class="">from sklearn.preprocessing import MinMaxScaler</p><p id="28fbbbb6-2610-44fe-8503-ffbb26abff84" class="">scaler = MinMaxScaler()  &lt;&lt;클래스가 있음</p><p id="62891c04-d2ca-42ea-9ad3-9658271f101a" class="">
+</p><p id="e6b2e374-ac2c-49a5-a999-8d426a623cc8" class="">
+</p><p id="bdbcd62a-ca0b-4ecc-b751-b3d5eb20d3fa" class="">차원의 저주</p><p id="4e2d613a-a04e-442d-8ea8-5ab39c017c74" class="">
+</p><p id="579f9ca7-6097-4f5c-8c2e-b6b532db0543" class="">차원(디멘션)이 많아지면 디멘션이 갖는 벡터가 많아짐,</p><p id="c4185885-46a5-48bf-a70d-d982653663ea" class="">데이터를 잘 설명할 수 있는 잠재공간 찾기,</p><p id="29e794fa-8926-4982-9e77-d0a556acdc93" class="">일정한 차원을 넘어가면 계속 성능이 떨어지는 현상이 발생</p><p id="415c5c8a-3c6b-447b-b329-f30a0f436371" class="">작은 공간에 과적합 현상이 생겨 예측 성능이 떨어지는 것을 방지</p><p id="c76f3cb6-979c-4a2c-865f-daabacd81781" class="">데이터 압축 시각화 필요</p><p id="dbabef7e-6956-4ef7-a704-f02addc7c74a" class="">
+</p><p id="3280dc67-4132-4db5-b330-c24b15e32c31" class="">PCA를 활용한 Feature Scaling 예제,</p><p id="d0b8e975-b02a-4907-b381-22faac451ef4" class="">
+</p><p id="5e0dafde-1583-436e-8bf8-fe3b2dc69e46" class="">
+</p><p id="97c83804-12ee-438b-9384-5678d5cacbfc" class="">다차원데이터, 넘파이 어레이가 그냥 파이썬보다 효율이 좋음</p><p id="9c9e923d-48c4-4fac-9062-c6a123ba3041" class="">
+</p><p id="602e9f73-a532-44d8-8e24-97c1358fb9d1" class="">word2vec 백터를 2차원으로 축소해 시각화 한 예,</p><p id="9fab4174-0d72-47e5-b5c3-5bbc36853018" class="">TSNE으로 X,Y 2차원으로 바꿔서 시각화함</p><p id="4827b473-1b06-4921-952e-351fc9317b4f" class="">
+</p><p id="a2fe2b9f-b5cf-49e5-aee7-e60a8837d4ec" class="">
+</p><p id="a332446f-d2e6-42fb-a553-7d74d5e9df35" class="">내 장비는 제대로 일하고 있을까?</p><p id="1d4af75d-f0ff-471b-80c8-8c632a4f3762" class="">top - o cpu </p><p id="9d98d9bd-7c56-4ea9-a77c-707615fde4b7" class="">80% 이상으로 자원을 쓰는지 엔 쓰레드등으로 씨피유 몇 쓸지도 지정가능, -1로 쓰게 실행하면, </p><p id="8af3bc7c-e2e0-4cb6-989f-a993da175d3a" class="">언더피팅, 오버피팅 과소적합, 과대적함 피하면서 최적의 학습지점 찾는게 중요</p><p id="d6db8d3c-f3f6-440e-ad9f-a2a87ad8fc31" class="">
+</p><p id="ce46d3d1-c928-45c9-ade0-d952d5e7465f" class="">공짜점심은 없다, 머신러닝에 최적화된 기법은 없다</p><p id="2d24ac86-2e0a-4a3b-a560-74a9fe2b0053" class="">각 도메인이나 특성에 따라 처리방식이 달라질것이다.</p><p id="00e66ff6-a57f-41f1-85bf-98a3601562fe" class="">
+</p><p id="e4534d7b-3465-42e4-9691-8bccdd9133bb" class="">
+</p><p id="41a585ef-edef-4d16-b810-cd9884fc58e4" class="">
+</p><p id="443b5e40-01d6-4418-8c80-72f626a9d456" class="">
+</p><p id="ffddbd2f-7a28-43f5-9847-131cccc4bdd2" class="">[Dances with the Last Samurai]</p><p id="1136b90f-b455-420c-9579-975f98e32195" class="">
+</p><p id="96c66b0b-5b79-490e-9407-291492a5b37a" class="">django + pandas + python-docx 통계업무도구 만들기 이성용</p><p id="d4cbdf1b-bb65-4461-9867-9e66798f0b6d" class="">
+</p><p id="216a7cb2-e070-413d-b93d-4dab71c95092" class="">
+</p><p id="14427830-ff60-47e8-9ef7-da7124b69b05" class="">
+</p><p id="c59578f6-738f-43d2-aa76-3cf1db78402f" class="">이상하다 → 백투더베이직</p><p id="ba86735c-4dc9-4cc7-804b-41d3fe57a440" class="">
+</p><p id="6964c0ce-b13a-4d20-ba62-53270c2054ff" class="">업무 프로세스: 수제통계</p><p id="def15ab4-f8e6-4e4e-af88-b19bf146aed0" class="">
+</p><p id="3bc05abf-9525-446f-884a-611170ba6030" class="">일관되지 않은 데이터 양식</p><p id="ae3160d1-317f-45b0-af70-0ecec0b4de3d" class="">
+</p><p id="6dd83e6a-e771-4703-a357-40af82735673" class="">  [개발을 하면 안 되는 이유]</p><ul id="365330ec-79b4-45d9-8774-09b53a249aa6" class="bulleted-list"><li style="list-style-type:disc">기존의 업무 체계를 바꾸는 것은 위험이 따른다</li></ul><ul id="790581dd-3db4-44d9-9407-8ced0c55c4be" class="bulleted-list"><li style="list-style-type:disc">혼자 하는 일이 아니다</li></ul><ul id="eaae68b7-0a3c-4c03-a95c-5fb1ef37e314" class="bulleted-list"><li style="list-style-type:disc">우리는 IT 부서가 아니다</li></ul><p id="2b1fa093-aead-4142-aaa8-c5a7155ec1f6" class="">
+</p><p id="7f307942-9fba-49c2-bb02-7445d15047f6" class="">위로 인한</p><p id="ad574762-864c-4640-a37d-0050cbf657b2" class="">[개발의 원칙]</p><p id="c2115b61-5d48-4123-8f91-47322553d19f" class="">- 매일 조금씩 최소한</p><p id="a77b1fa7-ac16-4398-a968-f9c33eb1a9ff" class="">  낮에 개발하지 않는다 ()</p><p id="89ba81c0-9e6d-4d1f-9dcf-f8b1f9d0b55c" class="">  오늘 밤 개발해서 내일 쓴다</p><p id="ab9c84d7-41f9-4df8-b485-398f29375989" class="">
+</p><p id="5a3215f7-eed8-46c6-9f24-f768150bdd7f" class="">- 현재의 체제를 최대한 유지한다</p><p id="78dcae73-2b7b-4188-87b7-fbb91456337b" class="">
+</p><p id="ce3e9d99-a7d7-4b12-a895-c91947430ccd" class="">- 테스트!  테스트!  테스트!</p><p id="e0842f81-e6da-4edb-90a7-f82c143dace5" class="">  절대로 나를 믿지 말라</p><p id="19525bd2-6d69-433e-bc2a-a2ab1facfb43" class="">
+</p><p id="2262d7d9-cd34-4880-b767-fdd8d4f01fef" class="">
+</p><p id="6bddaf19-b20b-4ab5-b580-6c9555aaddd8" class="">django를 쓰세요</p><p id="40633a12-22dc-4e0f-aebe-f64d3d176a8c" class="">웹,</p><p id="3dde079d-51bf-469d-a4fc-e628a1ef9636" class="">
+</p><p id="e61c9e18-1b38-4ad5-a49d-3f58668e88e4" class="">* 웹은 누구에게나 가장 친숙한 구조</p><p id="29048bda-4771-4c5d-b014-c85cbb9a4a69" class="">
+</p><p id="eaf59e00-d12d-4a88-a12e-9d57f35602b5" class="">판다스</p><p id="ce0ff14c-c012-4e65-8bdd-3524e4ca3b26" class="">* 액셀 읽고 쓰기 쉬움</p><p id="f7948527-16b7-4938-99eb-146e1d8c3b76" class="">* 액셀 기능을 대체 할 수 있음</p><p id="48bc5794-a57f-400a-a9a4-2058757ee546" class="">
+</p><p id="836076ba-dd18-45e3-b948-300d96479cce" class="">보고서 작성 자동화</p><p id="567b31f6-fce9-48ef-bd09-51ef7c657075" class="">(Pycharm doc)</p><p id="39cef11e-991e-4380-9cb5-4c71d98c85d6" class="">수치해석전공자였다함</p><p id="595583be-66c7-43e8-a5f5-6e37564387be" class="">
+</p><p id="5e09aa4d-b194-482f-8caf-a4e254d5526d" class="">
+</p><p id="cdb304a2-9c45-488f-a7f4-b1e79386ce65" class="">
+</p><p id="41004bd5-2694-4059-b51c-2dfd1ae83cbb" class="">발표자 - 파이썬을 좋아하는 공무원</p><p id="de1ea146-ba38-4a50-9713-3b52f8707fe9" class="">
+</p><ul id="7a5de80a-901a-4c65-80d7-0da1c5482129" class="bulleted-list"><li style="list-style-type:disc">희망</li></ul><p id="51128399-1b49-44ea-af01-e4ccfd793b6d" class="">파일명이 ‘제목_저자_원천’ 통일</p><p id="72bf2f57-d5f6-44ef-842e-a6309869dd14" class="">파일이 목차별로 다른 폴더 위치</p><p id="4e2fcd11-0794-4904-b383-522560adba1d" class="">
+</p><ul id="dbd4a1ed-41ef-477e-9275-437e9727c9f4" class="bulleted-list"><li style="list-style-type:disc">문제 해결</li></ul><p id="e6333b18-efa2-4002-9f5b-3bf7d5be37c6" class="">Python으로 폴더 파일 읽어와서 PRINT하는 방법 구글링</p><p id="be03ae79-1825-4c9b-83c1-6fb87a70cd05" class="">
+</p><p id="c12eabfc-7311-447a-8542-5573d22e2351" class="">
+</p><p id="b9fdc250-41b9-4505-bf54-9434ebf2e47f" class="">상황: ‘이 영문 보고서 좋네, 번역해보자’</p><p id="9fb1ed4f-053d-41e0-b8a1-1963844f0056" class="">
+</p><ul id="abad24e2-c66e-412a-a7ce-d656fc0c4936" class="bulleted-list"><li style="list-style-type:disc">300쪽 보고서 번역 작업</li></ul><ul id="85764353-75e9-4a21-976e-76e7875ee34c" class="bulleted-list"><li style="list-style-type:disc">번역프로젝트의 총괄 담당</li></ul><ul id="764b65f2-a7ca-438c-a5e9-aae08dbe28f3" class="bulleted-list"><li style="list-style-type:disc">번역 결과물은 영-한 대비표</li></ul><ul id="4d596d60-77e5-47f3-a871-99745966676c" class="bulleted-list"><li style="list-style-type:disc">pdf 보고서 영문을 페이지별로 표에 넣어야 함</li></ul><ul id="9a6dad33-58a1-4290-956b-109468eaf1b7" class="bulleted-list"><li style="list-style-type:disc">인턴과 RA 시켜서 수작으로 pdf 영문을 복붙하려는 시도</li></ul><p id="870e86f7-55ed-410e-9ead-fdad1e1446f6" class="">
+</p><ul id="d21ce174-c34b-4203-a2ca-e9bc09c50761" class="bulleted-list"><li style="list-style-type:disc">희망</li></ul><p id="178c7131-30ff-4c85-bead-05a2cf204c31" class="">-pdf에 유용한 규칙성 존재</p><p id="382b5639-458e-4a5f-b470-3328646b7b20" class="">-차트의 시작 지점<div class="indented"><p id="a98c33d9-881f-40ec-aa20-fa7129c15d62" class="">FIGURE</p></div></p><p id="13520201-5fd6-4862-b356-9e6f33b31a9c" class="">-차트의 종료 시점</p><p id="15ba81fd-a25e-4f2c-93e1-b33a8938435c" class="">
+</p><ul id="e70681f9-4228-4adb-834f-260c36cfd79e" class="bulleted-list"><li style="list-style-type:disc">문제 해결</li></ul><p id="dce23a3f-bd2a-43f9-9289-ad46498500a3" class="">-Parser, ResourceManager, TextConverterm</p><p id="51cd28d7-101f-45fd-a3f6-c7e8372bf12c" class="">-PDFpageinterpretr등의 기능을 이용합니다.</p><p id="90f0be65-932c-406c-9e38-1612ecf99712" class="">-파싱된 str작업</p><p id="fab83937-ffa6-49a7-8ddb-38a6ac0f76cc" class="">-페이지내 FIGURE 여부에 따라 구분하여 작업</p><p id="74ff5ddc-fc43-4f82-abcc-4af5e4a6593d" class="">
+</p><p id="2053c4a4-c50e-4971-a248-8d00a7e27c44" class="">챕터 1, 2 실습 꼼꼼하게 이해하는게 필요</p><p id="9f428e7c-372b-4db6-babb-f610322d0cba" class="">
+</p><p id="ad4fb8ab-3f40-4b3a-ad11-034b62efc64e" class="">
+</p><p id="2fdd2f9f-ed90-4c68-8810-3f0723b32be2" class="">데이터 정제</p><p id="a58bdb7c-0e3b-48b5-9589-c2836d239dd7" class="">상황: “설문조사 결과 토요일에 나와, 월요일에 보고하자”</p><p id="de7b90ea-f4d6-4a8f-bf5d-c14ba3b5a527" class="">-설문조사 의뢰해서 csv 파일이 들어올 예정</p><p id="61490514-c20d-4285-803c-e70beb289ff0" class="">-조사 결과는 응답자별 데이터, 문제는 csv 나오고 나면 작업할 시간이 없다</p><p id="35bc01c8-7f34-47eb-893d-0e106fcfa324" class="">
+</p><ul id="324cc5cd-0cf7-4224-bdf7-00a85666227c" class="bulleted-list"><li style="list-style-type:disc">희망</li></ul><p id="96a5d49e-54f6-453d-b238-6e8348004bd4" class="">
+</p><p id="f3f5f35b-1ac4-4f3e-bb7d-eb0a80f3544f" class="">
+</p><ul id="d70275e9-5f83-4a2d-b7f1-74402bc7b794" class="bulleted-list"><li style="list-style-type:disc">문제 해결</li></ul><p id="ad7bfc9d-f49d-4458-8dd8-5e29f3e84510" class="">
+</p><p id="5329a977-37eb-4868-abb4-31a37724e657" class="">
+</p><p id="8d4f3bf9-9ef2-4fc1-83d8-6b3fcc8ceeb8" class="">
+</p><p id="6fb19365-eab7-49bf-949b-5379b1be0323" class="">
+</p><p id="3ebde8dc-f799-412e-8230-26bb87ead2da" class="">
+</p><p id="8c77e015-423e-4653-8da7-a9cc0c7a7d76" class="">concat  으로 데이터 합쳐줌</p><p id="a9cde4cb-3cd3-4bac-80ff-0a42c68c3158" class="">
+</p><p id="b6d5840d-5301-422a-a6ad-381d02ec4e05" class="">
+</p><p id="5b5b4a79-9b18-4374-9e4b-c0dd30a80f1a" class="">‘자동화의 손익분기점’</p><p id="929631e6-e069-48ae-af13-ffa64d1a2537" class="">
+</p><p id="d906359c-df70-4474-a8dd-53c7f32dc3bf" class="">
+</p><p id="40db8d4d-7b47-43a0-8cad-f40cd14ec065" class="">
+</p><p id="a7da69b1-fd5c-4571-b963-1da41b1f5244" class="">사무실에서 Python의 용도</p><p id="7313f25e-5dbb-490a-b7a6-f6331e5fc221" class="">워드프로세스 스프레드시트 파일 폴더 관리</p><p id="8ea49a29-fcd6-4bb5-813f-facf88f8b414" class="">기능대체보완</p><p id="0bcf418a-61a5-4b83-852a-27b17097c1c3" class="">
+</p><p id="c3c4976c-7008-40f1-bb67-67499d5b1815" class="">추가로 가능한 부분</p><p id="88ebffae-0001-40e9-8520-1408f0154e27" class="">웹크롤링, 웹개발, pdf 파싱</p><p id="832edc4d-8420-421b-8920-10a1868aed62" class="">통계분석, ml</p><p id="2fe20fab-aea1-4d82-9a8a-e994ee59a2db" class="">
+</p><p id="209678a6-5a17-46cf-9fef-d7f21fcf0ac0" class="">
+</p><p id="9e9a72f2-91c5-434e-8db9-2c7749ee0975" class="">[결론]</p><p id="ac523a61-a48a-49dd-83fa-84232d61c217" class="">개발과 관련이 없는 일반 사무 업무에도 Python은 유용합니다</p><p id="59b55e22-8175-4796-b0cc-2d921b550581" class="">
+</p><p id="772edaa2-ecdb-4214-88dd-63c1d27b6fcd" class="">하는 일을 바꾸기는 어렵지만, 일 하는 방법은 바꿀 수 있습니다</p><p id="2b6d160a-4abc-4d89-91bc-4505d18b9705" class="">
+</p><p id="eaab6116-bba8-4b81-9548-0a706c7ce096" class="">사무실에서 Python을 더 많이 사용하고 같이 배우고 커뮤니티를 확대합니다</p><p id="66451ef3-ac57-4cea-875f-3b93bb921a81" class="">
+</p><p id="654725e0-6898-466b-ab98-90387fa6b020" class="">자동화 &amp; 분석 어떻게데이터수집하는지</p><p id="e489de7f-2ba4-45cd-93a3-ab010a0c6bd3" class="">
+</p><p id="69f5405e-1409-4384-82c1-578d47ad19b0" class="">
+</p><p id="5b7f32e2-02ec-460a-8973-a418dce1f75c" class="">
+</p><p id="f68038fa-b862-4005-836c-0dc3beb210a6" class="">
+</p><p id="36780117-09ef-405c-b89c-fe436ca68cad" class="">
+</p><p id="68e2221e-28d1-4fac-acad-80d429437412" class="">
+</p><p id="dceb61af-674c-4c9a-a9de-682b6d39a070" class="">(자바 버블정렬 최적화 등)</p><p id="4239ad5a-45f9-43b0-8a11-5a9cda7e5795" class="">
+</p><p id="ebaf5e0f-ae5d-4d82-af56-c85ed06857ba" class="">★짜주는건 지피티가 다해주기때문에</p><p id="afc326ab-5742-4d6a-9142-9cf058548311" class="">★읽을 줄 아는게 가장 중요하다</p><p id="d92b4625-db9c-4776-b24b-b0d4890b0cc1" class="">외워둘 필요 없음,</p><p id="fbf3b5eb-8aa0-4039-a993-8b898aafd66f" class="">
+</p><p id="b555bff7-9ef2-4992-8383-46bb53d5a567" class="">
+</p><p id="de35e24e-e2a9-45d2-83fb-08a940bea678" class="">반병현</p><p id="554a9204-15a9-4caa-ba88-f5698118a0c6" class="">
+</p><p id="9ff0e53a-3164-4faf-ba2a-2b0ca88f1a46" class="">파이썬과 함께라면 못 할 것은 없다.</p><p id="e57580a6-696b-417e-a392-b2b0b05fab34" class="">라는 마음가짐만 있다면 못 할 것은 없다.</p><p id="4a45a376-3d29-48ac-8173-aa4e0465499a" class="">
+</p><p id="9f17632e-dabe-46bc-b04d-ccca3a33d1b9" class="">배달의민족 &gt; 장인성 마케팅이란 무엇인가</p><p id="fde7da09-6ec3-452b-af7b-33aac1f97c43" class="">
+</p><p id="3dc7f9e5-3c09-421a-983d-21d9fb25819f" class="">
+</p><p id="9907cc2b-3a41-42a7-b5e8-659ccd7d6384" class="">그로스해킹</p><p id="2ca3eb13-062b-4869-b818-317c86920dea" class="">
+</p><p id="03535b55-f499-4d4d-bf59-f700acd0e2bd" class="">개발자 &gt; 내가 마음에 들지 않는 상황 뜯어고치려는 시도 있었을 것</p><p id="44c98cb9-475d-4ad5-8c4c-cc23aa89d7c0" class="">
+</p><p id="e022b543-413e-45d6-b170-670df643c047" class="">그로스해킹 → 성장을 해킹한다, 개발자들이 만든 마케팅 기법</p><p id="75eb2c39-ee1f-4c57-983c-7524717c55aa" class="">린스타트업 방법론과 비슷함 도식은 같음</p><p id="de6e9f22-5c17-43b2-9af0-60cb4e3118d2" class="">
+</p><p id="c252f8aa-c129-4e37-917b-565fbf8e2eca" class="">MVP추출 좋아하는/싫어하는 부분 캐치</p><p id="ce0cc166-ad73-49b9-a23b-61247b7a28a3" class="">릴리즈 → 테스트 →  피드백 → 개발생산 → 릴리즈  ⇒ 반복</p><p id="eaa71af3-f873-44f1-98c7-50195ea29ade" class="">
+</p><p id="f6ac07fb-8c00-4b1c-a172-fd745f86d398" class="">
+</p><p id="0fdee83b-feb3-4f23-9728-b4578d6dc51e" class="">
+</p><p id="d777e822-07dd-4658-8460-fc2913a27de7" class="">코딩하는 공익</p><p id="bab80ed2-3b4f-4893-9aad-db344ebf4660" class="">
+</p><p id="56dcb0f7-ffa4-487c-8d6d-64fe80f5b234" class="">문제 정의  →  효용성 분석  →  해결방법 탐색  →  구현  →  테스트  →  적용</p><p id="cabb2402-8a28-4153-a01b-f186ba2f5af1" class="">
+</p><p id="23a6f3fe-cff1-4a27-b542-65bdebee469b" class="">어떤걸 자동화해야할지 모르고있더라</p><p id="7350eea1-8414-4bba-b0e5-a8065446a1a7" class="">
+</p><p id="37588334-9a71-463f-89bf-0460663bbd71" class="">노동청 공익과 노동부 출장 [完]</p><p id="7259a923-dd18-4d30-8739-598f40484ffb" class="">
+</p><p id="ff9f47a9-bfba-49ed-a9bb-6c42820a63f0" class="">
+</p><p id="78105208-0522-479e-bcbe-393851f8b1e4" class="">개발자 한 명이 대한민국을 움직이는데</p><p id="84707048-d562-4b19-aae2-8f0086cc0903" class="">걸린시간 50일</p><p id="555efb80-4bf5-4a4f-83e8-b95db0f273ad" class="">비용 커피비용</p><p id="f6f42a5e-fb01-4ef6-b7a0-ff9601b77c90" class="">도구 파이썬브런치</p><p id="c50ebc61-c77e-4647-99c3-866747dc048a" class="">
+</p><p id="e1688bd5-ad1f-4add-b628-a3446d965fd1" class="">→ 파이썬 기초 탄탄하게, 디테일하게 못해도 사용가능</p><p id="f0b9c6fc-d68e-43b9-96d7-afce31c9bf59" class="">
+</p><p id="de53ae59-9e62-402c-b2b9-55ff0dfda6aa" class="">데이터분석발표 다음 주 목요일한다함 → </p><p id="e9a4fe1e-d8a6-4c8b-b557-512accf68972" class="">
+</p><p id="55df5d5f-b33b-4aca-b15b-95c3ccf15a44" class="">
+</p><p id="bb187706-3ec4-43bd-a562-944b35429528" class="">
+</p><p id="0c3a0db1-4195-4c26-90ae-95399da2f870" class="">
+</p><p id="5922a8e3-cb50-461c-9a63-c4d70a09f3fa" class="">★ [프로젝트]</p><p id="f447f3c6-a679-483a-9964-8e0ff58f1a12" class="">데이터수집방법찾기</p><p id="ac6b1949-49d1-435d-bd07-7f6ab58fd514" class="">데이터를 확보하지 못하면 의미가 많이 떨어진다</p><p id="1a1eebbe-3fef-4fc7-a47a-b7d8b34a41bd" class="">
+</p><figure id="49187ef9-da0a-43ce-b44f-60ef1867f5a5" class="image" style="text-align:left"><a href="Untitled%2024.png"><img style="width:816px" src="Untitled%2024.png"/></a></figure><p id="6761c666-38b8-4131-91e1-ef42ba4864d9" class="">
+</p><p id="6cdcccae-41a2-4178-af79-67e59ac97078" class="">
+</p><p id="b7fd6287-30ba-4a2e-aca8-ad8baa7bbc98" class="">
+</p><figure id="13961e09-b3e6-4d84-b2d4-97955a020825" class="link-to-page"><a href="8%2011%2013961e09b3e64d84b2d497955a020825.html">8/11</a></figure></div></article></body></html>

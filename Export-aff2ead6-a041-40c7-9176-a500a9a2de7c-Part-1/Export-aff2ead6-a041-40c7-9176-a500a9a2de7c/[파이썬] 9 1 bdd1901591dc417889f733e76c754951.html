@@ -1,0 +1,716 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>[파이썬]  9/1</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="bdd19015-91dc-4178-89f7-33e76c754951" class="page sans"><header><h1 class="page-title">[파이썬]  9/1</h1><p class="page-description"></p></header><div class="page-body"><p id="a41f84e6-40cb-4c8e-8218-4878e640f981" class="">PCCP 공부 </p><p id="813efed0-7c15-44a3-b3f0-6ed40cb21b2b" class="">
+</p><p id="c6d88e07-097a-4292-87df-789099fcb6c2" class="">
+</p><p id="2356ea72-0574-4bb8-a7bc-a1dab8eb351d" class="">재귀함수</p><p id="bc1dbac1-32fc-4879-82c1-3b8ad967d8e1" class="">
+</p><p id="5746e75d-70fe-480f-8967-13719f469699" class="">def func(x)<div class="indented"><p id="2d32ea8b-9060-4c3a-bc6c-3cc1437e6d3b" class="">func()</p><p id="42a3ca9a-a88f-484b-85a4-d5e30b2bce9a" class="">return x</p><p id="6708ddd4-090d-4138-bcf2-4017de8c43f1" class="">
+</p></div></p><p id="351941ed-7bf1-4fc7-a7bd-041d2f8b73c0" class="">func(1)</p><p id="2c529a4d-80bb-4da2-a999-4ac7ea54493e" class="">
+</p><p id="05315f85-2e06-44fe-bced-0ffc5c93bd57" class="">
+</p><p id="fd93a741-4216-4c96-a227-770d65dfe9e4" class="">def func(n):<div class="indented"><p id="b355fce3-3fe2-450f-acb6-caa8a7e1c7a9" class="">result = fact(n-1) * n</p><p id="9b9bed4a-bbf6-4ed2-8da3-efc88f7d320a" class="">return result</p><p id="d4c79864-a0ba-4e07-bedb-b8f46392e32f" class="">
+</p></div></p><p id="d1090e46-877c-4196-8769-99afee183c9d" class="">func(1)</p><h1 id="e562ab62-6cd5-4c72-bbbc-f047f2f91cc6" class="">재귀함수</h1><p id="c52aaca3-ae34-4845-9dda-0e446b708fd8" class="">
+</p><p id="8213c31e-cd65-4325-ae3c-2fa2e7c3dc6a" class="">1 멈추는 조건이 필요하다</p><p id="a2159233-d37a-4c79-b9d7-addda208ee52" class="">
+</p><p id="7fcb45bf-b386-4f37-bae0-032fcde0b416" class="">2 언젠가는 멈추는 조건을 만나도록 해야한다</p><p id="6d022c39-d6bc-4867-b0df-943eba38ccb8" class="">
+</p><p id="123ecc44-f533-46d2-b996-1b20852ea6cc" class="">ex). 피보나치 수열</p><p id="7624fe62-48ff-49d6-a198-8cde90795d92" class="">
+</p><p id="68fca498-070e-4ed8-a2c2-f2dbd160a1c5" class="">
+</p><p id="085b7d3a-a660-4476-8936-c6a7ef442c34" class="">나 자신을 반복한다</p><p id="14b69152-a8de-4da7-9bde-30bfcd34e275" class="">
+</p><p id="16012970-5658-4c48-ad7c-c237ba45933b" class="">재귀 함수(Recursive Function)는 함수가 자기 자신을 호출하는 것을 의미합니다. 이를 쉽게 설명하기 위해 여러 가지 예시를 들어보겠습니다.</p><p id="48e0d570-3881-4bfd-aa80-528e5bcf8548" class=""><strong>1. 카운트다운 예제</strong></p><p id="add226da-8e85-4f35-94f7-eaf57537402c" class="">가장 간단한 예시로, 1부터 특정 숫자까지 카운트다운하는 함수를 작성해보겠습니다.</p><pre id="b56aa129-5cd9-412e-8134-d35d353b497f" class="code code-wrap"><code>pythonCopy code
+def countdown(n): if n &lt;= 0: print(&quot;발사!&quot;) else: print(n) countdown(n-1) countdown(5)
+</code></pre><p id="9876f71a-db6b-4a5d-9cd0-5e0763ad56ac" class="">이 함수는 <code><strong>n</strong></code>이 0 이하일 때 &quot;발사!&quot;를 출력하고, 그렇지 않으면 현재 숫자를 출력한 후 자기 자신을 <code><strong>n-1</strong></code>로 호출합니다. 이것은 5부터 1까지 카운트다운하며 &quot;발사!&quot;를 출력합니다.</p><p id="c15a8c7f-6cf5-44c7-a533-58d45e92fb4c" class=""><strong>2. 팩토리얼 계산</strong></p><p id="7f06c457-549c-4268-9373-11a51c59cd81" class="">팩토리얼은 양의 정수 n에 대해 n!로 표현되며, n!은 1부터 n까지의 모든 양의 정수를 곱한 값입니다.</p><pre id="8b0cdaaf-3c35-4d9a-817b-274bb938ce4c" class="code code-wrap"><code>pythonCopy code
+def factorial(n): if n &lt;= 1: return 1 else: return n * factorial(n-1) result = factorial(5) print(result)
+</code></pre><p id="606daf9f-8a05-4583-af57-36082731abb7" class="">이 함수는 팩토리얼을 재귀적으로 계산합니다. <code><strong>n</strong></code>이 1 이하일 때는 1을 반환하고, 그렇지 않으면 n과 <code><strong>factorial(n-1)</strong></code>의 곱을 반환합니다.</p><p id="5af5476b-1f88-4ebd-89d3-e41e8da478af" class=""><strong>3. 피보나치 수열</strong></p><p id="d3fdc8b1-83a4-41f4-8ffb-16b32ca80e18" class="">피보나치 수열은 첫 번째와 두 번째 항이 1이며, 그 뒤의 모든 항은 바로 앞의 두 항의 합으로 이루어진 수열입니다.</p><pre id="f3274f25-1ad2-40c5-af60-1950049ffe96" class="code code-wrap"><code>pythonCopy code
+def fibonacci(n): if n &lt;= 0: return 0 elif n == 1: return 1 else: return fibonacci(n-1) + fibonacci(n-2) result = fibonacci(6) print(result)
+</code></pre><p id="2a6db9b5-8427-4a38-bd4f-3327cb7db3e4" class="">이 함수는 피보나치 수열의 n번째 항을 재귀적으로 계산합니다. <code><strong>n</strong></code>이 0 이하일 때는 0을 반환하고, <code><strong>n</strong></code>이 1일 때는 1을 반환하며, 그 외에는 <code><strong>fibonacci(n-1)</strong></code>과 <code><strong>fibonacci(n-2)</strong></code>의 합을 반환합니다.</p><h1 id="61a2d28f-8dd1-441b-8aa8-a5164fd841c3" class="">재귀 함수는 문제를 작은 부분 문제로 나누어 해결하는 방법으로 동작하며, 적절한 기저 사례(종료 조건)를 정의하여 무한 루프에 빠지지 않도록 합니다.</h1><p id="ba2b6f95-e118-404a-bd78-27304a086b63" class="">
+</p><p id="9969c1e1-6c9f-4fc4-8b0b-3e40fcf1a583" class="">
+</p><p id="1508f31e-6847-4c2c-acb2-dde7c24a2914" class="">재귀란 나 자신을 반복하는 펑션이고 나 자신을 반복하기 위해서는 나 자신이 멈춰야될 조건이 필요하며,</p><p id="3f4a92c9-d78d-4f9c-b074-b4c80265baf7" class="">나의 인풋의 범위가 점점 변하면서 멈추는데 도달할것이다.  ,’ ,’ ,’ ,’ ,’ ,’ ,’ ‘, ‘, ‘, ‘, ‘, </p><p id="ba117c63-3b01-44e0-b938-940b1e17ffc0" class="">
+</p><p id="f1b7907a-6904-4fd3-805b-6c9e5120d5b7" class="">
+</p><p id="75e70800-3250-46f1-93d2-35b0be44f873" class="">얘를 하나의 리스트로 가지고 있어보자</p><p id="817e7731-72a6-43dc-a76e-301e890b0666" class="">
+</p><p id="d3531b62-2ab0-4538-ac1c-7b2341087fcc" class="">
+</p><p id="c045f854-aa12-49e2-a416-81798db85a47" class="">나는 한 방향으로 이동을 반복을 할 것</p><p id="220cca41-8f52-4f0c-91c8-09db9b214d54" class="">
+</p><p id="5d6d1886-4437-448a-adb1-6ea976dbeb38" class="">코드를 짤 땐 순서대로 짜는게 아니다, 위 아래 순 실행은 맞지만 생각나는대로 적으면서 채워갈 것,</p><p id="f76e81e1-e0ff-449e-9724-65f4f4d52a4c" class="">
+</p><p id="7a9a097d-3a5d-407e-b9d4-8805a38394fb" class="">
+</p><p id="1aa2ce44-2847-443e-b913-ffbde6d1c8b6" class="">n = 5</p><p id="5e1d465f-9ebc-42b8-b523-1d31110fd044" class="">
+</p><p id="f11ae9d5-89e9-4a93-aa61-aafb8b674a5c" class="">#세로</p><p id="99379ee0-ddd9-499a-9e41-68320e2a7d1a" class="">nx = [0]</p><p id="7b702ca7-0909-4328-adf0-3b8383875238" class="">
+</p><p id="35d83dee-35b7-4949-8935-693e2b003dbc" class=""># 가로</p><p id="6cb49d34-fafd-41cf-ac91-7be82f5da74e" class="">by = [1, 0, -1, 0]</p><p id="5a03210d-fe47-4060-9836-2bce8b0bf761" class="">
+</p><p id="8e1ad1d9-f096-4e56-950b-e155e4f73b48" class="">
+</p><p id="d3714416-2b56-4e88-8aac-b36fccab1ec9" class="">snail = [[0] * n for _ in range(n) ]</p><p id="a4d18faf-e6ab-49f0-a939-bc55bb25bb83" class="">
+</p><p id="475cadf6-850e-4729-9205-aa70874f67f8" class="">
+</p><p id="ec987488-ca5d-402f-b608-848597765594" class="">x, y = 0., 0</p><p id="e675674d-31d1-45c8-9925-b745be15e02e" class="">for num in range(1, n**2 + 1):</p><p id="4dac1deb-39ad-4590-bf46-a6dd97cce4fc" class="">   snail [x] [y] = num</p><p id="d15c8d9b-4e9b-4163-9ea7-ef1a1fe587e5" class="">   nx = x + dx[d]</p><p id="63a83ce4-b118-450a-b7ce-92e438766cfc" class="">   nx = y + dx[d]</p><p id="c09db112-1869-43cd-8700-69e5b8606d52" class="">
+</p><p id="57a9f6cb-2afd-4368-a8fe-37bacc78303d" class="">   x, y = nx, ny</p><p id="847a5a07-8c96-46d5-9035-11ea9ebcf0de" class="">
+</p><p id="3cc9f13e-b4bb-48ab-9de2-2fd58b845d19" class="">    x, y 라는 녀석들을 이동</p><p id="1b6d32fb-e550-4448-928f-1e2ea98c15a2" class="">
+</p><p id="ecd5c6aa-b5ac-4f12-9006-dc4c5d894d8c" class="">for i in snail:</p><p id="a0234e23-31bf-4d66-a283-975ce692dc00" class="">    print(i)</p><p id="cbce26a3-153d-4ed1-b48c-02e416444669" class="">
+</p><p id="5fc8ede7-a191-4f39-9038-16db2b65fab4" class="">
+</p><p id="2fc465ae-f19b-413d-9763-cd903b6495d6" class="">
+</p></div></article></body></html>

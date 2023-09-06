@@ -1,0 +1,855 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>[AI] 8/2 메모장</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="f4f0d5f4-9b4a-474a-9550-41c1394ed35a" class="page sans"><header><h1 class="page-title">[AI] 8/2 메모장</h1><p class="page-description"></p></header><div class="page-body"><p id="68f99825-093d-4f6a-9d2b-dce8e63820de" class="">셀렉트로 반환된건 리스트로 반환됨</p><p id="595dac71-0b48-493c-9bf0-cb1372af1e2d" class="">
+</p><p id="52a3c901-962f-475b-a132-94eec7ee7fa3" class="">trs로 셀렉트 반영하면 trs.text &lt; 는 에러가난다</p><p id="612779c6-776c-4ab8-9ed7-e903351d73a9" class="">text는 태그가 가지고 있는 것,</p><p id="d1968e7a-2a3c-46cb-baee-2b6475e5dda3" class="">
+</p><p id="4f8b6d0f-0aff-420c-83a3-075432bc55ea" class="">★크롤링 데이터는 공백이 많음,</p><p id="a39f3b0d-2401-4bc1-8c71-9dff68e8ed2c" class=""><div class="indented"><p id="6b72a953-7545-437f-8648-a2dbf430b2af" class="">.strip()로 가져온거 공백 없애주는 습관</p><p id="e70754bc-cc3a-4e84-9cca-fa5f2eb2fa9f" class="">csv, , , \n  &lt;&lt; 지워줘야 의도한대로 데이터가 들어감 지워줘야함</p><p id="580e9708-0f16-4ff5-aba3-b7feae6c7d08" class="">
+</p><p id="f0b8716a-c3df-44e3-a1c5-612bbc47ad88" class="">
+</p><p id="2826d087-2bb9-40fe-bbf9-1ea36bfdbf9b" class="">
+</p><p id="7b8adb64-ab66-4d4c-9030-c248799cdf4c" class="">★ API (애플리케이션 프로그래밍 인터페이스)</p><p id="7a47deef-be46-4c12-b52e-0c237bc10f8b" class="">
+</p><p id="0199087d-c33e-477d-b253-9c401724d9c9" class="">ㄴ브라우저 접속해서 요청하는건 똑같은데 주는 데이터가 다른 거</p><p id="a6057d8a-9738-47bc-b998-5bb2384a08c6" class="">그래서 안주면 못 씀</p><p id="bf6cee9a-4aa7-4942-af02-b6f964b997ed" class="">
+(API (Application Programming Interface)란 다른 프로그램에서 사용할 수 있도록, 운영체제나 프로그래밍 언어가 제공하는 기능을 제어할 수 있게 만든 인터페이스를 말합니다. 일반적으로 API는 개발자가 서비스를 활용하기 위해 사용할 수 있는 명령어 집합을 의미합니다. 이 명령어를 이용하여 프로그래머는 서비스에서 제공하는 데이터를 가져오거나, 데이터를 전송하거나, 기타 서비스를 조작할 수 있습니다.)</p><p id="4da279a8-b4ba-46ac-aedc-e9ab592cc011" class="">
+</p><p id="940d7486-80d9-429c-8800-bd9be3ebcc77" class="">-<strong>JSON</strong> 홈페이지</p><p id="9db240b1-05f9-40a8-bd2d-2dbbec889af3" class=""><a href="https://jsonplaceholder.typicode.com/">https://jsonplaceholder.typicode.com/</a></p><p id="eb82c078-6216-45ea-974f-f0d8eb851bf6" class="">제이썬 함수 ⇒ 자동으로 파이썬제공함수로 바꿔줌</p><p id="6e5ddec1-eb16-400f-9c66-52a3ce02688a" class="">
+</p><ul id="2c6dc317-e3a2-4c96-a0d7-a87a634979bb" class="bulleted-list"><li style="list-style-type:disc">posts = res..json  &lt;&lt; 파이썬 제공 함수로 바뀐다</li></ul><p id="01577b7c-751a-47cd-ad93-a9c7fe5d3d2e" class="">
+</p><p id="a27904bc-cca9-4c6e-9a52-f464aafc2663" class="">import requests</p><p id="6132a48b-3fdd-43b2-a307-34bc6fb1fbab" class="">res = requests.get(&quot;<a href="https://jsonplaceholder.typicode.com/posts">https://jsonplaceholder.typicode.com/posts</a>&quot;)
+posts = res.json()</p><p id="94b5a408-d6b7-4538-a327-f974e7a045cb" class="">for post in posts:
+print(post[&quot;userId&quot;],post[&quot;title&quot;])</p><p id="93d287f9-2f6a-499c-b1a8-cf363723605d" class="">
+</p><p id="041e1647-6461-49a6-90db-31664bde7752" class="">어떤 문서는 웹문서가 아니라, API를 준다, 그냥 갖다쓰면됨, 주는 데이터만 다르고 주소만 다름</p><p id="c1a7228e-458b-458a-b1d9-9d24a49023a2" class="">
+</p><p id="2494a1fc-17a7-452a-91b7-b083249e9cc6" class="">
+</p><p id="f4aec6a8-a184-4161-88f5-de1688681386" class="">
+</p><figure id="7423be3a-6661-4b0b-aced-54197b8d7b8e" class="image"><a href="Untitled%2010.png"><img style="width:480px" src="Untitled%2010.png"/></a></figure><p id="73308d48-707f-4cbc-8536-70e8032baba5" class="">
+</p><p id="ce39e799-b354-41ef-944a-f04a7d0c382f" class="">if res.status_code = 200:<div class="indented"><p id="982a0a24-9599-485d-a2ef-557ca27a66dd" class="">posts = res.json()</p></div></p><p id="e8d44317-5848-4a98-b013-86687422fc4e" class="">
+</p><p id="6cf2ccd7-83e9-4bd9-a0cd-b6ba59920936" class="">
+</p><p id="aa49db8a-e393-4055-85d2-5cf9048ce8fd" class="">[인증키 디코딩]</p><p id="e9e80678-ab19-4bbe-984c-4bcf5ea1ec4e" class="">
+</p><p id="726c6992-76f1-4782-a73b-05dcc4b4851c" class="">
+</p><p id="51751e4c-9d96-4e00-9df9-1e83fc59bc21" class="">-인코딩</p><p id="4e0cbfa9-500c-4d48-a482-42ca6f147067" class="">8HMdBevY6FGg%2Beafe%2F8P07FamzB1PZwxtZ5c%2FeLVOVUNkJHSYFa6YxDTFxmFSHWshWWXxFJQN7Fj%2Fv%2FVt700%2BA%3D%3D</p><p id="fc5b5fe1-acd9-4701-866a-dfc2a14e732e" class="">
+</p><p id="7bf710b9-cfd3-4de4-bc2a-865ff62fe080" class="">-디코딩</p><p id="ab932f0a-727e-4371-8923-dde00b5d9a0c" class="">8HMdBevY6FGg+eafe/8P07FamzB1PZwxtZ5c/eLVOVUNkJHSYFa6YxDTFxmFSHWshWWXxFJQN7Fj/v/Vt700+A==</p><p id="50a813bd-0750-4d30-9149-62baacee4378" class="">
+</p><p id="9036fa0c-11a0-40c2-8ea4-13ac5ac6b6c5" class="">
+</p><p id="c6085214-0317-4477-bb8b-8b12ba0d0a21" class="">[8/2 날씨 API]</p><p id="84c2d54c-39b3-4d63-80fd-0265721dbf01" class="">
+</p><p id="db07500d-2e59-467f-8aa4-315a6dc7e0a8" class="">import requests</p><p id="e174ce40-4f4d-4559-a757-5aeb2103a271" class="">url = &#x27;<a href="http://apis.data.go.kr/1360000/MidFcstInfoService/getMidFcst">http://apis.data.go.kr/1360000/MidFcstInfoService/getMidFcst</a>&#x27;
+params ={
+&#x27;serviceKey&#x27; : &#x27;8HMdBevY6FGg+eafe/8P07FamzB1PZwxtZ5c/eLVOVUNkJHSYFa6YxDTFxmFSHWshWWXxFJQN7Fj/v/Vt700+A==&#x27;,
+&#x27;pageNo&#x27; : &#x27;1&#x27;,
+&#x27;numOfRows&#x27; : &#x27;10&#x27;,
+&#x27;dataType&#x27; : &#x27;JSON&#x27;,
+&#x27;stnId&#x27; : &#x27;108&#x27;,
+&#x27;tmFc&#x27; : &#x27;202308020600&#x27; }</p><p id="cf72b952-cf09-4299-9f64-a54abb4da6c6" class="">response = requests.get(url, params=params)
+data = response.json()
+print(data)</p><p id="3135a341-36a5-4944-a807-b4d0181737f3" class="">
+</p><p id="d237f686-259e-478b-a2eb-638ad0364b2c" class="">
+</p><ul id="ebaa704f-2c17-40dd-a4a0-f294d3acfc29" class="bulleted-list"><li style="list-style-type:disc">안되었을때 제일 먼저 텍스트를 봐야함, 반환해줘야 할 값이 뭐가있지 보고 잘 써줘야함</li></ul><p id="148c0a93-c5de-4484-8f9a-330d2aed2c2f" class="">
+</p><p id="ef186d2e-d95d-4426-b796-49c0b4ef7e03" class="">
+</p><p id="79fcfec6-e0ba-4d10-a771-72fddedd4b60" class="">import requests
+import pprint</p><p id="c0d1c111-eda7-49ae-829f-3d9fb42a039f" class="">url = &#x27;<a href="http://apis.data.go.kr/1360000/MidFcstInfoService/getMidFcst">http://apis.data.go.kr/1360000/MidFcstInfoService/getMidFcst</a>&#x27;
+params ={
+&#x27;serviceKey&#x27; : &#x27;8HMdBevY6FGg+eafe/8P07FamzB1PZwxtZ5c/eLVOVUNkJHSYFa6YxDTFxmFSHWshWWXxFJQN7Fj/v/Vt700+A==&#x27;,
+&#x27;pageNo&#x27; : &#x27;1&#x27;,
+&#x27;numOfRows&#x27; : &#x27;10&#x27;,
+&#x27;dataType&#x27; : &#x27;JSON&#x27;,
+&#x27;stnId&#x27; : &#x27;108&#x27;,
+&#x27;tmFc&#x27; : &#x27;202308020600&#x27; }</p><p id="7b6ce9ab-a693-47ec-be60-3799a7c183c0" class="">response = requests.get(url, params=params)
+data = response.json()
+pprint.pprint(data)</p><p id="3aeb941b-e063-494f-9ac4-21292afaf833" class="">for item in data[&quot;response&quot;] [&quot;body&quot;] [&quot;items&quot;] [&quot;item&quot;]:
+print(item[&quot;wfSv&quot;])</p><p id="fe01953d-55fd-46fd-a909-2f78d62c7c2c" class="">
+</p><p id="a358e7b9-2e26-41f4-88f4-948163658b96" class="">ㄴ 보기편하게 </p><p id="219e5b6d-9dfc-46a5-ae9a-0b530fab28ec" class="">
+</p><p id="0267086b-1fd4-4d45-8586-895483f2079e" class="">
+</p><p id="0619126c-f2a0-4bd9-85c9-2d60f4448277" class="">
+</p><p id="1a0d300f-2a91-44c7-bd1f-95481007bcf9" class="">
+</p><p id="9d843ca6-b02e-42eb-bcdc-c95ef57c842f" class="">
+</p><p id="fdfc7e85-7e58-4ad6-b668-a9067bfee4f5" class="">
+</p><p id="13e0fd47-299e-4d61-b082-856342af064a" class="">
+</p><p id="e96cb047-5a9a-4f3f-a518-371480aca5d0" class="">
+</p><ul id="78726785-0b45-45d5-8511-65e0dbfac003" class="bulleted-list"><li style="list-style-type:disc">셀레니움 , 동적 웹을 크롤링하기 위해 필요한 도구<p id="88577e21-80b2-488e-b1a9-f63637ebef0d" class="">
+</p><p id="b9b01a25-c5f6-4297-8ad6-d02c007306f9" class="">셀레니움  → 브라우저 테스트 프로그램</p></li></ul><p id="3ceffebf-fb30-4ca2-a076-b53f842b5f97" class=""><div class="indented"><p id="afbff5d1-6c76-4361-9bf2-c141e17ef2f6" class="">import time
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager</p><p id="05443338-2c85-4749-8be0-9b595ffd0c50" class="">service = Service(ChromeDriverManager().install())
+d = webdriver.Chrome(service=service)
+try:
+d.get(&quot;<a href="https://naver.com/">https://naver.com</a>&quot;)
+except Exception as e:
+print(e)
+finally:
+time.sleep(2)
+d.close()
+d.quit()</p></div></p><p id="ef1f5b1c-2c6f-4dc3-aede-398eb7e6cb57" class="">
+</p><p id="0b4733f2-a8c5-421f-b4d8-9a55b8dab6e2" class=""># try,except,finlally = 예외처리</p><figure id="f5121b5a-afea-4486-b8b4-862881698f96" class="image"><a href="Untitled%2011.png"><img style="width:413px" src="Untitled%2011.png"/></a></figure><p id="3f681f8c-fbd6-4483-92ef-fc6e4b791d39" class="">
+</p><p id="3c4bcb25-a1e9-4be4-9f99-718e77524f20" class="">get → 웹문서에 간다(이동하면 get)</p><p id="bc87915b-9ad0-4c49-ac61-d7dfa599eb39" class="">d.get(”naver.com”) 네이버로가줘</p><p id="0571c1c6-cf20-40e1-b787-86e1278ef113" class="">
+</p><p id="0cb72d9f-d4cd-47a0-bd60-72f46a2d8407" class="">
+</p><p id="38852b85-7c13-4a1c-975e-afdf18cf87f7" class="">import time
+from selenium import webdriver
+from <a href="http://selenium.webdriver.common.by/">selenium.webdriver.common.by</a> import By</p><p id="bdc0de2d-3c8a-4ec8-b27b-8e000c490052" class="">from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager</p><p id="d8aa4be0-ccc1-44a4-a629-a9eaa7fa2e78" class="">service = Service(ChromeDriverManager().install())
+d = webdriver.Chrome(service=service)</p><h1 id="ef9d4d95-2e40-40c3-a006-ebe83446618c" class="">try,except,finlally = 예외처리</h1><p id="e3c9cf33-712e-40cf-a441-849634dc6b30" class="">
+</p><p id="1075b9ef-6d2c-4fa3-bcea-9f55f8f4939e" class="">try:
+d.get(&quot;<a href="https://news.naver.com/main/main.naver?mode=LSD&amp;mid=shm&amp;sid1=105">https://news.naver.com/main/main.naver?mode=LSD&amp;mid=shm&amp;sid1=105</a>&quot;)
+elem = d.find_element(By.CSS_SELECTOR, &quot;#_rankingList0&quot;)
+print(elem.text)</p><p id="35b616c4-b3fc-47a6-acde-46daea4a9aa0" class="">except Exception as e:
+print(e)</p><p id="aa11d51d-7cbd-49d9-a12f-8a14cd00ffe0" class="">finally:
+time.sleep(2)
+d.close()
+d.quit()</p><p id="213f1e29-ee63-4100-9e3a-948b1a841429" class="">
+</p><p id="f242441c-88af-424c-937a-96bce05f8dc5" class="">
+</p><p id="4b0ff737-81b4-47bf-8345-9527cce33b8b" class="">elem = d.find_element(By.CSS_SELECTOR, &quot;#_rankingList0&quot;)
+#ㄴbs4의 태그, find_element -&gt; find_elements 는 여러개 가져오는거</p><p id="63287d1d-e6a0-4295-8437-b2cba44e704c" class="">
+</p><p id="ac7faae6-7804-45a6-ad38-d797702de1c3" class="">import time
+from selenium import webdriver
+from <a href="http://selenium.webdriver.common.by/">selenium.webdriver.common.by</a> import By</p><p id="d96bae66-e2bc-4a56-9dcf-4dfb35159c05" class="">from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager</p><p id="9e4cfd9f-adf8-4f17-a2be-c91c39afeae5" class="">service = Service(ChromeDriverManager().install())
+d = webdriver.Chrome(service=service)</p><h1 id="6ec43e67-fdea-4e8b-872c-2e7d89a7b5a8" class="">try,except,finlally = 예외처리</h1><p id="9ee3df84-eecd-4283-864d-cdb8075bcdd5" class="">try:
+d.get(&quot;<a href="https://news.naver.com/main/main.naver?mode=LSD&amp;mid=shm&amp;sid1=105">https://news.naver.com/main/main.naver?mode=LSD&amp;mid=shm&amp;sid1=105</a>&quot;)</p><h1 id="b08a36ba-3a6f-429c-84ac-c27e1bba1031" class="">elem = d.find_element(By.CSS_SELECTOR, &quot;#_rankingList0&quot;)</h1><h1 id="da4c616a-b3e6-45d1-b6c9-d42421facb53" class="">titles = elem.find_elements(By.CSS_SELECTOR, &quot;.list.tit&quot;)</h1><h1 id="29dde533-7574-4868-aaa1-1ae1b6461eca" class="">#ㄴbs4의 태그, find_element -&gt; find_elements 는 여러개 가져오는거</h1><h1 id="78428b8f-3c37-49ea-af1f-78cbf49a056e" class="">for title in titles:</h1><h1 id="9ca2d0e7-746a-4130-b74a-1c1457af4c1d" class="">print(title.text)</h1><pre id="10f095ca-55ab-4a70-ad22-729877754028" class="code code-wrap"><code>section = d.find_element(By.CSS_SELECTOR, &quot;.section_body&quot;)
+lis = section.find_elements(By.CSS_SELECTOR, &quot;ul &gt; li&quot;)
+for li in lis:
+    print(li.text)
+</code></pre><p id="7db915b2-7523-4266-9a53-bcd2609a3c6d" class="">except Exception as e:
+print(e)</p><p id="ba228812-4fcc-4d83-b8fc-7ce39c753346" class="">finally:
+time.sleep(2)
+d.close()
+d.quit()</p><p id="ce088f3f-c74f-46ba-8446-3fb7afbbeacb" class="">
+</p><p id="8356210e-5b06-4881-a0ce-11308a3dde9d" class="">
+</p><p id="84a1a546-2a9a-4e86-a815-7176f4591059" class="">import time
+from selenium import webdriver
+from <a href="http://selenium.webdriver.common.by/">selenium.webdriver.common.by</a> import By</p><p id="4efb49f5-cd42-4e22-8ee2-ccf64c3cdc47" class="">from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager</p><p id="2b9171f3-6c3b-46cd-aac4-b57733afe056" class="">service = Service(ChromeDriverManager().install())
+d = webdriver.Chrome(service=service)</p><p id="5f2159e7-558f-413b-8de6-536644d74175" class="">try:
+d.get(&quot;<a href="https://news.naver.com/main/main.naver?mode=LSD&amp;mid=shm&amp;sid1=105">https://news.naver.com/main/main.naver?mode=LSD&amp;mid=shm&amp;sid1=105</a>&quot;)</p><h1 id="2ce34ea5-7906-4bdb-b93c-9eca775cb450" class="">elem = d.find_element(By.CSS_SELECTOR, &quot;#_rankingList0&quot;)</h1><h1 id="08033685-3a64-4cb3-b724-92b336015c0d" class="">titles = elem.find_elements(By.CSS_SELECTOR, &quot;.list.tit&quot;)</h1><h1 id="374e9d27-2ffc-4504-8698-c3504101c00c" class="">#ㄴbs4의 태그, find_element -&gt; find_elements 는 여러개 가져오는거</h1><h1 id="6ab67196-bdce-4353-ad3c-c2c0dc37ac70" class="">for title in titles:</h1><h1 id="f1ff652d-ba8e-4410-b4a0-7d02005a7ced" class="">print(title.text)</h1><pre id="bf726ea5-e453-4894-ad5e-af074e27885c" class="code code-wrap"><code>time.sleep(0.5)
+
+section = d.find_element(By.CSS_SELECTOR, &quot;.section_body&quot;)
+lis = section.find_elements(By.CSS_SELECTOR, &quot;ul &gt; li&quot;)
+for li in lis:
+    print(li.text)
+
+page_area = d.find_element(By.CSS_SELECTOR, &quot;#paging&quot;)
+page_2 = page_area.find_element(By.LINK_TEXT,&quot;2&quot;)
+page_2.click()
+
+time.sleep(2)
+
+section = d.find_element(By.CSS_SELECTOR, &quot;.section_body&quot;)
+lis = section.find_elements(By.CSS_SELECTOR, &quot;ul &gt; li&quot;)
+for li in lis:
+    print(li.text)
+</code></pre><p id="4bd3b40c-ada7-4f34-967b-c09ba411ef03" class="">except Exception as e:
+print(e)</p><p id="c6e7209a-9d62-40d1-9d5e-7d1820c3dc8f" class="">finally:
+time.sleep(2)
+d.close()
+d.quit()</p><p id="b79cf23d-932b-4ed3-b38e-f4bf5bade91e" class="">
+</p><p id="113a92b5-5f8d-4282-8575-6fe8af5cd804" class="">import time
+from selenium import webdriver
+from <a href="http://selenium.webdriver.common.by/">selenium.webdriver.common.by</a> import By</p><p id="c7a5cff1-f98e-4580-b884-0c630e320a59" class="">from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager</p><p id="feb5c2e1-ad12-44a5-a207-6648ad501ba0" class="">service = Service(ChromeDriverManager().install())
+d = webdriver.Chrome(service=service)</p><p id="60f09f51-6c72-42ee-a9e9-099f1efe5341" class="">try:
+d.get(&quot;<a href="https://news.naver.com/main/main.naver?mode=LSD&amp;mid=shm&amp;sid1=105">https://news.naver.com/main/main.naver?mode=LSD&amp;mid=shm&amp;sid1=105</a>&quot;)</p><pre id="1a6a1ed4-0259-4927-a707-8e1d64ed30b4" class="code code-wrap"><code>time.sleep(2)
+
+
+for page in range(2,6):
+
+# 뉴스 찾아오는 명령어
+    section = d.find_element(By.CSS_SELECTOR, &quot;.section_body&quot;)
+    lis = section.find_elements(By.CSS_SELECTOR, &quot;ul &gt; li&quot;)
+    for li in lis:
+        print(li.text)
+
+
+# 클릭을 해주는 명령어
+    page_area = d.find_element(By.CSS_SELECTOR, &quot;#paging&quot;)
+    page_link = page_area.find_element(By.LINK_TEXT, str(page))
+    page_link.click()
+
+    time.sleep(2)
+    print(&quot;-&quot;*30, page,&quot;-&quot;*30)
+</code></pre><p id="a07cdbec-0628-4986-9d84-6e76fca332ed" class="">except Exception as e:
+print(e)</p><p id="2d526dc2-4439-451a-9a6a-8b92607c3b6e" class="">finally:
+time.sleep(2)
+d.close()
+d.quit()</p><p id="44005314-3ac4-470e-bf0b-56c3c051e6c4" class="">
+</p><p id="6184bc64-eda7-4ba6-868e-69e061deff84" class="">
+</p><figure id="77f2db65-77b0-4364-a62f-5eb02f6bd7eb" class="image"><a href="Untitled%2012.png"><img style="width:631px" src="Untitled%2012.png"/></a></figure><p id="aacf4444-7125-4b77-b49f-87758d284508" class="">
+</p><p id="2fcbb525-62ab-47be-b53e-8aa5e06438df" class="">
+</p><p id="bad59334-6f6b-4e57-ac2c-4b8f896f3efb" class="">
+</p><p id="72bd0427-6c2b-4573-824c-b51c752eb9cf" class="">
+</p><ul id="5b408989-5ed6-4a23-805e-dbe97d107411" class="bulleted-list"><li style="list-style-type:disc">SELECT * FROM sba.melon;
+</li></ul><ul id="3c2be14a-f8e5-42ce-9ebb-68ac986c6933" class="bulleted-list"><li style="list-style-type:disc">truncate table sba.melon;</li></ul><p id="51f3cdd8-528e-45f3-b790-8ec8382d8d46" class="">      ㄴ SQL 데이터 저장</p><p id="6abd5222-5e1c-4f46-889f-80516c8e7fa4" class="">
+</p><p id="53a8f100-cb7f-4145-90a2-c6daaa3add53" class="">
+</p><figure id="e7e464c1-e61e-4cf2-be1e-373c6cdbc651" class="image"><a href="Untitled%2013.png"><img style="width:576px" src="Untitled%2013.png"/></a></figure><p id="389a3a5d-13bd-4559-b6c1-b3302ab20ca1" class="">
+</p><p id="8dee346a-88c1-4231-85a1-e874aebabde5" class="">
+</p><p id="2c7b25c3-101e-4c02-98a3-d8bef7ed0475" class="">
+</p><p id="ac34e63c-d955-49ee-858d-1e079d0f4d28" class="">
+</p><p id="8f23060a-bc9e-4c9d-bf70-a4fc9435dc85" class="">for page in range(2, 7):</p><p id="83efbe3d-c9cd-4129-80e4-57c09d411721" class="">
+</p><p id="61cded8d-e384-4ad7-b507-9033657490c5" class="">page_area = d.find_element(By.CSS_SELECTOR, “.prev-next”)</p><p id="02738a07-bbcd-412d-9a11-d18e8a8dc0fa" class="">page_link = page_area.find_element(By.LINK_TEXT,str(page))</p><p id="dd26ddfd-3ab7-48e8-b214-fc05c9e233f2" class="">page_link.click()</p><p id="e9214924-a1e1-4d1e-9fa9-835d96038bb3" class="">
+</p><p id="92c9b65f-308b-4401-8591-e4e257a6c2b8" class="">
+</p><p id="2937c3dc-572b-4cdf-8e1a-2174ee6218bb" class=""><a href="https://pypi.org/project/pymysql/">https://pypi.org/project/pymysql/</a></p><p id="e2a87cc0-508e-41f7-b005-38f41083b619" class="">
+</p><p id="c54d210c-c84d-4fe5-ae62-1d85c0bf36b2" class="">
+</p></div></p><figure id="9126f851-9e94-40cc-bb21-642b8abfb18c"><div class="source"><a href="https://www.notion.soundefined"></a></div></figure></div></article></body></html>

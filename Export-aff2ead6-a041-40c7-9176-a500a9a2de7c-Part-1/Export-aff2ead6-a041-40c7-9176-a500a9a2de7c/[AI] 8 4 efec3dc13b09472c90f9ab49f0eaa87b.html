@@ -1,0 +1,749 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>[AI] 8/4</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="efec3dc1-3b09-472c-90f9-ab49f0eaa87b" class="page sans"><header><h1 class="page-title">[AI] 8/4</h1><p class="page-description"></p></header><div class="page-body"><ol type="1" id="7fb47654-f19d-44bd-95d3-08765f3b85be" class="numbered-list" start="1"><li>우리의 목표, 데이터베이스를 구축해 내는게 중요하다
+분석을 해야하기때문에, 프로그램을 잘 짜야지, 하나로 한번에 짜야지 할 필요 없다,</li></ol><p id="9ad0b82a-0bdc-4daf-9ba3-5876f0e203f2" class="">단계적으로 생각을 해야한다 한글로 순서 정리</p><ul id="1973f2f3-4931-4d0c-8b0a-cd3eaaa83caa" class="bulleted-list"><li style="list-style-type:disc">프로그래밍을 하면 작은 과제가 나오면 다른거 생각하는거 아님
+이런 접근은 내 로직이 자유자재로 가능할 단계일때, 계속 문제를 작게 만들 수 있어야함
+그래야 큰걸 만들 수 있다</li></ul><ul id="baeb1815-4b2f-4c26-98e5-cf47103dcc04" class="bulleted-list"><li style="list-style-type:disc">가수 저장
+[1] 멜론 TOP 100을 수집</li></ul><p id="94d5f881-59c9-410e-bb91-8f16fcf428d3" class="">[2] 멜론 singer 테이블에 가수 저장 -&gt; INSERT 구문</p><ul id="be567227-59e5-47eb-9fb8-f352a3806b85" class="bulleted-list"><li style="list-style-type:disc">노래 저장
+[1] 멜론 TP 100에서 제목, 앨범, 가수를 읽어옴</li></ul><p id="b993bb5c-3b4a-4136-95df-d3c000a5ea19" class="">[2] 노래 저장시 필요 정보: 제목, 앨범, 가수_id</p><p id="889eb636-5bea-4890-b025-c30dcae3d59e" class="">[3] DB에서 가수로 가수_ID를 구함 -&gt; SELECT 구문</p><p id="d11a5a7e-2a5e-46bb-a976-94bd7e9c24f0" class="">[4] song 테이블에 노래 저장 -&gt; INSERT 구문</p><ul id="2806ac14-a18c-4d6b-87f7-7420de7c833a" class="bulleted-list"><li style="list-style-type:disc">가수 팔로우 갱신
+[1] singer 테이블에서 가수 전체를 읽어옴 -&gt; cursor.fetchall()</li></ul><p id="70e15668-c1d6-4171-ac62-30e796a5a771" class="">[2] 가수 전체 정보: 가수_id, 가수명</p><p id="ac10319d-d45e-4eac-afd4-a32824a902ee" class="">[3] 인스타그램 접속해서 가수명으로 검색</p><p id="b46e8824-2a71-4c50-8edb-6a0b14c95c58" class="">[4] 인증마크 있는 지 확인, 있으면 클릭</p><p id="d925dc7b-5cea-4c50-b346-c59d5b467b2f" class="">[5] 팔로워 수 가져옴</p><p id="0fd37235-698b-46da-a1c1-4965f142cfb1" class="">[6] singer 테이블에서 갱신 (UPDATE)를 하는데 가수_id를 활용해서 follower 업데이트</p><p id="f86452a9-b34f-4bf8-915f-0bcb5bcc8062" class="">프로그래밍이 어려운 점은 이렇게 풀어쓰는게 어렵다
+이거 왜 이렇게 했냐 의도를 물어봄 코딩할때 제일 위험한게 느낌으로 짜는 것, 그렇게하면 절대 늘지 않는다
+틀리더라도 내 의도가 명확하게 있어야한다</p><p id="7c09de6c-9a35-468c-9a9f-d3e31725344a" class="">코드레벨에 가깝게 쪼개서 그 플로우대로 가야한다
+말로 푸는 훈련을 해야한다 &gt; 이걸 기준으로 코드로 옮기는 훈련을 해야한다, 논리로 이해 후 코드로 잘 풀어내야한다</p><p id="3404d76b-b543-4cdc-b5a9-286d62c2605d" class="">
+</p><p id="27306cce-4109-4318-81ac-1b897fa34733" class="">
+</p><p id="f62caeff-3a15-481a-86e2-1780767dc4b3" class="">computer = random.randint(1, 100)
+print(computer)</p><p id="a8f00f5a-5717-486d-a3fe-6f8c902b23ed" class="">for i in range(10):  #10번의 기회</p><pre id="d83a69a1-baff-48f9-b474-a7b139190236" class="code code-wrap"><code>bbbuesr = input(&quot;정답은?&quot;)
+uesr = int(user)
+
+
+if uesr &gt; computer:
+    print(&quot;DOWN&quot;)
+elif user &lt; computer:
+    print(&quot;UP&quot;)
+else:
+    print(&quot;정답&quot;)
+    break
+</code></pre><p id="de419d62-1991-449c-a05d-2be2ed22ee68" class="">if user != computer:
+print(&quot;실패&quot;)</p><p id="b62057f9-f337-4bd7-a581-2d996a7e5e59" class="">b</p><p id="7bb2e1cf-33a2-404c-b20c-1ad010f54ec2" class="">
+</p><p id="2b42fcab-5bd1-4bdf-8025-bf48a91da437" class="">
+</p><h1 id="1b857cf0-4eb0-4c96-bb28-e6e18c2babf7" class="">while &gt; 3:</h1><h1 id="463c3366-88f2-4ea4-98f2-06c3b5c3ed95" class="">user = input(&quot;&quot;&quot;</h1><h1 id="96094852-c324-4fcb-b0b8-dcd7c131410d" class="">무엇을 하시겠습니까?</h1><h1 id="f4cfdbb1-e07b-4268-ade0-dd8325f5617b" class="">1. 게임 시작</h1><h1 id="8030e19c-9b4d-45da-a183-641e0f0c765b" class="">2. 게임 종료</h1><h1 id="6af3e510-990a-4da2-ab20-c6e8251cc7c5" class="">&quot;&quot;&quot;)</h1><h1 id="126d358a-f987-4873-95f7-f895d409718f" class="">user = int(user)</h1><h1 id="616c8565-34c7-467f-8c70-d1b70974c59e" class="">#no = [1,2]</h1><h1 id="dcdea995-eae2-4004-87b4-4e415b371b5e" class="">for i = range(2)</h1><h1 id="8bb5de70-2c32-433a-ae02-acde7c49f01a" class="">print(user)</h1><h1 id="c3d7a142-98b7-492f-aa56-675d67da1eaf" class="">print(&quot;1. 게임 시작&quot;)</h1><h1 id="6062eba1-ea1b-4ba3-b37c-f97412695902" class="">print(&quot;2. 게임 종료&quot;)</h1><p id="1775017c-0ff4-4656-8d82-6dbdae97c589" class="">def start_game(username):</p><pre id="152c9c8b-1919-45f3-8950-62b23c1374d7" class="code code-wrap"><code>computer = random.randint(1, 100)
+print(computer)
+
+#로직을 쓰기 전에 조건부터 써야함 반복할 코드 쓰기전에 ㅇ얼마나 반복할지부터 써야함 while True 무한반복
+#나가는 조건을 로직을 쓰기 전에 반복
+
+chance = 10
+while chance &gt; 0:
+    user = input(&quot;정답은?&quot;)
+    if not user.isdigit():
+        print(&quot;숫자를 입력하세요&quot;)
+        continue #&lt; 다음 반복을 하러 올라가는애
+
+    user = int(user)
+    if not (1 &lt;= user &lt;= 100):
+        print(&quot;허용 숫자를 입력하세요&quot;)
+        continue
+
+    if user &gt; computer:
+        print(&quot;DOWN&quot;)
+    elif user &lt; computer:
+        print(&quot;UP&quot;)
+    else:
+        print(f&quot;{username} 정답&quot;)
+        break
+    chance -= 1
+
+if user != computer:
+    print(&quot;실패&quot;)
+</code></pre><p id="7c827ab1-6157-485d-944c-d9341aeb919f" class="">username = input (&quot;이름을 입력하세요: &quot;)
+while True:
+print(&quot;1. 게임 시작&quot;)
+print(&quot;2. 게임 종료&quot;)
+menu = input(&quot;메뉴 선택: &quot;)
+if menu == &quot;1&quot;:
+start_game(username)
+elif menu == &quot;2&quot;:
+break</p><p id="ba60509c-e909-4068-b704-7a307da1a01a" class="">
+</p><p id="df005e8a-1e45-4e3d-aa85-59272d436b82" class="">
+</p><p id="f8f0307b-3fde-460c-94d8-f5d59691772f" class="">
+</p><p id="2dab52c3-1371-4dfe-a729-930b820d84e1" class="">
+</p><p id="902f9b01-7130-4a44-9845-8f10994d645c" class="">
+</p><p id="c655b47a-a2c5-4556-b61f-87835f435847" class="">
+</p><p id="56becc61-d53c-4e56-921d-c55f97d59a53" class="">aa = df[df.casual &gt;=10].groupby([&quot;season&quot;]).sum()
+aa[&quot;registered&quot;]</p><p id="8a7dbd77-822a-496b-b3f5-41e1c503be38" class="">
+</p><p id="f18b2552-e226-465f-8f4a-75d514a6e8af" class="">
+</p><figure id="64e1528d-553a-4b7c-bf1e-964b2166f9ad" class="image" style="text-align:left"><a href="Untitled%202.png"><img style="width:559px" src="Untitled%202.png"/></a></figure><p id="b0c8a584-db74-4a8c-9b58-87920c1d5d70" class="">
+</p><figure id="27bd1c63-ae74-402f-839b-3a9745437395" class="image" style="text-align:left"><a href="Untitled%203.png"><img style="width:528px" src="Untitled%203.png"/></a></figure></div></article></body></html>

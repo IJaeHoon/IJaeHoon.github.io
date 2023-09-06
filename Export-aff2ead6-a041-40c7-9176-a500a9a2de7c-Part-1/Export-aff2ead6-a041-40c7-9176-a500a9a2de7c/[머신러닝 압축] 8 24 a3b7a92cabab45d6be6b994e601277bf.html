@@ -1,0 +1,1164 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>[머신러닝 압축] 8/24</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="a3b7a92c-abab-45d6-be6b-994e601277bf" class="page sans"><header><h1 class="page-title">[머신러닝 압축] 8/24</h1><p class="page-description"></p></header><div class="page-body"><p id="339d48e6-c39c-4f23-8498-8345850bceab" class="">[8/24]</p><p id="fe58ef93-0dd8-408e-95c5-83079d1a571b" class="">
+</p><figure id="a8e41d38-6e74-44ff-a658-452ca22dbdb2" class="image" style="text-align:left"><a href="Untitled%2028.png"><img style="width:288px" src="Untitled%2028.png"/></a></figure><p id="240b480f-4d1f-4243-9bf9-755704f8ef99" class="">
+</p><p id="7109c42a-6808-4610-b52b-d65580e3785e" class=""><strong><strong>R SQUARE</strong></strong></p><p id="dcd94493-453f-440b-98ea-48ae188a5c2e" class="">
+</p><p id="8a526847-4871-4dd3-8265-d31b6b5d3422" class="">레이블있는 지도학습 &gt; 성능측정됨 &gt;  레이블(정답)이 있으니까</p><p id="4044546e-d747-4fd4-9fd1-00177485452d" class="">레이블없는 비지도학습 &gt; 성능측정 안됨</p><p id="fc3d5fb8-ce78-4ac8-8d36-64cfdcb71de9" class="">
+</p><p id="2aec8dad-3852-4655-9b06-c692c5e3f34d" class="">
+</p><p id="9b00fc87-2e8c-496e-9986-51341aa6c474" class="">R SQUARE 가 퍼센트로 수치오차를 성능평가한다</p><p id="8eccf608-d842-444d-8852-d8547db384ed" class="">
+</p><p id="2cbaf013-d47b-45ba-bdae-cb6faeef1964" class="">²²²²²²²²²²²²²²²²²²²²²</p><p id="3e3184c4-3abf-4af7-a42d-577d28aab956" class="">
+</p><p id="d608901c-67fb-4cbd-ae21-f00d31239da6" class="">R² =  1 - 오차²/편차²</p><p id="10492634-4191-469a-a675-bf6f1b44f444" class="">
+</p><p id="af495816-8474-47b3-85cd-e05f91f6d662" class="">= 1 - (예측값 - 실젯값)² / (실제값평균-실제값)²</p><p id="52c24328-8232-4b40-a443-95e76774e290" class="">
+</p><p id="3fd99619-1b3d-46e1-a001-9a3fdf6e257d" class="">(알스퀘어제일좋은값은1임 1이면 100이란말)</p><p id="2535edbe-48a4-411c-bd62-35d5b56a885b" class="">
+</p><p id="22321505-0392-4310-98d6-3fffb4d3f953" class="">결정계수</p><ul id="e3b2148b-e5ec-4abc-8204-30e830efb8e3" class="bulleted-list"><li style="list-style-type:disc">분자는 니가 예측힘들면 힘든만큼봐줄게 / 분모는 틀린만큼 나타냄</li></ul><p id="0973aebb-d27f-44ec-bf91-c72c6c586ada" class="">
+</p><p id="81f2d76a-43a8-4358-8aa3-ba82588914be" class="">★알스퀘어 = 평가지표 = 매트릭</p><p id="b038370a-ddd0-4205-92d1-abf2291975fc" class="">
+</p><p id="6fcb5341-f5f4-4cc1-ba30-4f4ff91b2007" class="">
+</p><p id="32c20554-f8c2-48f7-8545-0f5fc7838d07" class="">좋은모델 실전은 훈련같이 훈련은 실전같이</p><p id="80f4665c-2023-4798-ba1a-3f16d87bf1f2" class="">= 과대적합 VS 과소적함</p><p id="ba015de8-501f-4bdc-8e1e-be1289a8f6d6" class="">
+</p><p id="2d354c38-f2a5-4ca3-a0a3-747887aac537" class="">과대적합 = 트레이딩 데이터에 과하게 적합하게된것</p><p id="b979263a-8d1d-4b03-abd7-91800d22e4b4" class="">ㄴ 대회나가서 못하는애 , 훈련데이터에 과하게 집착하는건 과적합 &gt; 오버피팅</p><p id="84522ae5-3e4a-4c11-902c-076d7f63a430" class="">
+</p><p id="1704bad8-ac34-4c1d-8131-181013c6f68c" class="">
+</p><p id="8d448626-78c2-4c8a-9af4-3ef979a51fc6" class="">★ 현업에가면성능평가하는이유, 과적합과의 싸움</p><p id="d812f9ae-52cd-4c25-8dab-65e51f10c7af" class="">   모델을 만들면 테스트에선 잘 안나올거, 대부분 그래</p><p id="25b62323-7ba9-47da-a72a-0d9891983f6f" class="">
+</p><p id="07ea66ea-c3e1-491b-bfb5-5e799830c1b3" class="">
+</p><p id="f49a4ecd-4ea2-498c-9b0c-e90ebae50828" class="">데이터 적합안될때</p><p id="0bd864ff-4b51-4f00-9b9f-8909988afdf2" class="">1.데이터증감</p><p id="b4d0bc9a-1a33-4f52-bfea-35b6599813a9" class="">2.훈련할때 얘를 멍청하게 훈련시킴 &gt; 훈련데이터를 일부러 잘 못맞추게함</p><p id="7d53260f-48aa-4d14-ab7e-8f57775fb6dd" class="">   훈련데이터에 집착을 못하게함, 얼마만큼 얘를 띨빵하게 만들어야하나가 문제</p><p id="4d831475-0ce6-4a18-baf6-e2803b5d211d" class="">
+</p><p id="b925edca-6658-459e-8321-17341a2a2ade" class="">fhqhvmffh</p><p id="1397dff1-10bf-462e-815e-ed410c74b33e" class="">
+</p><p id="aeb7c1d9-3bda-4255-a10c-aa6c589e2871" class="">
+</p><p id="b439be7e-1d3a-49f1-a189-efd16cdc764c" class="">훈련데이터 / 테스트데이터</p><p id="6e2b8859-f9be-4f49-baef-fb931ac627d4" class="">    3/4          /        1/4</p><p id="f88e9e61-a129-40e7-ba82-0c1c3b92fd2d" class="">
+</p><p id="65ee958d-df67-4a2c-8c56-13ceb9752ab3" class="">si</p><p id="a6d9dc37-7d2f-4015-adad-84a640463cbf" class="">
+</p><p id="14c636a0-77c1-4e83-a564-6d9438bc1eaf" class="">
+</p><p id="62e47bbf-4e9f-4408-a6b6-e5e201f87363" class="">
+</p><p id="daa2c0e4-2c2b-40f5-9d3f-637ee6b8142d" class="">- Similarity-Based Learning&lt;유사도 </p><p id="e59f7618-6283-4c29-b50c-1220cb0aafb8" class="">    기하학적거리로 유사도측정</p><p id="880ed63a-8bb1-4740-a794-4ddd4a4b6eb6" class=""> </p><p id="7516ff77-ceda-4755-8ee2-07a32b76b8b2" class="">
+</p><p id="d269ffe9-07fb-439c-a5be-62178761c341" class="">- Information-Based Learning&lt;정보이용</p><p id="2c8ec7aa-d195-42f7-824a-d56b2e7e1627" class="">   </p><p id="7f423a21-5f84-45d2-8fdb-de5f9e01d93f" class=""> </p><p id="fa679a37-beba-4dc2-ab66-6e117dfe4493" class="">
+</p><p id="11b17879-b8ce-409a-819b-a1dcdf30935f" class="">- Probability-Based Learning&lt;확률이용</p><p id="5f3a9f58-5b97-4ca9-b1c6-1941cabd30a0" class="">   </p><p id="c008a477-9da5-4ed7-a258-c2e9c7896ac6" class="">  </p><p id="774ee294-fd06-4135-a792-3499c4c8b9f7" class=""> </p><p id="52513b1c-1413-42e2-a916-b4ee4fe07ebc" class="">- Error-Based Learning&lt;오차이용</p><p id="f9a4b0c8-ad91-47b4-b00a-1ea93b0616d0" class="">   원본데이터랑 내 데이터간의 오차를 구할 수 있어야한다</p><p id="89c8b852-bc93-4a44-a36f-5755456f3c8c" class="">
+</p><p id="16d25f97-b44d-413c-b572-f8b72c0bbff7" class="">
+</p><p id="4e8eb699-7b22-4310-9ea9-abecb561b741" class="">
+</p><p id="260bb10c-c048-4e93-ac62-f8221adc8cdc" class="">초평면  - Hyperplane 상상할 수 없는 차원이 이어진 평면</p><p id="7c7ff5a5-8106-4e06-b9b9-cec3c359677a" class="">    </p><p id="4f03f1a1-a49d-447e-b061-9cb1ee515d5c" class="">
+</p><p id="b297c0a9-3d63-4573-b071-c3ec3dc19edb" class="">다항(항의 제곱항) ≠ 다차원(변수)</p><p id="4b54b955-c1b2-4de3-9880-bedf7a6683ab" class="">
+</p><p id="0900ed70-56d2-4e76-bdf9-e61d05741456" class="">
+</p><p id="6e952363-afbd-420e-9e70-050635752218" class="">
+</p><p id="48ea0316-52f8-40a9-b2cc-329730973275" class="">2023.08.24</p><p id="db693f4f-774f-4f64-bf81-3cd854209e87" class="">앤드류 응</p><p id="e2d1b988-c442-4045-847f-c18ae152342c" class=""><a href="https://www.coursera.org/instructor/andrewng">https://www.coursera.org/instructor/andrewng</a></p><p id="79974db2-2e1b-4306-aa86-c4737d41ccd5" class="">서비스 모델을 만들 때 필요한 것</p><ul id="63a2a4aa-2c1c-4a4b-b85a-fec5538b89de" class="bulleted-list"><li style="list-style-type:disc">입력 데이터의 형식 : 입력 내용을 입력합니까?</li></ul><ul id="d76c493f-931f-44c0-ba0c-28cc0fac0b6e" class="bulleted-list"><li style="list-style-type:disc">출력 데이터의 형식: 출력으로 추가적인 내용인가?</li></ul><ul id="62aba9fc-d3c4-4296-9b41-a26d59675e82" class="bulleted-list"><li style="list-style-type:disc">포스트 기능</li></ul><p id="a824f024-4f4a-40ff-9fa2-a2ed88e4c90d" class="">CRISP-DM의 단계에서 고려해볼 것입니다.</p><ol type="1" id="ce18ef63-f23d-41b3-b1ac-4cf820711558" class="numbered-list" start="1"><li>비즈니스 이해</li></ol><ul id="fc46b30e-0d61-47c5-8e2a-3ae365a03d04" class="bulleted-list"><li style="list-style-type:disc">문제 범위 지정: 독특하게 구분되는 것인가?</li></ul><h2 id="c4e64af3-644d-46c0-8b09-cfb2e3c265c0" class="">3-2 전투</h2><h3 id="93806f8a-4aed-4bc6-a875-acb430e7874d" class="">k-최근접 이웃의 시청자</h3><pre id="c0ac5917-36d6-448c-9817-5a330d3211d6" class="code code-wrap"><code>import numpy as np
+
+perch_length = np.array(
+    [8.4, 13.7, 15.0, 16.2, 17.4, 18.0, 18.7, 19.0, 19.6, 20.0,
+     21.0, 21.0, 21.0, 21.3, 22.0, 22.0, 22.0, 22.0, 22.0, 22.5,
+     22.5, 22.7, 23.0, 23.5, 24.0, 24.0, 24.6, 25.0, 25.6, 26.5,
+     27.3, 27.5, 27.5, 27.5, 28.0, 28.7, 30.0, 32.8, 34.5, 35.0,
+     36.5, 36.0, 37.0, 37.0, 39.0, 39.0, 39.0, 40.0, 40.0, 40.0,
+     40.0, 42.0, 43.0, 43.0, 43.5, 44.0]
+     )
+perch_weight = np.array(
+    [5.9, 32.0, 40.0, 51.5, 70.0, 100.0, 78.0, 80.0, 85.0, 85.0,
+     110.0, 115.0, 125.0, 130.0, 120.0, 120.0, 130.0, 135.0, 110.0,
+     130.0, 150.0, 145.0, 150.0, 170.0, 225.0, 145.0, 188.0, 180.0,
+     197.0, 218.0, 300.0, 260.0, 265.0, 250.0, 250.0, 300.0, 320.0,
+     514.0, 556.0, 840.0, 685.0, 700.0, 700.0, 690.0, 900.0, 650.0,
+     820.0, 850.0, 900.0, 1015.0, 820.0, 1100.0, 1000.0, 1100.0,
+     1000.0, 1000.0]
+     )</code></pre><pre id="e9e30cc4-ef62-40da-8817-94d019fcdaca" class="code code-wrap"><code>from sklearn.model_selection import train_test_split
+
+# 훈련 세트와 테스트 세트로 나눕니다
+train_input, test_input, train_target, test_target = train_test_split(
+    perch_length, perch_weight, random_state=42)
+# 훈련 세트와 테스트 세트를 2차원 배열로 바꿉니다
+train_input = train_input.reshape(-1, 1)
+test_input = test_input.reshape(-1, 1)</code></pre><pre id="e1d42e9c-30d0-40d8-8b20-1d24c6d7d253" class="code code-wrap"><code>from sklearn.neighbors import KNeighborsRegressor
+
+knr = KNeighborsRegressor(n_neighbors=3)
+# k-최근접 이웃 회귀 모델을 훈련합니다
+knr.fit(train_input, train_target)</code></pre><pre id="e1219b4e-630d-4a29-8915-45270f36b5ef" class="code code-wrap"><code>print(knr.predict([[50]]))
+-&gt; [1033.33333333]</code></pre><pre id="72e193e2-a333-4029-8bef-411645edb59f" class="code code-wrap"><code>import matplotlib.pyplot as plt
+
+# 50cm 농어의 이웃을 구합니다
+distances, indexes = knr.kneighbors([[50]])
+
+# 훈련 세트의 산점도를 그립니다
+plt.scatter(train_input, train_target)
+# 훈련 세트 중에서 이웃 샘플만 다시 그립니다
+plt.scatter(train_input[indexes], train_target[indexes], marker=&#x27;D&#x27;)
+# 50cm 농어 데이터
+plt.scatter(50, 1033, marker=&#x27;^&#x27;)
+plt.xlabel(&#x27;length&#x27;)
+plt.ylabel(&#x27;weight&#x27;)
+plt.show()</code></pre><p id="377ea386-ba9a-4594-a0ed-a9c9fae2ab59" class="">거리회귀는 바깥쪽</p><ul id="cb89c20c-9a7a-471d-97b4-71a99cffbdae" class="bulleted-list"><li style="list-style-type:disc">2차원 평면에서 아름답게 몇 개나 그릴 수 있습니까? &gt; 무한대를 그릴 수 있습니다.</li></ul><ul id="7f4a5254-0152-47d2-8b44-0eb4b2f91b70" class="bulleted-list"><li style="list-style-type:disc">그런 회귀는 원본 데이터와 가장 작은 오차가 작은 부분을 차지하는 것의 위치<figure id="5bdbfe30-b60e-4207-8716-d833de3952c9" class="image" style="text-align:left"><a href="https://camo.githubusercontent.com/bb6ca3fe385b26ca95d25a8dfe6d25787f52facbd91720d195aa7cd52470b81c/68747470733a2f2f692e696d6775722e636f6d2f325337623750372e706e67"><img style="width:720px" src="https://camo.githubusercontent.com/bb6ca3fe385b26ca95d25a8dfe6d25787f52facbd91720d195aa7cd52470b81c/68747470733a2f2f692e696d6775722e636f6d2f325337623750372e706e67"/></a></figure><p id="249e5d9e-cc74-49bd-b79e-90709d870278" class="">에 있는 선은 검정색 선보다 원본 데이터를 더 잘 설명한다고 설명합니다.</p></li></ul><pre id="d40fac7e-8162-4a31-ac93-9dbfcf5401ba" class="code code-wrap"><code># 50센치 물고기의 가장 가까운 3 물고기의 평균 무게
+print(np.mean(train_target[indexes]))
+# -&gt; 1033.3333333333333
+
+print(knr.predict([[100]]))
+# -&gt; [1033.33333333]
+# -&gt; 문제가 있다. 그렇다면?</code></pre><pre id="be3eadd1-85f8-4a00-b17c-12341fb47c6d" class="code code-wrap"><code># 100cm 농어의 이웃을 구합니다
+distances, indexes = knr.kneighbors([[100]])
+
+# 훈련 세트의 산점도를 그립니다
+plt.scatter(train_input, train_target)
+# 훈련 세트 중에서 이웃 샘플만 다시 그립니다
+plt.scatter(train_input[indexes], train_target[indexes], marker=&#x27;D&#x27;)
+# 100cm 농어 데이터
+plt.scatter(100, 1033, marker=&#x27;^&#x27;)
+plt.xlabel(&#x27;length&#x27;)
+plt.ylabel(&#x27;weight&#x27;)
+plt.show()</code></pre><figure id="f36aac6d-ea12-45cf-930b-e6a40358752c" class="image" style="text-align:left"><a href="https://camo.githubusercontent.com/8b55a1e6846335c8fd8e2c34668f1302b6889a066f0ce924802a70495bef744a/68747470733a2f2f692e696d6775722e636f6d2f5242314c31656c2e706e67"><img style="width:624px" src="https://camo.githubusercontent.com/8b55a1e6846335c8fd8e2c34668f1302b6889a066f0ce924802a70495bef744a/68747470733a2f2f692e696d6775722e636f6d2f5242314c31656c2e706e67"/></a></figure><h3 id="c3abd4a9-338e-41d9-993a-493067fdb6d8" class="">상인</h3><pre id="0dadcac2-86af-439e-bd63-16d090d49389" class="code code-wrap"><code>from sklearn.linear_model import LinearRegression
+
+lr = LinearRegression()
+# 선형 회귀 모델 훈련
+lr.fit(train_input, train_target)
+
+# 50cm 농어에 대한 예측
+print(lr.predict([[50]]))
+# -&gt; [1241.83860323]</code></pre><pre id="3c4a1094-f697-419f-9498-b34b56b0a97a" class="code code-wrap"><code># 기울기와 절편
+# 만약, 0cm짜리 물고기가 있다면, 그 물고기의 무게는 -709.01그램이다.
+print(lr.coef_, lr.intercept_)
+# -&gt; [39.01714496] -709.0186449535477
+</code></pre><pre id="0de0324a-4d89-4713-a274-b3c02ef7b662" class="code code-wrap"><code># 훈련 세트의 산점도를 그립니다
+plt.scatter(train_input, train_target)
+# 15에서 50까지 1차 방정식 그래프를 그립니다
+plt.plot([15, 50], [15*lr.coef_+lr.intercept_, 50*lr.coef_+lr.intercept_])
+# 50cm 농어 데이터
+plt.scatter(50, 1241.8, marker=&#x27;^&#x27;)
+plt.xlabel(&#x27;length&#x27;)
+plt.ylabel(&#x27;weight&#x27;)
+plt.show()</code></pre><figure id="f207e494-6bb4-424c-aecb-61b3726755f7" class="image" style="text-align:left"><a href="https://camo.githubusercontent.com/dbb73880b0ec5bc874c82f2304e75e00d6dee10225c6246a41a14ca2a3f006dc/68747470733a2f2f692e696d6775722e636f6d2f717049596f54632e706e67"><img style="width:672px" src="https://camo.githubusercontent.com/dbb73880b0ec5bc874c82f2304e75e00d6dee10225c6246a41a14ca2a3f006dc/68747470733a2f2f692e696d6775722e636f6d2f717049596f54632e706e67"/></a></figure><pre id="30fe3e64-dce6-4c7f-a0a3-6b11e4a9261a" class="code code-wrap"><code>print(lr.score(train_input, train_target))
+print(lr.score(test_input, test_target))
+
+# 과적합 되어있다. 곡선이라면 어떨까?
+# 0.939846333997604
+# 0.8247503123313558</code></pre><h3 id="bcda51a3-74e1-4a21-9957-5921cfc3c584" class="">다항</h3><pre id="aa040dc5-9050-48e2-b840-b5b7d562b199" class="code code-wrap"><code># 곡선으로 측정
+# 입력값에 임의로 제곱항을 만들어 2차함수를 만든다
+train_poly = np.column_stack((train_input ** 2, train_input))
+test_poly = np.column_stack((test_input ** 2, test_input))</code></pre><pre id="a2575a53-6a9b-4d17-a5fc-d8dbf582eb1a" class="code code-wrap"><code># 2차원 데이터
+print(train_poly.shape, test_poly.shape)
+# -&gt; (42, 2) (14, 2)</code></pre><pre id="9b6ae94b-d9ac-4bc1-b6e7-a33ced2e4ccd" class="code code-wrap"><code>lr = LinearRegression()
+lr.fit(train_poly, train_target)
+
+# 입력 또한 제곱을 넣어준다.
+print(lr.predict([[50**2, 50]]))
+# -&gt; [1573.98423528]
+
+print(lr.coef_, lr.intercept_)
+# -&gt; [1.01433211 -21.55792498] 116.0502107827827
+
+
+print(lr.score(train_poly, train_target))
+print(lr.score(test_poly, test_target))
+# 0.9706807451768623
+# 0.9775935108325122</code></pre><figure id="860878dd-9d77-4c8a-8fe2-ff4d647b2ea5" class="image" style="text-align:left"><a href="https://camo.githubusercontent.com/3563a6d893cfab3c874b102bef8c662dc4f7a568a8505760e923c240db5cc822/68747470733a2f2f692e696d6775722e636f6d2f55646d614548592e706e67"><img style="width:720px" src="https://camo.githubusercontent.com/3563a6d893cfab3c874b102bef8c662dc4f7a568a8505760e923c240db5cc822/68747470733a2f2f692e696d6775722e636f6d2f55646d614548592e706e67"/></a></figure><p id="6e7b8cec-db74-4ab6-9de6-d49b05b4fc3b" class="">다항회귀가 경주회귀보다 훨씬 더 데도 왜 사용하지 않습니까?</p><ol type="1" id="b2f148ec-e647-40b2-9bd8-f9b05f674dcf" class="numbered-list" start="1"><li>과적합을 옹호하는 사람</li></ol><ol type="1" id="0b24f2c2-59c6-4fd0-b091-e5b7fb61ed36" class="numbered-list" start="2"><li>원본 데이터의 각도를 왼쪽으로 둘 수 없습니다. = 방해가 없는 면 우리는 등록하지 않기 때문에(실제 데이터를 좋아할 수 없다)</li></ol><h2 id="6b6de9c7-0881-4375-a78e-a437f19f33be" class="">3-3 중심과 중심</h2><h3 id="93bfb780-2001-449c-b5b1-fc5c421ac73a" class="">데이터 준비</h3><pre id="71f9b1d1-8763-4fef-950d-f76e8ca93fd8" class="code code-wrap"><code>import pandas as pd
+
+df = pd.read_csv(&#x27;https://bit.ly/perch_csv_data&#x27;)
+
+# 데이터프레임을 넘파이 행렬로 바꾼다.
+perch_full = df.to_numpy()
+
+print(perch_full)
+# 물고기의 길이, 높이, 두께
+[[ 8.4   2.11  1.41]
+ [13.7   3.53  2.  ]
+ [15.    3.82  2.43]
+ [16.2   4.59  2.63]
+ [17.4   4.59  2.94]
+ [18.    5.22  3.32]
+ [18.7   5.2   3.12]
+ [19.    5.64  3.05]
+ [19.6   5.14  3.04]
+ [20.    5.08  2.77]
+ [21.    5.69  3.56]
+ [21.    5.92  3.31]
+ [21.    5.69  3.67]
+ [21.3   6.38  3.53]
+ [22.    6.11  3.41]
+ [22.    5.64  3.52]
+ [22.    6.11  3.52]
+ [22.    5.88  3.52]
+ [22.    5.52  4.  ]
+ [22.5   5.86  3.62]
+ [22.5   6.79  3.62]
+ [22.7   5.95  3.63]
+ [23.    5.22  3.63]
+ [23.5   6.28  3.72]
+ [24.    7.29  3.72]
+ [24.    6.38  3.82]
+ [24.6   6.73  4.17]
+ [25.    6.44  3.68]
+ [25.6   6.56  4.24]
+ [26.5   7.17  4.14]
+ [27.3   8.32  5.14]
+ [27.5   7.17  4.34]
+ [27.5   7.05  4.34]
+ [27.5   7.28  4.57]
+ [28.    7.82  4.2 ]
+ [28.7   7.59  4.64]
+ [30.    7.62  4.77]
+ [32.8  10.03  6.02]
+ [34.5  10.26  6.39]
+ [35.   11.49  7.8 ]
+ [36.5  10.88  6.86]
+ [36.   10.61  6.74]
+ [37.   10.84  6.26]
+ [37.   10.57  6.37]
+ [39.   11.14  7.49]
+ [39.   11.14  6.  ]
+ [39.   12.43  7.35]
+ [40.   11.93  7.11]
+ [40.   11.73  7.22]
+ [40.   12.38  7.46]
+ [40.   11.14  6.63]
+ [42.   12.8   6.87]
+ [43.   11.93  7.28]
+ [43.   12.51  7.42]
+ [43.5  12.6   8.14]
+ [44.   12.49  7.6 ]]</code></pre><pre id="b2eaefae-a541-4a82-9d70-dbab21a53086" class="code code-wrap"><code>import numpy as np
+
+perch_weight = np.array(
+    [5.9, 32.0, 40.0, 51.5, 70.0, 100.0, 78.0, 80.0, 85.0, 85.0,
+     110.0, 115.0, 125.0, 130.0, 120.0, 120.0, 130.0, 135.0, 110.0,
+     130.0, 150.0, 145.0, 150.0, 170.0, 225.0, 145.0, 188.0, 180.0,
+     197.0, 218.0, 300.0, 260.0, 265.0, 250.0, 250.0, 300.0, 320.0,
+     514.0, 556.0, 840.0, 685.0, 700.0, 700.0, 690.0, 900.0, 650.0,
+     820.0, 850.0, 900.0, 1015.0, 820.0, 1100.0, 1000.0, 1100.0,
+     1000.0, 1000.0]
+     )</code></pre><pre id="02c67cb1-d44e-4540-b663-191f490e7e3e" class="code code-wrap"><code>from sklearn.model_selection import train_test_split
+
+# train_test_split default 값 75 : 25
+train_input, test_input, train_target, test_target = train_test_split(perch_full, perch_weight, random_state=42)</code></pre><h3 id="7f646938-2a45-4d10-a4f4-411b9a6ad818" class="">사이킷런의 변환기</h3><pre id="71490d19-f2c9-4015-9cdb-903d845a4a2a" class="code code-wrap"><code>from sklearn.preprocessing import PolynomialFeatures
+
+poly = PolynomialFeatures()
+poly.fit([[2, 3]])
+print(poly.transform([[2, 3]]))
+# PolynomialFeatures = 임의의 값을 주면 자동으로 다항식을 만들어 준다.
+# 1, 2^1, 3^1, 2^2, 2*3, 3^2
+# -&gt; [[1. 2. 3. 4. 6. 9.]]
+
+poly = PolynomialFeatures(include_bias=False)
+poly.fit([[2, 3]])
+print(poly.transform([[2, 3]]))
+
+# -&gt; [[2. 3. 4. 6. 9.]]
+
+poly = PolynomialFeatures(include_bias=False)
+
+poly.fit(train_input)
+train_poly = poly.transform(train_input)
+
+print(train_poly.shape)
+
+# -&gt; (42, 9)
+
+poly.get_feature_names_out()
+
+test_poly = poly.transform(test_input)</code></pre><h3 id="47ea4910-2fba-4368-806d-f153c41e747e" class="">여러 가지 모델 훈련하기</h3><pre id="2d0ce764-4090-457d-af11-9618d3e081e1" class="code code-wrap"><code>from sklearn.linear_model import LinearRegression
+
+
+
+lr = LinearRegression()
+
+lr.fit(train_poly, train_target)
+
+print(lr.score(train_poly, train_target))
+# -&gt; 0.9903183436982125</code></pre><pre id="99ac74c9-551a-4763-b533-8b13a60b66de" class="code code-wrap"><code>print(lr.score(test_poly, test_target))
+# -&gt; 0.9714559911594111</code></pre><pre id="c16b9bc1-3d7e-4499-9b77-97b2b447807c" class="code code-wrap"><code>poly = PolynomialFeatures(degree=5, include_bias=False)
+
+
+
+poly.fit(train_input)
+
+train_poly = poly.transform(train_input)
+
+test_poly = poly.transform(test_input)</code></pre><pre id="796737d7-b05c-48ae-807b-258ec9012016" class="code code-wrap"><code>print(train_poly.shape)
+# -&gt; (42, 55)</code></pre><pre id="924b9da7-8f86-43b9-bf92-291f82dbc800" class="code code-wrap"><code>lr.fit(train_poly, train_target)
+
+# 트레이닝 데이터는 거의 1에 가까운 값이 됐지만
+print(lr.score(train_poly, train_target))
+# -&gt; 0.9999999999996433
+
+# 테스트 데이터는 엉망이 됐다
+# 과적합(overfitting)
+# -&gt; 그냥 직선을 써라!
+print(lr.score(test_poly, test_target))
+# -&gt; -144.40579436844948</code></pre><h3 id="64c4af07-1300-4302-881a-91963498aa62" class="">대신(정규화)</h3><ul id="0fdf6c38-2e78-41d9-bbee-b1b4ef984d0b" class="bulleted-list"><li style="list-style-type:disc">릿지(Ridge)</li></ul><ul id="8e7085e7-eb69-4ec0-9498-abc11546ca10" class="bulleted-list"><li style="list-style-type:disc">라쏘(Lasso)</li></ul><ul id="50e5d92e-203e-4eb3-991e-c0db3b19d092" class="bulleted-list"><li style="list-style-type:disc">다음 다과적합을 막는 방법이다</li></ul><p id="8ae2047d-142e-4b21-a304-3e1e123a5ca9" class="">당신이 불가능하다</p><ul id="5fb5afac-ea2f-4aee-a209-b173c09e419a" class="bulleted-list"><li style="list-style-type:disc">x값이 0일때 미분할 수 없다</li></ul><ul id="1810f727-ffc7-4377-ab29-453aea7c8d6c" class="bulleted-list"><li style="list-style-type:disc">모두 밖에는(특이점이 있는) 함수는 미분할 수 없다</li></ul><figure id="06bc6159-01b0-4566-aea8-590427ad3be7" class="image" style="text-align:left"><a href="https://camo.githubusercontent.com/4b1478842c1d991c6a3a8e8e8f8652786c66bb5d2036e2e70125a326acce2b12/68747470733a2f2f692e696d6775722e636f6d2f48316b554f76622e706e67"><img style="width:720px" src="https://camo.githubusercontent.com/4b1478842c1d991c6a3a8e8e8f8652786c66bb5d2036e2e70125a326acce2b12/68747470733a2f2f692e696d6775722e636f6d2f48316b554f76622e706e67"/></a></figure><p id="2c2ad3fe-d80a-4f84-a845-b9fe23d0bb84" class=""><a href="https://m.blog.naver.com/alwaysneoi/100135882596">https://m.blog.naver.com/alwaysneoi/100135882596</a></p><ul id="86a7a69a-9b1d-4858-829c-21da058c7001" class="bulleted-list"><li style="list-style-type:disc">실제값(y)과 예측값(<p id="d751e0fe-1e87-4cf0-8567-3afd91b8b5c7" class="">�^</p><p id="52787dc5-e129-4487-8627-381a891e2ac0" class="">)의 차이 = 오차</p></li></ul><ul id="46ec4145-793e-46ae-90f2-dd07f1ec15e1" class="bulleted-list"><li style="list-style-type:disc">패킷을 녹음할 때 부호의 문제를 해결하려면? 절대로 값을 치르세요.</li></ul><ul id="37e256b2-31ac-4785-a468-d6e33091300d" class="bulleted-list"><li style="list-style-type:disc">그러나 절대 값을 사용하지 않는 이유는 위의 이유와 같습니다.</li></ul><h3 id="803afc1a-3cee-44ec-a54a-850396280d9e" class="">커터회귀의 비용 함수</h3><h3 id="e78cacc8-0abf-4b9e-81dd-edc5c029d524" class="">평균 제곱근 오차, 평균 제곱근 오차, RMSE</h3><p id="88f4be70-99e5-42fd-be1c-f3e7d2009b07" class="">1�∑�=1�((��−��^)2)</p><ol type="1" id="1c288f4c-d12d-402f-9ef4-68bf85e5f963" class="numbered-list" start="1"><li>�<p id="a556b8fa-e011-4ca0-9c84-75fde2884546" class="">: 데이터 포인트의 구성을 설명합니다.</p></li></ol><ol type="1" id="e59cc607-1be8-41c1-ab99-bf8d4e8b53d8" class="numbered-list" start="2"><li>��<p id="bb261fbb-a8bb-41eb-8101-af6ecfef2658" class="">: 실제로 존재하는 값(데이터 포인트), 여기에서</p><p id="849d0a00-347c-41da-8ff8-aaf70b0d96cf" class="">�</p><p id="88aa8e5a-31ee-4f2f-916c-51bca9e4c9fd" class="">데이터 포인트의 선택 여부는 다음과 같습니다.</p></li></ol><ol type="1" id="ed899763-e2ea-44ea-8f5f-7a876519f8e8" class="numbered-list" start="3"><li>��^<p id="b33374ab-6401-47e4-9dfa-56b7abcb47dd" class="">: 모델이 예측된 값, 실제로 존재하는 값과 예측된 값 간의 차이를 예측합니다.</p></li></ol><ol type="1" id="4c624629-89de-498f-ad22-4460de912d4f" class="numbered-list" start="4"><li>(��−��^)2<p id="cb969906-9c29-4226-b26f-6c752d428fe0" class="">: 각 데이터 포인트에 대한 오차의 계산. 이는 실제 값과 예측 값의 차이를 제곱한 값이다.</p></li></ol><ol type="1" id="1a6651ec-eb67-49e8-bf24-d0308b38e217" class="numbered-list" start="5"><li>∑�=1�<p id="368313ad-f7a7-456e-a0a9-654d9c49e6e9" class="">: 모든 데이터 포인트에 대해 오차 제곱을 합산하는 부분이다.</p><p id="6be3d4cf-9179-420d-b024-64c790fd8bde" class="">�</p><p id="72df11fd-c155-445c-8270-603784067597" class="">는 1부터</p><p id="1030827c-2c8c-4510-a65b-a4c7d62155ee" class="">�</p><p id="ffbb0ecf-f40c-472f-ad9d-bc842c7cf5ba" class="">의향이 있다.</p></li></ol><ol type="1" id="2488a21e-ab09-4c40-8e10-909e95fd76ce" class="numbered-list" start="6"><li>1�<p id="178322a9-e05d-4a55-84f8-8fde7e97cb14" class="">: 데이터 포인트의 관측으로 인해 크기가 제곱의 평균을 계산합니다.</p></li></ol><ol type="1" id="592e33f7-9d48-4d49-a7d0-48885c67b262" class="numbered-list" start="7"><li>...<p id="84d2f335-dde2-4a5a-b445-1eb26cb5cc21" class="">: 중력을 가한 오차 크기 제곱을 제곱근으로 RMSE를 제거합니다. 이것은 오차의 제곱 평균의 제곱근으로, 실제 값과 예측 값 사이의 평균 오차 크기에 관한 것입니다.</p></li></ol><h3 id="66dfa1b7-9e29-4c8c-a32d-342959a03336" class="">평균 제곱 오차, 평균 제곱 오차, MSE</h3><ul id="edfff125-6ce5-4611-9fc8-465b8485f52c" class="bulleted-list"><li style="list-style-type:disc">미래회귀 모델의 예측 성능 평가 지표</li></ul><ul id="3f88e081-c384-46ab-9895-922ca2cff6ea" class="bulleted-list"><li style="list-style-type:disc">RMSE에 제곱근을 취하지 않은 것</li></ul><p id="f9547c09-38c4-4281-a2fe-3d4540e454ed" class="">1�∑�=1�((��−��^)2)</p><ol type="1" id="c0bf9131-cd83-49ab-9a6c-7aa3fc8832ae" class="numbered-list" start="1"><li>릿지(Ridge)</li></ol><ul id="bd97ef39-b550-4503-aeef-bc10a5044d9f" class="bulleted-list"><li style="list-style-type:disc">목적: 함수<p id="6abb5fb6-75ff-4ce5-8831-304ab264f7e8" class="">MSE+�∑�=1���2</p></li></ul><p id="5d993beb-cbc3-45a1-85a5-91b3d4ca82c0" class="">여기요MSE는 평균 제곱 오차(Mean Squared Error)를 기준으로,��은 모델의 파트너(체중)입니다.�는 정통화 소수를 조정하는 부분적인 소규모로, 릿지 부분에서는 이 값이 커질수록 참여하는 크기를 줄이는 역할을 합니다.</p><ol type="1" id="dee64e4c-43c4-45b9-a32f-6b5d34a7f28e" class="numbered-list" start="1"><li>라소 (Lasso):</li></ol><ul id="1719e2f7-c03b-4fb7-8c24-c169a6a7edf1" class="bulleted-list"><li style="list-style-type:disc">목적: 함수<p id="d7d10147-f11e-436c-a0f2-5ee3de7cf7b7" class="">MSE+�∑�=1�|��|</p></li></ul><p id="d570921c-ddf3-443c-81cd-92f9406763e4" class="">마찬가지로MSE는 평균 범위이고,��는 연인다. 라쏘에서는 합창의 가치를 높이 평가하며,�특정 교육을 위한 소수를 조정합니다. 라쏘는 0으로 만들 수 있어 선택의 일부를 선택하고, 선택에 유용합니다.</p><pre id="b9a259de-c461-4ee3-aaae-c38e82007baf" class="code code-wrap"><code>from sklearn.preprocessing import StandardScaler
+
+ss = StandardScaler()
+ss.fit(train_poly)
+
+train_scaled = ss.transform(train_poly)
+test_scaled = ss.transform(test_poly)</code></pre><h3 id="ab31c451-fe2f-431e-85e0-4108f5210e06" class="">릿지(Ridge)</h3><pre id="f952e99b-34d3-4a34-83d9-3966f5887a5a" class="code code-wrap"><code>from sklearn.linear_model import Ridge
+
+ridge = Ridge()
+ridge.fit(train_scaled, train_target)
+print(ridge.score(train_scaled, train_target))
+# -&gt; 0.9896101671037343
+
+print(ridge.score(test_scaled, test_target))
+# -&gt; 0.9790693977615387</code></pre><pre id="ee8e4865-9e26-43cd-9632-3a49c3663a6e" class="code code-wrap"><code>import matplotlib.pyplot as plt
+
+train_score = []
+test_score = []</code></pre><pre id="841dd3a1-9121-49a1-b4eb-38d507165a30" class="code code-wrap"><code>alpha_list = [0.001, 0.01, 0.1, 1, 10, 100]
+for alpha in alpha_list:
+    # 릿지 모델을 만듭니다
+    ridge = Ridge(alpha=alpha)
+    # 릿지 모델을 훈련합니다
+    ridge.fit(train_scaled, train_target)
+    # 훈련 점수와 테스트 점수를 저장합니다
+    train_score.append(ridge.score(train_scaled, train_target))
+    test_score.append(ridge.score(test_scaled, test_target))</code></pre><pre id="dfc4bf9e-8ec4-4786-9bb7-b9153015efb6" class="code code-wrap"><code>plt.plot(np.log10(alpha_list), train_score)
+plt.plot(np.log10(alpha_list), test_score)
+plt.xlabel(&#x27;alpha&#x27;)
+plt.ylabel(&#x27;R^2&#x27;)
+plt.show()</code></pre><figure id="9a32b06c-768d-4338-b828-2b326f272650" class="image" style="text-align:left"><a href="https://camo.githubusercontent.com/09eb53765164101a5bb84f29f8ee4513c7708c448242f003b657b6391a733567/68747470733a2f2f692e696d6775722e636f6d2f683631764761392e706e67"><img style="width:768px" src="https://camo.githubusercontent.com/09eb53765164101a5bb84f29f8ee4513c7708c448242f003b657b6391a733567/68747470733a2f2f692e696d6775722e636f6d2f683631764761392e706e67"/></a></figure><pre id="966a4e98-982f-4523-9bb9-d9ab77bc44d6" class="code code-wrap"><code>ridge = Ridge(alpha=0.1)
+ridge.fit(train_scaled, train_target)
+
+print(ridge.score(train_scaled, train_target))
+print(ridge.score(test_scaled, test_target))
+# 0.9903815817570367
+# 0.9827976465386928</code></pre><h3 id="86fa7940-330d-45a1-bd11-7d10162db5c5" class="">라쏘(Lasso)</h3><pre id="836f3a93-a386-461a-8f5a-e08e0819504b" class="code code-wrap"><code>from sklearn.linear_model import Lasso
+
+lasso = Lasso()
+lasso.fit(train_scaled, train_target)
+print(lasso.score(train_scaled, train_target))
+# -&gt; 0.989789897208096
+
+print(lasso.score(test_scaled, test_target))
+# -&gt; 0.9800593698421883</code></pre><pre id="fb01036f-0593-4889-8cf0-1d57d03ac42a" class="code code-wrap"><code>train_score = []
+test_score = []
+
+alpha_list = [0.001, 0.01, 0.1, 1, 10, 100]
+for alpha in alpha_list:
+    # 라쏘 모델을 만듭니다
+    lasso = Lasso(alpha=alpha, max_iter=10000)
+    # 라쏘 모델을 훈련합니다
+    lasso.fit(train_scaled, train_target)
+    # 훈련 점수와 테스트 점수를 저장합니다
+    train_score.append(lasso.score(train_scaled, train_target))
+    test_score.append(lasso.score(test_scaled, test_target))</code></pre><pre id="40fce53c-b263-4814-b1b0-b4cf0e678a88" class="code code-wrap"><code>plt.plot(np.log10(alpha_list), train_score)
+plt.plot(np.log10(alpha_list), test_score)
+plt.xlabel(&#x27;alpha&#x27;)
+plt.ylabel(&#x27;R^2&#x27;)
+plt.show()</code></pre><figure id="3ce791dc-6a3f-451d-89a9-b3ef281ef4e3" class="image" style="text-align:left"><a href="https://camo.githubusercontent.com/7853026c161e9100331beef50138fcbab9abc0ff6bd8643ca37325e783711ac5/68747470733a2f2f692e696d6775722e636f6d2f376b34467953702e706e67"><img style="width:768px" src="https://camo.githubusercontent.com/7853026c161e9100331beef50138fcbab9abc0ff6bd8643ca37325e783711ac5/68747470733a2f2f692e696d6775722e636f6d2f376b34467953702e706e67"/></a></figure><pre id="b00c5e0b-5d64-4e39-9e5d-4086db3448c3" class="code code-wrap"><code>lasso = Lasso(alpha=10)
+lasso.fit(train_scaled, train_target)
+
+print(lasso.score(train_scaled, train_target))
+print(lasso.score(test_scaled, test_target))
+
+# 0.9888067471131867
+# 0.9824470598706695
+
+print(np.sum(lasso.coef_ == 0))
+# 40</code></pre><h2 id="90af0f4e-e545-4b86-897f-db1a056ebc3c" class="">로지스틱 회귀(로지스틱 회귀)</h2><ul id="d46bbd96-d775-47d5-909c-2f2e8b5ef234" class="bulleted-list"><li style="list-style-type:disc">로지스틱은 &#x27;분류&#x27;다.</li></ul><ul id="43850e12-4d5b-4c82-9881-d8619af5a1ae" class="bulleted-list"><li style="list-style-type:disc">비선형적, 분류의 문제(0이냐 1이냐 등의 명목형 조절기)</li></ul><h3 id="71296179-ec17-4ece-8ae5-8137e1bbf8b5" class="">당신은 상대방을 처리합니다(GPT 참고)</h3><p id="89c3777e-b5e3-40eb-82ba-e98967f6e8e7" class=""><strong>자신들이 처리하는 더미 변수 처리(Dummy Variable Handling):</strong></p><p id="8930fc2b-99f4-4827-9d0e-c9e1843a63be" class="">적극적으로 활동하는 활동을 수행하는 방법을 알려드립니다. 활동하는 활동은 명목형이나 활동에 참여할 수 있습니다. 명목형의 경우, 각 범주(category)를 0 또는 1로 표현했습니다. 예를 들어, &quot;성별&quot;이라는 믿음이 있는 경우 &quot;남성&quot;을 1, &quot;여성&quot;을 0으로 인정할 수 있습니다.</p><p id="c82d96fa-7cc8-437a-9c25-817031dca882" class="">활동하는 경우에도 이에 응답할 수 있습니다. 예를 들어, &quot;학력&quot;이라는 범주형이 있는 경우 &quot;고졸&quot;, &quot;대학생&quot;, &quot;석사&quot; 등을 0 또는 1로 신뢰할 수 있습니다.</p><p id="3f20c22c-021a-4900-9dce-e17dd5582e2a" class=""><strong>원핫 인코딩(One-Hot Encoding):</strong></p><p id="c36bff91-5d13-4356-8cd8-040f6caf063d" class="">원핫한 반응은 참가자형의 반응을 이진(0 1) 형태로 하는 방법 중 하나입니다. 각 범주에 대해 하나의 새로운 사실을 확인합니다(dummy 변수)를 생성하고, 해당 범주에 해당하는 것에 1을 포함하고 있는지 확인합니다.</p><p id="1ebfadcd-14c7-44fc-be32-9fd76e19a8c8" class="">예를 들어, &quot;과일&quot;이라는 범주형이 효과가 있는 &quot;사과&quot;, &quot;바나나&quot;, &quot;딸기&quot; 세 가지 범주를 가지고 있다면, 각각의 범주를 활성화하는 이진을 생성하고 해당하는 서버 1을 만들고 나머지 0을 가지고 있습니다. 이렇게 하면 과일이 해당 범주를 분리할 수 있습니다.</p><p id="df1c0ec3-4d12-47b0-b6a8-526025431a59" class="">원핫은 머신러닝 모델이 형 데이터를 이해하고 처리할 수 있도록 하기 위해, 자신과 비슷한 개념이지만 더 다양한 범주를 숨길 수 있습니다.</p><ul id="90d77220-78fc-4579-a553-87dbcea489e6" class="bulleted-list"><li style="list-style-type:disc">&gt; 명목형 구성원들은 일치를 가질 수 있기 때문에 주는 것</li></ul><p id="db17cfc7-9dd3-4d43-b497-f65a36514c3a" class="">
+</p><figure id="78837d43-4a41-43ec-aeea-265bcea95d82" class="image" style="text-align:left"><a href="Untitled%2029.png"><img style="width:768px" src="Untitled%2029.png"/></a></figure><p id="432b6f3e-4dbf-481b-a3ef-412abc2aefd7" class=""><div class="indented"><p id="f73210d0-4bb5-446a-99fe-e7ad04c9e2de" class="">: 실제로 존재하는 가치의 관계. 이 값은 0 또는 1일 수 있으며, 각 데이터 포인트의 실제 클래스 관계입니다.</p></div></p><ul id="f44ffdc0-4a66-448e-9861-ec0a06c00f5f" class="bulleted-list"><li style="list-style-type:disc">�^<p id="58d4ef2e-f344-4529-9dd2-e08501fabcb8" class="">: 모델의 예측이 재미있습니다. 이 값은 로지스틱을 통해 계산된 예측이 재미있고, 0과 1 사이의 값이다.</p></li></ul><ul id="7371ef01-b6d4-4eb5-aef2-2ee17efe52c6" class="bulleted-list"><li style="list-style-type:disc">log�<p id="647721ff-0475-4fc1-9279-01083811a593" class="">: 자연 로그(자연 로그)를 사용합니다. 자연로그는</p><p id="a836970e-6de9-4ae3-a42b-1910567932f6" class="">�</p><p id="530710de-83d8-4825-9e08-e276fdc0e63f" class="">(2.71828...)을 배경으로 하는 로그인을 의미합니다.</p></li></ul><h3 id="ed3b23fb-6cce-4df3-b09b-adc82adc418a" class="">럭키백의 재미</h3><pre id="70ee2a69-ecff-4203-9259-78c47ff5a253" class="code code-wrap"><code>import pandas as pd
+
+fish = pd.read_csv(&#x27;https://bit.ly/fish_csv_data&#x27;)
+fish.head()
+# 종, 무게, 길이, 직경, 높이, 두께</code></pre><table id="8a13a5da-2cd1-458b-a09b-d229c8d2f124" class="simple-table"><tbody><tr id="f8972be2-94d1-4c97-bda8-6f9a872d5f67"><td id="nBLe" class=""></td><td id="u[r{" class="">종</td><td id="iwXW" class="">무게</td><td id="VEPR" class="">길이</td><td id="bJz&lt;" class="">대각선</td><td id="k=;L" class="">키</td><td id="=?yo" class="">너비</td></tr><tr id="49f6e981-3ce2-4369-86bc-88aeb467aea7"><td id="nBLe" class="">0</td><td id="u[r{" class="">브림</td><td id="iwXW" class="">242.0</td><td id="VEPR" class="">25.4</td><td id="bJz&lt;" class="">30.0</td><td id="k=;L" class="">11.5200</td><td id="=?yo" class="">4.0200</td></tr><tr id="48fd84a9-3309-432c-802c-655c7a427b8b"><td id="nBLe" class="">1</td><td id="u[r{" class="">브림</td><td id="iwXW" class="">290.0</td><td id="VEPR" class="">26.3</td><td id="bJz&lt;" class="">31.2</td><td id="k=;L" class="">12.4800</td><td id="=?yo" class="">4.3056</td></tr><tr id="e4794fbd-4283-443d-b841-73d49c7fb7f7"><td id="nBLe" class="">2</td><td id="u[r{" class="">브림</td><td id="iwXW" class="">340.0</td><td id="VEPR" class="">26.5</td><td id="bJz&lt;" class="">31.1</td><td id="k=;L" class="">12.3778</td><td id="=?yo" class="">4.6961</td></tr><tr id="b710f516-7e25-494c-a25a-f7dcdbd18727"><td id="nBLe" class="">삼</td><td id="u[r{" class="">브림</td><td id="iwXW" class="">363.0</td><td id="VEPR" class="">29.0</td><td id="bJz&lt;" class="">33.5</td><td id="k=;L" class="">12.7300</td><td id="=?yo" class="">4.4555</td></tr><tr id="4410e1a0-7fe6-4b09-9300-5050d96eeed7"><td id="nBLe" class="">4</td><td id="u[r{" class="">브림</td><td id="iwXW" class="">430.0</td><td id="VEPR" class="">29.0</td><td id="bJz&lt;" class="">34.0</td><td id="k=;L" class="">12.4440</td><td id="=?yo" class="">5.1340</td></tr></tbody></table><pre id="b1cf6d87-aaa1-4fc8-8dbb-c874fe40c943" class="code code-wrap"><code>print(pd.unique(fish[&#x27;Species&#x27;])
+# 7가지 종류의 물고기
+# [&#x27;Bream&#x27; &#x27;Roach&#x27; &#x27;Whitefish&#x27; &#x27;Parkki&#x27; &#x27;Perch&#x27; &#x27;Pike&#x27; &#x27;Smelt&#x27;]</code></pre><pre id="b53d8856-3cc9-4ea6-a808-fb4ae1ed628b" class="code code-wrap"><code># 전체 중에 Species 값을 빼고 독립변수로 사용한다.
+fish_input = fish[[&#x27;Weight&#x27;,&#x27;Length&#x27;,&#x27;Diagonal&#x27;,&#x27;Height&#x27;,&#x27;Width&#x27;]].to_numpy()
+print(fish_input[:5])
+
+[[242. 25.4 30. 11.52 4.02 ]
+ [290. 26.3 31.2 12.48 4.3056]
+ [340. 26.5 31.1 12.3778 4.6961]
+ [363. 29. 33.5 12.73 4.4555]
+ [1. 29. 34. 12.444 5.134 ]]</code></pre><pre id="c52969ac-1a11-433f-866f-29403cd6e215" class="code code-wrap"><code># 실제론 글자로 되어있지만, 숫자로 만들어 처리한다
+fish_target = fish[&#x27;Species&#x27;].to_numpy()</code></pre><pre id="bfa695f6-f21b-4995-82d4-71ce7693f47b" class="code code-wrap"><code>from sklearn.model_selection import train_test_split
+
+# 정규화를 한다.
+# 모든 변수가 자신의 성질을 유지하되, 변수들 간에 비교를 할수 있게 -1에서 1사이의 값으로 바꾼다.
+train_input, test_input, train_target, test_target = train_test_split(fish_input, fish_target, random_state=42)</code></pre><pre id="6d7e090e-71d6-4603-b22e-ae88031480cd" class="code code-wrap"><code>from sklearn.preprocessing import StandardScaler
+
+ss = StandardScaler()
+ss.fit(train_input)
+train_scaled = ss.transform(train_input)
+trst_scaled = ss.transform(test_input)</code></pre><h3 id="231db972-21df-43f7-80b8-c0ca2d5a19a6" class="">k-최근접 이웃의 가능성 있는 예측</h3><pre id="83164c6a-d573-4721-b6e1-62e2fa6800de" class="code code-wrap"><code>from sklearn.neighbors import KNeighborsClassifier
+
+kn = KNeighborsClassifier(n_neighbors=3)
+kn.fit(train_scaled, train_target)
+
+print(kn.score(train_scaled, train_target))
+print(kn.score(test_scaled, test_target))
+# 0.8907563025210085 0.85</code></pre><pre id="84e14496-9f65-431c-b0f4-ad8eaaae748b" class="code code-wrap"><code>print(kn.classes_)
+# [&#x27;Bream&#x27; &#x27;Parkki&#x27; &#x27;Perch&#x27; &#x27;Pike&#x27; &#x27;Roach&#x27; &#x27;Smelt&#x27; &#x27;Whitefish&#x27;]
+
+print(kn.predict(test_scaled[:5]))
+# [&#x27;Perch&#x27; &#x27;Smelt&#x27; &#x27;Pike&#x27; &#x27;Perch&#x27; &#x27;Perch&#x27;]</code></pre><pre id="8065b99f-b6e9-465b-84f0-f37fa85d8558" class="code code-wrap"><code>import numpy as np
+
+
+proba = kn.predict_proba(test_scaled[:5])
+print(np.round(proba, decimals=4))
+# [&#x27;Bream&#x27; &#x27;Parkki&#x27; &#x27;Perch&#x27; &#x27;Pike&#x27; &#x27;Roach&#x27; &#x27;Smelt&#x27; &#x27;Whitefish&#x27;]
+[[0. 0. 1. 0. 0. 0. 0. ] # Perch 일 확률이 100%다
+ [0. 0. 0. 0. 0. 1. 0. ] # Smelt 일 확률이 100%다
+ [0. 0. 0. 1. 0. 0. 0. ] # Pike 일 확률이 100%다
+ [0. 0. 0.6667 0. 0.3333 0. 0. ]  # Perch일 확률이 66%, Roach일 확률이 33%
+ [0. 0. 0.6667 0. 0.3333 0. 0. ]]</code></pre><pre id="ee4c8b2a-e715-459c-ad0f-f8fdc629acc6" class="code code-wrap"><code># 4번째 데이터의 값을 넣었더니
+distances, indexes = kn.kneighbors(test_scaled[3:4])
+print(train_target[indexes])
+# Roach 33% Perch 66%
+# [[&#x27;Roach&#x27; &#x27;Perch&#x27; &#x27;Perch&#x27;]]</code></pre><h3 id="14d79e45-a509-4e91-bfff-73b9a91e0d74" class="">로지스틱</h3><pre id="14654c56-1dbd-4a97-8ed8-a5b6f6bee8d3" class="code code-wrap"><code>import numpy as np
+import matplotlib.pyplot as plt
+
+z = np.arange(-5, 5, 0.1)
+phi = 1 / (1 + np.exp(-z))
+# phi = 1 / (1 + np.exp(10*-z))
+
+plt.plot(z, phi)
+plt.xlabel(&#x27;z&#x27;)
+plt.ylabel(&#x27;phi&#x27;)
+plt.show()</code></pre><figure id="0635d980-0ba0-4e96-a50b-f9eb79b6b35e" class="image" style="text-align:left"><a href="https://camo.githubusercontent.com/b90bae0195904719d77dd5e3b5a4a6a1d1e916217cfc4e74ac983bb56e79740e/68747470733a2f2f692e696d6775722e636f6d2f55777034776e532e706e67"><img style="width:768px" src="https://camo.githubusercontent.com/b90bae0195904719d77dd5e3b5a4a6a1d1e916217cfc4e74ac983bb56e79740e/68747470733a2f2f692e696d6775722e636f6d2f55777034776e532e706e67"/></a></figure><h3 id="275e4595-7baa-4594-9686-bdbb93220f9a" class="">로지스틱으로 이진을 소중히 여기기</h3><pre id="84069b50-9129-4b65-bb05-a35937110184" class="code code-wrap"><code>char_arr = np.array([&#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;, &#x27;D&#x27;, &#x27;E&#x27;])
+print(char_arr[[True, False, True, False, False]])
+# [&#x27;A&#x27;, &#x27;C&#x27;]
+# True 값만 출력됐다.</code></pre><pre id="7eabd7e8-f53d-4ad0-a48a-ea44c7cd9e4f" class="code code-wrap"><code># 7종류 중 2종류의 물고기만 따로 뽑았다
+bream_smelt_indexes = (train_target == &#x27;Bream&#x27;) | (train_target == &#x27;Smelt&#x27;)
+train_bream_smelt = train_scaled[bream_smelt_indexes]
+target_bream_smelt = train_taget[bream_smelt_indexes]</code></pre><pre id="296af0cb-7f4f-4ad1-8749-1589c8b1a0c8" class="code code-wrap"><code>from sklearn.linear_model import LogisticRegression
+
+lr = LogisticRegression()
+lr.fit(train_bream_smelt, target_bream_smelt)</code></pre><pre id="81ba5b8c-02a7-4d6e-baa0-fd030d0e0f26" class="code code-wrap"><code>print(lr.predict(train_bream_smelt[:5]))
+# [&#x27;Bream&#x27; &#x27;Smelt&#x27; &#x27;Bream&#x27; &#x27;Bream&#x27; &#x27;Bream&#x27;]
+
+# 이진분류는 그것일 확률이 맞냐 아니냐를 뽑는다.
+print(lr.predict_proba(train_bream_smelt[:5]))
+[[0.99759855 0.00240145] # 99.7% 확률로 bream
+ [0.02735183 0.97264817]
+ [0.99486072 0.00513928]
+ [0.98584202 0.01415798]
+ [0.99767269 0.00232731]]
+
+print(lr.classes_)
+# [&#x27;Bream&#x27; &#x27;Smelt&#x27;]
+
+print(lr.coef_, lr.intercept_)
+# [[-0.4037798 -0.57620209 -0.66280298 -1.01290277 -0.73168947]] [-2.16155132]
+
+decisions = lr.decision_function(train_bream_smelt[:5])
+print(decisions)
+# [-6.02927744 3.57123907 -5.26568906 -4.24321775 -6.0607117 ]
+
+from scipy.special import expit
+print(expit(decisions))
+# [0.00240145 0.97264817 0.00513928 0.01415798 0.00232731]</code></pre><h3 id="44597f77-d1e2-47f8-a1dd-fa688191bdfa" class="">로지스틱으로 기쁘게 수행하기</h3><pre id="f6debb76-d954-4647-b751-a44113fc21ee" class="code code-wrap"><code># `C`: 규제 강도를 나타내는 매개변수. 작은 값일수록 규제가 강화되며, 큰 값일수록 규제가 약화된다. 따라서 `C` 값이 20인 경우, 규제가 상대적으로 약화된 모델이 생성.
+
+# `max_iter`: 최적화 알고리즘이 수렴하기 위한 최대 반복 횟수를 지정 1000으로 설정되어 있으므로, 최대 1000번의 반복을 통해 모델을 학습
+lr = LogisticRegression(C=20, max_iter=1000)
+lr.fit(train_scaled, train_target)
+
+print(lr.score(train_scaled, train_target))
+print(lr.score(test_scaled, test_target))
+# 0.9327731092436975
+# 0.925
+
+print(lr.predict(test_scaled[:5]))
+# [&#x27;Perch&#x27; &#x27;Smelt&#x27; &#x27;Pike&#x27; &#x27;Roach&#x27; &#x27;Perch&#x27;]
+
+# probability 계산
+proba = lr.predict_proba(test_scaled[:5])
+print(np.round(proba, decimals=3)
+# softmax function을 거쳐서 아래의 값이 나온다.
+# softmax function : 각 클래스에 대한 확률값을 0과 1 사이의 값으로 만들고, 모든 클래스에 대한 확률의 합이 1이 되도록 조정
+[[0. 0.014 0.841 0. 0.136 0.007 0.003] # 84% 확률로 3번째 물고기
+ [0. 0.003 0.044 0. 0.007 0.946 0. ]
+ [0. 0. 0.034 0.935 0.015 0.016 0. ]
+ [0.011 0.034 0.306 0.007 0.567 0. 0.076]
+ [0. 0. 0.904 0.002 0.089 0.002 0.001]]
+
+print(lr.classes_)
+# [&#x27;Bream&#x27; &#x27;Parkki&#x27; &#x27;Perch&#x27; &#x27;Pike&#x27; &#x27;Roach&#x27; &#x27;Smelt&#x27; &#x27;Whitefish&#x27;]
+
+# 기울기가 각각 7개의 logistic function 가중치가 5개, 절편이 7개
+print(lr.coef_.shape, lr.intercept_.shape)
+# (7, 5) (7,)
+
+decision = lr.decision_function(test_scaled[:5])
+print(np.round(decision, decimals=2))
+[[ -6.5 1.03 5.16 -2.73 3.34 0.33 -0.63]
+ [-10.86 1.93 4.77 -2.4 2.98 7.84 -4.26]
+ [ -4.34 -6.23 3.17 6.49 2.36 2.42 -3.87]
+ [ -0.68 0.45 2.65 -1.19 3.26 -5.75 1.26]
+ [ -6.4 -1.99 5.82 -0.11 3.5 -0.11 -0.71]]</code></pre><p id="51fc9efb-8591-41e9-948a-8ceab31bc2b0" class=""><code>from scipy.special import softmax
+
+proba = softmax(decision, axis=1)
+print(np.round(proba, decimals=3))
+[[0. 0.014 0.841 0. 0.136 0.007 0.003] 
+ [0. 0.003 0.044 0. 0.007 0.946 0. ] 
+ [0. 0. 0.034 0.935 0.015 0.016 0. ] 
+ [0.011 0.034 0.306 0.007 0.567 0. 0.076] 
+ [0. 0. 0.904 0.002 0.089 0.002 0.001]]</code></p><p id="d76f4e47-7b3b-4ee4-98f0-0fe35b3f0924" class="">
+</p><p id="fce156cd-1c4c-409f-8637-e1c14e5dd184" class="">
+</p><p id="2a9d646c-019e-4cdf-80fd-3087b39632ea" class="">
+</p><p id="1026d01c-4347-421a-935c-3551cc0f28ae" class="">
+</p><p id="470e3203-5e81-4bf1-8249-d24352a23028" class="">
+</p><p id="b19c7ddd-2ad6-415c-88c4-2710f6aba1c3" class="">
+</p><p id="3f9176a2-1295-4021-81ec-77d284bf62bb" class="">
+</p><p id="7c271e89-e28f-4baf-a78c-0b6e118c843d" class="">
+</p><p id="b8de8189-fe39-465c-b946-d7ddff3b206f" class="">
+</p><p id="e0f627df-0220-4487-ac61-d62fd77e11c7" class="">
+</p><p id="78c3c176-b9b2-4319-a0b4-8f36ccdd07ce" class="">
+</p><p id="b42c2745-035c-4d46-8ee6-b25f2138b21d" class="">온더플라이</p><p id="2494bdba-9a91-4d23-ba18-dffe90825644" class="">
+</p></div></article></body></html>

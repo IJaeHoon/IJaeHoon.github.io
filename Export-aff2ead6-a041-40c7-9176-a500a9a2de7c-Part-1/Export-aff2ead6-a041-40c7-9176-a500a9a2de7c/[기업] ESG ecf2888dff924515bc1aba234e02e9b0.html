@@ -1,0 +1,793 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>[기업] ESG</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="ecf2888d-ff92-4515-bc1a-ba234e02e9b0" class="page sans"><header><h1 class="page-title">[기업] ESG</h1><p class="page-description"></p></header><div class="page-body"><p id="e0f01dd6-bf78-4a38-989d-8db493ab1d83" class="">
+</p><p id="779f8fb7-262f-49d2-a70e-82bf45248e55" class="">
+</p><p id="30247951-7759-4327-b92e-fb40b298c5bd" class="">★‘esg’라는 지표를 기업에선 많이 평가한다</p><p id="7b5c078b-3f88-48d5-a151-d9c1e33e2b5a" class="">결과에 필요한 분석, 시장가치, 향후 발전가능성 → 우수성</p><p id="3ec60f96-7cb0-40b5-88bc-ef5ca45a31f4" class="">
+</p><figure id="d68359da-fe1b-468b-a915-388f8f461675" class="image" style="text-align:left"><a href="Untitled%2027.png"><img style="width:600px" src="Untitled%2027.png"/></a></figure><p id="f460bb3c-df42-4242-8914-2dc522fa9edc" class="">
+</p><p id="3c90a1b2-397f-4b78-81ec-6c24ef6e6f15" class="">IR</p><p id="b1245a25-dfee-4446-bd4a-dc4451ca8e05" class="">
+</p><p id="dc18ecd6-e31f-4070-8f40-75decd154880" class="">[개발]</p><p id="3728dab9-2156-4e2f-b95e-7c258e142891" class="">무얼할까  → 정확하게</p><p id="18077bbc-a632-4ea5-a500-32e9bcca74e4" class=""> - 몇개를 어떻게 할까</p><p id="c8702eb0-51c2-48d1-9bc1-6246410fb2b3" class="">
+</p><p id="83e6003b-fc6d-4ef4-954f-7196e0144b1d" class="">-해시스크래프</p><p id="e8f9c40a-8b76-49fc-9870-748cb5054186" class="">기업 등에서 올거고 채용도 고려할 것</p><p id="bc5e3ad8-90a4-4623-8cb0-dbc97806d126" class="">
+</p><p id="b06bb497-5bcb-4889-ac5d-7b3e2de49668" class="">(측량되지않은데이터 대체데이터)</p><p id="4afab25b-246f-4d20-9b08-a9a637c6c0c2" class="">
+</p><p id="562225d6-9be2-4f93-b2ca-4674f3bd11e8" class="">빅데이터 다음 단계 → 예측분석시장</p><p id="18805e2a-574a-47f0-a73a-d3063c932aec" class="">
+</p><p id="57fccc0f-caa9-4f17-a356-a563a3747a6d" class="">다음 월화수 머신러닝 기초 / 진행예정</p><p id="54608d2f-9f8d-46e2-b90a-73360c648a28" class="">
+</p><p id="f9bbe36d-7b43-4561-8991-92b9ac528592" class="">
+</p><p id="732a7d36-bb60-491d-8561-deecc9d07aa6" class="">타겟팅 - </p><p id="5690572b-5187-4143-b344-3223d08e21f6" class="">
+</p><p id="d5e35735-f8fa-4e6e-b177-392f9b991222" class="">→ 검색 시 지연시간 낮게 잡아도 큰 문제 없었다고함</p><p id="28b80205-0d61-4b4e-9efc-50f9bb5a33c5" class="">
+</p><p id="297e4919-8949-49d3-864b-b856113b08b7" class="">ai 허브 경찰청</p><p id="082388ce-18d3-431e-8202-c14f7f54b68c" class="">
+</p><p id="619f7323-7946-4f8f-89bd-a8a4444738ab" class="">
+</p><p id="f712b427-c17b-48a9-9cb8-fcfc681dc8bf" class="">[1]</p><p id="46b72c3d-5f14-415b-8ded-b7ae5c86635b" class="">
+</p><p id="07402ef5-bddf-4da5-9cad-ff0f656f6f85" class="">★ 사고가 가장 많이 발생하는 위치 시각화</p><p id="0544882d-bd98-4edd-971e-e64b281485bb" class="">★ 사고 다발지역 로드뷰</p><p id="a1361fd2-0988-404a-bd1c-e422a3c77723" class="">
+</p><p id="a22ad7e6-41f9-4188-9c27-b4897f4ea4de" class="">
+</p><p id="bf8c2aad-2654-4140-a83b-ca71ad2fc0f1" class="">★ 완성모델 필요 ← 현재 너무 구체적이지않음</p><p id="ac3991e7-40b5-4fd3-973b-1ab3412720d7" class="">
+</p><p id="0e36af4f-1fb1-457c-8fd2-abeec3387d31" class="">★ 일어날 기대효과 </p><p id="490a2e88-c073-4584-9d3c-3f5431e63581" class="">경제적 효과 - 사고로 인한 피해금액 산출필요</p><p id="ae47dd76-86df-47d0-b11f-040ddac44865" class="">사회적 효과 - 인권 장애인복지 등의 요소 충족</p><p id="3a09031b-6cd8-4bc2-a570-f7a3dec2ff01" class="">환경적 효과 - 사고로 인한 교통정체 및 품위와 선진 이미지</p><p id="02f17744-6745-4bfc-9ae3-d8849046a3bd" class="">
+</p><p id="88760519-52b4-4afb-ad0e-26c258a9974b" class="">★차별성과 실행방안</p><p id="001d60b9-3aa5-4b40-a87e-3081177b03b5" class="">
+</p><p id="b6f4b13f-8d42-4bd9-814d-7668964bc0b0" class="">[Q&amp;A]</p><p id="57a08d99-aa67-4061-937d-e66b9dba9187" class="">-도로다이어트 아이디어, 서울시에 미흡한 점 알수있었다</p><p id="b5c871db-520f-4ca5-9d6c-4f8aefde3896" class="">했을때 많은 이해관계가 얽혀있는데, 자동차나 대중교통말고도 화물차 택시 등이 있는데</p><p id="adf272ef-cf47-4ca1-99f9-fcd20b6716a7" class="">이런 부분을 어떻게 설득할건지, 지금 도로를 유지하는거도 어려운데 바꾸는 사회적 수용성 어떻게 설득할건지</p><p id="39c8a7f7-de80-42c1-8b67-d45717fa2299" class="">
+</p><p id="6ce4de82-a8e1-4a45-9c08-f5535e8305d8" class="">ㄴ 논문참고결과 축소로 인한 발생하는 편익이 문제점보다는 결과가 있었다, 차선축소에 따른 사회적 논의 및</p><p id="cacbb5d4-7f0a-4584-a3b7-a9c1591ec76a" class="">이해가 필요하다는 인지하고있는데, 효과성에 대해서 이해관계자가 이해할 필요가 있다고 생각함</p><p id="1c87135c-9d51-448b-9715-c7028ec3afdc" class="">
+</p><p id="ae8c50b9-f7f0-4b15-9fc1-4a02354e13a2" class="">-기대효과관련, 구체적인 숫자를 말했는데 경제저 3400억원 사회적효과 10% 환경적효과 1500만톤 근거가 뭔지 알고싶다</p><p id="3f7707e7-0d85-4187-ba32-6eebbdce4f9b" class="">
+</p><p id="fa593067-2955-4c6d-bc7d-1998d5ed939a" class="">ㄴ교통 사고비용, 자전거 등이 2.7%로 비중이 측정돼서 잡고 예상치 측정</p><p id="039d9dc5-041f-4e70-9a03-a514d5b4dac7" class="">사회적 효과는 자전거이동분담률을 높인다면, 자전거 이용늘어날것이고, 빈도수가 늘어날거</p><p id="63b4de5d-55e3-453f-8374-9fc1eacd70cb" class="">
+</p><p id="f5c6d286-9cb3-487d-b800-6c5096d010f6" class="">
+</p><p id="c575dd7f-0cc5-4b9e-b2a6-e9d3ecbb1220" class="">-자전거도로끊김 자전거도로도입하는등으로 연속성 확보할수있다고 분석했다함</p><p id="3b0fc56e-2d79-4390-8aca-f1f5b5d87417" class="">
+</p><p id="f93da9a1-c858-41ce-9c2e-fde39f2a4e20" class="">QnA에서,</p><p id="1f37000f-9627-491b-8784-3a4936eb89aa" class="">★ 숫자를 언급한걸 지적한다, 구체적인 숫자와 근거를 언급하면 좋을 것이다</p><p id="8d332866-1061-4936-ab14-cadbe674de61" class="">
+</p><p id="be43713b-64b0-4e5a-a538-f60fef6cede8" class="">
+</p><p id="c99fbf12-3671-4e17-970a-fc1de948e311" class="">
+</p><p id="858f062e-4ef7-453a-9ee3-9c7da21ddb58" class="">[2]</p><p id="8faa5484-1286-4ccf-93cd-0304b09b906c" class="">
+</p><p id="0e49f7a4-f310-4125-b07a-0741c32e383c" class="">★차별점 언급했음</p><p id="fedd3e86-f33b-4383-a471-d0e6dba4212d" class="">
+</p><p id="cf648f02-07cb-4c62-937c-dfde00f09e46" class="">데이터 수집 방법</p><p id="c00d854c-c2c7-4c8c-8354-1ca4533f4973" class="">
+</p><p id="340a9d3c-a175-4436-afc2-498de0dcbb86" class="">아이디어 구체적임</p><p id="3697e281-7926-4fff-944a-d55ce73af7e3" class="">
+</p><p id="828bf971-b6e5-420f-869a-1b0b66dce59e" class="">
+</p><p id="73ddb4bf-b426-4c3e-85c6-1d6bcea87096" class="">QnA</p><p id="c9b06366-a088-4301-b846-5b5ae028e3f9" class="">-커뮤니티는 자발적으로 이뤄져야 선순환되고 이어진다 생각하는데</p><p id="bc10f744-3aee-463f-b972-2535043346d8" class="">
+</p><p id="cd83056b-b423-43ee-86b8-e9e63d38aa51" class="">ㄴ멘토의 부재, 기관과 협의하에 금전적인 자본 지원을 받아 해결할 수 있다고 생각</p><p id="3ff428bd-8499-4407-b83d-ad93511188ae" class="">
+</p><p id="ddc817c8-d5e3-4e4c-8ac4-c231bc501ff5" class="">
+</p><p id="3308a0f0-62f8-4b16-992e-c690da3178b0" class="">-자립청년을 얼마나 만났는지 궁금 &lt; ★</p><p id="ef176807-6184-4950-8fac-b57e47c93aa2" class="">
+</p><p id="d545f51f-daf5-4395-9eec-3b010cce48ea" class="">ㄴ 대면은 1명이랑했음, 인적자본 네트워크가 없는 지인에게 물었는데 어떻게 해결해야했는지 몰랐다함</p><p id="ac7ec2c3-9fb1-41de-a540-8ba2155088a2" class="">
+</p><p id="858ae57b-a809-41bc-aedb-354503e03ef1" class="">
+</p><p id="66efedb4-fac7-40b5-ac39-b85e56029dc9" class="">-멘토멘티 서비스라 생각하는데, 받고싶은 사람 입장도 있지만 되고싶은 사람의 입장도 있을거</p><p id="4c95529b-8275-493f-8f6c-1dce3e4f31e2" class=""> 멘토하고싶다는 사람 따로 조사해봤는지</p><p id="fadb659c-9d71-48db-8e9c-b5ee80f9efa6" class="">
+</p><p id="bf3f5bd2-6f06-4c28-a663-a59d188edf11" class="">ㄴ따로 조사는 안했다, 내가 겪은 고생을 하지않을 수 있지않을까하고 도와주지 않았을까 추측을했음</p><p id="6b50a91d-13ed-41c4-b4aa-b288c77fe711" class="">
+</p><p id="d3116572-2d24-475b-920c-62226fb66096" class="">
+</p><p id="435173b0-be67-4176-84e4-27d76df4b687" class="">
+</p><p id="dd139c8f-433f-4f8f-9d00-e5a868c45fda" class="">
+</p><p id="196e52d3-8c25-47d5-a029-133b8f25467f" class="">2022년 데이터 분석 활용 공모전</p><p id="0b2575a2-8220-490b-93a8-a799fe66bf41" class="">
+</p><p id="729c543e-7434-4457-82d0-676dfc0f17c8" class="">★ [3] 위드 워크 메이킷</p><p id="be346261-49c2-46bd-b784-98cf422e37bf" class="">
+</p><p id="173c718e-ec09-4dd3-a52c-fff66c4e6f89" class="">교통약자용 정밀 네비게이션</p><p id="d939bc93-b975-4a9e-9167-068cab768e9a" class="">
+</p><p id="6465acc9-769c-4f6a-8841-079c2af53539" class="">‘교통약자란’?</p><p id="8bf97585-ad15-4976-9b0a-b0e9cabb6dc6" class="">일상생활에서 이동에 불편을 느끼는 사람을 말한다.</p><p id="56b7b723-fde8-4ec4-aeb5-993ce5a2d89a" class="">
+</p><p id="a1c59672-1282-4b64-bb5a-4ad669f31819" class="">전체 인구의 약 30% 국토교통부 2021 교통약자 이동편의 실태조사</p><p id="f7fd8981-0d73-4e82-a61c-50f73d7ff760" class="">
+</p><p id="243acc63-9036-4d45-a42e-4e2e5b477337" class="">사고발생위험이큼 보도에서 환경의 영향을 많이 받음</p><p id="6c71b81a-615b-4374-8479-a8d97265cc7e" class="">
+</p><p id="81c5ec78-1e83-4eac-8957-fb4eb9aaa85b" class="">
+</p><p id="ac101985-6feb-44db-8f30-99b462d4cf40" class="">기존 내비게이션의 ‘한계’   &lt;차별성 구체적으로 기재 ★ 필요성 설명</p><p id="4daff3bc-401b-4515-bc2c-61167b732c03" class="">
+</p><p id="bf4b732a-d449-4335-bd20-56f5f43b1aa6" class="">분석 프로세스 설명</p><p id="6bf5d177-02a7-4483-aa2e-674dcc251ba0" class="">
+</p><p id="cf8cc840-4282-4f88-89ee-7326c0ec8ee5" class="">수집데이터목록</p><p id="6ccdd04a-7693-48ee-8269-c1beb95f6f8d" class="">
+</p><p id="040657e2-b70b-429f-910b-4265ac9ef6d4" class="">인천시 이동약자 연결시설데이터 18종 csv</p><p id="f48dc9db-075d-4f6c-b2ce-6becb860f589" class="">인천시 이동약자 연결시설 보행자 네트워크 csv</p><p id="ca91d0bd-363a-46a0-9081-a913bc3fb192" class="">
+</p><p id="ab40fc24-5262-47ca-866b-6d9502e1a2d8" class="">
+</p><p id="213031f4-a44e-47e6-b082-4b621b91163f" class="">데이터분석및결과</p><p id="0fd1d936-c8ea-4152-a8f5-934692a5cd1a" class="">
+</p><p id="bca2b774-8a8a-4563-a6ba-53b6b681eb29" class="">요인 선택 및 전처리</p><p id="2ce8bdd7-562a-480c-ac82-b7ad2bd0d4c1" class="">
+</p><p id="a4bb23e6-65a1-45d2-87c5-1e1fd75f4685" class="">추천데이터 / 회피데이터</p><p id="4d85df29-b7aa-4d71-a633-30f963676030" class="">
+</p><p id="b9324045-bbb3-46d3-83b0-a50cfdd4aeab" class="">추천데이터</p><p id="74dbd365-5757-4027-8b9a-878dda4ec298" class="">전동보장구 사용 보행자 /유아차 /고령부 /임산부 / 시각장애인</p><p id="8e653694-25f9-48ff-96af-58679f81b16a" class="">ㄴ가중치 전처리, 교통약자 유형별 상대적 가중치 필요</p><p id="beb8e30f-c64e-403b-a856-fdf54abeacae" class="">
+</p><p id="463af5f8-f164-42a8-aa2e-fe6ea11b4c2a" class="">
+</p><p id="4494a457-503d-4a5a-9aea-315ff62cc6f1" class="">군 구별 이동편의시설개수 count  </p><p id="efd06da0-394b-492b-9b1c-d5f3d8a35df8" class="">
+</p><p id="1bf0c81f-c198-4a92-abc4-b9610b1e7b86" class="">
+</p><p id="35ad805b-c70e-4b20-bc48-c06fed878678" class="">
+</p><p id="e08c3bfa-c757-4a26-8513-90517d1593ea" class="">시스템구현</p><p id="e659b067-eab1-4a38-abe4-577065986a82" class="">교통약자별 도로망 구축</p><p id="2658bae4-d07c-4183-aa5e-5cc30a77ecb0" class="">
+</p><p id="0b702a48-9d70-4364-8ffc-e239681fb784" class="">출발지 목적지 교통약자 선택 (인천시 교통약자용 정밀 내비게이션)</p><p id="dea80db6-c8b1-4290-8b06-d6cd3a1a535b" class="">교통약자별로 영향을 받는 변수는 다양하다.</p><p id="3fe9ee83-2535-4861-b148-01e1ed2b1c35" class="">
+</p><p id="e49bd74a-d3d8-487f-863e-6f7962b4bace" class="">가중치가 높은 5~7도로</p><p id="eaf4971a-f0d7-413e-9ce1-12b7b5c6771d" class="">
+</p><p id="a1bb8521-49e0-488d-a19f-4eebafccf481" class="">최적경로 탐색 결과</p><p id="1cd189ca-06f0-492f-9682-929f1fa8ce43" class="">
+</p><p id="6737a89f-5631-4721-92de-24e2f03b61c5" class="">시각장애인 횡단보도 턱이 높음, 시각장애인의 신체적 특성이 고려되지않음</p><p id="46739a83-167f-438e-b9ce-7fe91d2275a2" class="">
+</p><p id="62ef53e5-2ad2-40fd-bb14-e440521fd8ca" class="">
+</p><p id="4b9caaa4-6eff-4cd1-9206-5f320827914b" class="">서비스화 화면</p><p id="a97d1c3b-77d7-45a6-9db1-73f4312a80ab" class="">
+</p><p id="fb7a02f3-82c5-4019-bf52-32b8c5b264e5" class="">
+</p><p id="23c0ff60-c39e-4bbf-b719-ecc9cf9151ab" class="">★시각장애인은, 점자를 읽을 것인데, 점자가 있는 기둥 위치를 기준으로 삼아야하지않을까?</p><p id="db30155e-5a77-4588-b154-0952dd8ddc0b" class="">
+</p><p id="bb0efb5b-762a-4f93-99da-946671945580" class="">
+</p><p id="6dcea8c2-bcbf-4ffd-bddc-8f531932dbfa" class="">시각장애인에게 인터뷰 해보면 좋을 것 같다</p><p id="111bb242-3c5e-44cf-9f25-d31b1c1c01b9" class="">
+</p><p id="9705a450-5989-4b5c-be56-440626049642" class="">
+</p><p id="fb9df3ff-0b0e-45bc-b6d9-2c1b794551e9" class="">기대효과 &lt;★</p><p id="2449fe6e-b77f-4602-af0e-14a7c9120863" class="">
+</p><p id="f8f76e2f-0e99-4325-b648-7c69867929e7" class="">안전 / 경제 / 사회</p><p id="dfa4c47d-1153-40f8-895f-c869b23f4b73" class="">
+</p><p id="eaf02b76-776b-4bc5-8b25-92f572dc21e0" class="">안전, 실시간 모니터링 가능</p><p id="bd357bd3-03e8-44ac-b8c0-8d10ee97fcef" class="">
+</p><p id="69968802-7822-4e29-8413-8104c481583b" class="">경제, 대중교통 이용 증가</p><p id="c37c2d39-a1d7-4bf5-9362-b135e1ccee48" class="">
+</p><p id="68b0fbaf-eb33-41c1-883c-ce7130db673c" class="">사회, 사회적 인식 변화</p><p id="e5853319-af2d-42a3-8352-2dcba9123116" class="">
+</p><p id="b516067a-2bb8-4928-84c8-2981d9484f06" class="">
+</p><p id="a5eaeae1-8b64-499f-b2f4-0a79920afd91" class="">“우리 모두를 위한 교통약자 이동문제 해결”</p><p id="424dcb13-9911-4c3d-94d7-d3905ac81039" class="">
+</p><p id="b9261d19-66d6-4b16-836b-93f1fae08a46" class="">
+</p><p id="5722b52c-ee50-46d1-a8a2-fec44d5e6be6" class="">QnA</p><p id="9cb0d897-52ab-4f20-96e3-70caa8945e5a" class="">
+</p><p id="06404c5c-718b-4ef0-96ed-d5a8bad70349" class="">-가중치로 점수를 매겨 지도를 보여주는걸 구현했는데, 골목은 낮은 점수만 있을 것 같다 그런 부분 개선이 가능한지</p><p id="401d6519-afd0-41a6-b088-6dab961e7bb9" class="">
+</p><p id="46436b54-bfcf-4e9d-afc3-c393ebd03bbc" class="">ㄴ 도로를 완전 삭제하는건 아니고 가중치를 낮게줌으로써 위험하다 팝업을 추가로 넣어준것, 법령에 존재하는 규정이</p><p id="a04c21aa-bfd0-4268-846c-a060bd2447c5" class="">잘 지켜지지않는 거리도 있어서 지자체와 연결해서 이런 문제 하나씩 고쳐가면 더 나은 사회가 될 것 같음</p><p id="c26a898d-465e-4f7b-82d5-4a08532c6c40" class="">
+</p><p id="0e334b9a-b3af-4aaa-be41-0b8c9b77bf45" class="">
+</p><p id="5cb47016-9b1f-4602-8651-80b9ef7b7f99" class="">-사용한 데이터 주요데이터, csv파일데이터, 현실과 차이가 있을 것 같은데, 보완책이 있는지</p><p id="37889199-9d41-429c-86d3-b65de093cf1d" class="">
+</p><p id="a9714809-1439-419e-8a4d-545ce46b928e" class="">ㄴ통신사 데이터랑 같이 연계하면서 추랄지와 목적지를 정하는거긴하지만 경로이탈등문제가있어서 통신상연결로 보완해보고싶고</p><p id="ed271a19-8769-4a94-b8e9-1831468ba29c" class="">지자체랑 연결이 중요한 어플이라 실시간 정보가 필요한 데이터정보는 지자체에서 정보들어간거 참고해서 가중치 설정 다시되고</p><p id="36094dc8-54d4-4060-8a3d-61bc598f341c" class="">도보령이 가능한 도로로 바뀌게끔 구현하고싶다</p><p id="8f41df71-6a33-4c0f-b3a7-d9deee594390" class="">
+</p><p id="8ebe2ad2-3b03-4cb3-87c3-ffe0a7dae545" class="">
+</p><p id="fff6f7cc-6048-4a92-be2c-8302f1d21dda" class="">시각장애인들이 앱을 이용하려면 유니버스디자인이 필요하다</p><p id="b0d4dbaa-3f21-4523-9e64-4487243bc93f" class="">
+</p><p id="f666480d-ad3e-4c47-8bdb-8c30bde5a39e" class="">
+</p><p id="98ff8dc6-1fd0-427e-9c02-ff324bc42395" class="">
+</p><p id="f39abe32-7a2e-4719-9139-80d88f5aed44" class="">[3가지 발표들]</p><p id="d17b1955-9fef-4e6a-baec-fc4eb06bbcc1" class="">각 주제들이, 명확히 해결해야하는 문제점이 있는데</p><p id="cb631114-c48a-4953-af58-e7fb560892ba" class="">이러한 부분들을 해결하지 못한 부분이 공통적으로 아쉬운 부분인 것 같다</p><p id="9b326612-f550-4497-9e6c-5522f68f12c0" class="">
+</p><p id="16ad6ea5-4150-404b-ae86-5ac501fcf1a4" class="">
+</p><p id="b4a09d33-86f1-440a-8557-381d6731805d" class="">총 12개 팀 2,600만원 시상</p><p id="6eb4d17c-63a4-4942-8b3c-9d9fbbc6d5a1" class="">
+</p><p id="ff2a7deb-4f3a-48bd-8cda-d6155f6e58f3" class="">datacontest@nia.or.kr</p><p id="a380629e-e9ad-499e-a4a4-cf34b2f6c330" class="">
+</p><p id="184e21e9-6c11-45b8-a661-d05b7bb766e8" class="">designdb</p><p id="35fcc645-9aab-452d-8807-ab4001581ddd" class="">멘토링 받거나했으면 좋은 퀄리티가 나올 것</p><p id="c5c3662d-5be3-4694-a66b-c3ee60629b02" class="">
+</p><p id="f7fc28b8-3824-454d-8ee2-85fb9142d717" class="">
+</p><p id="8db6f888-d26b-432f-a1e0-bee24bb8ee21" class="">참가신청서 제출, 9월 1일까지</p><p id="0549c7ee-8927-4399-8c30-739a8e067733" class="">인공지능 ㅅㄲ어서 발표하면 괜찮을 것,</p><p id="53bfebad-b76c-4ecd-a52a-af824d94a59f" class="">
+</p><p id="2f27314b-f593-461a-b958-e553efb2a8cd" class="">발표자료 준비해서 내봐도 좋을 것 같다함</p><p id="da3204d1-e7f5-4032-b2fc-a8ca0e377c5a" class="">
+</p><p id="324bb1f6-fa52-42ed-888f-a67edc00c6f6" class="">초안을작성해서가져온다면서포트를드릴수있도록한다함</p><p id="74ba6cde-fd24-4489-9014-73a368d09873" class="">
+</p><p id="521a17f2-5b3e-43dc-9e9e-c01d2b0c5025" class="">
+</p><p id="7e37b5fb-52ce-49d5-959d-47b06f4c8d8b" class="">
+</p><p id="52a192ce-3b6b-4ce3-a691-41263ab80b73" class="">
+</p><p id="aa0e28cf-fefc-4ba4-953a-37cca82617cb" class="">
+</p><p id="b5fcceed-9293-4d01-b841-cf343f1cd839" class="">
+</p><p id="8a28d733-f1a8-459b-892a-e05ba8f725ff" class="">
+</p><p id="0d5f974d-a278-4e93-ab58-7a8cdae7ffd4" class="">
+</p><p id="6249436d-53b6-4858-9979-d69ec80b15ee" class="">
+</p><p id="f975f218-09a6-49c3-807e-eae831e368a5" class="">
+</p><p id="b461a0b4-7415-4827-9845-4cbe95d680ce" class="">
+</p><p id="3fbb2d90-a091-436a-9c14-bec52414ad05" class="">
+</p><p id="206f295c-b15d-4012-8be1-b63ce9ff344b" class="">
+</p><figure id="89f8a374-86d3-45c9-9fac-73ef4cf0aa6a" class="link-to-page"><a href="%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%90%E1%85%A5%20%E1%84%85%E1%85%B5%E1%86%BC%E1%84%8F%E1%85%B3%2089f8a37486d345c99fac73ef4cf0aa6a.html">데이터 링크</a></figure><figure id="a93cc5fb-34a4-43ad-bc0f-c0c80549e701" class="link-to-page"><a href="seaborn%20a93cc5fb34a443adbc0fc0c80549e701.html">seaborn</a></figure></div></article></body></html>

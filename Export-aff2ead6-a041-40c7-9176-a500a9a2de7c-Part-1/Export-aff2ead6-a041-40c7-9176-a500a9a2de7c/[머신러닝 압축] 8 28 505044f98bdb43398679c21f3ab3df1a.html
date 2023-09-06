@@ -1,0 +1,742 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>[머신러닝 압축] 8/28</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="505044f9-8bdb-4339-8679-c21f3ab3df1a" class="page sans"><header><h1 class="page-title">[머신러닝 압축] 8/28</h1><p class="page-description"></p></header><div class="page-body"><p id="e26928f8-db5b-4cab-a6d4-a92adb0669dd" class="">
+</p><p id="5ac40515-20ea-4323-867c-9a2104676b1d" class="">
+</p><p id="304b9a5c-33e8-4839-ba3d-9ccf1bb59653" class="">
+</p><p id="4df3fbcc-95b4-4242-aa5a-0fe54f4ebe5f" class="">딥러닝 - 선형회귀 구조가 기본</p><p id="db7a968c-2b8e-4e4c-bc6b-23f0ffe08c8f" class="">
+</p><p id="7a5ab420-ecdf-4b52-a07d-96e9aeb8784f" class="">회귀가 중요</p><p id="b00a6e5c-02ec-4804-9c04-47ad99241839" class="">
+</p><p id="3df9220a-c0df-49a5-ab8c-0b7798be95d0" class="">스톡캐스틱을 회기에 적용하기</p><p id="f44ca94c-b410-4100-93b2-b9d826c4068b" class="">SNN - - 스파이킹 뉴런 네트워크</p><p id="df0c1f22-e68b-4601-9dce-5199867298a3" class="">
+</p><p id="0fb8cb4f-b868-4f32-90df-a817780e654c" class="">
+</p><p id="7b65dd0b-3797-4571-9c5e-6a4c2243883b" class="">회귀에서 W 가중치 찾기</p><p id="838b5dbf-3bfb-4d4b-868e-9e067f9db5c3" class="">
+</p><p id="fd5f7943-a282-42b2-8d43-3d90f4286a29" class="">모두를 만족시키는 w값</p><p id="21a372a8-8bc7-4a58-90cd-66f0ac70566a" class="">
+</p><p id="cfee4bac-e9b2-4394-8ef2-e907b56882b4" class="">점진적 기울기 접근법</p><p id="3ba29e26-4c60-441d-af6c-1984d16a2828" class="">
+</p><p id="6b5ead5c-94e4-4f0c-8633-16c76a807f84" class="">
+</p><p id="8da15d68-7305-4365-9ee8-bd53a36743f0" class="">날코딩해보는책도있음</p><p id="88a6def8-6363-4668-b663-d8194039ab00" class="">
+</p><p id="7f23fb8b-73f6-4360-bd23-3e16da929b9c" class="">★ 결론    학습 = w 찾기</p><p id="1a99a0ce-6f19-46cf-8ae1-5951d9d8ae2d" class="">
+</p><p id="6cb044ed-2c8f-4df4-98f7-2a9b6126122b" class="">딥러닝 → 에러베이스드 → w찾기</p><p id="048bdffe-13c3-4613-8508-fe578ef0a6e1" class="">
+</p><p id="f07303f5-c816-4afa-be8b-65472d1f9a1a" class="">
+</p><p id="0999cc1e-a385-4ac9-97b2-9360d3da40c5" class="">선형회귀의 성능평가지표</p><p id="cc50c783-5f3b-4cf8-bc08-65e8e5d49bd1" class="">MSE  &lt; X  MSE는 얼마나 틀렸나, 오차를 계산하는 방법, 오차측정</p><p id="3a30000d-d8dc-4aaf-87b4-1ba4a932e223" class="">
+</p><p id="20655d74-76e4-41e0-a89b-60856e8af260" class="">선형’회귀’의 평가 매트릭스 = R²</p><p id="829cb2ef-50cf-482b-bff6-ca97fe79c0ed" class="">
+</p><p id="adfcb0df-089c-4443-8e0e-3955269166f9" class="">분류의 평가 매트릭스 = </p><p id="c0a0450e-f217-4008-8064-d12a3bffa0e0" class="">
+</p><p id="1cfcf69f-0ee3-4579-991d-a7dd7585a983" class="">
+</p><p id="8e63421c-edfc-420f-ad4b-440dd7e32100" class="">맞는걸 맞다고 하는거랑 정확도는 다른 거</p><p id="406ca4ac-e7d5-4697-8e34-0d622d2eb41e" class="">확률 얼마부터 성공이라고 하는거랑</p><p id="2dd3e878-0322-4562-8b2f-b7f706c81dd6" class="">
+</p><p id="01d6742e-2add-4a11-8c89-f1aed46132c3" class="">분류성공했냐 안했냐 ≠  (얼마만큼의) 정확도이냐</p><p id="c4c78335-fb03-4cae-a0f4-0cee80132474" class="">
+</p><p id="c2e488b3-9bf1-4cd1-9357-8eca1b3a1215" class="">에큐러시의문제가아니라로스의문제</p><p id="43ea6e24-9d33-4d22-b0df-3f76dea4b618" class="">
+</p><p id="ec4a9dc9-0301-4db6-a9c0-ad5c0f78782a" class="">코로나 회사, 1명틀림, 성능 확률, 에큐러시 똑같음</p><p id="8cc9a4a0-e7c7-4c23-a3d0-c6bde2f913c9" class="">
+</p><p id="f6274eff-2c05-47f5-8e33-a957e44baedb" class="">프리시즌과 리콜</p><p id="d9f30db5-1e5f-4f3b-a506-218384120268" class="">
+</p><p id="48f8fc9a-6fcb-4346-8fc2-8de20b18c617" class="">Precision - 정밀도 ‘진단 키트, 내가 걸렸다고 예측한것 중에 실제 걸린 사람’</p><p id="38159225-e179-44ae-a3cf-7108276b82e0" class="">-P는 이재훈이 높음</p><p id="2da6fdf7-328a-4010-b975-81a46567d669" class="">
+</p><p id="4a20b1bd-21b6-47e3-9cf1-864e136d3576" class="">예상치 중 맞춘 비율</p><p id="2bd00291-56c9-4fe9-862e-69d6c51c6c6c" class="">
+</p><p id="c8d1d6f3-1a61-47de-a721-04ef2c2a68d4" class="">
+</p><p id="3bec0bf5-b019-43cf-b18a-02b98ec22bac" class="">Recall - 재현률 ‘진단 키트, 실제 걸린 사람 중 내가 찾아낸 숫자’</p><p id="8f53de2a-027d-41ba-a043-77db9aa010f3" class="">-R은 이현지가 높음</p><p id="81718d3c-14f6-4194-a39e-cc0c0e515f80" class="">
+</p><p id="8e61cb1d-63c7-4695-bc9a-3e2ad372271b" class="">실제에서 맞춘 비율</p><p id="5b0d7d70-b0fb-4515-8ae0-9bc33b69b0af" class="">
+</p><p id="c837b46b-ea0d-463b-9315-8788a3e437d3" class="">
+</p><p id="cbbee1e9-beeb-4dfb-9c35-46181bf04d15" class="">코로나키트, 자율주행자동차 ‘빨간불’ 리콜이 높아야함,</p><p id="a9bbba7e-1e35-4740-ad25-b013cfcd01ed" class="">자율주행자동차 ‘초록불’ 프리시즌이 높아야함</p><p id="e8baa3f9-67be-4758-b90c-7408b4f05a0f" class="">
+</p><p id="b55ad6c7-1cfc-4f41-80ec-bc0a326d5c28" class="">Accuracy, Precision , Recall</p><p id="d05dd683-2814-43e4-bf06-310978a5a53c" class="">
+</p><p id="4c47cd7f-8371-465c-9a37-0528ff6d928c" class="">시스템에 맞춰서 뭐가 더 높아야할지</p><p id="112cbd1d-6c10-402a-aa4a-0975d78d8873" class="">
+</p><p id="5eaef253-f138-42ab-8859-0e24ad2960a9" class="">애큐런시가 동등하다면 둘 중 뭐가 나을지 생각을 해야함</p><p id="37a2c9c1-c318-4995-bb6a-59b658c1d978" class="">
+</p><p id="a8883234-aae8-4ecc-aba3-563beed794c6" class="">
+</p><p id="b3743a45-631f-4298-87c6-aa7a414d13e8" class="">베이지에 사전확률,</p><p id="a66b72df-2eb2-4386-bb64-b2bf2611ac34" class="">통상 그게 얼마나오는지를 반영해야된다</p><p id="94ee4cd3-fa04-4a93-96ce-5ca10540c5e0" class="">많이나오냐적게나오냐를고려를해야됨</p><p id="5542cc90-e616-4de1-a778-ff778ed69901" class="">사스1%인거고려해서맞춰야됨 &gt; 사전확률</p><p id="4002f2a4-d0dc-48df-a36a-8f6d765356a5" class="">
+</p><p id="cb5c543d-b1ed-4ae7-9239-03508c2fd2d6" class="">F1스코어=조합평균</p><p id="9817c85a-e149-449b-9fa3-f7a696a86276" class="">걸린놈맞출때점수와</p><p id="e6e1a265-8318-4d74-be5a-c43650178040" class="">안걸린놈맞출때점수는 달라야한다</p><p id="306cf3d3-30aa-4ef1-bc97-aa49e573f94a" class="">
+</p><p id="5c6fd6c2-a06b-4363-935c-90411e5cd21a" class="">트루 네거티브 트루 포지티브</p><p id="7661bc66-5980-4598-b62d-2a61641b9481" class="">
+</p><p id="9e0d6edd-ee8e-477d-97ce-2b3802d5b783" class="">
+</p><p id="0637065c-02d0-483b-92d6-0df95df36a95" class="">-분류의 평가기준 3개</p><p id="a055acf4-c5a5-473f-9555-46fe9e36c21a" class="">애큐러시 프리시즌 리콜</p><p id="4123acab-726c-4807-bb2f-4483b2d43b66" class="">
+</p><figure id="e4be5bcc-6557-4c7c-9457-c6b494f11df7" class="image" style="text-align:left"><a href="Untitled%2060.png"><img style="width:489px" src="Untitled%2060.png"/></a></figure><p id="bfae6a13-a276-4629-be3e-4e4d70342fac" class="">_ &lt; 메모리 아껴줌</p><p id="1d05255f-5162-41c5-9030-be8d28284892" class="">
+</p><p id="639dc7ce-6916-4bca-90cf-6f9c572748a2" class="">tol = 멈춰</p><p id="a2121371-f0d0-4475-a160-596b5f0d6816" class="">로지스터 회귀 로지스터 리그레이션 딥러닝의 기본</p><p id="9dfaac46-01b9-4de4-aac2-f2f9e723dddc" class="">
+</p><p id="14a99968-e31f-430d-b37d-c34311ccecd4" class="">
+</p><p id="3286b5c9-5bde-42b0-9891-bb1094d42af5" class="">[디시전트리]</p><p id="af5d65e6-6900-4157-b073-5155d9997703" class="">데이터에 대해서 인포메이션 게인이 높은걸 찾는거</p><p id="ca769cf7-df65-4ca5-acc9-c716dd4f8b0d" class="">
+</p><p id="ede9b404-27fa-43be-ac97-9d7d055f5f2e" class="">디시전트리는 가장 좋은 질문은 찾는게 중요</p><p id="bedad448-6910-4ceb-8c9c-f7418281291c" class="">
+</p><p id="1e8b43a3-93e6-4655-bb0c-999f23d642cc" class="">질문 수를 가장 적게해서 확실하게 내가 원하는 분류를 할 수 있게 하는</p><p id="8261c3af-87eb-4de4-b250-ee3e77f6d859" class="">
+</p><p id="6762231a-ebd7-4145-a139-303b2c2257b1" class="">
+</p><p id="8460cc86-1b03-4207-89fe-6c0ce593e009" class="">인포메이션 게인 / 정보이득 → (Entropy)</p><p id="07a7c9e6-e99b-4a2f-89ef-f521eb1c63c2" class="">Information Giain (Eutropy)</p><p id="59299e3b-fe3e-4e0d-82ac-399afbadc7e0" class="">
+</p><p id="b95edba3-f80a-4dd3-a5e4-7d680ac15887" class="">Gini Impurity (불순)</p><p id="69b8afa4-ddef-4ee8-a987-162932896b07" class="">
+</p><p id="07f324e7-a339-4230-814a-e524ef3c42a5" class="">
+</p><p id="0d3abcc4-a037-43bf-8240-5085f4db7616" class="">디시전트리는 한방에 끝, 반복안해</p><p id="d6d4149e-342a-409b-9576-4df1ca0185ee" class="">반복은 에러 베이스드밖에 안함</p><p id="1b9531b2-270b-4588-a2a2-42f27a55206d" class="">
+</p><p id="56f3c319-0660-429c-9207-8b5a7aa05a5b" class="">
+</p><p id="c1b8ba4b-0120-40bd-9e2e-7fcbe806d155" class="">디시전트리는 과적합이 심하다, </p><p id="912b09c5-bf55-4662-8f31-9bb7f5a84b72" class="">
+</p><p id="994540d8-981f-48a9-a123-6f89d46851ad" class="">
+</p><p id="cbdad901-4e74-4ca1-951e-bf56825d5897" class="">디시전트리는 액큐러시 100</p><p id="5a947a34-73e1-4123-9005-e5d5567eac29" class="">순수해질때까지 0일때까지 쪼개니까</p><p id="95a4582a-89dc-4bff-ab24-8794124c3ce3" class="">
+</p><p id="42e35220-8865-4266-98fa-cad5fddddd5d" class="">
+</p><p id="3d8cc2be-76fb-4e49-a5e8-394e204a4340" class="">실수면 </p><p id="9baf3a74-d06c-4a94-8954-896e07bd60aa" class="">데이터추측해서넣을때 평균x중앙값o</p><p id="d23be191-5ff2-4bfa-bd18-9587d97b5634" class="">아니면회귀해서</p><p id="f2ca1361-1068-40b8-97de-ce9eccfdc4ea" class="">
+</p><p id="fb27fad2-95b7-4b66-bf64-ca8505bcbe04" class="">카테고리면</p><p id="23b065e0-76c9-4439-a53e-c396401748b6" class="">눈물을 머금고 카테고리를 날려야함</p><p id="dc4f9e9e-2e99-41bd-af60-0d46ccfceb93" class="">
+</p><p id="38fa4569-14bc-4f5e-a5bd-5ffc0200f17d" class="">
+</p><p id="7f030aa4-167c-45c9-8d62-79ad27dde1e7" class="">가지치기 프루닝</p><p id="f9c0a1e0-21c3-454c-9c7a-550f07520fd3" class="">→ 과적합 줄이기</p><p id="e2af105f-07dc-478f-b554-8e84ce74471b" class="">
+</p><p id="f9cb7301-35c3-49ea-80ea-48704733dcf2" class="">
+</p><p id="86976f84-1d4e-4bf8-bdd4-24271ded1910" class="">
+</p><p id="d8850768-7fdf-4176-bcab-2e1e835a545e" class="">
+</p><p id="35d9bf77-6fb6-4ac3-b599-d4b99bc9d9c2" class="">
+</p><p id="d24c1cad-77a2-49b6-a740-fb5dad7d674b" class="">대상연속성</p><p id="7153306d-45b2-414e-a3fe-f6fbf7a63860" class="">오브젝트펄민</p><p id="71a8f611-9b78-4aa1-aa58-281a1b194095" class="">
+</p><p id="e6081fea-0f2f-4ef7-9da4-df9708999ff7" class="">
+</p></div></article></body></html>

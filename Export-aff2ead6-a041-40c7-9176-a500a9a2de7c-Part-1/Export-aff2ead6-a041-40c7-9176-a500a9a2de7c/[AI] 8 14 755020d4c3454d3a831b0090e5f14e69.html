@@ -1,0 +1,731 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>[AI] 8/14</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="755020d4-c345-4d3a-831b-0090e5f14e69" class="page sans"><header><h1 class="page-title">[AI] 8/14</h1><p class="page-description"></p></header><div class="page-body"><p id="dc067d09-e45b-4ac6-a6d9-fdda89cf704c" class="">
+</p><p id="926f14f3-5c7f-4829-ae57-a18973bcef24" class="">
+</p><p id="d3669326-fca1-4d65-854a-bca85edae974" class="">코드스테이츠 &gt; 역경은 간절함을 시험하는</p><p id="b4c0aa9d-9155-4092-a2e3-04225060b591" class="">
+</p><p id="a989528f-6de8-43cb-b494-1863d1e54831" class="">개발에서 핸디캡&gt;결과만이 아니라 과정 자체에 답이 있는게 아닌가</p><p id="8fff35e4-045e-44a5-9f7f-6df0420d7d68" class="">
+</p><p id="bd98918e-fb9e-4277-8cd7-5079498fa0e8" class="">목표를 세우고 그걸 위해 최선을 다하는 과정</p><p id="556a45ba-d53c-442e-a1cb-26398ca18541" class="">
+</p><p id="18158e4b-cec2-4039-89bf-e0a572eaa0aa" class="">결과가 좋으면 더 좋은거고</p><p id="4562c84f-6a12-4e9b-99fe-9fe33be5a1ff" class="">
+</p><p id="d7464cbb-f78f-4df9-99e1-15c42755638a" class="">모든 것들은 다 연결되어있다 하나에서 진득하게</p><p id="19193c07-9d83-4035-a10f-2436e40b988b" class="">
+</p><p id="f8f8758b-08b5-4554-8a6c-c45dfaab4bbd" class="">
+</p><p id="37779ca2-08ea-45c6-94b2-8d8c5745ac3b" class="">
+</p><p id="186bf2cf-8cac-4b73-9206-3161296fb4b7" class="">
+</p><p id="f661c9ab-e9c9-4be7-805b-2c3e1050866c" class="">-시각화-</p><p id="25e213b8-004c-4f94-86b0-d6cdd5190640" class="">
+</p><p id="99be7379-6979-4518-96eb-8ee9b6694d1b" class="">독서백편의자현</p><p id="ea08a32a-c176-4585-87dc-4acc7d631e42" class="">
+</p><p id="1d991f22-5bbf-4fc3-aebb-a01fe4677f8a" class="">데이터분석</p><p id="91181194-bc30-4b60-a039-444178c6d939" class="">
+</p><p id="6791105b-e4cf-496d-89e7-cf62318d6eb9" class="">우리의 편견, 패턴이 무너지는 새로운 사실이 있지않을까?</p><p id="f866fcac-cf33-4843-9e0e-10f1a7dfa55c" class="">
+</p><p id="e1841f2a-f8a7-4a61-9f87-9b8ccb589178" class="">ex) 몬티홀딜레마</p><p id="360c913e-650e-4654-aabc-04c6328396ee" class="">
+</p><p id="9f5075f2-c7e4-4d8f-aa70-42fa231c1f55" class="">EDA (Explorartory data analysis)</p><p id="272e4b6e-a51f-430b-bbfd-6cee9558b537" class="">
+</p><p id="359629bc-ce8b-4a34-b6ab-068e534333c6" class="">탐색적 데이터분석은 우리가 존재한다고 믿는 것들은 물론이고 존재하지 않는다고</p><p id="0cfe0979-da2e-4333-8b93-912da78705f1" class="">믿는 것들은 발견하려는 태도, 유연성, 그리고 자발성이다. - Doing Data Science 中</p><p id="7b23cd22-fb15-4c32-abce-7ad644f4939c" class="">
+</p><p id="d065a7f2-a47b-4c9e-b5e4-ca68f52710d2" class="">
+</p><p id="fb57fce0-50f5-4f24-bf7f-85ff0ec6f8f4" class="">[Matplootlib]</p><p id="f0f7b840-258e-4e00-9931-c12df930f650" class="">
+</p><p id="836114b5-8dfd-4038-990d-8e14af919af2" class="">%하나를 붙이는건 전체셀에 대해 적용하는 매직 펑션</p><p id="d1fdfc47-53a6-4bb0-8b11-9ec3485846d0" class="">%% 두개는 그 라인에 대해</p><p id="89dfb1b2-8651-43ed-9501-b5714dc174dd" class="">
+</p><p id="7ac2ce84-64f9-493b-96ca-f4243ffc7368" class="">
+</p><p id="690625b1-6363-472b-9d46-c036b9345c42" class="">
+</p><p id="798732f4-7b38-4148-8515-6ceec5646e3b" class="">
+</p><p id="c5106dd6-c728-4dd9-99c4-fa1edde597ab" class="">&lt;한국어폰트 사용하려면 설정해야함&gt;</p><p id="cf25906d-229f-40a6-be2b-0ada54152955" class="">맑은고딕 &gt; 설치되어있는지</p><p id="53ca7e07-b9a2-41b0-9009-b2bf410eed25" class="">rcParams</p><p id="d3f6ed97-d3ef-464d-a7d1-d59d78915ede" class="">
+</p><p id="f62f8529-9134-4acb-8fcf-1b7bb31b7044" class="">
+</p><p id="bf73b1a3-e774-4b0e-b734-6cbe0faa6c7a" class="">
+</p><p id="95576042-af78-44e2-822e-af1786c4a7fa" class="">import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sns
+import statsmodels as sm</p><p id="ea70b0fb-6f86-4f5c-b27c-7695359ce889" class="">
+</p><p id="f87732f3-ed92-4328-aa00-8efdd64edd9f" class="">디테일할부분컨트롤</p><p id="042cf44a-f3ad-4da5-bfa8-528435190572" class="">조인플롯</p><p id="2915bcef-d9d1-40e0-b995-29c445db4a1a" class="">머신러닝 - 페어플롯</p><p id="a87a7e21-5fdc-43ea-86b4-1a2dc6df50f2" class="">
+</p><p id="4b28e3c6-67d9-4a43-a3b7-990766351662" class="">표현하고자하는 그래프,</p><p id="5e4357dc-de76-406a-ac1e-5f906c1c2a1d" class="">그룹바이로 묶은 뒤 그룹바이를 나타내면 효과적이다</p><p id="0b6740e8-491a-46fc-bad4-7f4d84c82b86" class="">
+</p><p id="d0704418-22d7-457d-b776-989131c13b33" class="">
+</p><p id="d44fc03b-2ab5-4e54-b52a-3bc58950484d" class=""><strong><strong>증권데이터의 수집과 분석</strong></strong></p><p id="fc54ff13-e6b3-44c8-bf65-5c55e5118a33" class="">
+</p><p id="c453da4a-73d7-41d5-b3f6-5b7ee8b10ac0" class="">🐼  Pandas : 파이썬의 대표적인 데이터 분석 도구로 금융 데이터 분석을 위해 만들어 졌습니다.</p><p id="7eb3ebab-03c7-4356-bda4-6874ba5e0749" class="">🧮  Numpy : 파이썬의 수치계산 도구 입니다.</p><p id="6a4f119b-c842-41a1-bb61-3292ae1cc00b" class="">📊  matplotlib : 파이썬의 대표적인 데이터 시각화 도구 입니다.</p><p id="bb540593-b080-4918-a314-73179de886e8" class="">📊  seaborn : matplotlib 을 사용하기 쉽게 추상화 해 놓은 고수준 시각화 도구로 기본 통계 연산을 제공합니다.</p><p id="3a7b6b10-774f-4da7-835a-92c685b2246b" class="">📊  plotly : 고수준, 저수준 시각화 기능을 제공하며 인터랙티브한 시각화가 가능합니다.</p><p id="4775fd18-bd93-4233-9ffd-7a811401e4bf" class="">📊  cufflinks : plotly와 pandas를 강력하게 이어주는 생산적인 도구 입니다.</p><p id="925eb19c-0c68-4ad4-b2da-e57a787dcb61" class="">📈  FinanceDataReader : 코드 한 두 줄로 금융 데이터를 수집할 수 있는 도구 입니다.</p><p id="25e00549-56cb-40a1-be16-0eafb215363b" class="">🌏  Requests : 웹 페이지의 소스코드를 HTTP 통신으로 받아올 수 있는 도구 입니다.</p><p id="9d79a11c-daa6-4bd6-b49e-3cf3dd245c91" class="">🔍  BeautifulSoup4 : 웹 페이지의 소스코드에서 원하는 정보를 가져올 수 있는 도구 입니다.</p><p id="422a2395-ad40-4d9c-9aaa-e019ec01b3a4" class="">⏰  tqdm : 데이터 수집이나 전처리에서 오래 걸리는 작업의 진행 상태를 볼 수 있습니다.</p><p id="03dc317f-8ccb-4d7e-a32b-5891707d761a" class="">
+</p><p id="b6f86563-c760-4f11-8cf6-a341bdcb8930" class="">
+</p><p id="62fa4576-f134-415c-9f1b-f219280893ab" class="">수집</p><p id="a44ebb89-bdd6-4202-abf5-0097b84cd43d" class="">
+</p><p id="f41cfdf4-6954-4145-8bc6-ebb8325ef2df" class="">셀레니움 수집</p><p id="343910a0-d4fb-4e7d-957f-86f1ee13f9a5" class="">파싱 뷰티풀숲</p><p id="8e9476e5-12a8-4c51-9bdc-aead231268aa" class="">
+</p><p id="8b5e8759-5844-430a-82f3-b330a82e2052" class="">
+</p><figure id="738a8d66-9904-4216-a73d-6cb235620281" class="image" style="text-align:left"><a href="Untitled%2025.png"><img style="width:960px" src="Untitled%2025.png"/></a></figure><p id="0842625b-9ab1-476a-b41e-4eecdc0c7cdd" class="">
+</p><p id="da3087ba-4cfb-4041-bf6b-7846330e5d25" class="">
+</p><figure id="5f6771c6-c5f0-49e6-8aa0-e29eb2df0fa6" class="image" style="text-align:left"><a href="Untitled%2026.png"><img style="width:720px" src="Untitled%2026.png"/></a></figure><p id="0c717584-97d0-467d-bf3d-4b1f19542275" class="">
+</p><p id="4ca60e68-e70c-4dd1-a051-fbb376ddfa6b" class="">
+</p><p id="efd12ba9-c810-4461-889f-b951ac43ed3e" class="">
+</p><p id="9d077fe5-a472-45e5-a70f-f851f10d7004" class="">
+</p><p id="dad7eb2d-e9cf-41f2-b2a4-75272be9e196" class="">
+</p><p id="5b01e708-c25b-4062-bc2b-e7d724b4e9ee" class="">[한글폰트깨짐]</p><p id="545d2cdd-beff-4570-8c1c-0574f9c0dbb7" class="">
+</p><p id="44c748ed-0518-4d1e-a2a0-14c45bd53e1e" class="">from matplotlib import font_manager, rc</p><p id="66711a52-97c7-4ba1-bb33-852716bd840c" class="">font_name = font_manager.FontProperties(fname=&quot;c:/Windows/Fonts/malgun.ttf&quot;).get_name()
+rc(&#x27;font&#x27;, family=font_name)</p><p id="6fa50496-a8f5-4fae-a681-20db8646c4d4" class="">
+</p><p id="d20167fa-3a63-4cc6-a466-60a0103b4526" class="">
+</p><p id="3efd4718-a64f-4b84-9b04-6d919c37f5ae" class="">
+</p><p id="d738e72f-f545-4ec5-b300-ad5770218eb9" class="">import matplotlib.pyplot as plt</p><p id="651f6805-e0dc-408c-8051-8f302bcb1b62" class="">grouped_data = df.groupby([&#x27;장애유형&#x27;]).sum()</p><h1 id="ea2eae99-c4f4-4818-9cbc-e2f02362b689" class="">파이 차트의 색상 설정</h1><p id="15ef16ac-af4b-4565-87cb-435b48a85d2c" class="">colors = [&#x27;#4D96FF&#x27;, &#x27;#FFD93D&#x27;, &#x27;#6BCB77&#x27;, &#x27;#6F69AC&#x27;, &#x27;#FF6B6B&#x27;]
+grouped_data[&#x27;평균&#x27;].plot(title = &quot;5년간 장애 유형별 분류&quot;, kind=&#x27;pie&#x27;,autopct = &#x27;%1.0f%%&#x27;,
+shadow = &#x27;True&#x27;, explode = (0.05,0.3,0.05,0.05,0.05) ,colors=colors)
+plt.show()</p><p id="d9d48056-bfad-4f5d-bc2d-c26c67ce23ca" class="">[AI] </p></div></article></body></html>

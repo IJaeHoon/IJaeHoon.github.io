@@ -1,0 +1,741 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>[머신러닝 압축] 8/25</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="48dedbaa-2d16-4791-83cf-a514f5967a41" class="page sans"><header><h1 class="page-title">[머신러닝 압축] 8/25</h1><p class="page-description"></p></header><div class="page-body"><p id="31f55442-a8ae-4ac4-b2fd-ecc83e79dbc5" class="">
+</p><p id="6ebfa908-fdc0-4052-8ea2-eaaf76282869" class=""><a href="https://roboflow.com/">https://roboflow.com/</a></p><p id="0b6fcb3a-e934-41f4-8c67-bbe29c49c94f" class="">
+</p><p id="150c116e-4b84-4040-af80-c51a7701e4b4" class="">‘특이점이 온다’ _ 레이커즈 와일  ← 책 사진말고 빌려서 보기</p><p id="086f7283-c135-41f1-82a6-f940e78933b6" class="">
+</p><p id="2ef74ec1-fa00-4651-b607-4c8b75dbb983" class="">2045년에 인공지능 특이점 온다</p><p id="5ee04a2d-8317-48fe-80e6-5680a7a69a7b" class="">
+</p><p id="e9077fa4-2b1f-46df-8b06-63e7d56fec30" class="">특이점에선 미분이 안된다</p><p id="b9af20e0-8552-42c7-ae23-34376ba493ec" class="">특이점온다  ← 과거로 되돌아가는게 불가능해지는 상황</p><p id="00d83016-5220-4ce5-a4a7-a5466786cbcf" class="">
+</p><p id="b7a83e97-9256-4734-b44b-086241329b36" class="">
+</p><p id="24e33db7-681c-45ed-abec-2fb9fa899dfe" class="">파이썬코드 최소로줄이고 툴만 만들 것</p><p id="ae174345-76f3-42ae-8bfc-d95ea414d10d" class="">
+</p><p id="fdb602ee-2203-40de-b562-f0bae77541d2" class="">수상 아이디어</p><p id="2d5ad061-829c-4b52-9a05-fb2ee8e2bda9" class="">지하철 등에 불났을때 연기, 카메라는 잘보임, 어디로가라 알려줌</p><p id="5a1942b3-88a8-40a0-9ca7-707e939a8d11" class="">이태원 몇시간뒤에 저기 통제해야한다 위험하다</p><p id="1449049c-25a2-4fac-8763-dd73d9145b63" class="">
+</p><p id="78ed9287-f4d1-4c3f-9152-5fd0c5daee79" class="">Problem Scoping  →  Data Acquisition  →  Data Exploration  →  Modeling  →  Evaluation  →  Deployment</p><p id="8d6492b3-0d93-4d88-bc9b-88ea5d0f2c56" class="">
+</p><p id="dfd9c2e5-086f-4c24-b58f-c5d9dbcf790d" class="">Problem Scoping → </p><p id="e1e35293-453d-4f7f-b177-a7acf95dfd60" class="">Data Acquisition → </p><p id="a47882dd-6cf9-46d1-b96d-a846d253a6fd" class="">Data Exploration → </p><p id="7dc73f3e-8b8a-4222-a073-a603190de84e" class="">Modeling → </p><p id="791c4c90-e405-40bd-bb16-832be21f6ce8" class="">Evaluation → </p><p id="600f38bc-aae4-49c8-8e20-0edae85c9d17" class="">Deployment</p><p id="bcc0d27f-6a0d-4382-b808-d42a988df75b" class="">
+</p><p id="20bf13f3-ba15-428d-b105-11e5e8e36461" class="">테슬라 라이더센서 2천, 노트북만 9대,</p><p id="eda2bbd9-4dee-452e-badd-9ad5143e7b0d" class="">이쪽계열 센서지식도 필요하다</p><p id="33dcea8d-25bd-4359-96b8-f1483a726be3" class="">
+</p><p id="04a2cd2c-db9d-4709-9009-59da55fcb3d9" class="">
+</p><p id="976c9565-67c4-483a-9cfa-7aeb1d6525ad" class="">
+</p><p id="912756bb-93e6-4f71-ae3f-290df6c7360d" class="">Classification</p><p id="19173d29-d66a-409d-96c8-f89f85e5f86d" class="">뭐다 아니다</p><p id="19ac3021-1117-4cad-9fdd-4133e9cf9608" class="">
+</p><p id="a3859a54-2aa6-492c-bd1c-ae21cad42e58" class="">Object Detection</p><p id="6f5d81fa-d91c-4f16-b3db-e67d60435cf8" class="">어디에 / 뭐다 아니다</p><p id="7a9f4578-b0f2-44de-a09b-2ddfc212b5c4" class="">
+</p><p id="787af601-2416-4453-9d34-5832ddabdd29" class="">누끼 - 새그먼테이션</p><p id="fdd980bc-2483-47d9-a6ef-f44f93188532" class="">
+</p><p id="615ccaec-9dde-4923-a627-2194b39948ff" class="">
+</p><p id="6d2b3db9-637d-4c3e-8a46-c4b71ffd9fa7" class="">Detection안에 Classification가 들어가있다</p><p id="30b293d3-24aa-4356-b8cd-8ae378890071" class="">
+</p><p id="5c95f4b6-04a2-439c-a614-dcfccae649fa" class="">ㄴone show 모델, 위 두개를 한방에 다 해 &lt; 욜로</p><p id="c627dd4c-b196-4c0c-8412-69d5c1b24182" class="">
+</p><p id="64f87b28-ae2b-4a01-ade4-745e7e464462" class="">
+</p><p id="d759a328-3268-4e46-9d43-712a2e91cd4c" class="">센서 네트워킹을 한다</p><p id="dd4bf3d9-8eda-41b8-a716-479dfc8f64a3" class="">
+</p><p id="6e0399cc-5911-4525-8861-e3390d6495ad" class="">
+</p><p id="7a90a580-6b46-4bb2-a2cd-d84ed4d17f6e" class="">아이유얼굴 반 가려져도 반만 치기보단 추론해서 그범위 다 치는게 일반적임</p><p id="f7c60964-bd0e-4afa-9b6b-057c56d5b2c0" class="">ㄴ해보니 이게 더 낫더라</p><p id="da9f0de7-72a9-4de6-9cda-b7d4298bef94" class="">
+</p><p id="4a8eef66-089f-490f-8e60-49d5bf1cf5b2" class="">
+</p><p id="b0b5d0b3-a1ef-4336-817c-53e1ac43fc96" class="">
+</p><p id="8ea9330e-0d92-4ffb-9fe1-df07c3999a89" class="">
+</p><p id="5cd711c2-9c30-478d-bfba-6ee74125b477" class="">
+</p><p id="f2294e71-7b21-45ce-9040-8f73791d26c4" class="">벨리데이션 하는 이유</p><p id="ab0c3723-470d-4969-b709-5adac9932167" class="">
+</p><p id="1c9b6044-e780-4c8f-a3d4-d2976406972f" class="">트레이닝 비율은 루스(얼마나 틀렸는지)가 줄어들 것이다 계속하다보면 루스가 올라간다 올라가면 중지해야한다</p><p id="a83c13e3-c9b4-4dca-aa63-255570f2b073" class="">그걸 조절하기위해 벨리데이션 데이터가 필요한다</p><p id="3c603b5d-b0d2-4505-83ad-82e1f15d2377" class="">
+</p><p id="4b2af842-334b-41fd-8ec0-5727286af236" class="">
+</p><p id="fe57fe49-e74c-46e1-92f5-1ff7b7acdb77" class="">테스트스플릿 → 랜덤으로 벨리데이션이랑 트레이닝 데이터 나눠준다</p><p id="cee94337-45b3-4343-aaac-72a34a451876" class="">스트레티파이라는 옵션을</p><p id="2b5c7cc0-5d46-4186-8a29-d3785d04cdcb" class="">
+</p><p id="d87fab5f-166e-49a6-8dce-c4b61baf181b" class="">stratify &gt; 랜덤으로하되, 트레이닝, 벨리데이션 레이블 비율을 맞춰준다, </p><p id="c8378785-ff57-4a7e-92f2-499caa9aab1f" class="">트레이딩엔 아예 안들어가고 테스트에 다 들어가는 등 문제가 발생할 수 있어서</p><p id="2ce5df7c-9f83-4d40-a4d4-3e4fc8075940" class="">저 비율을 맞춰주는 기능</p><p id="88fc9829-8d46-4d1d-b301-0875b94ed7d1" class="">
+</p><p id="93318e15-a327-44f1-8e96-873ddbd07f16" class="">
+</p><p id="5e66c831-1e1c-4de3-b8a2-c8e597e5971b" class=""><strong><strong>Auto-Orient ← 회전할 경우 감안해서 데이터 증감해줌  ex) 아이유가 덤블링하는 사진 얼굴 방향 달라짐</strong></strong></p><p id="acc5096e-eeaf-4a52-bf32-86f5d52dce34" class="">
+</p><h3 id="1e524ef2-6f43-4c1a-906e-1c0dadb444e9" class=""><strong>Resize</strong></h3><p id="439b88ac-3bc2-4922-aae9-5a91663c0540" class="">Stretch to 640x640</p><p id="d4f4a651-25f2-49db-a254-6a00a38a222f" class="">모든 모델은 입력할 이미지 사이즈 고정되어야함, 임의로 입력 불가</p><p id="aafa8006-53a4-4346-b25f-7424a300e86a" class="">욜로 전에 프리프로세싱으로 미리 리사이즈해주는거임,</p><p id="90bb0991-cedd-419e-aa8a-7152778aae74" class="">이미지 리사이징해주는 코드는 깔렸으니 걱정 덜 해도됨</p><p id="9c5906e0-38e4-4c89-87f3-48850ace42c6" class="">
+</p><p id="accb54b6-c22e-4be0-b9c7-ade22dcb5cc4" class="">잘하는건 에디팅을 잘하는 것 ← 있는걸 새롭게 만든 것 </p><p id="7b7a4363-b262-4025-8c42-1e2d2e57ff0b" class="">애플 아이팟의 문지르기 &gt;&gt; 아이리버의 버튼 인간의 본능을 찾았다고 김정은 교수님이 말했다함</p><p id="d9194ff3-5177-429f-a19d-587c7e3efcaf" class="">
+</p><p id="63ca0a91-05c1-44e0-9aa3-72c7a994f096" class="">
+</p><p id="05eca8df-5d1c-4a28-846e-6d84a6ebf41c" class=""><strong><strong>Augmentation</strong></strong></p><p id="85795c40-2e8c-4f35-a7cb-9f91d6c98c13" class="">좌우반전, 로테이션한다음에 사진 뒤집어서 양을 늘린다 / 크롭, 잘라냄 / 대각선 Rotation /  비스듬하게 sherar</p><p id="48de0748-37a7-49f9-b8f3-109745154501" class="">
+</p><p id="952f8256-41dc-4157-bd27-9067aa5a0630" class="">
+</p><p id="2f70bbdb-3230-48e7-b5af-7371300c4048" class="">ㄴ 40장을 넣어도 몇백장의 사진이 된다.</p><p id="651a0a35-990a-4b56-b482-d4a17e87b0b3" class="">
+</p><figure id="4911c860-3ad3-41d6-9209-18403655153d" class="image" style="text-align:left"><a href="Untitled%2058.png"><img style="width:521px" src="Untitled%2058.png"/></a></figure><p id="d129f75f-c3c1-481e-9eb2-ea6bab3d0fa7" class="">
+</p><p id="663ebcf3-06ce-40b4-9d72-a0bede181075" class="">ㄴ뭘로 저장할지</p><p id="4461ad6f-4c8a-4fed-8337-28bb19609a3e" class="">
+</p><figure id="37ecda7a-e142-488b-b675-19c1b4e76ffe" class="image" style="text-align:left"><a href="Untitled%2059.png"><img style="width:524px" src="Untitled%2059.png"/></a></figure><p id="ce9126fa-c2ae-481d-aca1-66c4b23b82bf" class="">
+</p><p id="623cdf15-3f05-4f79-bf09-d228258d0377" class="">ㄴ 이미 학습된 데이터가 있다면 (사람) 거기서 추가로 학습시킨다(사람&gt;아이유)</p><p id="b44d6366-8c68-4a3c-a763-36da6d00cea5" class="">
+</p><p id="6cfd041d-5b25-4a12-96f2-dc7675fd979a" class="">
+</p><p id="89959ccb-77a9-45fb-99bd-759a5b564503" class="">
+</p><p id="8f16fbe4-37f5-4bb0-81f2-f9e37ead42fb" class="">
+</p><p id="d305cdb2-7e3e-46d5-95c4-c55a655e32d0" class="">
+</p><p id="3fe2396d-fb67-4412-b98b-0a753ec172e9" class="">[판다스]</p><p id="84d191b2-e02b-4781-86cf-862f73a4f9e0" class="">
+</p><p id="049ba693-391a-4532-bd2e-2037b3c10890" class="">df_x.info()   &lt;&lt;데이터 구조 보는 방법</p><p id="cfa4ba1e-c35f-4686-b1a0-d1565f4a2a15" class="">
+</p><p id="9014ef99-4fdb-4885-a978-753ef2637975" class="">
+</p><p id="6aeb8d90-e305-44e7-845d-8c5c1e2826a8" class="">data = df_x [[’x’,’y’~~]] .to_numpy()</p><p id="8c712583-728d-4a64-8fdd-6477d0705315" class="">
+</p><p id="8ee19747-c760-42cc-a183-60a8bb525420" class="">print(data.shape)</p><p id="cd327b7f-68a3-4dbc-b5d6-ea9c8fa9f767" class="">
+</p><p id="0b1c8f97-4fa1-4772-a07b-887a6b9fbef3" class="">
+</p><p id="0be95b93-e248-46a4-97d3-24fc3e309f89" class="">회사 실무에선 랜덤스테이트를 넣어야함 ← 안넣으면 재현 시 잘 안됨 &lt;그리드서치, 랜덤스테이트 1,2,3,4,5 다 해봐야 나중에 그대로 재현가능</p><p id="4bf7f007-b5d0-434d-9bae-2964dc3de53e" class="">
+</p><p id="f2d87faf-8f5a-4b35-a4cb-1da585bcdb26" class="">다해도안됨 → ‘이 독립변수론 이 종속변수를 예측하는게 안되나봅니다’ &lt;돈 더넣기전에 안되는거에요 하는게 맞음</p><p id="aae76d98-8d04-4bc6-87f5-daa698d02d87" class="">
+</p><p id="6e527048-08b4-4797-9811-82e563483a5f" class="">패스트캠퍼스</p><p id="9caa7037-5b8a-4b56-b828-dcaa55314062" class="">cj → 씨제이메타로 씨제이영화성적예측 프로젝트,  cj : 망할 영화를 찾아주세요 /ex) 리얼, 엄복동</p><p id="73d4bf02-5182-47c8-9567-ec75849c1f46" class="">
+</p><p id="15904548-847e-4daf-8bc8-9beef04148e5" class="">
+</p><ol type="1" id="3bbc6b73-dcb0-40c6-a8f5-ccf9442efea2" class="numbered-list" start="1"><li>영화집어넣고 예측해야하는데, 영화가 만편뿐 &lt;독립영화도 들어가있음 독립은 잘팔려도 3만</li></ol><ol type="1" id="bfb30135-c9c6-4e58-8067-ec0d8818211d" class="numbered-list" start="2"><li></li></ol><p id="84f49900-efa8-4790-ab87-fff97f7cbb86" class="">
+</p><p id="b12acf2f-03a6-40d7-9a36-cb95ef84d1a5" class="">
+</p><p id="8c1ec2e1-6c85-4372-a9cb-0067427237d6" class="">신호와 소음 </p><p id="82f8e9af-f96d-4242-913c-b09b39832ba3" class="">
+</p><p id="846c8a33-8784-4922-93b6-4abafd291e09" class="">
+</p><p id="00c8e47b-1bb8-4b9e-b730-c9e76936b8d2" class="">
+</p><p id="805d6121-ccd8-47a2-b175-42e79bcae093" class="">
+</p><p id="b7582761-178c-4b24-af18-70b441b22e83" class="">
+</p></div></article></body></html>

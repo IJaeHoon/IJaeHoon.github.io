@@ -1,0 +1,1440 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>[AI] -1</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="0cf59493-b9ba-40d0-b89a-2c5c9ee072d5" class="page sans"><header><h1 class="page-title">[AI] -1</h1><p class="page-description"></p></header><div class="page-body"><h2 id="6fb91b47-9451-4d21-8375-2621c78bc56c" class="">SeSAC - 데이터 분석 기초 1일차</h2><p id="707aa58f-09aa-4a32-b862-d2e9fdd7b9f5" class="">2022.07.18</p><hr id="df600552-c4da-4df0-8ecc-c13c78692dc5"/><ul id="ed06b2aa-54ea-4531-b6bd-477b50c98599" class="bulleted-list"><li style="list-style-type:disc">스튜어트 J. 러셀 : 인공지능 : 현대적 접근방식 제 4판</li></ul><ul id="21266fb9-b8fa-4bf9-879a-9fef7ee1391f" class="bulleted-list"><li style="list-style-type:disc">공부하는 데이터 분석 with 파이썬</li></ul><h3 id="ddf531d6-f297-497a-a8ac-1a694ff567be" class="">기계는 생각할 수 있는가?</h3><p id="e1cec0ad-3023-47f6-8619-caa584ac82f2" class="">기계는 생각할 수 있다. 하지만 사람처럼 생각할 수 없다. 그 이유는 뭘까?</p><p id="4ec27d20-ff75-40ce-a19f-f9eb65d1853c" class=""><strong>인간은 지능을 설명할 수 없다.</strong></p><p id="a3476d3c-5fb7-4549-9fb2-d0ea76555032" class="">사람의 생각하는 원리를 설명할 수 없고 감정이 어떻게 생기는지, 머릿속이 어떻게 돌아가는지 알수없다.</p><p id="6304f070-4b01-4f21-b927-9154fbefc71a" class="">우리가 만드는 인공지능은 짝퉁과 같다.</p><p id="a9180cd4-618c-4853-a07a-cb375ec87c1c" class="">지능적 <strong>행위의 결과물에 대한 모방만 가능하다.</strong></p><ul id="6ce41ccc-fe96-444e-b386-e3d77e8b5a58" class="bulleted-list"><li style="list-style-type:disc">영화 HER</li></ul><ul id="0ed8f1c4-d87c-4d18-9d0b-5fe249ba16a4" class="bulleted-list"><li style="list-style-type:disc">영화 이미테이션 게임</li></ul><p id="e8101591-8c82-416d-9d1c-73cd352231ed" class="">우리가 해야할건 인공지능을 우리처럼 생각할 수 있게 꼬드겨야한다.</p><p id="efda9166-942b-4368-9a4c-c8b75712d8a9" class="">AI(인공 지능)은 1956년 다트머스 회의에서 처음으로 사용 되었다.</p><p id="bcb5d6e3-0b44-4259-ad1d-04d0360a271e" class=""><a href="https://brunch.co.kr/@rudaleeactc/51">인공지능 기술, 다트머스 회의를 통해 부상하다</a></p><p id="db30fe97-768a-4e78-aca4-b39b113eb2dc" class="">앨런 튜링에 의하면 지능 이란 추론할 수 있어야한다.</p><p id="8561cbcb-0bbd-47f6-8211-6aac952d02a7" class=""><a href="https://www.proprofsgames.com/wolf-sheep-and-cabbage/">Wolf, Sheep And Cabbage Game</a></p><p id="4aeeaeb2-81d0-4144-b008-bd30efae7e70" class="">링크의 게임을 해보자.</p><p id="e997c006-ebdd-4920-be9f-704ed0fb6f35" class="">우리는 이 게임을 지능을 통해 풀었는가?</p><p id="bcf289cc-5816-4b40-be41-45b743cfb316" class="">옮기는 행위의 결과에 따라 문제를 풀던, 설명을 보고 풀던, 아래의 정답을 보고 풀어도 우리는 추론을 통해 풀었을것이다.</p><figure id="ca0a34d0-a47f-481f-9aef-23c51db9d451" class="image"><a href="https://user-images.githubusercontent.com/75712723/254179967-8571d1d4-1779-4248-8931-8ffaf9e34414.png"><img style="width:700px" src="https://user-images.githubusercontent.com/75712723/254179967-8571d1d4-1779-4248-8931-8ffaf9e34414.png"/></a></figure><p id="c8798bc0-2569-440e-979f-3e1f604b64e8" class="">우리는 위 문제의 조건을 보고 추론을 통해 이 문제의 배열을 풀어낼것이다. 하지만 기계에게 추론이란 매우 힘든 일이다.</p><h3 id="6f499266-508a-4bef-9425-2e853b033299" class="">인공지능에 꼭 기억해야할 인물</h3><p id="62013f3f-ed08-416f-8a10-20dc44e7a9a5" class="">마빈 리 민스키(Marvin Lee Minsky) : 지식의 표현과 추론(knowledge representation and reasoning), 기호주의자</p><p id="1cee7ec5-9e31-421a-ba30-15ae96168cf5" class="">프랑크 로젠블랫(Frank Rosenblatt) : 현대 딥러닝의 단초가 된 퍼셉트론(Perceptron)을 개발, 연결주의자</p><p id="8053c119-77c1-4a6a-b910-52c01e01d54c" class="">제프리 에베레스트 힌튼(Geoffrey Everest Hinton) : 인공지능(AI) 분야를 개척한 영국 출신의 인지심리학자이자 컴퓨터 과학자</p><p id="319fdeb9-49a6-4f9d-999d-d5600a042939" class="">📌 지식의 표현과 추론을 할수있는 언어, prolog</p><p id="8867b7c3-5292-45bb-8703-2d13e96ab036" class=""><a href="https://ko.wikipedia.org/wiki/%ED%94%84%EB%A1%A4%EB%A1%9C%EA%B7%B8_(%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D_%EC%96%B8%EC%96%B4)">프롤로그 (프로그래밍 언어)</a></p><p id="77f7c714-1b25-4d29-9ee2-36ac8a392c32" class=""><a href="https://www.swi-prolog.org/">SWI-Prolog</a></p><pre id="ac2a3132-ae53-410e-ac0f-53f3a1da9ee9" class="code code-wrap"><code>male(허생원).
+male(동이).
+female(분이).
+
+parent(분이, 동이).
+married(허생원, 분이).
+married(분이, 허생원).
+
+/* * X가 Y의 엄마라면, X는 여자, X는 Y의 부모.
+ * */mother(X, Y) :- female(X). parent(X, Y).
+/* * X가 Y의 아빠라면, X는 남자, X가 Z와 결혼했다면 엄마는 Z
+ * */father(X, Y) :- male(X). married(X, Z). mother(Z).</code></pre><p id="44ed7f4a-404f-4684-ba63-43e35f42b504" class="">동이의 아빠는 누굴까?</p><pre id="899a9af1-0459-43ea-beed-725d3d7ec678" class="code code-wrap"><code>?- father(X, 동이)
+
+X = 허생원</code></pre><figure id="bbcb75f2-a532-4e3e-abc7-34de1d98fff2" class="image"><a href="https://user-images.githubusercontent.com/75712723/254180062-2e0bc405-a2cf-4517-8a7d-7a934f62d3f2.png"><img style="width:700px" src="https://user-images.githubusercontent.com/75712723/254180062-2e0bc405-a2cf-4517-8a7d-7a934f62d3f2.png"/></a></figure><h3 id="5b4080b0-059d-4bbf-be74-7e9cb50aa7e2" class="">기호주의, 연결주의와 퍼셉트론</h3><p id="0022a4a3-a5b1-4dc6-9121-c6b693e9d2c5" class="">기호주의자(symbolist) : 인간의 지식을 기호화 하고 새로운 문제를 풀기 위해서 이미 존재하는 지식을 학습 과정에서 사용하는 방법, 그리고 여러가지의 단편적 지식을 합치는 방법을 강조하는 사람들.</p><p id="a61266bf-8b92-49a3-ae07-89b286b2f41a" class="">연결주의자(connectionist) : 인간의 두뇌에서 어떻게 생각하는지를 모방하여 컴퓨터를 학습시키는 방법, 모델에서 학습의 중요성을 강조하는 사람들.</p><p id="0765bfb4-fa76-4519-8dcc-0ac4fb935dee" class="">연결주의 알고리즘, 퍼셉트론(Perceptron) <strong>:</strong> 연결주의를 주장한 프랭크 로젠블랫이 고안한 초기 형태의 인공 신경망. Perception(인지 능력)과 Neuron(뇌 신경세포)를 결합한 단어. 퍼셉트론은 입력신호(input)를 입력받아 다른 하나의 신호(output)을 출력하는 알고리즘이다.</p><p id="cdc5dd24-e6a2-47e6-8b03-4b2ede9f40f5" class=""><a href="https://m.blog.naver.com/PostView.naver?blogId=mondrian-ai&amp;logNo=222096661818&amp;categoryNo=12&amp;proxyReferer=">[4] 인공지능의 2가지 관점: 기호주의와 연결주의</a></p><h3 id="ab423ad4-ed31-486a-8259-e5ed1a306574" class="">(참고)평생학습(continual learning)</h3><p id="c85dc96e-aee5-44df-af69-e4490a7b6df6" class=""><a href="https://tech.scatterlab.co.kr/continual-learning/">Continual Learning: 꾸준히 성장하는 모델을 만들기 위한 기술</a></p><h3 id="e7aefe28-4daf-476b-bd31-4cc57832042c" class="">CRISP-DM (Cross-Industry Standard Process for Data Mining)</h3><p id="353594ba-bfc5-4831-b9a6-856434aa5317" class="">전 세계에서 가장 많이 사용되는 데이터 마이닝 표준 방법론</p><figure id="691810f1-2923-4c95-8128-1bef70708e7f" class="image"><a href="https://user-images.githubusercontent.com/75712723/254181031-b7af3c6f-b783-4b55-ac2a-fc1d3513be66.png"><img style="width:686px" src="https://user-images.githubusercontent.com/75712723/254181031-b7af3c6f-b783-4b55-ac2a-fc1d3513be66.png"/></a></figure><figure id="8b88227c-41b7-4904-89dd-d317a2560a43" class="image"><a href="https://user-images.githubusercontent.com/75712723/254181057-3c08a9d7-f685-4d2a-885e-63fdda503bcc.png"><img style="width:700px" src="https://user-images.githubusercontent.com/75712723/254181057-3c08a9d7-f685-4d2a-885e-63fdda503bcc.png"/></a></figure><ol type="1" id="4ad4fb8d-2241-40f4-82be-cb41034eb6b7" class="numbered-list" start="1"><li>비즈니스 이해(Business Understanding) : 무엇을 할것인지, 이것을 해도 되는지, 윤리적 이해 등</li></ol><ol type="1" id="d11d144d-cb3b-4afc-80c7-0a1dd7d6bcde" class="numbered-list" start="2"><li>데이터 이해(Data Understanding) : 데이터로 무엇을 할것인지</li></ol><ol type="1" id="9a6b720e-3e14-4e0b-b148-6bb714ac2c25" class="numbered-list" start="3"><li>데이터 준비(Data Preparation) : 데이터를 어떻게 구할지, 데이터 전처리</li></ol><ol type="1" id="b44b84c8-cbff-46c7-bdb9-be5c97c3a7f9" class="numbered-list" start="4"><li>모델링(Modelling) : 모델링 기법 선택, 테스트 설계 생성, 모델 생성</li></ol><ol type="1" id="d5ed1068-41d6-48b3-8ddb-0a118249457c" class="numbered-list" start="5"><li>평가(Evaluation) : 결과 평가</li></ol><ol type="1" id="f5a4b81e-9ee7-4609-915c-63a615e54b5f" class="numbered-list" start="6"><li>배포(Deployment) : 배포 및 피드백</li></ol><h3 id="392fe437-b166-4e85-bdb0-15bbfc853e57" class="">colab에서 ipynb(interactive python notebook) 실행하기</h3><p id="d43b0553-7f9d-4d25-bff5-c740414c7657" class=""><a href="https://colab.research.google.com/?hl=ko">Google Colaboratory</a></p><ol type="1" id="40b44849-8e55-4cf5-816e-b8145c7c87b0" class="numbered-list" start="1"><li>colab 링크 실행 후 업로드 버튼 클릭</li></ol><figure id="55c5d090-9630-4f56-aedf-36fc4be39296" class="image"><a href="https://user-images.githubusercontent.com/75712723/254181471-8c33739a-cfac-4ad1-ab41-06941e610756.png"><img style="width:700px" src="https://user-images.githubusercontent.com/75712723/254181471-8c33739a-cfac-4ad1-ab41-06941e610756.png"/></a></figure><ol type="1" id="b360bf53-efd6-4967-9d32-0d2e1db4949c" class="numbered-list" start="1"><li>실행할 ipynb 파일 선택</li></ol><figure id="291975e1-523c-42d9-bfa8-2b17e7914056" class="image"><a href="https://user-images.githubusercontent.com/75712723/254181490-575e1790-1cf3-4d96-bbe9-a3b7e4b83a7f.png"><img style="width:700px" src="https://user-images.githubusercontent.com/75712723/254181490-575e1790-1cf3-4d96-bbe9-a3b7e4b83a7f.png"/></a></figure><ol type="1" id="b3b004f5-76f0-4667-8454-a2dabda41fc9" class="numbered-list" start="1"><li>실행 화면</li></ol><figure id="0eb878ed-80be-48fe-9b07-25a5670f6eef" class="image"><a href="https://user-images.githubusercontent.com/75712723/254181855-be42072d-41a7-4cf8-ae30-e074e9f96652.png"><img style="width:700px" src="https://user-images.githubusercontent.com/75712723/254181855-be42072d-41a7-4cf8-ae30-e074e9f96652.png"/></a></figure><h3 id="4bb40329-f258-4fdf-84c7-3e2e8c599d1b" class="">colab의 특징</h3><p id="84a97630-92bf-4ffc-9491-7c790181886d" class="">파이썬은 인터프리터로, 줄 단위로 실행이 된다.</p><ol type="1" id="192bda14-95bc-4a82-ac04-fb058fa134d5" class="numbered-list" start="1"><li>colab의 코드 셀은 cell 단위로 실행이 된다.</li></ol><ol type="1" id="aca34552-2116-4d2f-a73f-f1f6a35a7d28" class="numbered-list" start="2"><li>(mac) 코드의 실행은 command + return, shift + return</li></ol><ol type="1" id="fd0c16cf-789b-4515-9585-067f999c7ad1" class="numbered-list" start="3"><li>블럭의 <code>+ 코드</code> 혹은 <code>+ 텍스트</code>를 클릭하여 텍스트와 코드 입력이 가능하다.</li></ol><figure id="296df869-22cc-4741-ae37-d197ff7f11cc" class="image"><a href="https://user-images.githubusercontent.com/75712723/254182104-2d444136-7fe7-4708-a553-a3d561a785e5.png"><img style="width:700px" src="https://user-images.githubusercontent.com/75712723/254182104-2d444136-7fe7-4708-a553-a3d561a785e5.png"/></a></figure><h3 id="f44c8cc7-24d2-4882-ade2-05a22396afe1" class="">데이터의 분류</h3><p id="21b09cc5-1e0c-4570-abdc-e15dcba9a51e" class="">정형 데이터와 비정형 데이터로 분류된다.</p><ol type="1" id="a398f612-6b8c-4101-82d6-2a7a3eff3eb2" class="numbered-list" start="1"><li>정형 데이터(structured data)</li></ol><ul id="23493e81-d189-4826-91d1-416547ebeb85" class="bulleted-list"><li style="list-style-type:disc">데이터의 통계적 <code>특징</code>을 뽑아내기 쉬운 데이터</li></ul><ul id="026b2d9e-eadc-4eb9-a96a-06b9cb91e59f" class="bulleted-list"><li style="list-style-type:disc">키, 체중, 몸무게 등의 데이터. 액셀에서 표 형식을 가지는 데이터</li></ul><p id="5a4adcd6-89fa-476e-8dce-5c1cb7338e15" class="">정형인 이유?</p><p id="d28bf160-5bcc-4ebd-8830-6358d4a6d1bc" class="">키, 체중, 몸무게의 캡션을 지우고 데이터만 남겨도 칼럼을 보면 이것이 키, 체중, 몸무게 값이 가지는 특징과 범위를 유추할 수 있다.</p><ol type="1" id="ad008116-eaca-440e-a30b-9f74462b7b21" class="numbered-list" start="1"><li>비정형 데이터(Unstructured data)</li></ol><ul id="2370f6f2-95cd-4411-840f-490ad92a5e88" class="bulleted-list"><li style="list-style-type:disc">데이터의 통계적 <code>특징</code>을 뽑아내기 어려운 데이터</li></ul><ul id="e5bbc1e5-c199-4c6f-8f67-36f4dae6ae69" class="bulleted-list"><li style="list-style-type:disc">사진, 비디오, 메일 데이터 등</li></ul><p id="028ae301-9be0-4f59-a362-b9717333e600" class="">비정형인 이유?</p><p id="f4164c60-3842-4fa9-8206-1e4c60fe9dcf" class="">개의 사진, 동영상의 묶음이 있을 때 특정한 하나의 좌표를 전부 연결한다면 특정 좌표의 값에 해당하는 정보가 모두 달라 특징을 유추할 수 없다.</p><p id="ae09f642-58b0-419f-937e-95ad895d72c0" class=""><a href="https://colab.research.google.com/github/rickiepark/hg-da/blob/main/01-3.ipynb#scrollTo=a65810be">Google Colaboratory</a></p><h3 id="4c81334a-216d-4f83-b4ff-b78a771b4e09" class="">(링크의 01-3 중)데이터프레임 다루기: 판다스</h3><pre id="55076af7-1926-419d-9055-167e60c165db" class="code code-wrap"><code>import pandas as pd</code></pre><pre id="ccccba05-bce4-4ca4-a748-dccb8a531b9c" class="code code-wrap"><code># csv(comma separated value)
+df = pd.read_csv(&#x27;남산도서관 장서 대출목록 (2021년 04월).csv&#x27;, encoding=&#x27;euc-kr&#x27;)</code></pre><pre id="4ee7d884-232e-41e0-bbb3-3a3cc946a7a2" class="code code-wrap"><code># low_memory옵션은 대용량의 데이터를 불러오는 경우 각 칼럼의 데이터 타입(dtype)을 추측하는 것이 매우 많은 메모리를 사용하기 때문에
+# 대용량의 데이터를 불러올때 메모리 에러가 발생하는 경우 이를 False로 설정
+df = pd.read_csv(&#x27;남산도서관 장서 대출목록 (2021년 04월).csv&#x27;, encoding=&#x27;euc-kr&#x27;, low_memory=False)</code></pre><pre id="b86b0744-ffde-4814-bbc0-ac1c350251a1" class="code code-wrap"><code>df.head()
+# 실행결과</code></pre><table id="05a90a5b-97b0-427e-b170-06529d07431c" class="simple-table"><tbody><tr id="548109ff-3420-44c6-aa98-14ad5a38e296"><td id="AG;R" class="">index</td><td id="GGkj" class="">번호</td><td id="N]Wb" class="">도서명</td><td id="oEhK" class="">저자</td><td id="^sU^" class="">출판사</td><td id="yyP~" class="">발행년도</td><td id="qmTa" class="">ISBN</td><td id="SPI&gt;" class="">세트 ISBN</td><td id="A[Mz" class="">부가기호</td><td id="[r_N" class="">권</td><td id="L]g[" class="">주제분류번호</td><td id="Ul;Q" class="">도서권수</td><td id="iHVi" class="">대출건수</td><td id="MJw]" class="">등록일자</td><td id="YkmQ" class="">Unnamed: 13</td></tr><tr id="25877f7a-b559-4151-bdc5-18407da9181a"><td id="AG;R" class="">0</td><td id="GGkj" class="">1</td><td id="N]Wb" class="">인공지능과 흙</td><td id="oEhK" class="">김동훈 지음</td><td id="^sU^" class="">민음사</td><td id="yyP~" class="">2021</td><td id="qmTa" class="">9788937444319</td><td id="SPI&gt;" class="">NaN</td><td id="A[Mz" class="">NaN</td><td id="[r_N" class="">NaN</td><td id="L]g[" class="">NaN</td><td id="Ul;Q" class="">1</td><td id="iHVi" class="">0</td><td id="MJw]" class="">2021-03-19</td><td id="YkmQ" class="">NaN</td></tr><tr id="3ffe3b14-5f9a-4437-899f-55ebed0e1ef0"><td id="AG;R" class="">1</td><td id="GGkj" class="">2</td><td id="N]Wb" class="">가짜 행복 권하는 사회</td><td id="oEhK" class="">김태형 지음</td><td id="^sU^" class="">갈매나무</td><td id="yyP~" class="">2021</td><td id="qmTa" class="">9791190123969</td><td id="SPI&gt;" class="">NaN</td><td id="A[Mz" class="">NaN</td><td id="[r_N" class="">NaN</td><td id="L]g[" class="">NaN</td><td id="Ul;Q" class="">1</td><td id="iHVi" class="">0</td><td id="MJw]" class="">2021-03-19</td><td id="YkmQ" class="">NaN</td></tr><tr id="1181dd51-dd0c-4719-b286-6e6b09c349b5"><td id="AG;R" class="">2</td><td id="GGkj" class="">3</td><td id="N]Wb" class="">나도 한 문장 잘 쓰면 바랄 게 없겠네</td><td id="oEhK" class="">김선영 지음</td><td id="^sU^" class="">블랙피쉬</td><td id="yyP~" class="">2021</td><td id="qmTa" class="">9788968332982</td><td id="SPI&gt;" class="">NaN</td><td id="A[Mz" class="">NaN</td><td id="[r_N" class="">NaN</td><td id="L]g[" class="">NaN</td><td id="Ul;Q" class="">1</td><td id="iHVi" class="">0</td><td id="MJw]" class="">2021-03-19</td><td id="YkmQ" class="">NaN</td></tr><tr id="062cab4e-0bf1-477f-870f-d8cb23483214"><td id="AG;R" class="">3</td><td id="GGkj" class="">4</td><td id="N]Wb" class="">예루살렘 해변</td><td id="oEhK" class="">이도 게펜 지음, 임재희 옮김</td><td id="^sU^" class="">문학세계사</td><td id="yyP~" class="">2021</td><td id="qmTa" class="">9788970759906</td><td id="SPI&gt;" class="">NaN</td><td id="A[Mz" class="">NaN</td><td id="[r_N" class="">NaN</td><td id="L]g[" class="">NaN</td><td id="Ul;Q" class="">1</td><td id="iHVi" class="">0</td><td id="MJw]" class="">2021-03-19</td><td id="YkmQ" class="">NaN</td></tr><tr id="49b767fb-a542-4ec8-8504-66af0d4649dd"><td id="AG;R" class="">4</td><td id="GGkj" class="">5</td><td id="N]Wb" class="">김성곤의 중국한시기행 : 장강·황하 편</td><td id="oEhK" class="">김성곤 지음</td><td id="^sU^" class="">김영사</td><td id="yyP~" class="">2021</td><td id="qmTa" class="">9788934990833</td><td id="SPI&gt;" class="">NaN</td><td id="A[Mz" class="">NaN</td><td id="[r_N" class="">NaN</td><td id="L]g[" class="">NaN</td><td id="Ul;Q" class="">1</td><td id="iHVi" class="">0</td><td id="MJw]" class="">2021-03-19</td><td id="YkmQ" class="">NaN</td></tr></tbody></table><pre id="5bccbc91-7110-4bad-a24b-1c9caa218f96" class="code code-wrap"><code># ISBN이 로드시 숫자로 처리되므로 미리 string type로 지정
+# NaN = Not a Number
+# 여기서 ISBN은 스칼라(단일차원인)값을 가진다. 남자 여자처럼 구분을 하기 위한 데이터지, 우선 순위를 가진 값(벡터 값)이 아니다.
+df = pd.read_csv(&#x27;남산도서관 장서 대출목록 (2021년 04월).csv&#x27;, encoding=&#x27;euc-kr&#x27;, dtype={&#x27;ISBN&#x27; : str, &#x27;세트 ISBN&#x27; : str, &#x27;주제분류번호&#x27; : str})
+df.head</code></pre><pre id="b669e162-0a24-4c03-8166-a8ae983796dd" class="code code-wrap"><code>&lt;bound method NDFrame.head of             번호                    도서명                저자    출판사  발행년도  \
+0            1                인공지능과 흙            김동훈 지음    민음사  2021
+1            2           가짜 행복 권하는 사회            김태형 지음   갈매나무  2021
+2            3  나도 한 문장 잘 쓰면 바랄 게 없겠네            김선영 지음   블랙피쉬  2021
+3            4                예루살렘 해변  이도 게펜 지음, 임재희 옮김  문학세계사  2021
+4            5  김성곤의 중국한시기행 : 장강·황하 편            김성곤 지음    김영사  2021
+...        ...                    ...               ...    ...   ...
+401677  401678                韓國現代詩大系            채만묵 編著  한국문화사  1996
+401678  401679                  뉴 웨이브        제임스 모나코 지음    한나래  1996
+401679  401680           (최인훈 장편소설)화두            최인훈 지음    민음사  1994
+401680  401681           독일 문학과 세계 문학            吳漢鎭 編著     벽호  1995
+401681  401682             참으로 소중한 생각            김일상 지음    동문사  1995
+
+                 ISBN        세트 ISBN 부가기호    권   주제분류번호  도서권수  대출건수  \
+0       9788937444319            NaN  NaN  NaN      NaN     1     0
+1       9791190123969            NaN  NaN  NaN      NaN     1     0
+2       9788968332982            NaN  NaN  NaN      NaN     1     0
+3       9788970759906            NaN  NaN  NaN      NaN     1     0
+4       9788934990833            NaN  NaN  NaN      NaN     1     0
+...               ...            ...  ...  ...      ...   ...   ...
+401677  9788977352971  9788977352988  NaN    3  811.608     1     0
+401678  9788985367448  9788985367424  NaN    2   688.04     1     0
+401679  9788937401596  9788937401589  NaN    2    813.6     1     0
+401680  9788947700368  9788947700405  NaN    3   809.05     2     0
+401681  9788970610092  9788970610092    0    1    814.6     0     0
+
+              등록일자  Unnamed: 13
+0       2021-03-19          NaN
+1       2021-03-19          NaN
+2       2021-03-19          NaN
+3       2021-03-19          NaN
+4       2021-03-19          NaN
+...            ...          ...
+401677  1970-01-01          NaN
+401678  1970-01-01          NaN
+401679  1970-01-01          NaN
+401680  1970-01-01          NaN
+401681  1970-01-01          NaN
+
+[401682 rows x 14 columns]&gt;
+</code></pre><pre id="4e987f24-83d9-47c7-8eab-0a4e5262476a" class="code code-wrap"><code>df.to_csv(&#x27;ns_202104.csv&#x27;)</code></pre><pre id="4fad6132-87a9-4549-a775-019fea1e8a83" class="code code-wrap"><code># 파이썬의 컨테이너(container) 타입
+# 하나 이상의 숫자나 문자열을 담고있다.
+with open(&#x27;ns_202104.csv&#x27;) as f:
+  for i in range(3):
+    print(f.readline(), end=&#x27;&#x27;)
+
+# 실행결과</code></pre><pre id="7acf1839-9459-49ce-8f1c-e24d6be3112b" class="code code-wrap"><code>,번호,도서명,저자,출판사,발행년도,ISBN,세트 ISBN,부가기호,권,주제분류번호,도서권수,대출건수,등록일자,Unnamed: 13
+0,1,인공지능과 흙,김동훈 지음,민음사,2021,9788937444319,,,,,1,0,2021-03-19,
+1,2,가짜 행복 권하는 사회,김태형 지음,갈매나무,2021,9791190123969,,,,,1,0,2021-03-19,
+</code></pre><pre id="a1fdf415-7e12-4063-a75b-aa877d20edeb" class="code code-wrap"><code>ns_df = pd.read_csv(&#x27;ns_202104.csv&#x27;, low_memory=False)
+ns_df.head</code></pre><pre id="a9fe3026-fb9e-43fe-b62e-fc8727f33236" class="code code-wrap"><code>&lt;bound method NDFrame.head of         Unnamed: 0      번호                    도서명                저자    출판사  \
+0                0       1                인공지능과 흙            김동훈 지음    민음사
+1                1       2           가짜 행복 권하는 사회            김태형 지음   갈매나무
+2                2       3  나도 한 문장 잘 쓰면 바랄 게 없겠네            김선영 지음   블랙피쉬
+3                3       4                예루살렘 해변  이도 게펜 지음, 임재희 옮김  문학세계사
+4                4       5  김성곤의 중국한시기행 : 장강·황하 편            김성곤 지음    김영사
+...            ...     ...                    ...               ...    ...
+401677      401677  401678                韓國現代詩大系            채만묵 編著  한국문화사
+401678      401678  401679                  뉴 웨이브        제임스 모나코 지음    한나래
+401679      401679  401680           (최인훈 장편소설)화두            최인훈 지음    민음사
+401680      401680  401681           독일 문학과 세계 문학            吳漢鎭 編著     벽호
+401681      401681  401682             참으로 소중한 생각            김일상 지음    동문사
+
+        발행년도           ISBN        세트 ISBN 부가기호    권   주제분류번호  도서권수  대출건수  \
+0       2021  9788937444319            NaN  NaN  NaN      NaN     1     0
+1       2021  9791190123969            NaN  NaN  NaN      NaN     1     0
+2       2021  9788968332982            NaN  NaN  NaN      NaN     1     0
+3       2021  9788970759906            NaN  NaN  NaN      NaN     1     0
+4       2021  9788934990833            NaN  NaN  NaN      NaN     1     0
+...      ...            ...            ...  ...  ...      ...   ...   ...
+401677  1996  9788977352971  9788977352988  NaN    3  811.608     1     0
+401678  1996  9788985367448  9788985367424  NaN    2   688.04     1     0
+401679  1994  9788937401596  9788937401589  NaN    2    813.6     1     0
+401680  1995  9788947700368  9788947700405  NaN    3   809.05     2     0
+401681  1995  9788970610092  9788970610092    0    1    814.6     0     0
+
+              등록일자  Unnamed: 13
+0       2021-03-19          NaN
+1       2021-03-19          NaN
+2       2021-03-19          NaN
+3       2021-03-19          NaN
+4       2021-03-19          NaN
+...            ...          ...
+401677  1970-01-01          NaN
+401678  1970-01-01          NaN
+401679  1970-01-01          NaN
+401680  1970-01-01          NaN
+401681  1970-01-01          NaN
+
+[401682 rows x 15 columns]&gt;
+</code></pre><pre id="89fb04d1-6bd4-4aea-bf3a-4769c3fa1996" class="code code-wrap"><code>ns_df = pd.read_csv(&#x27;ns_202104.csv&#x27;, index_col=0, low_memory=False)
+ns_df.head()
+# 실행결과</code></pre><table id="8c4ab7ac-50cc-43d7-945e-8104dbd2d6df" class="simple-table"><tbody><tr id="a9736dcf-6eb1-4c03-96e9-b62d5fe366e3"><td id="\gQa" class=""></td><td id="hFv_" class="">번호</td><td id="kGyi" class="">도서명</td><td id="bRI;" class="">저자</td><td id="kQV}" class="">출판사</td><td id="_@wx" class="">발행년도</td><td id="~?@;" class="">ISBN</td><td id="lVrE" class="">세트 ISBN</td><td id="jM=k" class="">부가기호</td><td id="bp`a" class="">권</td><td id="[fKF" class="">주제분류번호</td><td id="fG[E" class="">도서권수</td><td id="G_VF" class="">대출건수</td><td id="d]Yz" class="">등록일자</td><td id="jmJi" class="">Unnamed: 13</td></tr><tr id="06b2e694-6a89-4bed-97d4-697376a20673"><td id="\gQa" class="">0</td><td id="hFv_" class="">1</td><td id="kGyi" class="">인공지능과 흙</td><td id="bRI;" class="">김동훈 지음</td><td id="kQV}" class="">민음사</td><td id="_@wx" class="">2021</td><td id="~?@;" class="">9788937444319</td><td id="lVrE" class="">NaN</td><td id="jM=k" class="">NaN</td><td id="bp`a" class="">NaN</td><td id="[fKF" class="">NaN</td><td id="fG[E" class="">1</td><td id="G_VF" class="">0</td><td id="d]Yz" class="">2021-03-19</td><td id="jmJi" class="">NaN</td></tr><tr id="5c929de7-a888-46a4-b34f-f9fef3f8aeb7"><td id="\gQa" class="">1</td><td id="hFv_" class="">2</td><td id="kGyi" class="">가짜 행복 권하는 사회</td><td id="bRI;" class="">김태형 지음</td><td id="kQV}" class="">갈매나무</td><td id="_@wx" class="">2021</td><td id="~?@;" class="">9791190123969</td><td id="lVrE" class="">NaN</td><td id="jM=k" class="">NaN</td><td id="bp`a" class="">NaN</td><td id="[fKF" class="">NaN</td><td id="fG[E" class="">1</td><td id="G_VF" class="">0</td><td id="d]Yz" class="">2021-03-19</td><td id="jmJi" class="">NaN</td></tr><tr id="c96c787a-04e7-4188-bc77-657e78800d06"><td id="\gQa" class="">2</td><td id="hFv_" class="">3</td><td id="kGyi" class="">나도 한 문장 잘 쓰면 바랄 게 없겠네</td><td id="bRI;" class="">김선영 지음</td><td id="kQV}" class="">블랙피쉬</td><td id="_@wx" class="">2021</td><td id="~?@;" class="">9788968332982</td><td id="lVrE" class="">NaN</td><td id="jM=k" class="">NaN</td><td id="bp`a" class="">NaN</td><td id="[fKF" class="">NaN</td><td id="fG[E" class="">1</td><td id="G_VF" class="">0</td><td id="d]Yz" class="">2021-03-19</td><td id="jmJi" class="">NaN</td></tr><tr id="897391a0-eaf6-4588-8d53-406f9efcc911"><td id="\gQa" class="">3</td><td id="hFv_" class="">4</td><td id="kGyi" class="">예루살렘 해변</td><td id="bRI;" class="">이도 게펜 지음, 임재희 옮김</td><td id="kQV}" class="">문학세계사</td><td id="_@wx" class="">2021</td><td id="~?@;" class="">9788970759906</td><td id="lVrE" class="">NaN</td><td id="jM=k" class="">NaN</td><td id="bp`a" class="">NaN</td><td id="[fKF" class="">NaN</td><td id="fG[E" class="">1</td><td id="G_VF" class="">0</td><td id="d]Yz" class="">2021-03-19</td><td id="jmJi" class="">NaN</td></tr><tr id="8364f501-b761-439b-8788-97b93a989c33"><td id="\gQa" class="">4</td><td id="hFv_" class="">5</td><td id="kGyi" class="">김성곤의 중국한시기행 : 장강·황하 편</td><td id="bRI;" class="">김성곤 지음</td><td id="kQV}" class="">김영사</td><td id="_@wx" class="">2021</td><td id="~?@;" class="">9788934990833</td><td id="lVrE" class="">NaN</td><td id="jM=k" class="">NaN</td><td id="bp`a" class="">NaN</td><td id="[fKF" class="">NaN</td><td id="fG[E" class="">1</td><td id="G_VF" class="">0</td><td id="d]Yz" class="">2021-03-19</td><td id="jmJi" class="">NaN</td></tr></tbody></table><pre id="7187a264-129a-476d-a64b-d39df4953516" class="code code-wrap"><code># df를 csv로 변환, index는 포함하지 않는다.
+df.to_csv(&#x27;ns_202104.csv&#x27;, index=False)
+
+# xlsxwriter 라이브러리 설치
+!pip install xlsxwriter
+
+# ns_df를 엑셀로 변환
+ns_df.to_excel(&#x27;ns_202104.xlsx&#x27;, index=False, engine=&#x27;xlsxwriter&#x27;)</code></pre><p id="d2690955-3bbb-45e1-9e21-33918d372e3a" class=""><a href="https://colab.research.google.com/github/rickiepark/hg-da/blob/main/03-1.ipynb">Google Colaboratory</a></p><h3 id="e61e8792-34c3-41e0-a755-974b120055b1" class="">(03-1) 불필요한 데이터 삭제하기</h3><pre id="d18ac1eb-02c4-440d-8fb5-00c50595bd21" class="code code-wrap"><code>import gdown
+
+# quiet = False : 실행 후 프로그레시브 바를 출력하지 않으려면 True
+gdown.download(&#x27;https://bit.ly/3RhoNho&#x27;, &#x27;ns_202104.csv&#x27;, quiet=False)</code></pre><pre id="29abf342-d622-4a14-938d-f07ba26da64e" class="code code-wrap"><code>Downloading...
+From: https://bit.ly/3RhoNho
+To: /content/ns_202104.csv
+100%|██████████| 57.6M/57.6M [00:00&lt;00:00, 113MB/s]
+&#x27;ns_202104.csv
+</code></pre><pre id="f4a5ef60-5ff9-44d3-a780-ef043fc69d10" class="code code-wrap"><code>import pandas as pd
+
+# 데이터를 전처리할때 가장 많이 쓰는 라이브러리
+# numpy, pandas
+ns_df = pd.read_csv(&#x27;ns_202104.csv&#x27;, low_memory=False)
+ns_df.head()</code></pre><table id="e5d9496c-a07c-46c8-aa22-60b9f8bb4818" class="simple-table"><tbody><tr id="081cfe9e-0af6-4b2c-b1c4-c5c465a93ff5"><td id="^Mos" class=""></td><td id="mPyE" class="">번호</td><td id="uZ]{" class="">도서명</td><td id="@gEN" class="">저자</td><td id="vH=P" class="">출판사</td><td id="X|Au" class="">발행년도</td><td id="yTNQ" class="">ISBN</td><td id="=kGt" class="">세트 ISBN</td><td id="`G~m" class="">부가기호</td><td id="pw]S" class="">권</td><td id="hupJ" class="">주제분류번호</td><td id="ZjIi" class="">도서권수</td><td id="AP`M" class="">대출건수</td><td id="xbfu" class="">등록일자</td><td id="L\g}" class="">Unnamed: 13</td></tr><tr id="3c128009-c058-4a4c-b9ed-9c7a2b83024f"><td id="^Mos" class="">0</td><td id="mPyE" class="">1</td><td id="uZ]{" class="">인공지능과 흙</td><td id="@gEN" class="">김동훈 지음</td><td id="vH=P" class="">민음사</td><td id="X|Au" class="">2021</td><td id="yTNQ" class="">9788937444319</td><td id="=kGt" class="">NaN</td><td id="`G~m" class="">NaN</td><td id="pw]S" class="">NaN</td><td id="hupJ" class="">NaN</td><td id="ZjIi" class="">1</td><td id="AP`M" class="">0</td><td id="xbfu" class="">2021-03-19</td><td id="L\g}" class="">NaN</td></tr><tr id="13acfc95-f198-403d-8299-a8a006f6e1a8"><td id="^Mos" class="">1</td><td id="mPyE" class="">2</td><td id="uZ]{" class="">가짜 행복 권하는 사회</td><td id="@gEN" class="">김태형 지음</td><td id="vH=P" class="">갈매나무</td><td id="X|Au" class="">2021</td><td id="yTNQ" class="">9791190123969</td><td id="=kGt" class="">NaN</td><td id="`G~m" class="">NaN</td><td id="pw]S" class="">NaN</td><td id="hupJ" class="">NaN</td><td id="ZjIi" class="">1</td><td id="AP`M" class="">0</td><td id="xbfu" class="">2021-03-19</td><td id="L\g}" class="">NaN</td></tr><tr id="ec38edeb-8d58-42a2-9a8e-c24f10ed8937"><td id="^Mos" class="">2</td><td id="mPyE" class="">3</td><td id="uZ]{" class="">나도 한 문장 잘 쓰면 바랄 게 없겠네</td><td id="@gEN" class="">김선영 지음</td><td id="vH=P" class="">블랙피쉬</td><td id="X|Au" class="">2021</td><td id="yTNQ" class="">9788968332982</td><td id="=kGt" class="">NaN</td><td id="`G~m" class="">NaN</td><td id="pw]S" class="">NaN</td><td id="hupJ" class="">NaN</td><td id="ZjIi" class="">1</td><td id="AP`M" class="">0</td><td id="xbfu" class="">2021-03-19</td><td id="L\g}" class="">NaN</td></tr><tr id="ae8484e2-4cf9-449a-a4d0-48027a0b939e"><td id="^Mos" class="">3</td><td id="mPyE" class="">4</td><td id="uZ]{" class="">예루살렘 해변</td><td id="@gEN" class="">이도 게펜 지음, 임재희 옮김</td><td id="vH=P" class="">문학세계사</td><td id="X|Au" class="">2021</td><td id="yTNQ" class="">9788970759906</td><td id="=kGt" class="">NaN</td><td id="`G~m" class="">NaN</td><td id="pw]S" class="">NaN</td><td id="hupJ" class="">NaN</td><td id="ZjIi" class="">1</td><td id="AP`M" class="">0</td><td id="xbfu" class="">2021-03-19</td><td id="L\g}" class="">NaN</td></tr><tr id="a4405f03-77fa-4c95-aece-c58574551588"><td id="^Mos" class="">4</td><td id="mPyE" class="">5</td><td id="uZ]{" class="">김성곤의 중국한시기행 : 장강·황하 편</td><td id="@gEN" class="">김성곤 지음</td><td id="vH=P" class="">김영사</td><td id="X|Au" class="">2021</td><td id="yTNQ" class="">9788934990833</td><td id="=kGt" class="">NaN</td><td id="`G~m" class="">NaN</td><td id="pw]S" class="">NaN</td><td id="hupJ" class="">NaN</td><td id="ZjIi" class="">1</td><td id="AP`M" class="">0</td><td id="xbfu" class="">2021-03-19</td><td id="L\g}" class="">NaN</td></tr></tbody></table><pre id="8720d663-d0dc-4b4b-a182-d73d615345df" class="code code-wrap"><code># 리스트 슬라이싱 : 리스트 내의 값을 특정부분 잘라내는 것, [&#x27;번호&#x27;:&#x27;등록일자&#x27;]는 &#x27;번호&#x27;에서 &#x27;등록일자&#x27; 까지 잘라서 저장하도록 지정
+# 컨테이너 타입의 3가지
+# 1. 리스트(list), 2. 튜플(tuple), 3. 딕셔너리(dictionary)
+# 여기서 인공지능에 가장 많이 사용하는 타입은 리스트다.
+# 리스트는 [] 대괄호로 묶여있다.
+# 튜플은 () 소괄호로 묶여있다.
+# 딕셔너리는 {} 중괄호로 묶여있다.
+
+ns_book = ns_df.loc[:, &#x27;번호&#x27;:&#x27;등록일자&#x27;]
+ns_book.head()</code></pre><table id="08632ff8-369b-4e95-a4e9-85c7b69125a2" class="simple-table"><tbody><tr id="8ada29f7-63aa-4d10-8fdf-18dc3772ba1c"><td id="g&lt;mb" class=""></td><td id="Uvci" class="">번호</td><td id="Kx[x" class="">도서명</td><td id="iZll" class="">저자</td><td id="Gl`u" class="">출판사</td><td id="&gt;coZ" class="">발행년도</td><td id="_uo?" class="">ISBN</td><td id="uYpp" class="">세트 ISBN</td><td id="i`OF" class="">부가기호</td><td id="kySS" class="">권</td><td id="ay\s" class="">주제분류번호</td><td id="BHAh" class="">도서권수</td><td id="Djby" class="">대출건수</td><td id="WCey" class="">등록일자</td></tr><tr id="715ec5b1-4f23-4fa8-89ae-e1d2f5002c60"><td id="g&lt;mb" class="">0</td><td id="Uvci" class="">1</td><td id="Kx[x" class="">인공지능과 흙</td><td id="iZll" class="">김동훈 지음</td><td id="Gl`u" class="">민음사</td><td id="&gt;coZ" class="">2021</td><td id="_uo?" class="">9788937444319</td><td id="uYpp" class="">NaN</td><td id="i`OF" class="">NaN</td><td id="kySS" class="">NaN</td><td id="ay\s" class="">NaN</td><td id="BHAh" class="">1</td><td id="Djby" class="">0</td><td id="WCey" class="">2021-03-19</td></tr><tr id="b7e1f141-6fd6-4072-9618-71ef28109829"><td id="g&lt;mb" class="">1</td><td id="Uvci" class="">2</td><td id="Kx[x" class="">가짜 행복 권하는 사회</td><td id="iZll" class="">김태형 지음</td><td id="Gl`u" class="">갈매나무</td><td id="&gt;coZ" class="">2021</td><td id="_uo?" class="">9791190123969</td><td id="uYpp" class="">NaN</td><td id="i`OF" class="">NaN</td><td id="kySS" class="">NaN</td><td id="ay\s" class="">NaN</td><td id="BHAh" class="">1</td><td id="Djby" class="">0</td><td id="WCey" class="">2021-03-19</td></tr><tr id="42682a35-199a-459f-bf30-db32240974e8"><td id="g&lt;mb" class="">2</td><td id="Uvci" class="">3</td><td id="Kx[x" class="">나도 한 문장 잘 쓰면 바랄 게 없겠네</td><td id="iZll" class="">김선영 지음</td><td id="Gl`u" class="">블랙피쉬</td><td id="&gt;coZ" class="">2021</td><td id="_uo?" class="">9788968332982</td><td id="uYpp" class="">NaN</td><td id="i`OF" class="">NaN</td><td id="kySS" class="">NaN</td><td id="ay\s" class="">NaN</td><td id="BHAh" class="">1</td><td id="Djby" class="">0</td><td id="WCey" class="">2021-03-19</td></tr><tr id="0a682b0d-b48c-46bc-9e2a-fe9c077d5871"><td id="g&lt;mb" class="">3</td><td id="Uvci" class="">4</td><td id="Kx[x" class="">예루살렘 해변</td><td id="iZll" class="">이도 게펜 지음, 임재희 옮김</td><td id="Gl`u" class="">문학세계사</td><td id="&gt;coZ" class="">2021</td><td id="_uo?" class="">9788970759906</td><td id="uYpp" class="">NaN</td><td id="i`OF" class="">NaN</td><td id="kySS" class="">NaN</td><td id="ay\s" class="">NaN</td><td id="BHAh" class="">1</td><td id="Djby" class="">0</td><td id="WCey" class="">2021-03-19</td></tr><tr id="dd4d5cb2-e874-4ea0-b660-902ffb6d4c55"><td id="g&lt;mb" class="">4</td><td id="Uvci" class="">5</td><td id="Kx[x" class="">김성곤의 중국한시기행 : 장강·황하 편</td><td id="iZll" class="">김성곤 지음</td><td id="Gl`u" class="">김영사</td><td id="&gt;coZ" class="">2021</td><td id="_uo?" class="">9788934990833</td><td id="uYpp" class="">NaN</td><td id="i`OF" class="">NaN</td><td id="kySS" class="">NaN</td><td id="ay\s" class="">NaN</td><td id="BHAh" class="">1</td><td id="Djby" class="">0</td><td id="WCey" class="">2021-03-19</td></tr></tbody></table><pre id="cc16f84f-b389-4667-8b23-e89626e42841" class="code code-wrap"><code>print(ns_df.columns)
+
+-&gt; Index([&#x27;번호&#x27;, &#x27;도서명&#x27;, &#x27;저자&#x27;, &#x27;출판사&#x27;, &#x27;발행년도&#x27;, &#x27;ISBN&#x27;, &#x27;세트 ISBN&#x27;, &#x27;부가기호&#x27;, &#x27;권&#x27;,
+       &#x27;주제분류번호&#x27;, &#x27;도서권수&#x27;, &#x27;대출건수&#x27;, &#x27;등록일자&#x27;, &#x27;Unnamed: 13&#x27;],
+      dtype=&#x27;object&#x27;)</code></pre><pre id="111af627-afe5-4f42-b133-c66789589973" class="code code-wrap"><code>print(ns_df.columns[0])
+
+-&gt; 번호</code></pre><pre id="9322c7b9-c720-442d-9f41-06e5336ff49b" class="code code-wrap"><code># Unnamed: 13과 같지 않은지 확인, True는 같지 않다.
+ns_df.columns != &#x27;Unnamed: 13&#x27;
+
+-&gt; array([ True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True, False])</code></pre><pre id="3d19409a-d8f3-48ae-a1c3-829060dd226f" class="code code-wrap"><code># ns_df의 Unnamed: 13이 아닌 칼럼을 찾아서 selected_columns에 저장
+selected_columns = ns_df.columns != &#x27;Unnamed: 13&#x27;
+ns_book = ns_df.loc[:, selected_columns]
+ns_book.head()</code></pre><table id="025b5980-ee79-47dc-8d2c-62c98982bf52" class="simple-table"><tbody><tr id="bbc829eb-0406-4bc0-b1f8-e9180da7c62d"><td id="VI@x" class=""></td><td id="iYnb" class="">번호</td><td id="zPxM" class="">도서명</td><td id="_Y^b" class="">저자</td><td id="ZKHJ" class="">출판사</td><td id="jTKV" class="">발행년도</td><td id="y|\p" class="">ISBN</td><td id="~eMP" class="">세트 ISBN</td><td id="][oX" class="">부가기호</td><td id="cuKf" class="">권</td><td id="I{ee" class="">주제분류번호</td><td id="b@LM" class="">도서권수</td><td id="JH]r" class="">대출건수</td><td id="zMKt" class="">등록일자</td></tr><tr id="2b205f4f-1c25-488f-bedd-5e9030f5b81c"><td id="VI@x" class="">0</td><td id="iYnb" class="">1</td><td id="zPxM" class="">인공지능과 흙</td><td id="_Y^b" class="">김동훈 지음</td><td id="ZKHJ" class="">민음사</td><td id="jTKV" class="">2021</td><td id="y|\p" class="">9788937444319</td><td id="~eMP" class="">NaN</td><td id="][oX" class="">NaN</td><td id="cuKf" class="">NaN</td><td id="I{ee" class="">NaN</td><td id="b@LM" class="">1</td><td id="JH]r" class="">0</td><td id="zMKt" class="">2021-03-19</td></tr><tr id="d577f8c6-865c-4fdb-8cfd-8667b0f448d6"><td id="VI@x" class="">1</td><td id="iYnb" class="">2</td><td id="zPxM" class="">가짜 행복 권하는 사회</td><td id="_Y^b" class="">김태형 지음</td><td id="ZKHJ" class="">갈매나무</td><td id="jTKV" class="">2021</td><td id="y|\p" class="">9791190123969</td><td id="~eMP" class="">NaN</td><td id="][oX" class="">NaN</td><td id="cuKf" class="">NaN</td><td id="I{ee" class="">NaN</td><td id="b@LM" class="">1</td><td id="JH]r" class="">0</td><td id="zMKt" class="">2021-03-19</td></tr><tr id="47f2cbf1-e118-4ac0-9762-ffd9c44e7b38"><td id="VI@x" class="">2</td><td id="iYnb" class="">3</td><td id="zPxM" class="">나도 한 문장 잘 쓰면 바랄 게 없겠네</td><td id="_Y^b" class="">김선영 지음</td><td id="ZKHJ" class="">블랙피쉬</td><td id="jTKV" class="">2021</td><td id="y|\p" class="">9788968332982</td><td id="~eMP" class="">NaN</td><td id="][oX" class="">NaN</td><td id="cuKf" class="">NaN</td><td id="I{ee" class="">NaN</td><td id="b@LM" class="">1</td><td id="JH]r" class="">0</td><td id="zMKt" class="">2021-03-19</td></tr><tr id="2e832531-2e2f-44de-a7ba-e520061da2f8"><td id="VI@x" class="">3</td><td id="iYnb" class="">4</td><td id="zPxM" class="">예루살렘 해변</td><td id="_Y^b" class="">이도 게펜 지음, 임재희 옮김</td><td id="ZKHJ" class="">문학세계사</td><td id="jTKV" class="">2021</td><td id="y|\p" class="">9788970759906</td><td id="~eMP" class="">NaN</td><td id="][oX" class="">NaN</td><td id="cuKf" class="">NaN</td><td id="I{ee" class="">NaN</td><td id="b@LM" class="">1</td><td id="JH]r" class="">0</td><td id="zMKt" class="">2021-03-19</td></tr><tr id="9fcc772b-ebb4-4afa-828d-1d1d66b93054"><td id="VI@x" class="">4</td><td id="iYnb" class="">5</td><td id="zPxM" class="">김성곤의 중국한시기행 : 장강·황하 편</td><td id="_Y^b" class="">김성곤 지음</td><td id="ZKHJ" class="">김영사</td><td id="jTKV" class="">2021</td><td id="y|\p" class="">9788934990833</td><td id="~eMP" class="">NaN</td><td id="][oX" class="">NaN</td><td id="cuKf" class="">NaN</td><td id="I{ee" class="">NaN</td><td id="b@LM" class="">1</td><td id="JH]r" class="">0</td><td id="zMKt" class="">2021-03-19</td></tr></tbody></table><pre id="67eed7cf-c340-4d4e-ac5e-f1b6370a3169" class="code code-wrap"><code>selected_columns = ns_df.columns != &#x27;부가기호&#x27;
+ns_book = ns_df.loc[:, selected_columns]
+ns_book.head()</code></pre><table id="a9ea277d-9106-413e-81c2-3216461da344" class="simple-table"><tbody><tr id="bcb0f4f2-0efd-47dd-bc84-931c20ea23a6"><td id="DrAc" class=""></td><td id="]Bc:" class="">번호</td><td id="g]qY" class="">도서명</td><td id="cIL_" class="">저자</td><td id="JFcd" class="">출판사</td><td id="~x_:" class="">발행년도</td><td id="|Pca" class="">ISBN</td><td id="beo{" class="">세트 ISBN</td><td id="Y\=y" class="">권</td><td id="RTnL" class="">주제분류번호</td><td id="`dDO" class="">도서권수</td><td id="vuP:" class="">대출건수</td><td id="\gIg" class="">등록일자</td><td id="mKL^" class="">Unnamed: 13</td></tr><tr id="296f6731-92ad-4085-854e-01c313a47308"><td id="DrAc" class="">0</td><td id="]Bc:" class="">1</td><td id="g]qY" class="">인공지능과 흙</td><td id="cIL_" class="">김동훈 지음</td><td id="JFcd" class="">민음사</td><td id="~x_:" class="">2021</td><td id="|Pca" class="">9788937444319</td><td id="beo{" class="">NaN</td><td id="Y\=y" class="">NaN</td><td id="RTnL" class="">NaN</td><td id="`dDO" class="">1</td><td id="vuP:" class="">0</td><td id="\gIg" class="">2021-03-19</td><td id="mKL^" class="">NaN</td></tr><tr id="9f694259-ed8f-489e-814a-178e09f41941"><td id="DrAc" class="">1</td><td id="]Bc:" class="">2</td><td id="g]qY" class="">가짜 행복 권하는 사회</td><td id="cIL_" class="">김태형 지음</td><td id="JFcd" class="">갈매나무</td><td id="~x_:" class="">2021</td><td id="|Pca" class="">9791190123969</td><td id="beo{" class="">NaN</td><td id="Y\=y" class="">NaN</td><td id="RTnL" class="">NaN</td><td id="`dDO" class="">1</td><td id="vuP:" class="">0</td><td id="\gIg" class="">2021-03-19</td><td id="mKL^" class="">NaN</td></tr><tr id="ebe54afd-7729-451e-8d9c-afe6fa23a594"><td id="DrAc" class="">2</td><td id="]Bc:" class="">3</td><td id="g]qY" class="">나도 한 문장 잘 쓰면 바랄 게 없겠네</td><td id="cIL_" class="">김선영 지음</td><td id="JFcd" class="">블랙피쉬</td><td id="~x_:" class="">2021</td><td id="|Pca" class="">9788968332982</td><td id="beo{" class="">NaN</td><td id="Y\=y" class="">NaN</td><td id="RTnL" class="">NaN</td><td id="`dDO" class="">1</td><td id="vuP:" class="">0</td><td id="\gIg" class="">2021-03-19</td><td id="mKL^" class="">NaN</td></tr><tr id="6931fe93-bf26-4661-8091-81af1e575e04"><td id="DrAc" class="">3</td><td id="]Bc:" class="">4</td><td id="g]qY" class="">예루살렘 해변</td><td id="cIL_" class="">이도 게펜 지음, 임재희 옮김</td><td id="JFcd" class="">문학세계사</td><td id="~x_:" class="">2021</td><td id="|Pca" class="">9788970759906</td><td id="beo{" class="">NaN</td><td id="Y\=y" class="">NaN</td><td id="RTnL" class="">NaN</td><td id="`dDO" class="">1</td><td id="vuP:" class="">0</td><td id="\gIg" class="">2021-03-19</td><td id="mKL^" class="">NaN</td></tr><tr id="36f5f1c2-f8c3-4676-b98f-f44d7bc61502"><td id="DrAc" class="">4</td><td id="]Bc:" class="">5</td><td id="g]qY" class="">김성곤의 중국한시기행 : 장강·황하 편</td><td id="cIL_" class="">김성곤 지음</td><td id="JFcd" class="">김영사</td><td id="~x_:" class="">2021</td><td id="|Pca" class="">9788934990833</td><td id="beo{" class="">NaN</td><td id="Y\=y" class="">NaN</td><td id="RTnL" class="">NaN</td><td id="`dDO" class="">1</td><td id="vuP:" class="">0</td><td id="\gIg" class="">2021-03-19</td><td id="mKL^" class="">NaN</td></tr></tbody></table><pre id="89e9e5c6-0cb8-4389-92e8-1cfc0647494b" class="code code-wrap"><code># axis = 1, 칼럼 기준으로 drop
+ns_book = ns_df.drop(&#x27;Unnamed: 13&#x27;, axis=1)
+ns_book.head()</code></pre><table id="5615517e-18ed-4b99-b951-1fd71e87ecb0" class="simple-table"><tbody><tr id="f3d6b74d-ce00-4dda-8bdd-e717015bb4f2"><td id="CYUd" class=""></td><td id="|E~Q" class="">번호</td><td id="njoW" class="">도서명</td><td id="yaRQ" class="">저자</td><td id="&gt;utr" class="">출판사</td><td id=";rU=" class="">발행년도</td><td id="ADBt" class="">ISBN</td><td id="hXSE" class="">세트 ISBN</td><td id="S[n:" class="">부가기호</td><td id="fJcK" class="">권</td><td id="G|e;" class="">주제분류번호</td><td id="l~T&lt;" class="">도서권수</td><td id="v|hB" class="">대출건수</td><td id="}cmR" class="">등록일자</td></tr><tr id="344b52f7-0c5c-4fff-a2dc-eb208fdbf5d6"><td id="CYUd" class="">0</td><td id="|E~Q" class="">1</td><td id="njoW" class="">인공지능과 흙</td><td id="yaRQ" class="">김동훈 지음</td><td id="&gt;utr" class="">민음사</td><td id=";rU=" class="">2021</td><td id="ADBt" class="">9788937444319</td><td id="hXSE" class="">NaN</td><td id="S[n:" class="">NaN</td><td id="fJcK" class="">NaN</td><td id="G|e;" class="">NaN</td><td id="l~T&lt;" class="">1</td><td id="v|hB" class="">0</td><td id="}cmR" class="">2021-03-19</td></tr><tr id="feffb818-b9d6-434f-b5bb-34bacc918f3a"><td id="CYUd" class="">1</td><td id="|E~Q" class="">2</td><td id="njoW" class="">가짜 행복 권하는 사회</td><td id="yaRQ" class="">김태형 지음</td><td id="&gt;utr" class="">갈매나무</td><td id=";rU=" class="">2021</td><td id="ADBt" class="">9791190123969</td><td id="hXSE" class="">NaN</td><td id="S[n:" class="">NaN</td><td id="fJcK" class="">NaN</td><td id="G|e;" class="">NaN</td><td id="l~T&lt;" class="">1</td><td id="v|hB" class="">0</td><td id="}cmR" class="">2021-03-19</td></tr><tr id="dedb0eb8-f271-4aa3-9dcb-89b343a2bd32"><td id="CYUd" class="">2</td><td id="|E~Q" class="">3</td><td id="njoW" class="">나도 한 문장 잘 쓰면 바랄 게 없겠네</td><td id="yaRQ" class="">김선영 지음</td><td id="&gt;utr" class="">블랙피쉬</td><td id=";rU=" class="">2021</td><td id="ADBt" class="">9788968332982</td><td id="hXSE" class="">NaN</td><td id="S[n:" class="">NaN</td><td id="fJcK" class="">NaN</td><td id="G|e;" class="">NaN</td><td id="l~T&lt;" class="">1</td><td id="v|hB" class="">0</td><td id="}cmR" class="">2021-03-19</td></tr><tr id="c2ca2191-ee0f-483d-b819-a333d1e3f8c7"><td id="CYUd" class="">3</td><td id="|E~Q" class="">4</td><td id="njoW" class="">예루살렘 해변</td><td id="yaRQ" class="">이도 게펜 지음, 임재희 옮김</td><td id="&gt;utr" class="">문학세계사</td><td id=";rU=" class="">2021</td><td id="ADBt" class="">9788970759906</td><td id="hXSE" class="">NaN</td><td id="S[n:" class="">NaN</td><td id="fJcK" class="">NaN</td><td id="G|e;" class="">NaN</td><td id="l~T&lt;" class="">1</td><td id="v|hB" class="">0</td><td id="}cmR" class="">2021-03-19</td></tr><tr id="35bd17fa-abc8-4de1-9f12-15a78c555b4e"><td id="CYUd" class="">4</td><td id="|E~Q" class="">5</td><td id="njoW" class="">김성곤의 중국한시기행 : 장강·황하 편</td><td id="yaRQ" class="">김성곤 지음</td><td id="&gt;utr" class="">김영사</td><td id=";rU=" class="">2021</td><td id="ADBt" class="">9788934990833</td><td id="hXSE" class="">NaN</td><td id="S[n:" class="">NaN</td><td id="fJcK" class="">NaN</td><td id="G|e;" class="">NaN</td><td id="l~T&lt;" class="">1</td><td id="v|hB" class="">0</td><td id="}cmR" class="">2021-03-19</td></tr></tbody></table><pre id="e6a01fad-f94a-4ab7-9181-c58434cc30cf" class="code code-wrap"><code># inplace = True
+# 주제분류번호를 칼럼 기준으로(1) drop하고, 반영(inplace)한다.
+ns_book.drop(&#x27;주제분류번호&#x27;, axis=1, inplace=True)
+ns_book.head()</code></pre><table id="f284499c-8e39-4b6f-bb62-83ce04375fb1" class="simple-table"><tbody><tr id="10015e93-cce0-4bee-82e1-e81c27a1d6da"><td id="JZi_" class=""></td><td id="b\w{" class="">번호</td><td id="TfJY" class="">도서명</td><td id="~Thw" class="">저자</td><td id="yfqA" class="">출판사</td><td id="EVNe" class="">발행년도</td><td id="HnJu" class="">ISBN</td><td id="Nj|r" class="">세트 ISBN</td><td id="~q?h" class="">권</td><td id="S&gt;^l" class="">도서권수</td><td id="e[Q:" class="">대출건수</td><td id="W~|g" class="">등록일자</td></tr><tr id="1801af89-5eb4-44c7-946d-ef31ef465ed0"><td id="JZi_" class="">0</td><td id="b\w{" class="">1</td><td id="TfJY" class="">인공지능과 흙</td><td id="~Thw" class="">김동훈 지음</td><td id="yfqA" class="">민음사</td><td id="EVNe" class="">2021</td><td id="HnJu" class="">9788937444319</td><td id="Nj|r" class="">NaN</td><td id="~q?h" class="">NaN</td><td id="S&gt;^l" class="">1</td><td id="e[Q:" class="">0</td><td id="W~|g" class="">2021-03-19</td></tr><tr id="0afec75c-a638-44df-8915-5ec4c325d288"><td id="JZi_" class="">1</td><td id="b\w{" class="">2</td><td id="TfJY" class="">가짜 행복 권하는 사회</td><td id="~Thw" class="">김태형 지음</td><td id="yfqA" class="">갈매나무</td><td id="EVNe" class="">2021</td><td id="HnJu" class="">9791190123969</td><td id="Nj|r" class="">NaN</td><td id="~q?h" class="">NaN</td><td id="S&gt;^l" class="">1</td><td id="e[Q:" class="">0</td><td id="W~|g" class="">2021-03-19</td></tr><tr id="4a6bef56-a6b8-4003-b6f8-3b478c20c152"><td id="JZi_" class="">2</td><td id="b\w{" class="">3</td><td id="TfJY" class="">나도 한 문장 잘 쓰면 바랄 게 없겠네</td><td id="~Thw" class="">김선영 지음</td><td id="yfqA" class="">블랙피쉬</td><td id="EVNe" class="">2021</td><td id="HnJu" class="">9788968332982</td><td id="Nj|r" class="">NaN</td><td id="~q?h" class="">NaN</td><td id="S&gt;^l" class="">1</td><td id="e[Q:" class="">0</td><td id="W~|g" class="">2021-03-19</td></tr><tr id="df9c40b3-a778-4f24-8707-3675f3abb0c7"><td id="JZi_" class="">3</td><td id="b\w{" class="">4</td><td id="TfJY" class="">예루살렘 해변</td><td id="~Thw" class="">이도 게펜 지음, 임재희 옮김</td><td id="yfqA" class="">문학세계사</td><td id="EVNe" class="">2021</td><td id="HnJu" class="">9788970759906</td><td id="Nj|r" class="">NaN</td><td id="~q?h" class="">NaN</td><td id="S&gt;^l" class="">1</td><td id="e[Q:" class="">0</td><td id="W~|g" class="">2021-03-19</td></tr><tr id="34be3455-6bf5-4af1-a64b-c396a059199e"><td id="JZi_" class="">4</td><td id="b\w{" class="">5</td><td id="TfJY" class="">김성곤의 중국한시기행 : 장강·황하 편</td><td id="~Thw" class="">김성곤 지음</td><td id="yfqA" class="">김영사</td><td id="EVNe" class="">2021</td><td id="HnJu" class="">9788934990833</td><td id="Nj|r" class="">NaN</td><td id="~q?h" class="">NaN</td><td id="S&gt;^l" class="">1</td><td id="e[Q:" class="">0</td><td id="W~|g" class="">2021-03-19</td></tr></tbody></table><pre id="7b5f72fc-b3e0-4182-ae7d-257fc9eeab7a" class="code code-wrap"><code># NaN이 들어있는 칼럼을 drop
+ns_book = ns_df.dropna(axis=1)
+ns_book.head()</code></pre><table id="f89c75a0-a514-4481-af97-e18b5883651e" class="simple-table"><tbody><tr id="1f2456f3-24f0-4b9f-bd74-6cfc26307de5"><td id="XSgr" class=""></td><td id="[NKZ" class="">번호</td><td id="W|&gt;F" class="">ISBN</td><td id="kkBA" class="">도서권수</td><td id="p:=V" class="">대출건수</td><td id="ZRz?" class="">등록일자</td></tr><tr id="6bbc0685-2b78-43bc-b12c-8d8b176d08cc"><td id="XSgr" class="">0</td><td id="[NKZ" class="">1</td><td id="W|&gt;F" class="">9788937444319</td><td id="kkBA" class="">1</td><td id="p:=V" class="">0</td><td id="ZRz?" class="">2021-03-19</td></tr><tr id="f8309862-455e-4403-a451-4b62e8dbd0f9"><td id="XSgr" class="">1</td><td id="[NKZ" class="">2</td><td id="W|&gt;F" class="">9791190123969</td><td id="kkBA" class="">1</td><td id="p:=V" class="">0</td><td id="ZRz?" class="">2021-03-19</td></tr><tr id="ad9adebf-6dcf-4dd7-a786-54acca634b38"><td id="XSgr" class="">2</td><td id="[NKZ" class="">3</td><td id="W|&gt;F" class="">9788968332982</td><td id="kkBA" class="">1</td><td id="p:=V" class="">0</td><td id="ZRz?" class="">2021-03-19</td></tr><tr id="6f66632a-9246-4a70-b947-1970356c319f"><td id="XSgr" class="">3</td><td id="[NKZ" class="">4</td><td id="W|&gt;F" class="">9788970759906</td><td id="kkBA" class="">1</td><td id="p:=V" class="">0</td><td id="ZRz?" class="">2021-03-19</td></tr><tr id="0270a876-5150-4cc4-86bc-59f5b78922ab"><td id="XSgr" class="">4</td><td id="[NKZ" class="">5</td><td id="W|&gt;F" class="">9788934990833</td><td id="kkBA" class="">1</td><td id="p:=V" class="">0</td><td id="ZRz?" class="">2021-03-19</td></tr></tbody></table><h3 id="6c150ad3-59ca-4f55-a73b-832c7feb0181" class="">(참고)파이썬 기초 AI 강의</h3><p id="e2bec501-5ce4-4f1d-85f7-c32ed8ff96b8" class=""><a href="https://www.ebssw.kr/lrnng/alctcr/alctcrDetailView.do?alctcrSn=57835">파이선으로 배우는 AI 기초</a></p><h2 id="88bc3a84-275f-4938-be31-4c9bde1b7d32" class="">SeSAC - 데이터 분석 기초 1일차</h2><p id="6d01996c-8781-404d-ad52-7eccc91d35a5" class="">2022.07.18</p><hr id="c2139cd8-2f68-47a4-bcfe-62efa5fa17b4"/><ul id="297e7eb7-0939-4ccf-a31b-3688a28e73ce" class="bulleted-list"><li style="list-style-type:disc">스튜어트 J. 러셀 : 인공지능 : 현대적 접근방식 제 4판</li></ul><ul id="bef12b45-7cf8-4563-88e9-af0acb39f542" class="bulleted-list"><li style="list-style-type:disc">공부하는 데이터 분석 with 파이썬</li></ul><h3 id="ec48fe77-da41-439a-beff-89561d7a5a1c" class="">기계는 생각할 수 있는가?</h3><p id="d2a02ea8-89e6-44fa-82e2-3ad24b0ac28c" class="">기계는 생각할 수 있다. 하지만 사람처럼 생각할 수 없다. 그 이유는 뭘까?</p><p id="221b80ee-76d1-4fdb-982c-e5c3bce1b777" class=""><strong>인간은 지능을 설명할 수 없다.</strong></p><p id="3cb014f7-9516-4c1a-8ba2-1e7ce0049501" class="">사람의 생각하는 원리를 설명할 수 없고 감정이 어떻게 생기는지, 머릿속이 어떻게 돌아가는지 알수없다.</p><p id="3821bac5-aa67-4d00-81ea-a8908fa6b32d" class="">우리가 만드는 인공지능은 짝퉁과 같다.</p><p id="3aa62ab4-6e36-4ac7-ab6a-31cc0b9c85cf" class="">지능적 <strong>행위의 결과물에 대한 모방만 가능하다.</strong></p><ul id="89397606-c485-4b2f-bc27-f69d7c1ddd5c" class="bulleted-list"><li style="list-style-type:disc">영화 HER</li></ul><ul id="68d400f6-6e1c-43cc-8b9f-85cd71a033c4" class="bulleted-list"><li style="list-style-type:disc">영화 이미테이션 게임</li></ul><p id="bc75fa5a-32f3-49d3-8b3a-0eac09da6e68" class="">우리가 해야할건 인공지능을 우리처럼 생각할 수 있게 꼬드겨야한다.</p><p id="6627e4fb-f1d5-4c02-9c95-faa9a12b0aa6" class="">AI(인공 지능)은 1956년 다트머스 회의에서 처음으로 사용 되었다.</p><p id="a7c687ca-f794-487d-948b-d3ae9c4c2caf" class=""><a href="https://brunch.co.kr/@rudaleeactc/51">인공지능 기술, 다트머스 회의를 통해 부상하다</a></p><p id="d1326cb1-fac8-4d66-8895-4ab0ec6641f4" class="">앨런 튜링에 의하면 지능 이란 추론할 수 있어야한다.</p><p id="a91d9784-3959-4393-97db-8d3b9e625c8a" class=""><a href="https://www.proprofsgames.com/wolf-sheep-and-cabbage/">Wolf, Sheep And Cabbage Game</a></p><p id="9e66ffc7-e3db-4247-ae46-1effacfcfe20" class="">링크의 게임을 해보자.</p><p id="3a42f66f-edfb-4a50-bc75-695ff5d9d4fd" class="">우리는 이 게임을 지능을 통해 풀었는가?</p><p id="90db61f9-fb2e-450b-b355-0bc2aae3da7d" class="">옮기는 행위의 결과에 따라 문제를 풀던, 설명을 보고 풀던, 아래의 정답을 보고 풀어도 우리는 추론을 통해 풀었을것이다.</p><figure id="9c671a68-b8ae-4a0f-a5e0-328d07536a68" class="image"><a href="https://user-images.githubusercontent.com/75712723/254179967-8571d1d4-1779-4248-8931-8ffaf9e34414.png"><img style="width:700px" src="https://user-images.githubusercontent.com/75712723/254179967-8571d1d4-1779-4248-8931-8ffaf9e34414.png"/></a></figure><p id="579db124-3fb7-44f8-81c0-8465b3ce1c92" class="">우리는 위 문제의 조건을 보고 추론을 통해 이 문제의 배열을 풀어낼것이다. 하지만 기계에게 추론이란 매우 힘든 일이다.</p><h3 id="2e786f9f-dd80-4edc-b5cf-ae2930550694" class="">인공지능에 꼭 기억해야할 인물</h3><p id="45fb40b4-2633-4187-988a-5256e6131730" class="">마빈 리 민스키(Marvin Lee Minsky) : 지식의 표현과 추론(knowledge representation and reasoning), 기호주의자</p><p id="920147c1-08bc-4e26-b60a-eb46248e4fd1" class="">프랑크 로젠블랫(Frank Rosenblatt) : 현대 딥러닝의 단초가 된 퍼셉트론(Perceptron)을 개발, 연결주의자</p><p id="1376ee1e-5f2f-4506-a445-7df39ed82fa4" class="">제프리 에베레스트 힌튼(Geoffrey Everest Hinton) : 인공지능(AI) 분야를 개척한 영국 출신의 인지심리학자이자 컴퓨터 과학자</p><p id="2e3b5bed-3a9c-4d42-a29f-aecd880c7c90" class="">📌 지식의 표현과 추론을 할수있는 언어, prolog</p><p id="4fef6283-1bed-4546-99b2-d8725c2ff428" class=""><a href="https://ko.wikipedia.org/wiki/%ED%94%84%EB%A1%A4%EB%A1%9C%EA%B7%B8_(%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D_%EC%96%B8%EC%96%B4)">프롤로그 (프로그래밍 언어)</a></p><p id="5848e20b-0913-47ed-8b1c-fadeb5b0d035" class=""><a href="https://www.swi-prolog.org/">SWI-Prolog</a></p><pre id="d11bdcc5-e798-4119-81c5-86702d621edc" class="code code-wrap"><code>male(허생원).
+male(동이).
+female(분이).
+
+parent(분이, 동이).
+married(허생원, 분이).
+married(분이, 허생원).
+
+/* * X가 Y의 엄마라면, X는 여자, X는 Y의 부모.
+ * */mother(X, Y) :- female(X). parent(X, Y).
+/* * X가 Y의 아빠라면, X는 남자, X가 Z와 결혼했다면 엄마는 Z
+ * */father(X, Y) :- male(X). married(X, Z). mother(Z).</code></pre><p id="cbf8d612-ebaa-42ef-9138-651d7fdd3216" class="">동이의 아빠는 누굴까?</p><pre id="135a9f43-3eab-4f9a-a9c3-6029fee1206f" class="code code-wrap"><code>?- father(X, 동이)
+
+X = 허생원</code></pre><figure id="ebb010e8-8fb2-4814-a7f4-a618fe27d251" class="image"><a href="https://user-images.githubusercontent.com/75712723/254180062-2e0bc405-a2cf-4517-8a7d-7a934f62d3f2.png"><img style="width:700px" src="https://user-images.githubusercontent.com/75712723/254180062-2e0bc405-a2cf-4517-8a7d-7a934f62d3f2.png"/></a></figure><h3 id="78a62b6c-ecfa-4cc3-8121-9d4b5b1b149b" class="">기호주의, 연결주의와 퍼셉트론</h3><p id="e28102c6-ddfe-4734-ac40-cd09968054b8" class="">기호주의자(symbolist) : 인간의 지식을 기호화 하고 새로운 문제를 풀기 위해서 이미 존재하는 지식을 학습 과정에서 사용하는 방법, 그리고 여러가지의 단편적 지식을 합치는 방법을 강조하는 사람들.</p><p id="89931567-986c-4b8d-b643-23dd54f4e2b2" class="">연결주의자(connectionist) : 인간의 두뇌에서 어떻게 생각하는지를 모방하여 컴퓨터를 학습시키는 방법, 모델에서 학습의 중요성을 강조하는 사람들.</p><p id="e0c54402-0dcb-4a81-9f30-63ebd3839f15" class="">연결주의 알고리즘, 퍼셉트론(Perceptron) <strong>:</strong> 연결주의를 주장한 프랭크 로젠블랫이 고안한 초기 형태의 인공 신경망. Perception(인지 능력)과 Neuron(뇌 신경세포)를 결합한 단어. 퍼셉트론은 입력신호(input)를 입력받아 다른 하나의 신호(output)을 출력하는 알고리즘이다.</p><p id="486935f0-25f8-45fe-9b42-b9f62843eb76" class=""><a href="https://m.blog.naver.com/PostView.naver?blogId=mondrian-ai&amp;logNo=222096661818&amp;categoryNo=12&amp;proxyReferer=">[4] 인공지능의 2가지 관점: 기호주의와 연결주의</a></p><h3 id="46564fdb-6884-4371-b0d1-1fd285370f7e" class="">(참고)평생학습(continual learning)</h3><p id="06aba0c1-fbec-4cc1-9100-8437fbe4ecbd" class=""><a href="https://tech.scatterlab.co.kr/continual-learning/">Continual Learning: 꾸준히 성장하는 모델을 만들기 위한 기술</a></p><h3 id="adb81273-69a1-4a2c-9a3f-3b3c94a4114b" class="">CRISP-DM (Cross-Industry Standard Process for Data Mining)</h3><p id="5943008a-cc35-4b26-b99e-0d6ef875cf9e" class="">전 세계에서 가장 많이 사용되는 데이터 마이닝 표준 방법론</p><figure id="f08bf7be-3b5f-4f4d-989e-c7606fff26ea" class="image"><a href="https://user-images.githubusercontent.com/75712723/254181031-b7af3c6f-b783-4b55-ac2a-fc1d3513be66.png"><img style="width:686px" src="https://user-images.githubusercontent.com/75712723/254181031-b7af3c6f-b783-4b55-ac2a-fc1d3513be66.png"/></a></figure><figure id="47d73eb8-047e-4c07-bc51-5b86b841d4f0" class="image"><a href="https://user-images.githubusercontent.com/75712723/254181057-3c08a9d7-f685-4d2a-885e-63fdda503bcc.png"><img style="width:700px" src="https://user-images.githubusercontent.com/75712723/254181057-3c08a9d7-f685-4d2a-885e-63fdda503bcc.png"/></a></figure><ol type="1" id="cdde5b04-fb1d-438e-93b1-51990e6c9be9" class="numbered-list" start="1"><li>비즈니스 이해(Business Understanding) : 무엇을 할것인지, 이것을 해도 되는지, 윤리적 이해 등</li></ol><ol type="1" id="08736d06-1c40-4c2b-933c-e8a05be1feb8" class="numbered-list" start="2"><li>데이터 이해(Data Understanding) : 데이터로 무엇을 할것인지</li></ol><ol type="1" id="b83c0c77-d366-45d5-a663-6ae216edcabb" class="numbered-list" start="3"><li>데이터 준비(Data Preparation) : 데이터를 어떻게 구할지, 데이터 전처리</li></ol><ol type="1" id="ab0d7a0d-2ece-4f09-b46f-d718c55144b7" class="numbered-list" start="4"><li>모델링(Modelling) : 모델링 기법 선택, 테스트 설계 생성, 모델 생성</li></ol><ol type="1" id="937885e1-42ad-4e1d-9da3-48f0327e7421" class="numbered-list" start="5"><li>평가(Evaluation) : 결과 평가</li></ol><ol type="1" id="ca3dbeb5-f95e-43f1-8c85-8c6fb590e5b0" class="numbered-list" start="6"><li>배포(Deployment) : 배포 및 피드백</li></ol><h3 id="9bc0604d-97f0-464f-8ef4-a2b0a31df756" class="">colab에서 ipynb(interactive python notebook) 실행하기</h3><p id="0a5d4612-1214-45c0-810d-ee2cbff8c7a6" class=""><a href="https://colab.research.google.com/?hl=ko">Google Colaboratory</a></p><ol type="1" id="74635a04-0aec-48b3-a886-9669ed1fdf4d" class="numbered-list" start="1"><li>colab 링크 실행 후 업로드 버튼 클릭</li></ol><figure id="636d4bf7-fb9f-4fa2-84fc-c143359bac5e" class="image"><a href="https://user-images.githubusercontent.com/75712723/254181471-8c33739a-cfac-4ad1-ab41-06941e610756.png"><img style="width:700px" src="https://user-images.githubusercontent.com/75712723/254181471-8c33739a-cfac-4ad1-ab41-06941e610756.png"/></a></figure><ol type="1" id="c89b3426-9b2c-4a1a-94dc-a9ebd29e0e16" class="numbered-list" start="1"><li>실행할 ipynb 파일 선택</li></ol><figure id="51faecbb-918b-45ba-bcc8-e7433b91b10c" class="image"><a href="https://user-images.githubusercontent.com/75712723/254181490-575e1790-1cf3-4d96-bbe9-a3b7e4b83a7f.png"><img style="width:700px" src="https://user-images.githubusercontent.com/75712723/254181490-575e1790-1cf3-4d96-bbe9-a3b7e4b83a7f.png"/></a></figure><ol type="1" id="06781b59-cc5c-4571-b59e-fea84ad2a1c0" class="numbered-list" start="1"><li>실행 화면</li></ol><figure id="1a99c50a-485c-4f87-ae96-b1bda42563bf" class="image"><a href="https://user-images.githubusercontent.com/75712723/254181855-be42072d-41a7-4cf8-ae30-e074e9f96652.png"><img style="width:700px" src="https://user-images.githubusercontent.com/75712723/254181855-be42072d-41a7-4cf8-ae30-e074e9f96652.png"/></a></figure><h3 id="20ff7d85-7a23-4f24-8ca1-4fa999376273" class="">colab의 특징</h3><p id="33d7a56c-64e5-4738-872d-061f2f3ca610" class="">파이썬은 인터프리터로, 줄 단위로 실행이 된다.</p><ol type="1" id="b77cd9c5-f920-4e82-80e1-73422f1b3faf" class="numbered-list" start="1"><li>colab의 코드 셀은 cell 단위로 실행이 된다.</li></ol><ol type="1" id="f7dd83f0-194b-4e38-babe-73d93a69bce4" class="numbered-list" start="2"><li>(mac) 코드의 실행은 command + return, shift + return</li></ol><ol type="1" id="85cfadd9-0fc1-4001-85fa-88cc74d2edd3" class="numbered-list" start="3"><li>블럭의 <code>+ 코드</code> 혹은 <code>+ 텍스트</code>를 클릭하여 텍스트와 코드 입력이 가능하다.</li></ol><figure id="7ab656d3-88bf-43ae-bfa3-f529789b4f1b" class="image"><a href="https://user-images.githubusercontent.com/75712723/254182104-2d444136-7fe7-4708-a553-a3d561a785e5.png"><img style="width:700px" src="https://user-images.githubusercontent.com/75712723/254182104-2d444136-7fe7-4708-a553-a3d561a785e5.png"/></a></figure><h3 id="1b1cf6be-faea-4e3f-9cef-51620b97c0cc" class="">데이터의 분류</h3><p id="7b4fa7bc-5abf-49d1-9b38-62f477c5012f" class="">정형 데이터와 비정형 데이터로 분류된다.</p><ol type="1" id="0189b6b0-d6cd-46fa-b70f-9c50519cce05" class="numbered-list" start="1"><li>정형 데이터(structured data)</li></ol><ul id="60732af4-f8c7-4cff-ae32-8849934e0094" class="bulleted-list"><li style="list-style-type:disc">데이터의 통계적 <code>특징</code>을 뽑아내기 쉬운 데이터</li></ul><ul id="c9b10631-6c70-479f-9396-e641c47f5bbf" class="bulleted-list"><li style="list-style-type:disc">키, 체중, 몸무게 등의 데이터. 액셀에서 표 형식을 가지는 데이터</li></ul><p id="a594aac9-e2f2-4462-8819-eba66bfbec55" class="">정형인 이유?</p><p id="5412fdf6-e6a6-4153-9cae-6871f59e4108" class="">키, 체중, 몸무게의 캡션을 지우고 데이터만 남겨도 칼럼을 보면 이것이 키, 체중, 몸무게 값이 가지는 특징과 범위를 유추할 수 있다.</p><ol type="1" id="f6a04cbe-a537-43a7-9223-243a746c766b" class="numbered-list" start="1"><li>비정형 데이터(Unstructured data)</li></ol><ul id="74ddd83b-7787-4259-8759-ee0d6a74fd71" class="bulleted-list"><li style="list-style-type:disc">데이터의 통계적 <code>특징</code>을 뽑아내기 어려운 데이터</li></ul><ul id="fdc162b6-0158-46cd-9de9-62c0a69e99c3" class="bulleted-list"><li style="list-style-type:disc">사진, 비디오, 메일 데이터 등</li></ul><p id="bf05788f-d2e0-4663-9b2a-0bf7580a3ec1" class="">비정형인 이유?</p><p id="03232d8d-6215-4a62-a974-676cd09444c4" class="">개의 사진, 동영상의 묶음이 있을 때 특정한 하나의 좌표를 전부 연결한다면 특정 좌표의 값에 해당하는 정보가 모두 달라 특징을 유추할 수 없다.</p><p id="217aa97b-9fde-4171-a643-7f400287bdef" class=""><a href="https://colab.research.google.com/github/rickiepark/hg-da/blob/main/01-3.ipynb#scrollTo=a65810be">Google Colaboratory</a></p><h3 id="dfa3dbc9-35cd-49f9-a0c5-bfc332fe4179" class="">(링크의 01-3 중)데이터프레임 다루기: 판다스</h3><pre id="1c29b94e-1e80-4f86-896d-a36dbcb36699" class="code code-wrap"><code>import pandas as pd</code></pre><pre id="b57b8854-0692-424b-b107-dd1f1677ec18" class="code code-wrap"><code># csv(comma separated value)
+df = pd.read_csv(&#x27;남산도서관 장서 대출목록 (2021년 04월).csv&#x27;, encoding=&#x27;euc-kr&#x27;)</code></pre><pre id="774f97cc-df5f-48f0-bbcb-1630fecab048" class="code code-wrap"><code># low_memory옵션은 대용량의 데이터를 불러오는 경우 각 칼럼의 데이터 타입(dtype)을 추측하는 것이 매우 많은 메모리를 사용하기 때문에
+# 대용량의 데이터를 불러올때 메모리 에러가 발생하는 경우 이를 False로 설정
+df = pd.read_csv(&#x27;남산도서관 장서 대출목록 (2021년 04월).csv&#x27;, encoding=&#x27;euc-kr&#x27;, low_memory=False)</code></pre><pre id="795049e5-4f1e-47ed-9317-63b86f81db86" class="code code-wrap"><code>df.head()
+# 실행결과</code></pre><table id="2313e5a3-ef39-4c2f-8e1f-a6df294d7fb8" class="simple-table"><tbody><tr id="4b601ce5-d799-4b3d-81c2-c947eb9717b9"><td id="TMAe" class="">index</td><td id="XlF\" class="">번호</td><td id="D@P;" class="">도서명</td><td id="c{M\" class="">저자</td><td id="&gt;lGW" class="">출판사</td><td id="RWkE" class="">발행년도</td><td id="i:l|" class="">ISBN</td><td id="yJUY" class="">세트 ISBN</td><td id="^a@a" class="">부가기호</td><td id="RRMW" class="">권</td><td id="emUc" class="">주제분류번호</td><td id="Aa`z" class="">도서권수</td><td id="H\?E" class="">대출건수</td><td id="FIT|" class="">등록일자</td><td id="Z~xW" class="">Unnamed: 13</td></tr><tr id="0762891f-17ae-410b-8d69-c67a517f960b"><td id="TMAe" class="">0</td><td id="XlF\" class="">1</td><td id="D@P;" class="">인공지능과 흙</td><td id="c{M\" class="">김동훈 지음</td><td id="&gt;lGW" class="">민음사</td><td id="RWkE" class="">2021</td><td id="i:l|" class="">9788937444319</td><td id="yJUY" class="">NaN</td><td id="^a@a" class="">NaN</td><td id="RRMW" class="">NaN</td><td id="emUc" class="">NaN</td><td id="Aa`z" class="">1</td><td id="H\?E" class="">0</td><td id="FIT|" class="">2021-03-19</td><td id="Z~xW" class="">NaN</td></tr><tr id="d4f346f8-ade5-4051-8fbb-bbd11f31a2e8"><td id="TMAe" class="">1</td><td id="XlF\" class="">2</td><td id="D@P;" class="">가짜 행복 권하는 사회</td><td id="c{M\" class="">김태형 지음</td><td id="&gt;lGW" class="">갈매나무</td><td id="RWkE" class="">2021</td><td id="i:l|" class="">9791190123969</td><td id="yJUY" class="">NaN</td><td id="^a@a" class="">NaN</td><td id="RRMW" class="">NaN</td><td id="emUc" class="">NaN</td><td id="Aa`z" class="">1</td><td id="H\?E" class="">0</td><td id="FIT|" class="">2021-03-19</td><td id="Z~xW" class="">NaN</td></tr><tr id="e6ba8361-5941-4b4e-9365-dcb2d8754159"><td id="TMAe" class="">2</td><td id="XlF\" class="">3</td><td id="D@P;" class="">나도 한 문장 잘 쓰면 바랄 게 없겠네</td><td id="c{M\" class="">김선영 지음</td><td id="&gt;lGW" class="">블랙피쉬</td><td id="RWkE" class="">2021</td><td id="i:l|" class="">9788968332982</td><td id="yJUY" class="">NaN</td><td id="^a@a" class="">NaN</td><td id="RRMW" class="">NaN</td><td id="emUc" class="">NaN</td><td id="Aa`z" class="">1</td><td id="H\?E" class="">0</td><td id="FIT|" class="">2021-03-19</td><td id="Z~xW" class="">NaN</td></tr><tr id="b3868d51-55be-46b5-824d-d5eff59563ad"><td id="TMAe" class="">3</td><td id="XlF\" class="">4</td><td id="D@P;" class="">예루살렘 해변</td><td id="c{M\" class="">이도 게펜 지음, 임재희 옮김</td><td id="&gt;lGW" class="">문학세계사</td><td id="RWkE" class="">2021</td><td id="i:l|" class="">9788970759906</td><td id="yJUY" class="">NaN</td><td id="^a@a" class="">NaN</td><td id="RRMW" class="">NaN</td><td id="emUc" class="">NaN</td><td id="Aa`z" class="">1</td><td id="H\?E" class="">0</td><td id="FIT|" class="">2021-03-19</td><td id="Z~xW" class="">NaN</td></tr><tr id="9b60623a-6e84-45c6-9518-003e3b8c6c44"><td id="TMAe" class="">4</td><td id="XlF\" class="">5</td><td id="D@P;" class="">김성곤의 중국한시기행 : 장강·황하 편</td><td id="c{M\" class="">김성곤 지음</td><td id="&gt;lGW" class="">김영사</td><td id="RWkE" class="">2021</td><td id="i:l|" class="">9788934990833</td><td id="yJUY" class="">NaN</td><td id="^a@a" class="">NaN</td><td id="RRMW" class="">NaN</td><td id="emUc" class="">NaN</td><td id="Aa`z" class="">1</td><td id="H\?E" class="">0</td><td id="FIT|" class="">2021-03-19</td><td id="Z~xW" class="">NaN</td></tr></tbody></table><pre id="64e79c23-ca27-4fd2-ab21-4ae466fcbcfe" class="code code-wrap"><code># ISBN이 로드시 숫자로 처리되므로 미리 string type로 지정
+# NaN = Not a Number
+# 여기서 ISBN은 스칼라(단일차원인)값을 가진다. 남자 여자처럼 구분을 하기 위한 데이터지, 우선 순위를 가진 값(벡터 값)이 아니다.
+df = pd.read_csv(&#x27;남산도서관 장서 대출목록 (2021년 04월).csv&#x27;, encoding=&#x27;euc-kr&#x27;, dtype={&#x27;ISBN&#x27; : str, &#x27;세트 ISBN&#x27; : str, &#x27;주제분류번호&#x27; : str})
+df.head</code></pre><pre id="585d67ae-8c19-43ea-b44a-da71809c2094" class="code code-wrap"><code>&lt;bound method NDFrame.head of             번호                    도서명                저자    출판사  발행년도  \
+0            1                인공지능과 흙            김동훈 지음    민음사  2021
+1            2           가짜 행복 권하는 사회            김태형 지음   갈매나무  2021
+2            3  나도 한 문장 잘 쓰면 바랄 게 없겠네            김선영 지음   블랙피쉬  2021
+3            4                예루살렘 해변  이도 게펜 지음, 임재희 옮김  문학세계사  2021
+4            5  김성곤의 중국한시기행 : 장강·황하 편            김성곤 지음    김영사  2021
+...        ...                    ...               ...    ...   ...
+401677  401678                韓國現代詩大系            채만묵 編著  한국문화사  1996
+401678  401679                  뉴 웨이브        제임스 모나코 지음    한나래  1996
+401679  401680           (최인훈 장편소설)화두            최인훈 지음    민음사  1994
+401680  401681           독일 문학과 세계 문학            吳漢鎭 編著     벽호  1995
+401681  401682             참으로 소중한 생각            김일상 지음    동문사  1995
+
+                 ISBN        세트 ISBN 부가기호    권   주제분류번호  도서권수  대출건수  \
+0       9788937444319            NaN  NaN  NaN      NaN     1     0
+1       9791190123969            NaN  NaN  NaN      NaN     1     0
+2       9788968332982            NaN  NaN  NaN      NaN     1     0
+3       9788970759906            NaN  NaN  NaN      NaN     1     0
+4       9788934990833            NaN  NaN  NaN      NaN     1     0
+...               ...            ...  ...  ...      ...   ...   ...
+401677  9788977352971  9788977352988  NaN    3  811.608     1     0
+401678  9788985367448  9788985367424  NaN    2   688.04     1     0
+401679  9788937401596  9788937401589  NaN    2    813.6     1     0
+401680  9788947700368  9788947700405  NaN    3   809.05     2     0
+401681  9788970610092  9788970610092    0    1    814.6     0     0
+
+              등록일자  Unnamed: 13
+0       2021-03-19          NaN
+1       2021-03-19          NaN
+2       2021-03-19          NaN
+3       2021-03-19          NaN
+4       2021-03-19          NaN
+...            ...          ...
+401677  1970-01-01          NaN
+401678  1970-01-01          NaN
+401679  1970-01-01          NaN
+401680  1970-01-01          NaN
+401681  1970-01-01          NaN
+
+[401682 rows x 14 columns]&gt;
+</code></pre><pre id="f63d567e-f0a2-4338-8ed4-20f03508caec" class="code code-wrap"><code>df.to_csv(&#x27;ns_202104.csv&#x27;)</code></pre><pre id="0905473e-6b68-4a5f-a68a-ce76c5c6c809" class="code code-wrap"><code># 파이썬의 컨테이너(container) 타입
+# 하나 이상의 숫자나 문자열을 담고있다.
+with open(&#x27;ns_202104.csv&#x27;) as f:
+  for i in range(3):
+    print(f.readline(), end=&#x27;&#x27;)
+
+# 실행결과</code></pre><pre id="11ec6b88-6103-49bf-a2a9-6e3efc2d0203" class="code code-wrap"><code>,번호,도서명,저자,출판사,발행년도,ISBN,세트 ISBN,부가기호,권,주제분류번호,도서권수,대출건수,등록일자,Unnamed: 13
+0,1,인공지능과 흙,김동훈 지음,민음사,2021,9788937444319,,,,,1,0,2021-03-19,
+1,2,가짜 행복 권하는 사회,김태형 지음,갈매나무,2021,9791190123969,,,,,1,0,2021-03-19,
+</code></pre><pre id="23498c15-243d-477b-beca-e46596530a2a" class="code code-wrap"><code>ns_df = pd.read_csv(&#x27;ns_202104.csv&#x27;, low_memory=False)
+ns_df.head</code></pre><pre id="7498c8fe-abb7-45a9-a66f-e76e908621c7" class="code code-wrap"><code>&lt;bound method NDFrame.head of         Unnamed: 0      번호                    도서명                저자    출판사  \
+0                0       1                인공지능과 흙            김동훈 지음    민음사
+1                1       2           가짜 행복 권하는 사회            김태형 지음   갈매나무
+2                2       3  나도 한 문장 잘 쓰면 바랄 게 없겠네            김선영 지음   블랙피쉬
+3                3       4                예루살렘 해변  이도 게펜 지음, 임재희 옮김  문학세계사
+4                4       5  김성곤의 중국한시기행 : 장강·황하 편            김성곤 지음    김영사
+...            ...     ...                    ...               ...    ...
+401677      401677  401678                韓國現代詩大系            채만묵 編著  한국문화사
+401678      401678  401679                  뉴 웨이브        제임스 모나코 지음    한나래
+401679      401679  401680           (최인훈 장편소설)화두            최인훈 지음    민음사
+401680      401680  401681           독일 문학과 세계 문학            吳漢鎭 編著     벽호
+401681      401681  401682             참으로 소중한 생각            김일상 지음    동문사
+
+        발행년도           ISBN        세트 ISBN 부가기호    권   주제분류번호  도서권수  대출건수  \
+0       2021  9788937444319            NaN  NaN  NaN      NaN     1     0
+1       2021  9791190123969            NaN  NaN  NaN      NaN     1     0
+2       2021  9788968332982            NaN  NaN  NaN      NaN     1     0
+3       2021  9788970759906            NaN  NaN  NaN      NaN     1     0
+4       2021  9788934990833            NaN  NaN  NaN      NaN     1     0
+...      ...            ...            ...  ...  ...      ...   ...   ...
+401677  1996  9788977352971  9788977352988  NaN    3  811.608     1     0
+401678  1996  9788985367448  9788985367424  NaN    2   688.04     1     0
+401679  1994  9788937401596  9788937401589  NaN    2    813.6     1     0
+401680  1995  9788947700368  9788947700405  NaN    3   809.05     2     0
+401681  1995  9788970610092  9788970610092    0    1    814.6     0     0
+
+              등록일자  Unnamed: 13
+0       2021-03-19          NaN
+1       2021-03-19          NaN
+2       2021-03-19          NaN
+3       2021-03-19          NaN
+4       2021-03-19          NaN
+...            ...          ...
+401677  1970-01-01          NaN
+401678  1970-01-01          NaN
+401679  1970-01-01          NaN
+401680  1970-01-01          NaN
+401681  1970-01-01          NaN
+
+[401682 rows x 15 columns]&gt;
+</code></pre><pre id="37789955-1aed-49f7-acb2-6f42ae25701c" class="code code-wrap"><code>ns_df = pd.read_csv(&#x27;ns_202104.csv&#x27;, index_col=0, low_memory=False)
+ns_df.head()
+# 실행결과</code></pre><table id="ae42747b-cc9c-4e69-bc6b-82c3f8352992" class="simple-table"><tbody><tr id="731a1227-4b82-4762-a7e6-cf58eb23be97"><td id="]`y[" class=""></td><td id="DFon" class="">번호</td><td id="aqvz" class="">도서명</td><td id="GuWb" class="">저자</td><td id="BFS=" class="">출판사</td><td id="bNZr" class="">발행년도</td><td id="{N`G" class="">ISBN</td><td id="O?Vm" class="">세트 ISBN</td><td id="t{od" class="">부가기호</td><td id="pFJ:" class="">권</td><td id="iDKE" class="">주제분류번호</td><td id="pM\;" class="">도서권수</td><td id="_]in" class="">대출건수</td><td id="Whsp" class="">등록일자</td><td id="qq}r" class="">Unnamed: 13</td></tr><tr id="7d19b842-a2c1-4dcc-a34c-560c34a3343a"><td id="]`y[" class="">0</td><td id="DFon" class="">1</td><td id="aqvz" class="">인공지능과 흙</td><td id="GuWb" class="">김동훈 지음</td><td id="BFS=" class="">민음사</td><td id="bNZr" class="">2021</td><td id="{N`G" class="">9788937444319</td><td id="O?Vm" class="">NaN</td><td id="t{od" class="">NaN</td><td id="pFJ:" class="">NaN</td><td id="iDKE" class="">NaN</td><td id="pM\;" class="">1</td><td id="_]in" class="">0</td><td id="Whsp" class="">2021-03-19</td><td id="qq}r" class="">NaN</td></tr><tr id="7f18bfdf-ac17-4bd9-9123-bdb2b1f736b9"><td id="]`y[" class="">1</td><td id="DFon" class="">2</td><td id="aqvz" class="">가짜 행복 권하는 사회</td><td id="GuWb" class="">김태형 지음</td><td id="BFS=" class="">갈매나무</td><td id="bNZr" class="">2021</td><td id="{N`G" class="">9791190123969</td><td id="O?Vm" class="">NaN</td><td id="t{od" class="">NaN</td><td id="pFJ:" class="">NaN</td><td id="iDKE" class="">NaN</td><td id="pM\;" class="">1</td><td id="_]in" class="">0</td><td id="Whsp" class="">2021-03-19</td><td id="qq}r" class="">NaN</td></tr><tr id="acbc9428-be12-4ac5-92c8-f84e6ec446cf"><td id="]`y[" class="">2</td><td id="DFon" class="">3</td><td id="aqvz" class="">나도 한 문장 잘 쓰면 바랄 게 없겠네</td><td id="GuWb" class="">김선영 지음</td><td id="BFS=" class="">블랙피쉬</td><td id="bNZr" class="">2021</td><td id="{N`G" class="">9788968332982</td><td id="O?Vm" class="">NaN</td><td id="t{od" class="">NaN</td><td id="pFJ:" class="">NaN</td><td id="iDKE" class="">NaN</td><td id="pM\;" class="">1</td><td id="_]in" class="">0</td><td id="Whsp" class="">2021-03-19</td><td id="qq}r" class="">NaN</td></tr><tr id="c3c960ca-57cd-4482-a419-1e1ddc7efa3a"><td id="]`y[" class="">3</td><td id="DFon" class="">4</td><td id="aqvz" class="">예루살렘 해변</td><td id="GuWb" class="">이도 게펜 지음, 임재희 옮김</td><td id="BFS=" class="">문학세계사</td><td id="bNZr" class="">2021</td><td id="{N`G" class="">9788970759906</td><td id="O?Vm" class="">NaN</td><td id="t{od" class="">NaN</td><td id="pFJ:" class="">NaN</td><td id="iDKE" class="">NaN</td><td id="pM\;" class="">1</td><td id="_]in" class="">0</td><td id="Whsp" class="">2021-03-19</td><td id="qq}r" class="">NaN</td></tr><tr id="3f96f24f-37ef-4e66-8cea-94ff2418e3ac"><td id="]`y[" class="">4</td><td id="DFon" class="">5</td><td id="aqvz" class="">김성곤의 중국한시기행 : 장강·황하 편</td><td id="GuWb" class="">김성곤 지음</td><td id="BFS=" class="">김영사</td><td id="bNZr" class="">2021</td><td id="{N`G" class="">9788934990833</td><td id="O?Vm" class="">NaN</td><td id="t{od" class="">NaN</td><td id="pFJ:" class="">NaN</td><td id="iDKE" class="">NaN</td><td id="pM\;" class="">1</td><td id="_]in" class="">0</td><td id="Whsp" class="">2021-03-19</td><td id="qq}r" class="">NaN</td></tr></tbody></table><pre id="6b41dbcc-dce6-4b62-be02-ead20a73237b" class="code code-wrap"><code># df를 csv로 변환, index는 포함하지 않는다.
+df.to_csv(&#x27;ns_202104.csv&#x27;, index=False)
+
+# xlsxwriter 라이브러리 설치
+!pip install xlsxwriter
+
+# ns_df를 엑셀로 변환
+ns_df.to_excel(&#x27;ns_202104.xlsx&#x27;, index=False, engine=&#x27;xlsxwriter&#x27;)</code></pre><p id="3b5406bb-4e1c-440b-a741-7d83a7bbd760" class=""><a href="https://colab.research.google.com/github/rickiepark/hg-da/blob/main/03-1.ipynb">Google Colaboratory</a></p><h3 id="010fbaf6-571e-4c49-8039-f0bb754e4d1b" class="">(03-1) 불필요한 데이터 삭제하기</h3><pre id="8b13b19d-e9d3-45f0-a66a-266e854cd386" class="code code-wrap"><code>import gdown
+
+# quiet = False : 실행 후 프로그레시브 바를 출력하지 않으려면 True
+gdown.download(&#x27;https://bit.ly/3RhoNho&#x27;, &#x27;ns_202104.csv&#x27;, quiet=False)</code></pre><pre id="88c62082-d5c0-4e78-bfc3-ffedfeca2be1" class="code code-wrap"><code>Downloading...
+From: https://bit.ly/3RhoNho
+To: /content/ns_202104.csv
+100%|██████████| 57.6M/57.6M [00:00&lt;00:00, 113MB/s]
+&#x27;ns_202104.csv
+</code></pre><pre id="35b2d952-7d44-4bc8-a7ae-e0ce5f5d4c45" class="code code-wrap"><code>import pandas as pd
+
+# 데이터를 전처리할때 가장 많이 쓰는 라이브러리
+# numpy, pandas
+ns_df = pd.read_csv(&#x27;ns_202104.csv&#x27;, low_memory=False)
+ns_df.head()</code></pre><table id="1b2c7acb-54b9-404b-9529-fae018e4a824" class="simple-table"><tbody><tr id="eee39d87-0296-45c2-b077-cfec8e355fa4"><td id="&gt;nE]" class=""></td><td id="y&lt;?E" class="">번호</td><td id="NEAE" class="">도서명</td><td id="?zv]" class="">저자</td><td id="Cb~:" class="">출판사</td><td id="|r?y" class="">발행년도</td><td id="&lt;hnM" class="">ISBN</td><td id="u=?^" class="">세트 ISBN</td><td id="mD@o" class="">부가기호</td><td id="eMJv" class="">권</td><td id="LiAk" class="">주제분류번호</td><td id="e|UT" class="">도서권수</td><td id="n=wh" class="">대출건수</td><td id="XqQL" class="">등록일자</td><td id="bbL=" class="">Unnamed: 13</td></tr><tr id="22e9bfb0-a9b4-4691-9631-86aad101eab5"><td id="&gt;nE]" class="">0</td><td id="y&lt;?E" class="">1</td><td id="NEAE" class="">인공지능과 흙</td><td id="?zv]" class="">김동훈 지음</td><td id="Cb~:" class="">민음사</td><td id="|r?y" class="">2021</td><td id="&lt;hnM" class="">9788937444319</td><td id="u=?^" class="">NaN</td><td id="mD@o" class="">NaN</td><td id="eMJv" class="">NaN</td><td id="LiAk" class="">NaN</td><td id="e|UT" class="">1</td><td id="n=wh" class="">0</td><td id="XqQL" class="">2021-03-19</td><td id="bbL=" class="">NaN</td></tr><tr id="ba658b15-8f6e-4cd1-9c06-991b2e9673bd"><td id="&gt;nE]" class="">1</td><td id="y&lt;?E" class="">2</td><td id="NEAE" class="">가짜 행복 권하는 사회</td><td id="?zv]" class="">김태형 지음</td><td id="Cb~:" class="">갈매나무</td><td id="|r?y" class="">2021</td><td id="&lt;hnM" class="">9791190123969</td><td id="u=?^" class="">NaN</td><td id="mD@o" class="">NaN</td><td id="eMJv" class="">NaN</td><td id="LiAk" class="">NaN</td><td id="e|UT" class="">1</td><td id="n=wh" class="">0</td><td id="XqQL" class="">2021-03-19</td><td id="bbL=" class="">NaN</td></tr><tr id="b7b840eb-6f55-4767-bdeb-5ee4ae0b9cfd"><td id="&gt;nE]" class="">2</td><td id="y&lt;?E" class="">3</td><td id="NEAE" class="">나도 한 문장 잘 쓰면 바랄 게 없겠네</td><td id="?zv]" class="">김선영 지음</td><td id="Cb~:" class="">블랙피쉬</td><td id="|r?y" class="">2021</td><td id="&lt;hnM" class="">9788968332982</td><td id="u=?^" class="">NaN</td><td id="mD@o" class="">NaN</td><td id="eMJv" class="">NaN</td><td id="LiAk" class="">NaN</td><td id="e|UT" class="">1</td><td id="n=wh" class="">0</td><td id="XqQL" class="">2021-03-19</td><td id="bbL=" class="">NaN</td></tr><tr id="b90b61d7-a25d-4b8c-b7ba-565f4fd1328a"><td id="&gt;nE]" class="">3</td><td id="y&lt;?E" class="">4</td><td id="NEAE" class="">예루살렘 해변</td><td id="?zv]" class="">이도 게펜 지음, 임재희 옮김</td><td id="Cb~:" class="">문학세계사</td><td id="|r?y" class="">2021</td><td id="&lt;hnM" class="">9788970759906</td><td id="u=?^" class="">NaN</td><td id="mD@o" class="">NaN</td><td id="eMJv" class="">NaN</td><td id="LiAk" class="">NaN</td><td id="e|UT" class="">1</td><td id="n=wh" class="">0</td><td id="XqQL" class="">2021-03-19</td><td id="bbL=" class="">NaN</td></tr><tr id="9287dd8e-a614-4bf1-88de-31c5945bcdfc"><td id="&gt;nE]" class="">4</td><td id="y&lt;?E" class="">5</td><td id="NEAE" class="">김성곤의 중국한시기행 : 장강·황하 편</td><td id="?zv]" class="">김성곤 지음</td><td id="Cb~:" class="">김영사</td><td id="|r?y" class="">2021</td><td id="&lt;hnM" class="">9788934990833</td><td id="u=?^" class="">NaN</td><td id="mD@o" class="">NaN</td><td id="eMJv" class="">NaN</td><td id="LiAk" class="">NaN</td><td id="e|UT" class="">1</td><td id="n=wh" class="">0</td><td id="XqQL" class="">2021-03-19</td><td id="bbL=" class="">NaN</td></tr></tbody></table><pre id="bcfa71bd-04cc-4060-aba3-24f38c3748f3" class="code code-wrap"><code># 리스트 슬라이싱 : 리스트 내의 값을 특정부분 잘라내는 것, [&#x27;번호&#x27;:&#x27;등록일자&#x27;]는 &#x27;번호&#x27;에서 &#x27;등록일자&#x27; 까지 잘라서 저장하도록 지정
+# 컨테이너 타입의 3가지
+# 1. 리스트(list), 2. 튜플(tuple), 3. 딕셔너리(dictionary)
+# 여기서 인공지능에 가장 많이 사용하는 타입은 리스트다.
+# 리스트는 [] 대괄호로 묶여있다.
+# 튜플은 () 소괄호로 묶여있다.
+# 딕셔너리는 {} 중괄호로 묶여있다.
+
+ns_book = ns_df.loc[:, &#x27;번호&#x27;:&#x27;등록일자&#x27;]
+ns_book.head()</code></pre><table id="f29a4711-827a-4c07-b556-9ecd893937d0" class="simple-table"><tbody><tr id="7c1399d5-8e1b-4e88-83bc-bf0c8ef367c4"><td id="zHuL" class=""></td><td id="RduK" class="">번호</td><td id="aQOP" class="">도서명</td><td id="qsLk" class="">저자</td><td id="&lt;]vn" class="">출판사</td><td id="cI}^" class="">발행년도</td><td id="Fa^R" class="">ISBN</td><td id="Mcrf" class="">세트 ISBN</td><td id="`ORa" class="">부가기호</td><td id="o?g:" class="">권</td><td id="`jm|" class="">주제분류번호</td><td id="{VPO" class="">도서권수</td><td id="lT~c" class="">대출건수</td><td id="YU?i" class="">등록일자</td></tr><tr id="a4dbecab-11ae-441c-add3-9585755ef7eb"><td id="zHuL" class="">0</td><td id="RduK" class="">1</td><td id="aQOP" class="">인공지능과 흙</td><td id="qsLk" class="">김동훈 지음</td><td id="&lt;]vn" class="">민음사</td><td id="cI}^" class="">2021</td><td id="Fa^R" class="">9788937444319</td><td id="Mcrf" class="">NaN</td><td id="`ORa" class="">NaN</td><td id="o?g:" class="">NaN</td><td id="`jm|" class="">NaN</td><td id="{VPO" class="">1</td><td id="lT~c" class="">0</td><td id="YU?i" class="">2021-03-19</td></tr><tr id="a1e024e4-1d68-4d19-9466-c2125d1a4802"><td id="zHuL" class="">1</td><td id="RduK" class="">2</td><td id="aQOP" class="">가짜 행복 권하는 사회</td><td id="qsLk" class="">김태형 지음</td><td id="&lt;]vn" class="">갈매나무</td><td id="cI}^" class="">2021</td><td id="Fa^R" class="">9791190123969</td><td id="Mcrf" class="">NaN</td><td id="`ORa" class="">NaN</td><td id="o?g:" class="">NaN</td><td id="`jm|" class="">NaN</td><td id="{VPO" class="">1</td><td id="lT~c" class="">0</td><td id="YU?i" class="">2021-03-19</td></tr><tr id="cc973b0e-d5a3-457b-aec3-f039458b3cf8"><td id="zHuL" class="">2</td><td id="RduK" class="">3</td><td id="aQOP" class="">나도 한 문장 잘 쓰면 바랄 게 없겠네</td><td id="qsLk" class="">김선영 지음</td><td id="&lt;]vn" class="">블랙피쉬</td><td id="cI}^" class="">2021</td><td id="Fa^R" class="">9788968332982</td><td id="Mcrf" class="">NaN</td><td id="`ORa" class="">NaN</td><td id="o?g:" class="">NaN</td><td id="`jm|" class="">NaN</td><td id="{VPO" class="">1</td><td id="lT~c" class="">0</td><td id="YU?i" class="">2021-03-19</td></tr><tr id="7c885292-c999-484d-aa07-a98e915fef7d"><td id="zHuL" class="">3</td><td id="RduK" class="">4</td><td id="aQOP" class="">예루살렘 해변</td><td id="qsLk" class="">이도 게펜 지음, 임재희 옮김</td><td id="&lt;]vn" class="">문학세계사</td><td id="cI}^" class="">2021</td><td id="Fa^R" class="">9788970759906</td><td id="Mcrf" class="">NaN</td><td id="`ORa" class="">NaN</td><td id="o?g:" class="">NaN</td><td id="`jm|" class="">NaN</td><td id="{VPO" class="">1</td><td id="lT~c" class="">0</td><td id="YU?i" class="">2021-03-19</td></tr><tr id="8cf7343f-a113-418f-8298-fb60475f6963"><td id="zHuL" class="">4</td><td id="RduK" class="">5</td><td id="aQOP" class="">김성곤의 중국한시기행 : 장강·황하 편</td><td id="qsLk" class="">김성곤 지음</td><td id="&lt;]vn" class="">김영사</td><td id="cI}^" class="">2021</td><td id="Fa^R" class="">9788934990833</td><td id="Mcrf" class="">NaN</td><td id="`ORa" class="">NaN</td><td id="o?g:" class="">NaN</td><td id="`jm|" class="">NaN</td><td id="{VPO" class="">1</td><td id="lT~c" class="">0</td><td id="YU?i" class="">2021-03-19</td></tr></tbody></table><pre id="14f45802-4fb9-4209-9b37-64bc91f9f028" class="code code-wrap"><code>print(ns_df.columns)
+
+-&gt; Index([&#x27;번호&#x27;, &#x27;도서명&#x27;, &#x27;저자&#x27;, &#x27;출판사&#x27;, &#x27;발행년도&#x27;, &#x27;ISBN&#x27;, &#x27;세트 ISBN&#x27;, &#x27;부가기호&#x27;, &#x27;권&#x27;,
+       &#x27;주제분류번호&#x27;, &#x27;도서권수&#x27;, &#x27;대출건수&#x27;, &#x27;등록일자&#x27;, &#x27;Unnamed: 13&#x27;],
+      dtype=&#x27;object&#x27;)</code></pre><pre id="cba94e3b-bd02-4437-8d48-16cea047bb61" class="code code-wrap"><code>print(ns_df.columns[0])
+
+-&gt; 번호</code></pre><pre id="d86d2c7f-69ef-409a-81ce-59f403215b89" class="code code-wrap"><code># Unnamed: 13과 같지 않은지 확인, True는 같지 않다.
+ns_df.columns != &#x27;Unnamed: 13&#x27;
+
+-&gt; array([ True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True, False])</code></pre><pre id="7f50014d-4403-4cfd-a446-83b826a469a1" class="code code-wrap"><code># ns_df의 Unnamed: 13이 아닌 칼럼을 찾아서 selected_columns에 저장
+selected_columns = ns_df.columns != &#x27;Unnamed: 13&#x27;
+ns_book = ns_df.loc[:, selected_columns]
+ns_book.head()</code></pre><table id="415ee6a7-4e31-4477-b676-41a19b1b4951" class="simple-table"><tbody><tr id="426b476e-34f0-4dc8-8914-f9dcffde608b"><td id="our:" class=""></td><td id="E|ZU" class="">번호</td><td id="hWEL" class="">도서명</td><td id="w:wQ" class="">저자</td><td id="tlD\" class="">출판사</td><td id="KJ:f" class="">발행년도</td><td id="`M|a" class="">ISBN</td><td id="QJF`" class="">세트 ISBN</td><td id="_wGb" class="">부가기호</td><td id="`qqf" class="">권</td><td id=";:lv" class="">주제분류번호</td><td id="jIj{" class="">도서권수</td><td id="o~VG" class="">대출건수</td><td id="qfLJ" class="">등록일자</td></tr><tr id="20d69d74-09fb-4cbd-a0f6-102b82e98c82"><td id="our:" class="">0</td><td id="E|ZU" class="">1</td><td id="hWEL" class="">인공지능과 흙</td><td id="w:wQ" class="">김동훈 지음</td><td id="tlD\" class="">민음사</td><td id="KJ:f" class="">2021</td><td id="`M|a" class="">9788937444319</td><td id="QJF`" class="">NaN</td><td id="_wGb" class="">NaN</td><td id="`qqf" class="">NaN</td><td id=";:lv" class="">NaN</td><td id="jIj{" class="">1</td><td id="o~VG" class="">0</td><td id="qfLJ" class="">2021-03-19</td></tr><tr id="8fdf0b37-8591-4e43-a6ce-2dda4492edc8"><td id="our:" class="">1</td><td id="E|ZU" class="">2</td><td id="hWEL" class="">가짜 행복 권하는 사회</td><td id="w:wQ" class="">김태형 지음</td><td id="tlD\" class="">갈매나무</td><td id="KJ:f" class="">2021</td><td id="`M|a" class="">9791190123969</td><td id="QJF`" class="">NaN</td><td id="_wGb" class="">NaN</td><td id="`qqf" class="">NaN</td><td id=";:lv" class="">NaN</td><td id="jIj{" class="">1</td><td id="o~VG" class="">0</td><td id="qfLJ" class="">2021-03-19</td></tr><tr id="18ecfb02-5091-480b-8ec4-89a7d124d0fc"><td id="our:" class="">2</td><td id="E|ZU" class="">3</td><td id="hWEL" class="">나도 한 문장 잘 쓰면 바랄 게 없겠네</td><td id="w:wQ" class="">김선영 지음</td><td id="tlD\" class="">블랙피쉬</td><td id="KJ:f" class="">2021</td><td id="`M|a" class="">9788968332982</td><td id="QJF`" class="">NaN</td><td id="_wGb" class="">NaN</td><td id="`qqf" class="">NaN</td><td id=";:lv" class="">NaN</td><td id="jIj{" class="">1</td><td id="o~VG" class="">0</td><td id="qfLJ" class="">2021-03-19</td></tr><tr id="b0213992-f528-4b13-a0f5-a0b21cec1178"><td id="our:" class="">3</td><td id="E|ZU" class="">4</td><td id="hWEL" class="">예루살렘 해변</td><td id="w:wQ" class="">이도 게펜 지음, 임재희 옮김</td><td id="tlD\" class="">문학세계사</td><td id="KJ:f" class="">2021</td><td id="`M|a" class="">9788970759906</td><td id="QJF`" class="">NaN</td><td id="_wGb" class="">NaN</td><td id="`qqf" class="">NaN</td><td id=";:lv" class="">NaN</td><td id="jIj{" class="">1</td><td id="o~VG" class="">0</td><td id="qfLJ" class="">2021-03-19</td></tr><tr id="e81b15b1-c5c2-45e3-aa00-8a5e9fc97448"><td id="our:" class="">4</td><td id="E|ZU" class="">5</td><td id="hWEL" class="">김성곤의 중국한시기행 : 장강·황하 편</td><td id="w:wQ" class="">김성곤 지음</td><td id="tlD\" class="">김영사</td><td id="KJ:f" class="">2021</td><td id="`M|a" class="">9788934990833</td><td id="QJF`" class="">NaN</td><td id="_wGb" class="">NaN</td><td id="`qqf" class="">NaN</td><td id=";:lv" class="">NaN</td><td id="jIj{" class="">1</td><td id="o~VG" class="">0</td><td id="qfLJ" class="">2021-03-19</td></tr></tbody></table><pre id="dcb2027a-6cff-4712-bcb3-6a248f24a681" class="code code-wrap"><code>selected_columns = ns_df.columns != &#x27;부가기호&#x27;
+ns_book = ns_df.loc[:, selected_columns]
+ns_book.head()</code></pre><table id="d2220862-8d0b-4e01-8629-5c28db664237" class="simple-table"><tbody><tr id="29de8246-de84-4809-9e09-85cdf27603c0"><td id="CKEd" class=""></td><td id="tBu:" class="">번호</td><td id="{lsO" class="">도서명</td><td id="E@JK" class="">저자</td><td id="ShtP" class="">출판사</td><td id="pu`E" class="">발행년도</td><td id="nc:e" class="">ISBN</td><td id="W=~C" class="">세트 ISBN</td><td id=":uyF" class="">권</td><td id="kJ\}" class="">주제분류번호</td><td id="_O{p" class="">도서권수</td><td id="^B:Y" class="">대출건수</td><td id="VIC}" class="">등록일자</td><td id="kPxl" class="">Unnamed: 13</td></tr><tr id="bae83487-6dcc-44cc-b736-45a47f1168a7"><td id="CKEd" class="">0</td><td id="tBu:" class="">1</td><td id="{lsO" class="">인공지능과 흙</td><td id="E@JK" class="">김동훈 지음</td><td id="ShtP" class="">민음사</td><td id="pu`E" class="">2021</td><td id="nc:e" class="">9788937444319</td><td id="W=~C" class="">NaN</td><td id=":uyF" class="">NaN</td><td id="kJ\}" class="">NaN</td><td id="_O{p" class="">1</td><td id="^B:Y" class="">0</td><td id="VIC}" class="">2021-03-19</td><td id="kPxl" class="">NaN</td></tr><tr id="76e8172d-42d9-443f-95e7-040b192b5918"><td id="CKEd" class="">1</td><td id="tBu:" class="">2</td><td id="{lsO" class="">가짜 행복 권하는 사회</td><td id="E@JK" class="">김태형 지음</td><td id="ShtP" class="">갈매나무</td><td id="pu`E" class="">2021</td><td id="nc:e" class="">9791190123969</td><td id="W=~C" class="">NaN</td><td id=":uyF" class="">NaN</td><td id="kJ\}" class="">NaN</td><td id="_O{p" class="">1</td><td id="^B:Y" class="">0</td><td id="VIC}" class="">2021-03-19</td><td id="kPxl" class="">NaN</td></tr><tr id="60f0dbe4-faab-407e-85e7-f54ecab30b1b"><td id="CKEd" class="">2</td><td id="tBu:" class="">3</td><td id="{lsO" class="">나도 한 문장 잘 쓰면 바랄 게 없겠네</td><td id="E@JK" class="">김선영 지음</td><td id="ShtP" class="">블랙피쉬</td><td id="pu`E" class="">2021</td><td id="nc:e" class="">9788968332982</td><td id="W=~C" class="">NaN</td><td id=":uyF" class="">NaN</td><td id="kJ\}" class="">NaN</td><td id="_O{p" class="">1</td><td id="^B:Y" class="">0</td><td id="VIC}" class="">2021-03-19</td><td id="kPxl" class="">NaN</td></tr><tr id="f96e60e8-258f-46c8-8c44-589e882993ff"><td id="CKEd" class="">3</td><td id="tBu:" class="">4</td><td id="{lsO" class="">예루살렘 해변</td><td id="E@JK" class="">이도 게펜 지음, 임재희 옮김</td><td id="ShtP" class="">문학세계사</td><td id="pu`E" class="">2021</td><td id="nc:e" class="">9788970759906</td><td id="W=~C" class="">NaN</td><td id=":uyF" class="">NaN</td><td id="kJ\}" class="">NaN</td><td id="_O{p" class="">1</td><td id="^B:Y" class="">0</td><td id="VIC}" class="">2021-03-19</td><td id="kPxl" class="">NaN</td></tr><tr id="c793e064-9962-49c7-bd4f-71ad343e92fa"><td id="CKEd" class="">4</td><td id="tBu:" class="">5</td><td id="{lsO" class="">김성곤의 중국한시기행 : 장강·황하 편</td><td id="E@JK" class="">김성곤 지음</td><td id="ShtP" class="">김영사</td><td id="pu`E" class="">2021</td><td id="nc:e" class="">9788934990833</td><td id="W=~C" class="">NaN</td><td id=":uyF" class="">NaN</td><td id="kJ\}" class="">NaN</td><td id="_O{p" class="">1</td><td id="^B:Y" class="">0</td><td id="VIC}" class="">2021-03-19</td><td id="kPxl" class="">NaN</td></tr></tbody></table><pre id="d0bf841e-0f39-40ae-a7ff-a97338f908cc" class="code code-wrap"><code># axis = 1, 칼럼 기준으로 drop
+ns_book = ns_df.drop(&#x27;Unnamed: 13&#x27;, axis=1)
+ns_book.head()</code></pre><table id="2ba7dbe2-bfa7-4431-855f-0e033ba75842" class="simple-table"><tbody><tr id="a2eae403-5332-4b03-add7-7ea4defbee1d"><td id="QHN?" class=""></td><td id="AWH}" class="">번호</td><td id="boFF" class="">도서명</td><td id="=K@:" class="">저자</td><td id="C^[U" class="">출판사</td><td id="nlJG" class="">발행년도</td><td id="^rUN" class="">ISBN</td><td id="w^I}" class="">세트 ISBN</td><td id="bWaI" class="">부가기호</td><td id="Mgww" class="">권</td><td id="^U`m" class="">주제분류번호</td><td id="NJuz" class="">도서권수</td><td id="wpkl" class="">대출건수</td><td id="{cvj" class="">등록일자</td></tr><tr id="36e50cfc-05b1-4fbe-b5a1-4b8a85178fd7"><td id="QHN?" class="">0</td><td id="AWH}" class="">1</td><td id="boFF" class="">인공지능과 흙</td><td id="=K@:" class="">김동훈 지음</td><td id="C^[U" class="">민음사</td><td id="nlJG" class="">2021</td><td id="^rUN" class="">9788937444319</td><td id="w^I}" class="">NaN</td><td id="bWaI" class="">NaN</td><td id="Mgww" class="">NaN</td><td id="^U`m" class="">NaN</td><td id="NJuz" class="">1</td><td id="wpkl" class="">0</td><td id="{cvj" class="">2021-03-19</td></tr><tr id="8ed692e2-ef81-41ca-b66a-c6699eadda95"><td id="QHN?" class="">1</td><td id="AWH}" class="">2</td><td id="boFF" class="">가짜 행복 권하는 사회</td><td id="=K@:" class="">김태형 지음</td><td id="C^[U" class="">갈매나무</td><td id="nlJG" class="">2021</td><td id="^rUN" class="">9791190123969</td><td id="w^I}" class="">NaN</td><td id="bWaI" class="">NaN</td><td id="Mgww" class="">NaN</td><td id="^U`m" class="">NaN</td><td id="NJuz" class="">1</td><td id="wpkl" class="">0</td><td id="{cvj" class="">2021-03-19</td></tr><tr id="81d18217-b2e9-4fa6-a647-4df82dd67e8c"><td id="QHN?" class="">2</td><td id="AWH}" class="">3</td><td id="boFF" class="">나도 한 문장 잘 쓰면 바랄 게 없겠네</td><td id="=K@:" class="">김선영 지음</td><td id="C^[U" class="">블랙피쉬</td><td id="nlJG" class="">2021</td><td id="^rUN" class="">9788968332982</td><td id="w^I}" class="">NaN</td><td id="bWaI" class="">NaN</td><td id="Mgww" class="">NaN</td><td id="^U`m" class="">NaN</td><td id="NJuz" class="">1</td><td id="wpkl" class="">0</td><td id="{cvj" class="">2021-03-19</td></tr><tr id="150a9c07-3e9d-44e2-ad3a-df77f420f02c"><td id="QHN?" class="">3</td><td id="AWH}" class="">4</td><td id="boFF" class="">예루살렘 해변</td><td id="=K@:" class="">이도 게펜 지음, 임재희 옮김</td><td id="C^[U" class="">문학세계사</td><td id="nlJG" class="">2021</td><td id="^rUN" class="">9788970759906</td><td id="w^I}" class="">NaN</td><td id="bWaI" class="">NaN</td><td id="Mgww" class="">NaN</td><td id="^U`m" class="">NaN</td><td id="NJuz" class="">1</td><td id="wpkl" class="">0</td><td id="{cvj" class="">2021-03-19</td></tr><tr id="8f335b18-22e0-4d6e-a97c-69283152c168"><td id="QHN?" class="">4</td><td id="AWH}" class="">5</td><td id="boFF" class="">김성곤의 중국한시기행 : 장강·황하 편</td><td id="=K@:" class="">김성곤 지음</td><td id="C^[U" class="">김영사</td><td id="nlJG" class="">2021</td><td id="^rUN" class="">9788934990833</td><td id="w^I}" class="">NaN</td><td id="bWaI" class="">NaN</td><td id="Mgww" class="">NaN</td><td id="^U`m" class="">NaN</td><td id="NJuz" class="">1</td><td id="wpkl" class="">0</td><td id="{cvj" class="">2021-03-19</td></tr></tbody></table><pre id="931dbd65-dde5-4e69-aa66-0ff00f061432" class="code code-wrap"><code># inplace = True
+# 주제분류번호를 칼럼 기준으로(1) drop하고, 반영(inplace)한다.
+ns_book.drop(&#x27;주제분류번호&#x27;, axis=1, inplace=True)
+ns_book.head()</code></pre><table id="83d96794-e9de-4e28-b61a-096829907b1e" class="simple-table"><tbody><tr id="e491c389-a0f5-4c79-a13f-56628196ff7a"><td id="}{W&gt;" class=""></td><td id="agWJ" class="">번호</td><td id="\t&lt;k" class="">도서명</td><td id="`yqw" class="">저자</td><td id="XwCY" class="">출판사</td><td id="s\t\" class="">발행년도</td><td id="^;t{" class="">ISBN</td><td id="]Rxb" class="">세트 ISBN</td><td id="_c|B" class="">권</td><td id="ZEzd" class="">도서권수</td><td id="EOoc" class="">대출건수</td><td id="n::o" class="">등록일자</td></tr><tr id="fcf16c5a-91fe-41d8-a512-2b6b46fcc3bd"><td id="}{W&gt;" class="">0</td><td id="agWJ" class="">1</td><td id="\t&lt;k" class="">인공지능과 흙</td><td id="`yqw" class="">김동훈 지음</td><td id="XwCY" class="">민음사</td><td id="s\t\" class="">2021</td><td id="^;t{" class="">9788937444319</td><td id="]Rxb" class="">NaN</td><td id="_c|B" class="">NaN</td><td id="ZEzd" class="">1</td><td id="EOoc" class="">0</td><td id="n::o" class="">2021-03-19</td></tr><tr id="cc5eacdc-3f01-4e48-9e8c-976f1ec35207"><td id="}{W&gt;" class="">1</td><td id="agWJ" class="">2</td><td id="\t&lt;k" class="">가짜 행복 권하는 사회</td><td id="`yqw" class="">김태형 지음</td><td id="XwCY" class="">갈매나무</td><td id="s\t\" class="">2021</td><td id="^;t{" class="">9791190123969</td><td id="]Rxb" class="">NaN</td><td id="_c|B" class="">NaN</td><td id="ZEzd" class="">1</td><td id="EOoc" class="">0</td><td id="n::o" class="">2021-03-19</td></tr><tr id="8af1e1ce-fad4-4b13-b393-743aad06ea91"><td id="}{W&gt;" class="">2</td><td id="agWJ" class="">3</td><td id="\t&lt;k" class="">나도 한 문장 잘 쓰면 바랄 게 없겠네</td><td id="`yqw" class="">김선영 지음</td><td id="XwCY" class="">블랙피쉬</td><td id="s\t\" class="">2021</td><td id="^;t{" class="">9788968332982</td><td id="]Rxb" class="">NaN</td><td id="_c|B" class="">NaN</td><td id="ZEzd" class="">1</td><td id="EOoc" class="">0</td><td id="n::o" class="">2021-03-19</td></tr><tr id="0c4eb987-91e3-4e14-b573-7171a9522558"><td id="}{W&gt;" class="">3</td><td id="agWJ" class="">4</td><td id="\t&lt;k" class="">예루살렘 해변</td><td id="`yqw" class="">이도 게펜 지음, 임재희 옮김</td><td id="XwCY" class="">문학세계사</td><td id="s\t\" class="">2021</td><td id="^;t{" class="">9788970759906</td><td id="]Rxb" class="">NaN</td><td id="_c|B" class="">NaN</td><td id="ZEzd" class="">1</td><td id="EOoc" class="">0</td><td id="n::o" class="">2021-03-19</td></tr><tr id="7f661fc1-f731-46fa-99eb-a646a4718585"><td id="}{W&gt;" class="">4</td><td id="agWJ" class="">5</td><td id="\t&lt;k" class="">김성곤의 중국한시기행 : 장강·황하 편</td><td id="`yqw" class="">김성곤 지음</td><td id="XwCY" class="">김영사</td><td id="s\t\" class="">2021</td><td id="^;t{" class="">9788934990833</td><td id="]Rxb" class="">NaN</td><td id="_c|B" class="">NaN</td><td id="ZEzd" class="">1</td><td id="EOoc" class="">0</td><td id="n::o" class="">2021-03-19</td></tr></tbody></table><pre id="114a1bc2-983d-4afd-9b1b-130659857e7e" class="code code-wrap"><code># NaN이 들어있는 칼럼을 drop
+ns_book = ns_df.dropna(axis=1)
+ns_book.head()</code></pre><table id="5e37d771-3646-46a8-af3a-420cffb39238" class="simple-table"><tbody><tr id="42d71774-a3f9-4032-bda1-eb4d13472f26"><td id="yCFY" class=""></td><td id="\HXI" class="">번호</td><td id="dqqX" class="">ISBN</td><td id="RKHC" class="">도서권수</td><td id="dsle" class="">대출건수</td><td id="gSn\" class="">등록일자</td></tr><tr id="b2df35ea-3645-4f17-b941-bbb2d04cdefd"><td id="yCFY" class="">0</td><td id="\HXI" class="">1</td><td id="dqqX" class="">9788937444319</td><td id="RKHC" class="">1</td><td id="dsle" class="">0</td><td id="gSn\" class="">2021-03-19</td></tr><tr id="819c23ac-8f93-496c-8bc8-9766e4202963"><td id="yCFY" class="">1</td><td id="\HXI" class="">2</td><td id="dqqX" class="">9791190123969</td><td id="RKHC" class="">1</td><td id="dsle" class="">0</td><td id="gSn\" class="">2021-03-19</td></tr><tr id="ec6e9658-1af9-41ae-820a-5907537756a4"><td id="yCFY" class="">2</td><td id="\HXI" class="">3</td><td id="dqqX" class="">9788968332982</td><td id="RKHC" class="">1</td><td id="dsle" class="">0</td><td id="gSn\" class="">2021-03-19</td></tr><tr id="508eeb68-1f33-4d1c-ada7-ce85bd386c90"><td id="yCFY" class="">3</td><td id="\HXI" class="">4</td><td id="dqqX" class="">9788970759906</td><td id="RKHC" class="">1</td><td id="dsle" class="">0</td><td id="gSn\" class="">2021-03-19</td></tr><tr id="3a9d76b4-4c1f-4dbb-b07a-47fc8c22a323"><td id="yCFY" class="">4</td><td id="\HXI" class="">5</td><td id="dqqX" class="">9788934990833</td><td id="RKHC" class="">1</td><td id="dsle" class="">0</td><td id="gSn\" class="">2021-03-19</td></tr></tbody></table><h3 id="779f23a9-50d5-4a98-bf91-881d62a97e50" class="">(참고)파이썬 기초 AI 강의</h3><p id="2e30cd7f-7c00-428c-bcd8-7eb72604cf7a" class=""><a href="https://www.ebssw.kr/lrnng/alctcr/alctcrDetailView.do?alctcrSn=57835">파이선으로 배우는 AI 기초</a></p><h1 id="b5ee7485-d922-4b42-828e-b378c5304ae8" class="">SeSAC - 파이썬 데이터 처리 프로그래밍 2일차</h1><p id="306bce96-4209-4721-88c9-0b4d23d3a8e4" class="">2023.08.01</p><p id="7b468aac-7f29-4756-8658-5f3f854e55e5" class="">&lt;br&gt;</p><h3 id="4552a12a-adb3-4be0-aa2a-021ebf02d1e4" class="">실습 - 지식인에서 파이썬 검색해서 제목과 링크 가져오기</h3><pre id="7e34750f-a9fe-4952-aad3-63fb1b91c16e" class="code code-wrap"><code>import requests
+from fake_useragent import UserAgent
+from bs4 import BeautifulSoup
+
+ua = UserAgent()
+headers = {
+    &quot;User-Agent&quot; : ua.random
+}
+
+res = requests.get(&quot;&lt;https://search.naver.com/search.naver?where=kin&amp;sm=tab_jum&amp;query=%ED%8C%8C%EC%9D%B4%EC%8D%AC&gt;&quot;, headers=headers)
+
+bs = BeautifulSoup(res.text, &#x27;html.parser&#x27;)
+area = bs.select_one(&quot;.lst_total&quot;)
+# area = bs.select_one(&quot;.lst_total._list&quot;) # 두가지 클래스명을 다 가진것을 가져올때
+elem = area.select(&quot;.question_text&quot;)
+
+for e in elem:
+    print(e.text)
+    print(e.attrs[&quot;href&quot;])
+</code></pre><p id="396929ec-c16e-4c00-b3d3-9d6e36cbfd74" class="">&lt;br&gt;</p><h3 id="6d803750-2058-4a55-bb48-a35f5ea87486" class="">pagenation을 이용해서 여러 페이지 크롤링하기</h3><p id="f45ea663-d0a8-4c33-8a16-a426be67b0d3" class="">네이버에서 파이썬을 검색한 첫번째 페이지의 주소를 확인해보자.</p><p id="18824d38-f820-430f-93b3-124b19e66a22" class=""><a href="https://github.com/kimbap918/TIL/assets/75712723/4af4a623-7652-437a-8863-8b99283a8e57">https://github.com/kimbap918/TIL/assets/75712723/4af4a623-7652-437a-8863-8b99283a8e57</a></p><p id="b5530a7c-36bc-472c-8c09-c316f4a91c7b" class="">페이지의 주소는 아래와 같다.</p><pre id="0dad8ba4-d086-4cfd-8987-4bcbcf2374dc" class="code code-wrap"><code># kin_start=1
+&lt;https://search.naver.com/search.naver?where=kin&amp;kin_display=10&amp;qt=&amp;title=0&amp;&amp;answer=0&amp;grade=0&amp;choice=0&amp;sec=0&amp;nso=so%3A-1%2Ca%3A%2Cp%3Aall&amp;query=%ED%8C%8C%EC%9D%B4%EC%8D%AC&amp;c_id=&amp;c_name=&amp;sm=tab_pge&amp;kin_start=1&amp;kin_age=0&gt;
+</code></pre><p id="f17da017-5430-4780-97be-18e40bf4980c" class="">그렇다면 두번째 페이지도 확인해보자.</p><p id="0fa9de21-ddd5-47ee-9c39-640cae8e5137" class=""><a href="https://github.com/kimbap918/TIL/assets/75712723/b1dcb530-e10a-497b-8659-0e80430296d1">https://github.com/kimbap918/TIL/assets/75712723/b1dcb530-e10a-497b-8659-0e80430296d1</a></p><pre id="03085fe6-1b94-4410-8c6d-ac762d4b85ce" class="code code-wrap"><code># kin_start=11
+&lt;https://search.naver.com/search.naver?where=kin&amp;kin_display=10&amp;qt=&amp;title=0&amp;&amp;answer=0&amp;grade=0&amp;choice=0&amp;sec=0&amp;nso=so%3A-1%2Ca%3A%2Cp%3Aall&amp;query=%ED%8C%8C%EC%9D%B4%EC%8D%AC&amp;c_id=&amp;c_name=&amp;sm=tab_pge&amp;kin_start=11&amp;kin_age=0&gt;
+</code></pre><p id="8eb84d5d-f447-4dd7-98de-1ad91db55429" class="">페이지가 증가함에 따라 kin_start가 10씩 증가한다.</p><p id="8e04ad84-8919-44a4-81d4-c99eef5e2f26" class="">이것을 이용해서 여러 페이지를 한번에 크롤링 할 수 있다.</p><p id="d2e8f12c-ef20-44bb-b51e-3a0bb25c9284" class="">&lt;br&gt;</p><h3 id="6873d362-1215-4a5f-b355-0849dd839391" class="">여러 페이지 크롤링</h3><pre id="c6c36555-e080-4d85-9a2c-724a8c48dc4c" class="code code-wrap"><code>import requests
+from fake_useragent import UserAgent
+from bs4 import BeautifulSoup
+
+ua = UserAgent()
+headers = {
+    &quot;User-Agent&quot; : ua.random
+}
+
+# 크롤링 하려는 페이지의 url
+url = &quot;&lt;https://search.naver.com/search.naver?where=kin&amp;kin_display=10&amp;qt=&amp;title=0&amp;&amp;answer=0&amp;grade=0&amp;choice=0&amp;sec=0&amp;nso=so%3A-1%2Ca%3A%2Cp%3Aall&amp;query=%ED%8C%8C%EC%9D%B4%EC%8D%AC&amp;c_id=&amp;c_name=&amp;sm=tab_pge&amp;kin_start=1&amp;kin_age=0&gt;&quot;
+
+# 크롤링 페이지의 수
+for page in range(3):
+		# 페이지를 계산
+    request_url = f&quot;{url}&amp;kin_display=10&amp;kin_start={(page*10)+1}&quot;
+    res = requests.get(url, headers=headers)
+    bs = BeautifulSoup(res.text, &#x27;html.parser&#x27;)
+
+    area = bs.select_one(&quot;.lst_total&quot;)
+    elem = area.select(&quot;.question_text&quot;)
+
+    for e in elem:
+        print(e.text)
+        print(e.attrs[&quot;href&quot;])
+</code></pre><p id="d9639d40-38c7-483b-b095-79f23dd091f0" class="">&lt;br&gt;</p><h3 id="884eece3-4e87-4cf3-9760-4fee6b55d1c9" class="">pymysql</h3><p id="db4da40b-4c61-432d-9dc9-3dc28ea0d7fe" class="">jupyter에서 mysql 실행하기</p><pre id="7427045f-1e60-4e9f-a655-97c0662a36c3" class="code code-wrap"><code>import pymysql
+
+db = pymysql.connect(host=&quot;localhost&quot;, port=3306, user=&quot;root&quot;, password=&quot;jen401018&amp;&quot;, db=&quot;market_db&quot;)
+cursor = db.cursor() # cursor로 sql 쿼리를 가져온다.
+
+sql = &quot;&quot;&quot;
+SELECT * FROM member;
+&quot;&quot;&quot;
+
+cursor.execute(sql) # 커서 실행
+result = cursor.fetchmany(size=100) # fetchone = 하나만, fetchmany = 여러개
+for data in result:
+    print(data)
+
+db.close()
+</code></pre><p id="225eae9d-1e17-440a-9c2c-f4485fedf13b" class="">&lt;br&gt;</p><h3 id="4f007597-2d52-46c8-9f03-1a4cf8211c40" class="">값 삽입하기</h3><pre id="20929070-9f4c-4ff1-ae5f-6caf0f1a3f52" class="code code-wrap"><code>import pymysql
+
+db = pymysql.connect(host=&quot;localhost&quot;, port=3306, user=&quot;root&quot;, password=&quot;jen401018&amp;&quot;, db=&quot;market_db&quot;)
+cursor = db.cursor()
+
+sql = &quot;&quot;&quot;
+insert into member values(&quot;ABC&quot;, &quot;에이비씨&quot;, &quot;10&quot;, &#x27;경기&#x27;, &#x27;031&#x27;, &#x27;11122233&#x27;, &#x27;170&#x27;, &#x27;2023-08-01&#x27;);
+&quot;&quot;&quot;
+
+cursor.execute(sql)
+
+db.commit()
+db.close()
+</code></pre><p id="15dbec5f-0e71-4e57-b055-91d203265ba0" class="">&lt;br&gt;</p><h3 id="d64c8db5-a69b-4c09-9528-ddda56ce0bc1" class="">테이블 생성해서 값 삽입해보기</h3><ol type="1" id="93d6436e-992a-484a-b09e-e1ec854e2c0a" class="numbered-list" start="1"><li>sba 스키마 생성 후 아래와 같이 테이블 생성</li></ol><figure id="367de222-91fd-4120-9671-e5c6cf4cadfc" class="image"><a href="https://github.com/kimbap918/TIL/assets/75712723/e9d10e67-48e7-4aaf-ad8c-58387105697c"><img style="width:700px" src="https://github.com/kimbap918/TIL/assets/75712723/e9d10e67-48e7-4aaf-ad8c-58387105697c"/></a></figure><ol type="1" id="7fd075ed-0087-416d-a6fa-49abe7de4db0" class="numbered-list" start="1"><li>jupyter에서 값 삽입</li></ol><pre id="0a686f73-ca29-42c3-9020-4b9518f5548e" class="code code-wrap"><code>import pymysql
+
+db = pymysql.connect(host=&quot;localhost&quot;, port=3306, user=&quot;root&quot;, password=&quot;jen401018&amp;&quot;, db=&quot;sba&quot;)
+cursor = db.cursor()
+
+sql = &quot;&quot;&quot;
+insert into link
+values(NULL, &#x27;title-test&#x27;, &#x27;link-test&#x27;, &#x27;keyword-test&#x27;, &#x27;content-test&#x27;, 0, &#x27;2022-12-12&#x27;, &#x27;2023-08-01 00:00:00&#x27;);
+&quot;&quot;&quot;
+
+cursor.execute(sql)
+
+db.commit()
+db.close()
+</code></pre><p id="9351488a-5856-470a-b66b-9800b1233dfc" class="">&lt;br&gt;</p><h3 id="20a3db6e-ccd9-4125-a81c-378d3fdc9b16" class="">실습 - 파이썬 뉴스 크롤링해서 DB에 넣기</h3><pre id="447bedce-b7e0-47f8-b499-3e6ef1f75ef9" class="code code-wrap"><code># 파이썬 뉴스 5페이지까지 수집
+# title = 뉴스 제목, link = 뉴스의 링크, keyword = 검색어, 파이썬, content = 요약내용, count = 요약 내에서 키워드가 들어간 횟수
+# date = 안넣어도됨, timestamp = now()
+
+import requests
+from fake_useragent import UserAgent
+from bs4 import BeautifulSoup
+import pymysql
+
+db = pymysql.connect(host=&quot;localhost&quot;, port=3306, user=&quot;root&quot;, password=&quot;jen401018&amp;&quot;, db=&quot;sba&quot;)
+cursor = db.cursor()
+
+ua = UserAgent()
+headers = {
+    &quot;User-Agent&quot; : ua.random
+}
+
+# 파이썬 뉴스 페이지
+url = &quot;&lt;https://search.naver.com/search.naver?where=news&amp;sm=tab_pge&amp;query=%ED%8C%8C%EC%9D%B4%EC%8D%AC&amp;sort=0&amp;photo=0&amp;field=0&amp;pd=0&amp;ds=&amp;de=&amp;cluster_rank=62&amp;mynews=0&amp;office_type=0&amp;office_section_code=0&amp;news_office_checked=&amp;nso=so:r,p:all,a:all&gt;&quot;
+
+# 5페이지를 가져오기 위해 range(5)
+for page in range(5):
+  	# url 뒤에 페이지 계산
+    request_url = f&quot;{url}&amp;start={(page*10)+1}&quot;
+    res = requests.get(request_url, headers=headers)
+    bs = BeautifulSoup(res.text, &#x27;html.parser&#x27;)
+
+    # 필요한 정보가 있는 태그 클래스
+    area = bs.select_one(&quot;.list_news&quot;)
+    elem = area.select(&quot;.news_area&quot;)
+
+
+    for e in elem:
+      	# 제목의 정보를 텍스트로, DB에 삽입 시 작은따옴표가 오류가 생겨서 큰 따옴표로 치환
+        title = e.select_one(&quot;.news_tit&quot;).text.replace(&quot;&#x27;&quot;, &#x27;&quot;&#x27;)
+        # 제목의 정보에서 href 링크를 저장
+        link = e.select_one(&quot;.news_tit&quot;).attrs[&quot;href&quot;]
+        # 키워드는 파이썬
+        keyword = &quot;파이썬&quot;
+        # elem 내의 .dsc_txt_wrap 클래스 정보를 텍스트로, 작은따옴표 오류가 생겨서 큰 따옴표로 치환
+        content = e.select_one(&quot;.dsc_txt_wrap&quot;).text.replace(&quot;&#x27;&quot;, &#x27;&quot;&#x27;)
+        # 컨텐츠 내의 파이썬 단어 개수를 저장
+        cnt = content.count(keyword)
+
+        sql = f&quot;&quot;&quot;
+        insert into link
+        values(NULL, &#x27;{title}&#x27;, &#x27;{link}&#x27;, &#x27;{keyword}&#x27;, &#x27;{content}&#x27;, {cnt}, NULL, now());
+        &quot;&quot;&quot;
+        cursor.execute(sql)
+
+db.commit()
+db.close()
+</code></pre><p id="7d0982d4-372a-42ad-b93d-8982a63ae6b0" class="">&lt;br&gt;</p><h3 id="d8e428db-de7a-4c6f-be53-849bbef405a1" class="">실습 - 뉴스 기사를 모두 방문해서 &quot;파이썬&quot;이 들어간 개수 확인하기</h3><ul id="2d2f9322-0a2e-47fb-8cc2-8445fb05d342" class="bulleted-list"><li style="list-style-type:disc">작성한 답안</li></ul><pre id="576fdfe1-3b6d-4f57-8a5a-1b1ae5c57525" class="code code-wrap"><code>import requests
+from fake_useragent import UserAgent
+from bs4 import BeautifulSoup
+import pymysql
+
+db = pymysql.connect(host=&quot;localhost&quot;, port=3306, user=&quot;root&quot;, password=&quot;jen401018&amp;&quot;, db=&quot;sba&quot;)
+
+ua = UserAgent()
+headers = {
+    &quot;User-Agent&quot; : ua.random
+}
+
+url = &quot;&lt;https://search.naver.com/search.naver?where=news&amp;sm=tab_pge&amp;query=%ED%8C%8C%EC%9D%B4%EC%8D%AC&amp;sort=0&amp;photo=0&amp;field=0&amp;pd=0&amp;ds=&amp;de=&amp;cluster_rank=62&amp;mynews=0&amp;office_type=0&amp;office_section_code=0&amp;news_office_checked=&amp;nso=so:r,p:all,a:all&gt;&quot;
+cursor = db.cursor()
+
+for page in range(2):
+    request_url = f&quot;{url}&amp;start={(page*10)+1}&quot;
+    res = requests.get(request_url, headers=headers)
+    bs = BeautifulSoup(res.text, &#x27;html.parser&#x27;)
+
+    area = bs.select_one(&quot;.list_news&quot;)
+    elem = area.select(&quot;.news_area&quot;)
+
+    for e in elem:
+
+        title = e.select_one(&quot;.news_tit&quot;).text.replace(&quot;&#x27;&quot;, &#x27;&quot;&#x27;)
+        link = e.select_one(&quot;.news_tit&quot;).attrs[&quot;href&quot;]
+        # 링크 안에 있는 내용을 읽어오기
+        res2 = requests.get(link, headers=headers)
+        bs2 = BeautifulSoup(res2.text, &#x27;html.parser&#x27;)
+        content = bs2.select_one(&quot;html&quot;).text
+
+        keyword = &quot;파이썬&quot;
+        cnt = content.count(keyword)
+
+        sql = f&quot;&quot;&quot;
+        insert into link
+        values(NULL, &#x27;{title}&#x27;, &#x27;{link}&#x27;, &#x27;{keyword}&#x27;, &#x27;{content}&#x27;, {cnt}, NULL, now());
+        &quot;&quot;&quot;
+        cursor.execute(sql)
+
+db.commit()
+db.close()
+
+</code></pre><ul id="b62776e8-ae2f-4b48-850d-a19b625bdf8e" class="bulleted-list"><li style="list-style-type:disc">풀이</li></ul><pre id="6c2634ba-b823-4093-afd6-9182ac01a349" class="code code-wrap"><code># 파이썬 뉴스 5페이지까지 수집
+# title = 뉴스 제목, link = 뉴스의 링크, keyword = 검색어, 파이썬, content = 요약내용, count = 요약 내에서 키워드가 들어간 횟수
+# date = 안넣어도됨, timestamp =
+
+import requests
+import time
+from fake_useragent import UserAgent
+from bs4 import BeautifulSoup
+import pymysql
+
+db = pymysql.connect(host=&quot;localhost&quot;, port=3306, user=&quot;root&quot;, password=&quot;jen401018&amp;&quot;, db=&quot;sba&quot;)
+
+ua = UserAgent()
+headers = {
+    &quot;User-Agent&quot; : ua.random
+}
+
+url = &quot;&lt;https://search.naver.com/search.naver?where=news&amp;sm=tab_pge&amp;query=%ED%8C%8C%EC%9D%B4%EC%8D%AC&amp;sort=0&amp;photo=0&amp;field=0&amp;pd=0&amp;ds=&amp;de=&amp;cluster_rank=62&amp;mynews=0&amp;office_type=0&amp;office_section_code=0&amp;news_office_checked=&amp;nso=so:r,p:all,a:all&gt;&quot;
+cursor = db.cursor()
+
+for page in range(2):
+    request_url = f&quot;{url}&amp;start={(page*10)+1}&quot;
+    res = requests.get(request_url, headers=headers)
+    bs = BeautifulSoup(res.text, &#x27;html.parser&#x27;)
+
+    area = bs.select_one(&quot;.list_news&quot;)
+    elem = area.select(&quot;.news_area&quot;)
+
+    for e in elem:
+
+        title = e.select_one(&quot;.news_tit&quot;).text.replace(&quot;&#x27;&quot;, &#x27;&quot;&#x27;)
+        link = e.select_one(&quot;.news_tit&quot;).attrs[&quot;href&quot;]
+        keyword = &quot;파이썬&quot;
+
+        # 링크 안에 있는 내용을 읽어오기
+        res2 = requests.get(link, headers=headers)
+        content = res2.text
+        cnt = content.count(keyword)
+
+        sql = f&quot;&quot;&quot;
+        insert into link
+        values(NULL, &#x27;{title}&#x27;, &#x27;{link}&#x27;, &#x27;{keyword}&#x27;, &#x27;{content}&#x27;, {cnt}, NULL, now());
+        &quot;&quot;&quot;
+        cursor.execute(sql)
+        time.sleep(0.1)
+
+db.commit()
+db.close()
+
+</code></pre><p id="b6c6ecc2-b9b4-4401-a0ac-1132c2b82ed6" class="">&lt;br&gt;</p><h3 id="70d920dd-3801-420c-8a48-665ea4d21a8d" class="">openpylx로 엑셀 파일 조작하기</h3><p id="9f0fae06-b2c3-4cde-a7cb-0db56d8c22e6" class=""><a href="https://openpyxl.readthedocs.io/en/stable/">https://openpyxl.readthedocs.io/en/stable/</a></p><ul id="e62063c9-d377-458b-acb4-7fe8acda0735" class="bulleted-list"><li style="list-style-type:disc">쓰기</li></ul><pre id="c52d74bd-113b-4e6b-92cf-e971ed2105a0" class="code code-wrap"><code>from openpyxl import Workbook
+
+wb = Workbook()
+ws = wb.active
+
+for row in range(10):
+    ws.append([row, f&quot;{row}-data&quot;])
+
+# A1 셀에 Test-data 삽입
+ws[&quot;A1&quot;] = &quot;Test-data&quot;
+wb.save(&quot;result.xlsx&quot;)
+</code></pre><p id="75a95c91-1d4b-455a-b35e-2c7a24592deb" class="">&lt;br&gt;</p><ul id="6c435174-b1a8-4d88-9a3f-b63eba622ec5" class="bulleted-list"><li style="list-style-type:disc">읽기</li></ul><pre id="35e47255-c74b-4297-b659-fae25e9386db" class="code code-wrap"><code>from openpyxl import load_workbook
+
+wb = load_workbook(&quot;result.xlsx&quot;)
+ws = wb.active
+
+for row in ws.iter_rows():
+    print(row[0].value, row[1].value)
+</code></pre><p id="2fee033a-29cf-4037-9efa-6ca6937a6ebc" class="">&lt;br&gt;</p><h3 id="4cf3ef62-e82e-4b75-8cb7-ffd0a0fef2b6" class="">실습 - 뉴스 기사 엑셀 파일로 저장하기</h3><pre id="7874b5e2-c392-4c6f-8293-3dc35149e33f" class="code code-wrap"><code># DB관련 내용 삭제후 result.xlsx에 동일한 내용을 저장하도록 변경하기
+
+import requests
+from fake_useragent import UserAgent
+from bs4 import BeautifulSoup
+from openpyxl import Workbook
+
+wb = Workbook()
+ws = wb.active
+
+ua = UserAgent()
+headers = {
+    &quot;User-Agent&quot; : ua.random
+}
+
+url = &quot;&lt;https://search.naver.com/search.naver?where=news&amp;sm=tab_pge&amp;query=%ED%8C%8C%EC%9D%B4%EC%8D%AC&amp;sort=0&amp;photo=0&amp;field=0&amp;pd=0&amp;ds=&amp;de=&amp;cluster_rank=62&amp;mynews=0&amp;office_type=0&amp;office_section_code=0&amp;news_office_checked=&amp;nso=so:r,p:all,a:all&gt;&quot;
+
+for page in range(2):
+    request_url = f&quot;{url}&amp;start={(page*10)+1}&quot;
+    res = requests.get(request_url, headers=headers)
+    bs = BeautifulSoup(res.text, &#x27;html.parser&#x27;)
+
+    area = bs.select_one(&quot;.list_news&quot;)
+    elem = area.select(&quot;.news_area&quot;)
+
+    for e in elem:
+
+        title = e.select_one(&quot;.news_tit&quot;).text.replace(&quot;&#x27;&quot;, &#x27;&quot;&#x27;)
+        link = e.select_one(&quot;.news_tit&quot;).attrs[&quot;href&quot;]
+        keyword = &quot;파이썬&quot;
+
+        # 링크 안에 있는 내용을 읽어오기
+        res2 = requests.get(link, headers=headers)
+        content = res2.text
+        cnt = content.count(keyword)
+
+        # 제목, 링크, 키워드, 내용, 카운트
+        ws.append([title, link, keyword, content, cnt])
+
+# result.xlsx로 저장
+wb.save(&quot;result.xlsx&quot;)
+
+</code></pre><p id="f0f38b6a-8e39-484d-975c-c6aa2578b913" class="">&lt;br&gt;</p><h3 id="f80ebaba-a056-41d3-bb06-b678fca8e96f" class="">실습 - 멜론 데이터 가져와서 DB에 삽입, Excel에 저장하기</h3><ul id="adcc2aba-931e-4031-b021-3c53becc00d0" class="bulleted-list"><li style="list-style-type:disc">순위, 제목, 가수, 앨범, 좋아요, 변동 넣어보기</li></ul><p id="df0c6018-29b1-4fa9-9d7b-edbc21ca79d0" class="">테스트 데이터 DB에 넣어보기</p><pre id="b0b97629-e32c-4290-a4e2-fe97532a9783" class="code code-wrap"><code># 순위, 제목, 가수, 앨범, 좋아요
+
+import pymysql
+
+# 테스트 데이터 넣어보기
+db = pymysql.connect(host=&quot;localhost&quot;, port=3306, user=&quot;root&quot;, password=&quot;jen401018&amp;&quot;, db=&quot;sba&quot;)
+cursor = db.cursor()
+
+sql = &quot;&quot;&quot;
+insert into melon
+values(NULL, 101, &quot;바보&quot;, &quot;최준혁&quot;, &quot;최준혁2집&quot;, -1, -100);
+&quot;&quot;&quot;
+
+cursor.execute(sql)
+
+db.commit()
+db.close()
+</code></pre><p id="9efaa476-d1ed-4c5a-991b-a35527eea50d" class="">&lt;br&gt;</p><ul id="f68791b7-4cdc-4ab3-8887-9b8eeec4a6b9" class="bulleted-list"><li style="list-style-type:disc">크롤링 및 DB삽입</li></ul><pre id="8ebd9ad9-b2e6-47ae-9613-0d82ebd89a71" class="code code-wrap"><code># 순위, 제목, 가수, 앨범, 좋아요
+# rank, title, singer, album, like, diff
+import requests
+from fake_useragent import UserAgent
+from bs4 import BeautifulSoup
+from openpyxl import Workbook
+import pymysql
+
+# 5. DB 연결 설정
+db = pymysql.connect(host=&quot;localhost&quot;, port=3306, user=&quot;root&quot;, password=&quot;jen401018&amp;&quot;, db=&quot;sba&quot;)
+cursor = db.cursor()
+
+# 8. workbook
+wb = Workbook()
+ws = wb.active
+
+# 1. userAgent
+ua = UserAgent()
+headers = {
+    &quot;User-Agent&quot; : ua.random
+}
+
+# 2. 가져올 url
+url = &quot;&lt;https://www.melon.com/chart/index.htm&gt;&quot;
+res = requests.get(url, headers=headers)
+bs = BeautifulSoup(res.text, &#x27;html.parser&#x27;)
+
+# 3. 가져올 정보 클래스
+area = bs.select_one(&quot;.service_list_song&quot;)
+elem = area.select(&quot;div &gt; table &gt; tbody &gt; tr&quot;)
+
+# 4. 순위, 제목, 가수, 앨범, 좋아요
+for e in elem:
+    rank = e.select_one(&quot;.rank&quot;).text
+    title = e.select_one(&quot;.ellipsis.rank01 &gt; span &gt; a&quot;).text.replace(&quot;&#x27;&quot;, &#x27;&quot;&#x27;) # replace는 DB insert 시 작은따옴표 처리를 위해 사용
+    singer = e.select_one(&quot;.ellipsis.rank02 &gt; a&quot;).text.replace(&quot;&#x27;&quot;, &#x27;&quot;&#x27;)
+    album = e.select_one(&quot;.ellipsis.rank03 &gt; a&quot;).text.replace(&quot;&#x27;&quot;, &#x27;&quot;&#x27;)
+    diff = e.select_one(&quot;.rank_wrap&quot;).text.replace(&quot;&#x27;&quot;, &#x27;&quot;&#x27;)
+
+    # 6. DB에 저장
+    sql = f&quot;&quot;&quot;
+    insert into melon
+    values(NULL, {rank}, &#x27;{title}&#x27;, &#x27;{singer}&#x27;, &#x27;{album}&#x27;, 0, &#x27;{diff}&#x27;);
+    &quot;&quot;&quot;
+    cursor.execute(sql)
+
+    # 9. Excel에 저장
+    ws.append([rank, title, singer, album, 0, diff])
+
+# 7. DB commit
+db.commit()
+db.close()
+
+# 10. excel 저장
+wb.save(&quot;melon.xlsx&quot;)
+
+    # print(&quot;순위 : &quot;, rank)
+    # print(&quot;제목 : &quot;, title)
+    # print(&quot;가수 : &quot;, singer)
+    # print(&quot;앨범 : &quot;, album)
+    # print(&quot;변동 : &quot;, diff)
+</code></pre><p id="b3b3583b-1cb8-4f7d-bca4-52e1dfdab527" class="">&lt;br&gt;</p><h3 id="a4ca6865-da2f-4a29-a07d-37e652d9a3bb" class="">실습2 - 순위 변동 표시하기</h3><pre id="a49bb09c-c3d1-4b44-9154-56f8b02e7676" class="code code-wrap"><code># 순위 변동 추가 변동없음, - +2 -3 형태
+# python 안에서 쿼리 짜서 출력
+# 각 가수별로 top100에 올라간 곡 수, 가수명을 출력하고 순서대로 정렬해서 출력
+
+import requests
+from fake_useragent import UserAgent
+from bs4 import BeautifulSoup
+from openpyxl import Workbook
+import pymysql
+
+# DB
+db = pymysql.connect(host=&quot;localhost&quot;, port=3306, user=&quot;root&quot;, password=&quot;jen401018&amp;&quot;, db=&quot;sba&quot;)
+cursor = db.cursor()
+
+# workbook
+wb = Workbook()
+ws = wb.active
+
+# userAgent
+ua = UserAgent()
+headers = {
+    &quot;User-Agent&quot; : ua.random
+}
+
+# 가져올 url
+url = &quot;&lt;https://www.melon.com/chart/index.htm&gt;&quot;
+res = requests.get(url, headers=headers)
+bs = BeautifulSoup(res.text, &#x27;html.parser&#x27;)
+
+# 가져올 정보 클래스
+area = bs.select_one(&quot;.service_list_song&quot;)
+elem = area.select(&quot;div &gt; table &gt; tbody &gt; tr&quot;)
+
+# 순위, 제목, 가수, 앨범, 좋아요
+for e in elem:
+    rank = e.select_one(&quot;.rank&quot;).text
+    title = e.select_one(&quot;.ellipsis.rank01 &gt; span &gt; a&quot;).text.replace(&quot;&#x27;&quot;, &#x27;&quot;&#x27;)
+    singer = e.select_one(&quot;.ellipsis.rank02 &gt; a&quot;).text.replace(&quot;&#x27;&quot;, &#x27;&quot;&#x27;)
+    album = e.select_one(&quot;.ellipsis.rank03 &gt; a&quot;).text.replace(&quot;&#x27;&quot;, &#x27;&quot;&#x27;)
+    # 슬라이싱
+    diff_icon = e.select_one(&quot;.rank_wrap&quot;).text[:6]
+    diff = e.select_one(&quot;.rank_wrap&quot;).text[7]
+
+    # 순위가 동일하면 -, 단계 상승이면 +n, 단계 하락이면 -n
+    if &quot;순위 동일&quot; in diff_icon:
+        diff = &quot;-&quot;
+    elif &quot;단계 상승&quot; in diff_icon:
+        diff = &quot;+&quot; + diff
+    elif &quot;단계 하락&quot; in diff_icon:
+        diff = &quot;-&quot; + diff
+    else:
+        diff = &quot;new&quot;
+</code></pre><p id="3f6d33c0-ebec-4e34-bea7-ae03a0987539" class="">&lt;br&gt;</p><h3 id="108474dd-7eec-4d7c-83e0-faaf921994b4" class="">실습3 - python에서 쿼리 실행하기</h3><pre id="7c3c6729-11dc-44e4-943e-2ea9fa2ad5b1" class="code code-wrap"><code>sql = &quot;&quot;&quot;
+SELECT count(singer) 곡수, singer
+FROM melon
+GROUP BY singer
+ORDER BY 곡수 DESC;
+&quot;&quot;&quot;
+
+cursor.execute(sql)
+result = cursor.fetchmany(size=100) # fetchone = 하나만, fetchmany = 여러개
+for data in result:
+    print(data)
+</code></pre></div></article></body></html>

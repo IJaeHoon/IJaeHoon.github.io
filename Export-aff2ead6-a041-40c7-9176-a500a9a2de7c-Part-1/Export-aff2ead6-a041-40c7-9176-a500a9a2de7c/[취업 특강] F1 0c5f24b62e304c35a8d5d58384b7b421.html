@@ -1,0 +1,750 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>[취업 특강] F1</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="0c5f24b6-2e30-4c35-a8d5-d58384b7b421" class="page sans"><header><h1 class="page-title">[취업 특강] F1</h1><p class="page-description"></p></header><div class="page-body"><p id="d197a7f9-fff7-43aa-a825-41fd47c580a0" class="">
+</p><p id="f90851be-cde4-452b-8371-869a0a3b89e0" class="">
+</p><p id="f7a5b6d2-43b1-4b13-9fe2-9cfb009d5628" class="">
+</p><p id="5c748a18-69ba-4eb4-af5f-cdf2641ada7d" class="">F1 이대호 대표님 </p><p id="d7b428a5-1416-4561-aab1-4e2fac86d05a" class="">F1 펑션키 도움말 키, 회원에게 도움이 되겠다</p><p id="a873a00f-9405-435a-a6dd-d6e913c9d48b" class="">
+</p><p id="123c0187-14c4-4259-b4c6-3aaed9eca0d1" class="">에프원시큐리티 설립자</p><p id="520fb75d-1add-41c9-a285-95c58a3add78" class="">2012년 설립이래 정보보안 컨설팅을 첫 사업으로 시작하여 다양한 분야로 사업을 확장</p><p id="15905b36-b0e3-4db7-8014-db447c0017d7" class="">
+</p><p id="af0b59f4-deb5-4ed1-9dc8-72079a9618d6" class="">글로벌 보안 전문서비스 회사가 되기를 희망</p><p id="297cd0ae-1d72-43d3-b3a0-8650f3bda7d2" class="">보안 컨설팅 업체에 2~3명이 그 회사 들어가서 2~3개월 분석, 서버 네으워크 장비,</p><p id="0832ba15-21eb-4a37-9197-b14db25b12d0" class="">앱,웹 등 취약점 점검</p><p id="622d2f80-b709-4c1a-8353-4f59bd3506d2" class="">
+</p><p id="2d32cd0f-938c-4f0d-9459-48a0971db9a8" class="">특성 파악 후, 모의점검 등, 해결 마스터 솔루션 제시,</p><p id="5d5db334-7f34-47a5-81ef-df56f5731c5e" class="">
+</p><p id="f89c3147-0104-47a8-9dff-4dfa5ef0765c" class="">10년에 걸쳐 100여개 점검</p><p id="396b4ecb-6164-4680-b5bf-94d6fb276330" class="">
+</p><p id="300e0d7c-aff0-4025-96e6-7139f0b24c7d" class="">웹쉘 = 웹서버에 언제나 접속할 수 있게 해커가 해킹 후 띄워두는것</p><p id="bdf2c8fe-5f79-47fb-aeac-b420f7b620c4" class="">
+</p><p id="04ffd49e-2852-42a8-93f7-9adee2f00f47" class="">많은 경로가 있어야 해커도 추적이 힘듦, A B C D 순서의 링크 특성이 있다</p><p id="a7d76f16-1ac7-4f06-b90d-1e2ba67fce56" class="">
+</p><p id="502fc436-3388-42ab-b2a1-d1484646e4b8" class="">
+</p><p id="312d5830-5540-4751-b577-d8fbc0800b61" class="">AI 보안 최신 기술개발</p><p id="1d094e73-2909-4471-bf3c-ce8f22a19b6f" class="">7년 지난 시점에서도 제대로 되고 있는 곳이 많지 않음</p><p id="115ff899-c6aa-4caf-b59f-983e2b9afd1b" class="">1~2명으론 1년이 걸림, 사람 왕창써서 데이터 분리, 정리하는 작업 엄청함</p><p id="9cbba582-f643-41aa-b539-7029c0006317" class="">
+</p><p id="987a47aa-359f-4bb1-982e-e2f654606bd8" class="">RSA</p><p id="f7371dc9-378d-4606-8eef-d7d14214c163" class="">
+</p><p id="768e64fa-bd84-4ba0-8c2a-1689060e08f2" class="">
+</p><p id="9c9eaf8c-e781-44b2-affd-405a618466b9" class="">
+</p><p id="038f4145-8ccd-4c99-af43-c82918375375" class="">아마존 → 고객은 아주 놀랄만큼 아름답게 불만족스럽다</p><p id="75ca818b-e092-44e8-97b3-fbd8ac662548" class="">
+</p><p id="98887b12-b786-419f-bc9e-94e3983cfdea" class="">★ 클라우드에 대한 이해는 필수다</p><p id="38cb5389-eea8-4fac-bd2d-7bd5d9fde9f7" class="">
+</p><p id="42ff78cb-d268-47e3-a835-3a831eab9502" class="">예전에는 외부 공격 막는 방화벽이면 충분했다</p><p id="e129ab57-0ca0-4394-a2b1-44694425883b" class="">
+</p><p id="132dbc94-8141-4a48-baaf-d2d178ba464a" class="">
+</p><p id="d4eddc13-ff1f-40bd-9080-f69d4a51909c" class="">보안회사 &gt; 이스라엘이 많다 &gt; 아랍국가와 대치 상태, 공격도하고 공격도 받음</p><p id="5ccfe3d9-20cd-48a4-bdc8-0ae3178862bd" class="">이스라엘은 제대하면 현업에서 쓴 보안솔루션 등 가진 제대군인들이 동료를 모아서 회사를 만듦</p><p id="54d562b9-7601-40ea-9877-5705e579c0c5" class="">이스라엘이 100~200억 투자, 5명 회사가 100명이 됨, 미국에서 그 회사를</p><p id="b26ec990-3b70-447a-ae40-40f0e99c3660" class="">2000억 3000억 정도에 사간 뒤 더 개발해서 이게 보안 트렌드입니다하고 뿌리는 것</p><p id="b48a2fb3-e32d-4b3b-9010-b23249e1f0a5" class="">EDR NDR 등 대부분 그런 유통을 거쳐서 주류를 형성하게 된다.</p><p id="14b662fd-99c6-4425-9487-2d279697968a" class="">
+</p><p id="5262c69f-3948-4391-a18a-966c761c49e4" class="">
+</p><p id="c3aaa390-1e1e-4a1e-8e4f-4df9000b6884" class="">우리나라의 경우, 기술력은 큰 차이없다, 근데 우리나라밖에 유통못함, 시장규모가 너무 적음</p><p id="aa36d4ed-c738-45d9-ad2e-1d49afa89248" class="">해외는 이미 미국이 점령하고 있다, 설 땅이 없다. 결국은 ★자본력, 기술력이 아니다.</p><p id="d8ebe9e7-ef28-4036-98b4-b18325f29b28" class="">
+</p><p id="de9d0f7e-1702-4f04-8de6-3d580c8fdda0" class="">기술력은 충분히 경쟁력있으나, 유통, 영업력, 지원 등이 부족하다</p><p id="ba9d48b1-63fd-44bd-bd28-16290e3a8a5c" class="">
+</p><p id="088c4b85-b51f-430a-adfa-a45b1e977651" class="">
+</p><p id="14d604c9-7dd4-4c58-b92f-cb49066916ee" class="">IT쪽은 코로나 이후 보안의 중요성이 강조되고 관심이 커졌다</p><p id="4526aaf9-03d0-4633-9cc0-65ec21929e49" class="">
+</p><p id="006d690d-53c5-43a4-95f2-d92c16aeba2e" class="">ISMS 2010년 이후 계속해서 수요를 만들고있어서 보안회사는 왠만큼을 간다</p><p id="ba5851cd-c8f8-4c31-9249-8607f6dac1ea" class="">
+</p><p id="41a55477-70b0-48bf-a132-c406fdd83070" class="">‘보안’ 시스템레이어, 네트워크레이어 등 여러 단계가 있어서 </p><p id="9caa7ef0-82af-45b9-97ce-972b3b2c4b0b" class="">전체에 대한 이해가 필요, 보안전문가</p><p id="4085cbf4-2619-4e84-b412-afa275b2e7f4" class="">
+</p><p id="a9cc0685-4faf-486f-8b2c-614b7cce15bc" class="">그래서 다 이해하는 IT 계열 중 보안 전문가 많지않다</p><p id="08433183-cff9-4926-981b-b12666a8b9b4" class="">
+</p><p id="d5bc2e6e-75e3-4481-89c4-0090c2a6c0c0" class="">
+</p><p id="c834fe26-dd91-4c9e-9619-e0d0634708b5" class="">랜섬웨어 몇억을 달라고함,  → 현재 데이터 백업 실시 89.1%</p><p id="bf318de9-3cf3-4559-86be-28a00fb17aae" class="">
+</p><p id="86050588-26a7-4814-a5be-fe623130780d" class="">자료 - 2022 정보보호 이슈 2023 정보보호 산업동향</p><p id="64a3b1b1-fd13-4c9d-93bf-c89801fe60f6" class="">
+</p><p id="d581332b-bd01-47f6-aa3f-2558a6013908" class="">
+</p><p id="7fc07f98-5f4d-486a-b057-212cea91943b" class="">[1] ★</p><p id="c43f69b9-4750-47f0-816d-c855d0739277" class="">
+</p><p id="85ec95d0-09b1-4168-973b-9e376a17a7c3" class="">★ 합격시킬 친구한텐 제가 그 친구한테 회사를 어필합니다</p><p id="70c2649d-7cf2-4d31-8490-8aecb7f52c55" class="">우리회사는 당신을 잘 이해하고 있고 당신이 원하는 방향을 잘 충족시킬 수 있다</p><p id="8b68c424-1aca-4807-84c6-bda41c43c555" class="">
+</p><p id="5dc17af7-3190-47d0-9e53-a221122e0c1d" class="">그렇지 않을 친구 -</p><p id="905bd704-5768-4297-9c18-3b3d3648f6e3" class="">근데 요샌 잘 안한다</p><p id="e2662a7c-e59b-4c83-844a-6ecccaa9a33d" class="">
+</p><p id="c24c71a7-e504-4f6f-be66-d4c42d9ea7b0" class="">
+</p><p id="81060fcc-2013-4d6b-b581-5acc8c3bd57d" class="">
+</p><p id="910c97f8-a3df-412e-af91-0271e378f9b0" class="">
+</p><p id="8d7f83fd-260f-44f5-9120-a38508bf1fb5" class="">
+</p><p id="42bfc764-db78-42a6-a5ed-44db49883027" class="">AI 보안 최신 기술개발</p><p id="0291f748-1bae-4698-a594-06fa6cc4bfeb" class="">7년 지난 시점에서도 제대로 되고 있는 곳이 많지 않음</p><p id="9fa664d4-a175-4593-b919-d003a5b8c155" class="">1~2명으론 1년이 걸림, 사람 왕창써서 데이터 분리, 정리하는 작업 엄청함</p><p id="33261b7e-ff71-4480-8a56-8ee92f2cff40" class="">RSA</p><p id="16e06087-d09a-4cb6-9082-8bcf63bfd85f" class="">
+</p><p id="e8f8ad7e-3ab4-43f0-b47a-c63768acc61d" class="">
+</p><p id="661118c0-35dd-4add-ae18-8f1cdb2d9745" class="">
+</p><p id="f2e0b8e5-2b4a-4036-8ca5-f3a790c22fc2" class="">
+</p><p id="866352b2-4685-41e2-9af1-8b023d4f2f8b" class="">이수업 여긴 시작의단계, 여기서 계속해서 확대해야할것</p><p id="ca37ff61-d52f-4871-a967-017834481dfe" class="">
+</p><p id="c7342dc7-54ba-4e25-80ff-afd6eb518be8" class="">질문) 보안 업무에 필요한 것,</p><p id="23843ba2-33b9-4e5c-a8bb-7116cb342944" class="">답변) 컨설팅은 다 알아야함, 취약저 점검 및 대처를 해줘야함, 그 산업에 대한 이해가 필요함</p><p id="7fed905d-7b3e-4821-a480-19eedd31f652" class="">자격증 1~2개는 있어야한다, 컨설턴트는 전문가로서 쉐어링해야함, 실력이 있냐는 2~3년 넘어가야 쌓임,</p><p id="5ce57ff5-d8f7-42d3-9bf3-59f70ed174f8" class="">경력 쌓이기 전까진 자격증이 필요할 것, 협력사지식, 커뮤니케이션 스킬 등</p><p id="0c388786-7b8e-4cfd-9630-5fe953bb8dd6" class="">
+</p><p id="c1acdecb-8735-466e-9772-9adf8a0deeaa" class="">★ ‘개발’은 언어, 알고리즘 공부 해야할 것, 뭘 공부했는지 정확히 자기소개서에 기술해야할 것,</p><p id="08c2de01-5381-48d0-8196-4c1ac0f65d39" class="">질문 나왔을때 정확하게 답변할 수 있어야함 최소한 내가 이러려고 공부했다, 뭘했고뭘했고</p><p id="7b9206ec-f6f0-483f-a815-ca758631caa9" class="">잘 완성했고 ‘명확하게’ 표기해야 전문성을 대신해줄 수 있을 것</p><p id="9952b710-d219-414a-a29e-a922a0a422db" class="">
+</p><p id="2a21e224-9d51-485b-ae3d-719a1807de78" class="">
+</p><p id="ffea301f-b908-458c-8ee9-1bc592110069" class="">[2] ★</p><p id="37e91077-5851-4fab-91b5-2021c0d77bea" class="">회사에서 원하는 인재 → </p><ol type="1" id="6a76f914-b47e-48fd-a310-5c686c8bc20d" class="numbered-list" start="1"><li>‘전문성’</li></ol><ol type="1" id="82117874-a6e0-453f-a083-152395f5c79d" class="numbered-list" start="2"><li>‘신입’ 2~3년 가르칠 것이다. 받아들일 태도가 되어있냐, <p id="2a828654-5b42-4bd6-8c13-b0114c72cb3a" class="">준비가 되어있냐 ‘가장 중요한 것은’ ‘적극성’, 또 잘할 수 있는지</p></li></ol><p id="c7bc0ae6-201e-488f-abe9-96b2c2311851" class="">
+</p><p id="9c93c684-7fdb-4455-87d8-819467264871" class="">
+</p><p id="1c2fc2b1-1b72-46e1-9d48-fc9f5b3566ee" class="">★원하는 회사, 바로 못가더라도 중소기업 하나 두개 거쳐서는 가고자하는 곳 갈 수 있다 거기서 2 3년정도하면</p><p id="40e6038c-30a7-43a6-a485-66ef788f9dbe" class="">1단계 올라간다 또&gt;2단계 빠르면 1단계 열심히하면 2단계 거치고 대기업도 갈 수있다</p><p id="d968484d-3f5b-4618-8037-c718fc3ae4d3" class="">바로가려면 불가능하다 학력부터해서.. 2~3년 경력쌓고 열심히하면 충분히 기회생긴다.</p><p id="3d35f97c-1c1c-47ba-821d-fb53c1ea4df0" class="">열심히안하면 의미없다. 너무 조급하게 생각하지말것, 열심히 일할 수 있는 곳 ‘자세’ 부분</p><p id="e307b041-02b1-46c2-8513-0ddd454eda6e" class="">
+</p><p id="6530fde9-e253-4329-af47-b3dd1bc73c81" class="">★1년정도 경력있다면, 얼마나 열심히 잘했냐를 포인트로 본다. </p><p id="67b3985d-1d59-4682-b370-9b5c0d3b30e0" class="">업무 물어봐도 몰라, &lt;신입이면 이해하는데 경력잔데 모른다? 못올라왔다? &gt;신입을 채용한다</p><p id="12cf53d4-643a-400b-aa9a-1632061eaa6c" class="">
+</p><p id="49db2c74-8e7e-454d-9553-20fd56e0154e" class="">회사 = 성장성을 좋은 친구를 뽑는다</p><p id="624c75b6-2cf4-4aa5-a7bf-0ea9f97a60c5" class="">
+</p><p id="2f000ed0-4c96-4baa-b281-0c5c3dcaafe8" class="">
+</p><p id="f20c5310-ab3f-4527-ad6a-b28647bdf633" class="">★눈에 띄어야한다 기억이 나게,</p><p id="6c18ebde-9668-419a-aac6-13dbb14f4158" class="">중소기업은 대부분 지원자들이 회사일을 알 수 없다. 지원한 회사에서 면접일정잡히면 한두시간이라도 검색을해봐</p><p id="dc033cc1-8201-4caf-8867-4994fa565b89" class="">어떤 부분이 나랑 맞는 것 같다 그 한 마디가 꽤 호감도를 높일 수 있다</p><p id="87fffda1-ddbc-4dbf-884d-5436b22e3241" class="">
+</p><p id="16583f6d-ab54-4dd7-8c9d-77a1a23d5935" class="">이력서 제출 시 그 회사이름을 3~4번 넣어준다 ‘상당히 중요하다’</p><p id="3674db61-5d47-4306-8304-84cf63305005" class="">이 회사에대해 알고있다, 면접자리까지 훨씬 쉽게 간다 &gt; 중소기업 기준, 대기업은 그렇지않을것이고</p><p id="36b9bd2c-da73-4fdb-b4c1-c1488ec5190a" class="">
+</p><p id="231b7a19-dd86-4240-8d8a-0653fb39cece" class="">
+</p><p id="68695f07-1dcb-4e36-8f65-454f7c322b8c" class="">
+</p><p id="760f19d7-6877-47ee-92a5-56ffe67faa87" class="">
+</p><p id="81495ea7-84e8-4841-865f-d24f0563bd29" class="">보안 - AI</p><p id="8fe16dc2-3c61-4547-8d83-0bdc8651ca46" class="">
+</p><p id="05affeb3-a4fb-425e-9867-b4e3be05c28d" class="">군집이다 아니다 뭐다뭐다 확인, 객체인식</p><p id="1908590b-13f1-4a83-af05-210e8d3cac87" class="">
+</p><p id="ccfa5a8a-13fd-42d2-af96-84655e88947b" class="">
+</p><p id="0e0d7985-8686-4859-ad4b-2897235e6b7f" class="">AI 보안 최신 기술개발</p><p id="96faa747-5fd3-460e-bc3f-9fbe76829430" class="">7년 지난 시점에서도 제대로 되고 있는 곳이 많지 않음</p><p id="1b4756b0-7dc4-4db2-b5c9-c5bddbab1884" class="">1~2명으론 1년이 걸림, 사람 왕창써서 데이터 분리, 정리하는 작업 엄청함</p><p id="8b01339b-9d5c-4e47-84a7-fa1dfec2048d" class="">RSA</p><p id="a86f45cc-269a-4ee6-b06b-545b99ff8670" class="">
+</p><p id="80aba8ae-3284-4bc0-8b86-ab4df68994ef" class="">
+</p><p id="f14e7385-aabc-4c67-9540-0edf6d36af48" class="">
+</p><p id="685d32f9-4575-4c8f-a52c-d2d43da491f1" class="">요샌 왠만한 데이터 다 있음 일단은 공개된 알고리즘 써 보면서 </p><p id="177de44f-03e1-4668-b1ec-27a886667143" class="">
+</p><p id="14d24b22-3ccc-49e2-a557-77a9c7f9830b" class="">
+</p><p id="df338ed9-c86f-40f1-9fd2-a47d6085d1ef" class="">무조건 뼈를 묻겠다고 생각하고</p><p id="afcadde8-05ec-4725-a9c1-a073b18451ec" class="">
+</p><p id="606b7256-f8d2-409e-b9ff-4c3384062063" class="">면접자리에서 3년뒤에 다른 곳 간다하면 당연히 안뽑음</p><p id="69911a0e-01a2-45e0-ba5c-4dc7c94d2c04" class="">
+</p><p id="303ed10e-e2af-422b-b174-b9980778904c" class="">리소스문제 그 업무만 주고싶은데 우선순위에서 밀린다ㅡ  배정을 하고싶다</p><p id="261a4ce2-b17c-42c8-ae28-ad1e0eb03a89" class="">
+</p><p id="9fb77059-5381-48fc-ae10-f5408aef0cd3" class="">투자받아서 등 된다면 당장이라도 하고싶음, 모아는 놨지만 최소 1년에 3~4명이 필요할 것</p><p id="5a09eb15-ea69-4a7d-9f5c-3696afbea2ce" class="">계속 팔로우 해줘야한다 근데 그만한 여력이 없어서 못하는 것, 리소스 문제 &gt; 대부분 중소기업은 리소스가 문제일것,</p><p id="6e7a1570-5fd5-4851-a089-b210c14508bb" class="">붙여는 놨지만 동작하긴 어려운 상황 </p><p id="f0534ee0-e2da-4d08-932b-9c6631399722" class="">
+</p><p id="53e29583-95c2-4f6b-8995-b03b767a8da6" class="">컨설팅이 메인, 15명 중 핵심개발자는 6명,</p><p id="ca15c039-1908-4b68-9b7f-8064f4915d58" class="">ALL AI / 개발전반 / 어떤 방향일지 여러 측면에서 고려할것</p><p id="6ce43268-8a3c-4209-92e6-912e2bd792cb" class="">
+</p><p id="382cb53d-afed-4510-8002-b0b93d903168" class="">개발자</p><p id="152b2926-e4c0-4f34-a4ff-a933bc1dc93d" class="">1년에 2명 뽑음, 1명정도는 더 충원할 생각이 있음</p><p id="e68aaa7b-165f-4ebc-a8c1-33000cc61c22" class="">
+</p><p id="b1fc04d9-aa96-4199-a58c-3234f5189726" class="">
+</p><p id="7f15717b-0669-4272-8059-6b1e636397af" class="">
+</p></div></article></body></html>

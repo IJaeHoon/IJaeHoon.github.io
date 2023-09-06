@@ -1,0 +1,745 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>[머신러닝 압축] 8/29</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="86d0d102-4766-4721-a1a2-14dbf9d2eb17" class="page sans"><header><h1 class="page-title">[머신러닝 압축] 8/29</h1><p class="page-description"></p></header><div class="page-body"><p id="075e7455-d38c-4c4f-b238-a91f45698735" class="">
+</p><p id="de926d4c-6d73-4ef5-b8dc-ca44cf0ca84c" class="">
+</p><pre id="6719032c-ddd0-412f-a720-8f2e72477c0f" class="code"><code>partial_fit
+위에클래스실행후다시한번실행하는거</code></pre><p id="3564dde0-c119-4580-8aa2-ac71cb0d007f" class="">
+</p><p id="83e8d2eb-bff0-4341-99bd-5731b7efbae3" class="">머신러닝, 집단지성의 산물</p><p id="ffd26587-2998-4005-b2d4-9880f9a48edc" class="">바둑과 다르게 딥러닝은 1단 10명이 9단 1명보다 낫다는 발상 ← 교차 검증</p><p id="8a674972-246b-4ef9-96a5-3fd9ef4d0fd7" class="">
+</p><p id="8a4f0960-518d-4487-8214-aa3385f5bd81" class="">5천개 중 500개 빼고 4500개로 10개 만들어서 원본과 조^금 다른 데이터를 엄청난 양으로 늘림</p><p id="9c42244a-d95e-4392-8916-33965a51d622" class="">
+</p><p id="cbabfe40-7745-419e-8803-0ec05a197db7" class="">디시전트리는 100% 설명 가능하다</p><p id="6bb1d177-8f51-4e65-978c-f7a8831d12bc" class="">1 1 1</p><p id="17caa49d-1c81-48ef-b105-916b7b9544c0" class="">1 -1 1</p><p id="51186cb9-e635-4b2c-9e97-04cbcb66e1c1" class="">1 1 -1</p><p id="720b3d99-c78b-409b-991d-5bf43d874b5c" class="">-1 1 1</p><p id="3540ddcf-6f7d-4edf-9074-0322ab629b7c" class="">
+</p><p id="a787d566-a735-40bb-a48e-8b752f0b7d83" class="">엔트로피계산</p><p id="f159693d-7724-4b6b-a726-9b959641bed1" class="">
+</p><p id="84c662f9-5db5-431e-ad23-a669eebb6b8a" class="">근데 딥러닝은 중간과정에서 계속 랜덤을 써서 설명이 어려움</p><p id="57150bf5-2699-49dd-9e54-255349c5cd27" class="">중간에도 계속 랜덤 운들의 종합 잘 되네 근데 설명 못해</p><p id="6b6ea324-8c95-42a3-b239-56821a05c681" class="">지피티만든애도지피티잘되는이유설명x</p><p id="289d0c70-08d5-4eba-86c9-040f98653027" class="">
+</p><p id="be6f10d8-5872-4941-84aa-b9ce4ea7e1f4" class="">whdt</p><p id="a74e513a-b6af-455b-8cff-d5dd4ff89f75" class="">
+</p><p id="d45e06f2-93ef-4cf1-9533-36bdc5100364" class="">
+</p><p id="25c7034c-29f0-4e33-951e-8f509626aa91" class="">
+</p><p id="6a6ca240-5a1e-4263-aa34-d1a8e59270f4" class="">
+</p><p id="5156312f-e6a5-4285-b829-af6df66a3b4b" class="">
+</p><h1 id="25b33e7d-378c-447a-91f2-b0ac8a8b7639" class="">정형 데이터와 비정형 데이터</h1><p id="eb395e5e-bcd0-473d-87ab-f988a2482c24" class="">
+</p><p id="e72c3ab8-329e-407f-a030-bcc03ee81d1f" class="">정형 데이터 / 비정형 데이터 나누는 다른 방법</p><p id="31311223-23ac-4891-91bd-94f4cef7b49f" class="">
+</p><p id="18c23c32-b7bf-4131-b6d4-78b97aa23169" class="">정형 데이터 [structared dath] - ‘특징’ 을 뽑아내기 쉬운 데이터</p><p id="7c2b7bc0-45ba-462a-aa8b-3586ca23215a" class="">비정형 데이터 [unstructared dath] - ‘특징’ 을 뽑아내기 쉬운 데이터</p><p id="6d987f41-a932-42e8-be97-9994c00e557d" class="">
+</p><p id="052f62dc-8d47-4d33-ba7a-3b0812799faa" class="">
+</p><p id="3db0a99e-1169-45b3-84f6-eef563d0f426" class="">사진 → 유사한 특성을 가지고있는 부분이 있고 없는 부분이 있음</p><p id="2fec1bd1-8e51-4922-bfea-3a1064cb21de" class="">글데이터라도 특징을 뽑기힘들수있음</p><p id="b444371b-835b-482b-bbd8-d39910da77f4" class="">
+</p><p id="21c71475-f96b-4e5f-a2fa-7c80ea551322" class="">cnn  이미지에서는 특징이 안 찾아있으니, 바로 딥러닝에 못 집어넣음 특징부터 찾아야함, 자연어도 마찬가지,</p><p id="454728cf-9511-40e4-91b1-7f3edcbc2a8c" class="">그 후에 클라스피케이션을 하던 뭘하던 가능 ≠  정형데이터는 그럴 필요가 없음,</p><p id="151080b1-408f-46b5-b04c-a878dc5a0670" class="">
+</p><h1 id="58a257c9-4da3-4ad1-8f0f-64a0ee8c659d" class="">앙상블, 정형데이터</h1><p id="c781354b-a846-4299-a74f-c772cf6f9259" class="">
+</p><p id="e268b37c-e61c-4a0f-98ba-9a3bf6359439" class="">바리캉트&gt;바리깡&gt;프랑스어임 일본말아님</p><p id="8701b276-1314-42ff-a594-b66add971c5b" class="">인젠블 == 앙상블</p><p id="ed0c6c2e-163d-4d06-9bc7-1634381b7171" class="">
+</p><p id="7792182d-949c-4de7-803c-e880a0ac4aa1" class="">케이니어니스트 모델 3개 + 디시전트리 3개 합쳐서 만드는거도 앙상블모델,</p><p id="836eea5d-e147-459f-a20e-4c1d723d6e18" class="">기본적으론 트리모델 여러개를 만드는 것, 데이터에 구라를 치는 것</p><p id="67d1a694-5c8a-4abd-bc1c-3afe876a1aab" class="">
+</p><p id="a7136cda-1e49-4c3f-9ba2-258f54018b7d" class="">
+</p><p id="d24c10c3-034a-47b7-a346-b8f2eb2cb33b" class="">부트스트랩 = 중복을 허용해서 샘플링한다 (복원랜덤샘플링)</p><p id="c53e30c1-8b7a-435e-9803-ed7a99bfed0e" class="">
+</p><p id="e5f2011e-ad3a-442d-9c48-420fcedb2aa7" class="">
+</p><h1 id="136bd4a5-c1d8-4d8e-8f45-27c9522e0e79" class="">랜덤포레스트 + 엑스트라트리 = bagging   &lt;반대&gt;   부스팅 (Bootstrap Aggrageting)</h1><p id="31109daf-0e5b-423e-831b-9cf40b01b7b1" class="">
+</p><p id="dec3bd8e-e3ea-4c4c-877d-eec5e9155989" class="">그렇지만 결국 부스팅도 원본데이터 확장하는 방식</p><p id="99d9861e-275f-4c1d-b96b-bf226d21e748" class="">
+</p><p id="2c9f4910-1ad7-4071-a8f8-90f807d24252" class="">배깅은 샘플링, 부스팅은 다르게</p><p id="bf7f83cf-0587-4434-a06f-4fd006ec6a95" class="">
+</p><p id="82470ef5-aae2-4520-a0ff-3cb1515c0350" class="">
+</p><p id="48fcb7ce-bbf5-4072-beef-f82218d90bdc" class="">부트스트랩 샘플.. 엑스트라트리는 사실 샘플 그대로 이용하긴해, 데이터에 손대진않아, 노드를 분할할때 가장 좋은 녀석을 찾는게 아니고 무작위 분할해, </p><p id="4a9a5bb4-6f8f-4d47-b0f0-b0b88bf53550" class="">
+</p><p id="d829e2f6-9bc1-4045-bd28-792fbc8332d3" class="">랜덤→ 엑스트라트리 랜덤스플릿한걸 100개를 만든게 엑스트라트리 그 녀석의 평균을 낸게 엑트, 성능 꽤 좋게 나온 적 별로 없다, 새로운 문제엔 또 다를 수 있겠지만</p><p id="1fee3b23-d9d5-40c5-89ba-15e47697c298" class="">
+</p><p id="7806d6d8-463f-458b-88a5-f0ac3b106a1c" class="">부트스트랩 샘플링 애브리</p><p id="f6f7af70-52e3-4f49-8511-dca45fe3b756" class="">
+</p><p id="a9711d95-7d40-4cfe-aec3-68e088b86b78" class="">민인퓨리즈디</p><p id="128819f0-9fd9-4d30-835e-f9b1bdf397f1" class="">
+</p><p id="f037bfcd-989f-440a-a542-69b8c66966d7" class="">
+</p><p id="fc2dd39a-c2f9-4b05-98b5-bccc03aff4a4" class="">트레이닝 데이터 집어넣은</p><p id="3c890ea0-712d-4cd7-a670-cab67fbe83bb" class=""><div class="indented"><p id="40c86f4a-1b24-4034-b64e-f14743bb761c" class="">부스팅 &gt; 배깅</p><p id="d77cd9d4-2dfb-4bb0-b9c5-24a117d18d74" class="">오버피팅 될 확률도 부스팅 &gt; 배깅</p></div></p><p id="5a772a3e-d3a4-4c19-a595-ad3f8c0ecc77" class="">
+</p><p id="8fea578d-7259-433f-bace-7f2850045dd1" class="">
+</p><p id="56f63104-b480-4ad1-ab63-f53ca5ce22aa" class="">수능으로치면</p><p id="fc542a6e-49ef-4518-9148-028a8a1a9da7" class="">틀린거만 여러번 반복, 그러고나서 틀린 문제가 가중된 문제에서 2번째를 만들어, 또 틀린 문제 반복 ~.. →  틀린거에 대해 더 잘 맞추는 샘플이 나온다</p><p id="628bbefb-19ff-4352-8c27-a4844715088e" class="">틀린문제를 너무 강조하면 틀린거만 맞추니까, 한번쯤 더 반복하는식으로, 옅게 가중해야함</p><p id="63f2ac47-b104-49a0-a78c-7f8a96303e97" class="">
+</p><p id="8af08d25-e90a-45eb-8448-a19656425552" class="">
+</p><p id="f599cb3a-6ace-479d-8079-46f340713762" class="">[랜덤 포레스트]는,</p><p id="ea77b11f-b957-41b2-9c9c-a1d4dddb18a3" class="">트리를 100개 만들고 각자 존중하는데</p><p id="650048a8-2e78-42d4-8b09-19dd2aeacbf3" class="">
+</p><p id="ad6c7b54-b752-4a14-a326-fc7b92015eab" class="">[그레이디언트 부스팅]은</p><p id="fff2158f-417d-4dc0-bbf3-0ed7594e459d" class="">트리를 100개 만들긴하는데, 얘보단 얘가 낫고 등으로 차등을 둚,</p><p id="e193bbd7-4136-4e64-9f21-dd28f3bcd87a" class="">틀린것을강조해가면서배우는스타일</p><p id="f9c92665-b8f8-4b47-a0b3-ad9575866224" class="">캐글에선 사용빈도, 부스팅 &gt; 부트스트랩</p><p id="a5142030-3e4a-4dd1-a934-c24302e78a52" class="">
+</p><p id="454e8462-c86d-4303-9e25-63cd8e3cacd3" class="">XGBoost</p><p id="3f2e441b-209d-4016-8545-f9be89ba7969" class="">캐글은 속도가 빠른게 문제가 아니고 성능이 중요하다</p><p id="dd6915e9-6ae7-4f6a-850a-e1130b76dd37" class="">XGBoost라고 치면 나오는 책이 있음 박해선씨가 번역한 책</p><p id="497f8aae-0336-4ec6-8fc0-45b955148f7e" class="">(대부분 부스트는 그레이디언 부스팅을 씀)</p><p id="da67b6f7-72d4-4511-9c2c-76ece52f1245" class="">
+</p><h1 id="5342e242-71d2-4948-8cb9-bacbeefbe3c9" class="">앙상블모델은 부트스트랩을 쓰는 ‘배깅’ 방법과 </h1><h1 id="3b651857-ff6f-4ceb-b408-6da872e67bc7" class="">모델에다가 손을 대는 ‘부스팅’ (모델에 가스라이팅) 하는 두가지의 방법이 있다.</h1><p id="1e10781e-9fef-4bb3-9bdc-9a81faddcf18" class=""> → 현 대회에선 부스팅을 많이 씀, 특히 XGBoosting 부스팅이 배깅보다 과적합에 더 취약하다 그래서 적당히 부스팅시켜야함</p><p id="cf5c8a46-6522-48e7-af33-d3ebe08b02c7" class="">
+</p><p id="87d69106-8329-4617-9c24-827e0ac088f3" class="">캐글말고 데이콘도 있다함, 기부받아서 상금주는듯,</p><p id="481aea9d-01a7-4f34-a5bd-d9651fd18414" class="">캐글은 이런 문제가 있으니 누군가 이거 해결해줄래요 ← 그래서 캐글데이터는 정형데이터임에도 불구하고 속성네임 다 가리고 준다, 니가 속성 알 필요없잖아</p><p id="bd23d614-df53-48ff-8c78-1f00fab9cc85" class="">데이터가 어떤걸 의미하는지 알 수 없게하는 경우가 대단히 많음 </p><p id="76501515-28f1-4f42-968b-bf818a346bc5" class="">
+</p><p id="f775caf9-87aa-4767-90fb-aff1b2ce9ae1" class="">
+</p><p id="8fcd7ba3-6f96-424c-aca8-8b71c7b832bb" class="">
+</p><p id="e6466ff7-77b1-46f1-9ee2-c86c4a170f67" class="">k-means → k의 평균</p><p id="ed5fa1a2-912a-4918-b0b7-961635350b1f" class="">
+</p><p id="8f8fa79b-cbfd-4006-a14a-954f344591dd" class="">비지도학습</p><p id="b95b14d0-ddab-4347-927d-b696a3e1b106" class="">‘레이블’ 정답이 있는게 아님,</p><p id="e05a1739-c9e0-4ab7-b467-9b3808c630e2" class="">
+</p><p id="07418095-9a0d-46f4-b09c-2c827f1eaba7" class="">군집시스템, </p><p id="731e6cb8-7a43-44b8-b282-e7a1a637842d" class="">추천시스템 등 군집을 </p><p id="d0f93223-7f4c-401f-9286-25c1f990c3d7" class="">
+</p><p id="bbf07cc7-998b-4baa-8268-90ae9406fa8e" class="">넷플릭스 자동추천 &gt; 이재훈과 진한별 둘은 명확한 기준으로 나눈게 아님</p><p id="417f8ad6-7528-4c54-8ace-6402f731bd15" class="">
+</p><p id="72d2fe73-e011-4437-bd0d-10d364ede6ba" class="">k-means는 그룹의 수, 얘 k는 성능하고 아무 상관없음</p><p id="ad0b0436-31d6-4c0f-86a8-a9608e1e0b43" class="">(k-near는 k가 영향을 미쳤음)</p><p id="44c333db-4503-4484-89e0-a9c3ff5ede20" class="">
+</p><p id="555923db-0a7a-417a-8a9d-a4f23fe598a9" class="">
+</p><p id="3838ee42-aba6-416b-8450-7cfdebcf63ac" class="">k-means는 원래 레이블이 없기때문에</p><p id="7b2a71b0-13fa-4c46-83f5-fd418214a0b3" class="">
+</p><p id="bf34efcc-b5a8-4273-9f95-bb540052ba0b" class="">비지도학습 종류 중 군집이 있음</p><p id="a2a39106-dd70-4768-aa8f-da4446068ed5" class="">pca는비지도학습임 &gt;레이블없는걸로한거라 레이블맞출수가없음</p><p id="4a4f7356-e97d-45e6-9516-faf5f57fdd01" class="">‘맞게’프레딕트했냐는 말이 안됨, 맞다 틀리다가 없음</p><p id="dfacb5f2-086f-46cb-a71f-274bad7ef04b" class="">
+</p><p id="386710b5-1c61-44b7-91cc-c48007ef042c" class="">
+</p><p id="2f111761-3ded-418b-ab72-46a2b430a922" class="">수학적 사과가 사과인걸 알려면</p><p id="339b36a5-c0aa-4623-baf7-edb852fece1a" class="">
+</p><p id="5505bc85-2ecc-47c7-ba5b-227d45a50474" class="">비슷한 특징에서 걔가 얼마나 사과랑비슷한지</p><p id="a75dca16-3f94-4a13-a357-8293083ca7f4" class="">프로그래머 - &gt; 생각한 걸 (수식) 코드로 구현 할 수 있느냐</p><p id="f2cdc887-0581-4904-9a20-90d00fbde91f" class="">계산은 컴퓨터가 할거고 식을 만들어줘야됨</p><p id="9dcf94a2-cc08-450c-b519-abff19da8a88" class="">
+</p><p id="af3c82ad-502f-4ad4-bcd4-05283246d701" class="">
+</p><p id="6cbe2c8d-6aa1-48cb-b43b-1de7a541842a" class="">
+</p><p id="3d0ba2b9-808d-48da-883e-4add3e9f9d60" class="">
+</p><p id="5ce68b67-f93c-46b9-903d-6131ab62c687" class="">
+</p><p id="d916bb4c-8818-45c9-814d-c27334780c51" class="">
+</p><p id="e8c51f0b-a6d2-44d7-8ccf-670cfc6eb748" class="">
+</p><p id="1ed32cd7-ad95-462a-9baf-4c06af5160e0" class="">
+</p><p id="53c30093-a2e9-4a9d-988e-1eeb2c5f8603" class="">
+</p><p id="1b6bd50e-c99a-4213-a2cb-cfc3f40cc85f" class="">
+</p><p id="b588dd07-37a4-4e1a-8347-96f5fce02f42" class="">
+</p><p id="6823b88b-60ee-494c-a739-88ec5b4574fb" class="">
+</p><p id="bfda3a62-4806-4b27-820a-96304ae0b755" class="">
+</p></div></article></body></html>

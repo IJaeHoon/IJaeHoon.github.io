@@ -1,0 +1,795 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>[창업 특강] 주식회사 비펙스</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="96d04bcf-6ce2-44c7-821f-c8138061ec57" class="page sans"><header><h1 class="page-title">[창업 특강] 주식회사 비펙스</h1><p class="page-description"></p></header><div class="page-body"><p id="c7f7c49a-3606-4f11-9166-3eaa1d9c3d13" class="">
+</p><p id="b0109b30-c45b-406a-99f1-9ec4d046ac78" class="">창업 특강 김우혁 대표님</p><p id="a88ee36e-2ff8-4d82-95af-490122ca44c1" class="">
+</p><p id="60856e06-2231-4006-863e-3e9047dfa125" class="">
+</p><p id="3cec945d-af4b-4207-ad3f-0072a4bad08c" class="">스타트업 자금확보 방법 크게 3가지</p><p id="afcccc1f-c052-4c07-bc85-1008472e7836" class="">
+</p><p id="a08a4ba5-603c-45ee-b5c7-f465d3bb8cd7" class="">기술보증기금, 신용보증기금 ← 대출로 이해하면 이해가 쉬울 것</p><p id="182ac828-46c9-40e2-a2c4-0a92161ddc37" class="">
+</p><p id="03b0cdc0-07e6-417c-8058-e145ffd31fff" class="">사무공간 → 창업 허브 / 마루 180 / 각 분야 별 센터 및 기관</p><p id="e6293029-2437-4691-8aba-c3f0f0bf64e1" class="">
+</p><p id="242ab2fa-108b-48c5-b377-45d935fcacef" class="">
+</p><p id="ea443a14-f56e-4fc4-90a9-2d52c190a9d7" class="">창업하는 방법</p><ol type="1" id="8f3d10ec-2c9f-404c-ae1f-9437b1ace7fb" class="numbered-list" start="1"><li>팀</li></ol><ol type="1" id="ff16e4bb-872d-4485-9d18-c3176e20ef8f" class="numbered-list" start="2"><li>아이템</li></ol><ol type="1" id="4e4ad272-faf4-4e5c-9780-f9c9943bf683" class="numbered-list" start="3"><li>기술</li></ol><p id="c1f797f1-5cf3-4280-8152-bcbfa39d403c" class="">
+</p><p id="38dbe6f5-5c8c-46a7-b96f-13b38882a923" class="">
+</p><p id="ce39ccc8-8ca9-4737-a1b8-6f0be294e98d" class="">[스타트업 생태계]</p><p id="6812ad27-37c5-40eb-8bf1-3a6e96865fbb" class="">스타트업 ⇒  벤처 캐피탈(VC) / 정부기관 / 기업 / 금융기관</p><p id="974c0300-47b9-433e-9866-257629463c4c" class="">
+</p><p id="e01b80f7-e2fe-44b2-99be-d3d2b3bd19e6" class="">각 기관은 스타트업과 상호 이익관계, 정부기관은 일방적인 지원 관계</p><p id="a3638e87-f18c-49cc-a0b1-9e758d0b0c9c" class="">
+</p><p id="ac15bf0f-4576-426e-a9b6-0dfc039362e5" class="">
+</p><p id="b0912528-65d1-4f1d-b43c-b21139e6fe59" class="">[스타트업 투자를 받았다 = 투자의 종류]</p><p id="a64d1178-5ff7-4523-8e6b-d0ac61ecd394" class="">프로젝트 투자 - 흥행산업에서 주로 볼 수 있는 방식 (+부동산 개발)</p><p id="3440e189-82c0-4352-aa6c-513bfad7a5f0" class="">
+</p><p id="85b344ef-03e5-4509-92c5-14a2ae7b1a8c" class="">지분 투자 - 흔한 스타트업 투자 방식</p><p id="f0f3da7a-f8ac-469a-abac-4a23e0a32ddc" class="">
+</p><p id="9ae02df3-15c4-4f2c-bf9e-f80f87c4b901" class="">+FI (재무적 투자자)와 SI(전략적 투자자)</p><p id="1112e414-a743-437e-97b8-b122aed21ce2" class="">
+</p><p id="95d76c49-0a65-4257-b26f-6e5b382a1a1d" class="">
+</p><p id="7c4d1d24-a4cb-493d-bdf8-a5e9354cf360" class="">[투자 받는 방법]</p><p id="1c5dda08-2008-42e2-8129-93dfb9de325e" class="">팀, 아이템, 기술 → 일단 투자자를 만나야함.</p><p id="b7fdc521-357c-48ef-8b79-fbbffdf112bf" class="">
+</p><p id="e3238091-ff5d-4273-9af4-c80c17c3fc98" class="">&gt;만나는 방법 </p><p id="cc741aef-cbec-45ce-bdc7-aaf8c77ee6eb" class="">데모데이 - 우리가 어떤 기업인지 소개하고 직접투자로 연결되거나 소개홍보자리 형성됨</p><p id="04f9338e-10f8-4b24-aae5-d690eee6f1f8" class="">
+</p><p id="cfbd71d3-1784-4f92-945d-9b68ee5024c1" class="">콜드 메일 - 대량으로 자신의 기업을 알리는 메일을 보내는걸 콜드 메일이라함</p><p id="a46639d2-3f65-4624-a4b6-792561c5e125" class="">
+</p><p id="14326b68-631f-49ad-8e03-2df9a3da69f8" class="">근데 사실 먼저 찾아오게 만드는 게 제일 좋음</p><p id="1ed29897-a128-4fa1-a6be-99e7a1535630" class="">프로덕트(아이템)를 빨리 내놓아서 반응을 만들거나, 그냥 많이 알리거나</p><p id="5588d51a-e9e0-442e-9f97-422e297f6fd5" class="">
+</p><p id="78bd0bdf-4544-4023-bd66-6d8e37d4db13" class="">
+</p><p id="16294d50-3e60-4060-9348-1b24ffcdd943" class="">[나는 무엇으로 보상받는가? , 엑싯(EXIT)]</p><p id="cea11639-48dd-4116-9971-3f565655e39c" class="">
+</p><p id="941d5a56-6569-40d9-9497-4a675950a2ba" class="">스타트업의 목표,</p><p id="f81ca283-1ee9-46d4-bc3b-2b510c3b5cea" class="">IPO KOSDAQ / M&amp;A(팔거나 인수&amp; 합병)</p><p id="76b2e8c1-20b0-4cd9-ab56-31df87ab25d0" class="">
+</p><p id="42b0170c-b661-4872-ae34-9e9920350584" class="">엑싯을 하기 위해, 시장에 우리 제품을 잘 팔기위해 계속 개발해야하고 생존을 해야함</p><p id="9525fd45-55c0-4142-bbd4-1cb7a3c6614d" class="">
+</p><p id="5b1c6350-87e4-4527-b12b-295a80e59c46" class="">
+</p><p id="36e657eb-4506-4f10-821b-8bcaa7ec1f1e" class="">[스타트업의 딜레마, 생존]</p><p id="aef61c76-ea5d-40b2-8d1f-1eecdd5fd2c9" class="">
+</p><p id="7a5391cc-9bc5-428b-822c-d500193ab972" class="">나는 정말 사업을 하고 있는 것일까?</p><p id="0ce1ec0d-2f43-4cdc-b595-8b02864aba4b" class="">정부지원사업과 좀비기업</p><p id="f9196247-7252-451a-aed6-e0c8e358f631" class="">
+</p><p id="cc7af919-11ac-4ede-8a84-9fdb589629ab" class="">
+</p><p id="ab34246e-f48d-403c-be7f-2f714933ae15" class="">[본질에 집중할 것]</p><p id="ff5fdde0-c5e9-4588-84d8-0c923ea33af2" class="">
+</p><p id="f8a74f4f-bb32-4c05-840a-6c65462f7c4c" class=""># 혁신, 가치 창출 등</p><p id="d1b9c3fa-4017-4a17-9776-9668853d2546" class="">내가 뭘 위해 창업했는지 상기할 것</p><p id="135ba3dd-5870-4512-bea4-e06b85bd834a" class="">
+</p><ul id="ce35f082-f720-473a-9a4e-885d404ea229" class="bulleted-list"><li style="list-style-type:disc">그냥 생존만 하는 중소기업이 될 것이라면 프리랜서나 직장인으로 사는 게 더 큰 돈을 벌 확률이 높음</li></ul><ul id="32fd9900-f161-40f5-96b4-f2d5c2db23f1" class="bulleted-list"><li style="list-style-type:disc">저는 돈 벌려고 스사트업 창업했는데요? → 윗줄을 다시 한 번..</li></ul><p id="ce993c44-948e-491d-b830-353b6b9b6c26" class="">
+</p><p id="2fb975d9-a0bd-4d67-b3fa-c6b2ed2b4765" class="">
+</p><p id="516158b6-ac03-4646-ad28-9489ea340c9b" class="">[일론 머스크의 창업 조언]</p><p id="72e4226b-d9c5-4e55-a45f-a2a386064527" class="">
+</p><p id="bb4e1a0c-b34a-4c24-9e26-29d85f8cee6c" class="">업계상황, </p><p id="442223d9-9a78-4481-8019-549c7baf7dc6" class="">창업 그냥 재밌을 것이라 생가각하면 후회 그냥 취업하는게 나을걸</p><p id="05ed1237-f012-4438-9756-a3ca7d254e1f" class="">
+</p><p id="f9a3375a-d1ff-4a0b-94ce-28497801d2f3" class="">운명처럼 연결되어야한다면 창업을 하는게 맞지만</p><p id="51149561-7bd6-447a-b87b-658c1a097329" class="">그렇지않으면 하지마라 스트레스 받을 것이다.</p><p id="95692ac2-b0c6-465c-93c0-a69d20deaa85" class="">창업은 아무나 할 수 있는것이 아니기때문에 고통을 잘 견뎌야한다</p><p id="003ed67b-4a3d-4e1d-a08e-3cd61445ad31" class="">
+초창기엔 기쁠 것이나, 이후로 그 기쁨이 사라질 것 고통의 시간</p><p id="f1d86fce-a592-4c58-ab21-3a2ea02d09cf" class="">그러다 결국 대부분 성공하지 못할 것, 테슬라도 실패할뻔했다</p><p id="bef16628-5148-48f0-b799-a9f80815947b" class="">
+</p><p id="6be37dac-ce7b-4733-bf2a-b4cfd554da59" class="">그냥 미친듯이 일해야한다 매주 80 ~ 100시간 일해야한다</p><p id="7d48cbb6-cfb3-433c-8211-0726a708d5df" class="">
+</p><p id="b2fc4e54-45f1-4268-9774-a1995a475c27" class="">열심히 한다는건 뭘까 깨어있는시간내내하세요</p><p id="7386580b-ff6a-4c16-a8b2-73c0e301cb56" class="">특히 창업하려면 동기부여는 회사의 성공이 중요하다 그게 회사의 존재이유</p><p id="da89fa8c-7380-4bbb-a9b9-555d4de26602" class="">
+</p><p id="0b877c04-16a9-43a6-b8de-06ce7a9261c2" class="">그 목표를 이루기위한 끈질김을 가지고 있다면</p><p id="add792ea-71fd-4a43-a037-40ba75a01515" class="">결국 훌륭한 제품을 만들어낼거고 사람들이 구매할 것 그러면 성공할것</p><p id="d653f18f-6bab-4c37-bdd5-c4024ed9cf17" class="">
+</p><p id="9c930f4f-5756-4b46-94b2-6df5fbd296eb" class="">뭘 하던 위대한 제품을 만들어내야한다</p><p id="16afb675-0eaa-410f-be0e-4cb2dcf18bc9" class="">이미 존재하는 시장이라면 경쟁자보다 훨씬 뛰어나야한다, 조금으론 안된다</p><p id="4dbaaf09-6fa4-4b62-8419-20668a9c41b0" class="">왜 내가 이걸 사야할까? 근데 대부분 창업자들은 조금 나은 무언가를 가지고 온다</p><p id="364ea9b0-2e39-472e-94d1-533f8661f6fd" class="">
+</p><p id="93a8f5fa-4d15-4586-8f18-ba36a5a9812a" class="">아주 조금 나은 상태면 안된다 매우 나아야한다</p><p id="059ece8c-e5ed-40f5-80ea-627a00279a44" class="">좋아하는걸 하는게 중요하다 시간은 짧기때문에</p><p id="6349af29-ab06-409b-8b34-121ebcd68c9d" class="">일론 머스크  =  어지간한 각오가 없다면 창업하지말라</p><p id="d3a17834-ac32-42e6-bf91-9297d1c09f63" class="">
+</p><p id="65133bf5-5b25-491c-a5a7-9dce739f0944" class="">창업 = 스스로를 극한까지 몰아가야하는 상황이 많이 온다.</p><p id="3bbfe14c-76a1-4f5f-a193-6776f044ce5a" class="">본인 내면적인 성장이나 어떻게 좋은 제품을 만들어야하는지</p><p id="86adbb5b-adc4-499b-b3dd-71683a9c7094" class="">어떻게 생각해야하는지 고민할 시간을 많이 준다</p><p id="036ddc96-7bc0-42b1-9130-75f40852a915" class="">
+</p><p id="ddd57562-53e8-4e7e-af39-0883fb55c416" class="">창업이라는 과정을 한 번 겪고나면 두려울게 없어지는 것 같다</p><p id="ed6d68f8-25b1-4b18-ac93-b3afc09c0bb8" class="">좋은 아이템, 팀, 동기가 있다면 한 번 해보는 것을 추천한다</p><p id="0b693fba-3846-42ad-a5df-c2f23d9cce4b" class="">
+</p><p id="8088ea72-573f-4e36-a36e-69edb6eb1456" class="">&#x27;너가 자리를 뜨지 않고, 가장 오래할 수 있는게 뭐야&#x27; &lt;-</p><p id="f2574918-7e81-4a90-9aa6-be08052735d4" class="">첫 수업에 C로 포인터 만드는거 나가서 힘들었음</p><p id="e4928f9c-4e15-465a-a4d4-377aef65fc76" class="">악깡버해서 굉장히 많은 활동을 했다</p><p id="b997fb84-3ce1-45c8-bad6-9813e912c7bb" class="">
+</p><p id="8b4d7a18-8c4c-49e0-b307-d1592c34eaff" class="">1년차에 개인 프리랜서 활동가능할 정도로 수준이 올라감</p><p id="00c2cf27-4d69-4094-bcfa-08f281cc5bd2" class="">게임잼이라는 해커톤같은게 있음, 다양한 외부활동하면서 사람을 만났음</p><p id="e25e6efc-2f69-40ab-8035-fe94569b6e27" class="">창업할때 초기멤버 구성할 수 있던 좋은 기회의 장이 되었음</p><p id="d5301b17-b41d-471d-bac5-cbdae1257b2c" class="">
+</p><p id="4925d934-f378-45f3-b5a4-33e05ce1b6cf" class="">AR프로젝트 배민 제안 받았는데, 돈을 쫓기보단 낭만 쫓고싶었음</p><p id="5a878b5e-1192-4643-8718-402a40599a75" class="">AR보단 게임회사 들어가고싶어서 경력쌓고싶었음,</p><p id="3c77d66a-a568-4038-95f3-0a9a7a8dff44" class="">모바일 카지노게임 만드는 회사 들어갔음</p><p id="19dca7ea-6660-48fb-9b57-45dbec4ef990" class="">3개월만에 퇴사 육체적으로 너무 힘들었음</p><p id="e2a719d5-dd6f-4c9a-831d-93b50d9bfae7" class="">
+</p><p id="922641b1-ab19-426e-9d24-763ef16ab0e3" class="">열심히 달려온 것에 대한 회의감 -&gt; 음주</p><p id="91e310ad-ae29-494f-9f5f-7da9230e1377" class="">4명이서 시작해서 현재 11명,</p><p id="f093e684-8034-4a80-a812-0c9f2b166097" class="">비트 더 비트 &gt; 아직 출시 못함, 연말에 동남아에 출시할 것 같다</p><p id="db49e11d-6a83-44fa-bee9-bfbd5748fdca" class="">
+</p><p id="f53aa217-f1b9-40a0-8a13-63756f03663f" class="">
+</p><p id="9d4eaa00-708f-46d2-a574-f3132ad1ffd1" class="">내가 했던 실수들</p><p id="ea6a6d00-0374-4de4-8a2f-aa771b843c96" class="">
+</p><p id="a808474a-be85-4939-b632-9e07ad91f441" class="">1. 본질에 집중하지 못한 것 (좋은 사장님, 투자받는 기업)</p><p id="ca018dc8-9a15-40ab-ae85-2e90ebe2eb81" class="">
+</p><p id="edf262b0-e98a-49b1-adbf-65eeb88f558e" class="">2. 더 열심히 하지 못한 것 (정확히는 생각이 너무 많음, 열심히는 했는데 방향이 잘못되었었다)</p><p id="271894e9-9f50-4ddc-957c-f47a0e3441a5" class="">
+</p><p id="8f4450ad-70ba-4a29-990f-5410c018fa8a" class="">3. 자만 + 대표뽕</p><p id="6a729f84-e844-42bd-a169-5865e3afa5bb" class="">
+</p><p id="6a868f51-e9a1-4b78-b6dc-1f02e3d7654b" class="">4. 포기하지 못하는 것들이 많았던 것(+이기적이어야 함)</p><p id="554f3f46-5909-4536-a7e6-772e21e7cf05" class="">젊어서 포기하지 못하는게 적은게 가장 큰 메리트다</p><p id="b98b0afe-8521-48b7-a6bb-91ae02856ae6" class="">
+</p><p id="384dfa50-f74f-4efa-8349-e6a46be78998" class="">
+</p><p id="318857f9-5200-4379-a2d6-7ac92c7cc665" class="">[감히 드리는 조언]</p><p id="ea1c3ce1-8f75-40b1-adbe-67af9a14dc23" class="">1. 주체적으로 살 것 (왜 해야 하는가를 상기)</p><p id="1a3a5375-bf0a-4c2a-8481-adb8d234db47" class="">내가 이걸 왜 시작했는지 왜 해야하는 지 상기해보기</p><p id="d6075261-77a1-4f89-9583-8fcf16c4c5e0" class="">
+</p><p id="c027e9b6-7b3a-4e1e-9143-f816865be0b7" class="">2. ‘진정한’ 노력은 배신하지 않는다 (그냥 노력은 배신함)</p><p id="99bf7d28-57b6-484c-9dd3-0a467c10c1db" class="">
+</p><p id="be0926c1-2221-4458-9030-87a125c1cd45" class="">3. 이상과 현실의 괴리가 너무 크면 아무 것도 안 하는 </p><p id="d07a39d1-0a74-4557-a248-77176b3f3f76" class="">    상태가 오기도 한다. 눈 앞에 보인느 것부터 하면 된다.</p><p id="28cbd533-1217-4c5e-8f8a-fc05a9569dbc" class="">    처음엔 이게 굉장히 어렵다 격차가 커서, 눈 앞에 보이는 것에 집중하기</p><p id="59ce652a-13a8-4f94-bd7d-17ce61a4bb68" class="">
+</p><p id="99d789c6-0b18-4c43-b5a3-a39336b0ce32" class="">4. 이기적으로 살 것, 가장 이기적인 것이 가장 이타적이 될 수도</p><p id="1fe5ef38-9de5-4f48-bfe1-6a4a3c5d2c97" class="">
+</p><p id="e3307554-ccb6-4968-af7d-c020913d667e" class="">5. 본질에 집중할 것</p><p id="f537b95d-afc2-4ee7-a6fe-8e0c57e9bcf2" class="">
+</p><p id="a18cf81f-187a-434b-9ace-fd3ae7842b33" class="">6. 완벽한 것보다 중요한 것은 완성하는 것 ★ &lt;직장업무, 창업에서도 이게 더 맞는 방법이라 생각한다</p><p id="17571125-00eb-44ba-bda7-69ae19afb917" class="">
+</p><p id="5c2df747-8b5e-4bbf-b268-27032cd37865" class="">Q &amp; A</p><p id="e6808847-dfcc-4427-94f4-a6d6830f68cf" class="">
+</p><p id="0cad96de-b9a4-4f0a-86dc-369d2f3211c5" class="">
+</p><p id="a3c98e04-199b-4938-aa42-3c410596c9a4" class="">mvp 설립 당시 나이</p><p id="53d419e4-50a8-464f-a846-939c280ac27d" class="">
+</p><p id="b65c02c6-bd29-4e66-bad9-5aaf27167791" class="">
+</p><p id="8c140a2b-fc2b-4f27-b298-89ac12b97130" class="">
+</p><p id="acbe4101-8b4b-45df-a952-0298ac3fb37f" class="">동남아시장 테스트베더로 좋음</p><p id="a4e22d1d-7012-45eb-b1cb-a3e9ffa81926" class="">메인시장 출시전에 사전 테스트 보통은 동남아보단 호주나 싱가폴 소프트런칭을 먼저하는추세</p><p id="4b4cb80b-e35e-4a80-bcdb-44513c75d3fe" class="">규모가 작을수록 더 빠르게 </p><p id="e30deae1-4eec-4190-86b8-cc0d94e3b85e" class="">
+</p><p id="afa081d0-ded4-4eeb-8d53-ae760c0aa082" class="">
+</p><p id="fcea88b5-1bd3-43fa-84b7-5675ec60e532" class="">20대 중 후반</p><p id="01b880db-6c10-49c9-9254-8c24e1b3f63f" class="">20대 초중반</p><p id="706ae9de-c53c-4f67-ad4c-47728adeacd2" class="">
+</p><p id="ebae071e-87de-4286-abda-eb4dc26c0769" class="">교육을 받고 창업하기까지 시간, &gt; 4년</p><p id="35f39ee7-9c1f-4498-a373-93b8134005e1" class="">무작정 창업해도됨, 혼자하면서 내가 뭐가 부족한지 보일 것</p><p id="54eb7758-dcd2-4392-bd2d-0eac94e7ca3f" class="">
+</p><p id="ed59bdb6-d6ac-4163-88b5-994d7cbdf1fd" class="">지분방어 &lt; 중대사항결정할때 이사회소집, 찬반투표하는데</p><p id="4a7914a4-f01b-4fc0-ade9-9244a245dcdd" class="">
+</p><p id="cbec06aa-5619-492d-9c05-ad5c05a17a99" class="">여기서 의결 퍼센테이지 3분의2, </p><p id="36dae7d1-f6b5-4323-8da4-7203ad972191" class="">2분의1 이정도 수치까진 방어를해라, 이정도안뺏기면</p><p id="2e56d014-71bf-426c-a628-b50ccd89ad1d" class="">큰 관여는 없다, 첫 투자였고 가져가는게 적어서</p><p id="c561e5d1-78b7-4b3a-b39c-53c439cf16cc" class="">관여가 크진 않았다. 오히려 도와주려한다</p><p id="3aff2fbf-6c3e-48e1-bd31-499021bd996f" class="">
+</p><p id="6ccd2848-82be-486b-9b3c-a9e8b16716ad" class="">라운드는 프리 A긴한데 게임회사라 라운드는 큰 의미없다</p><p id="b4ffdbd9-beb3-41c4-8c3d-891c130fab76" class="">
+</p><p id="bfd7fea6-ad35-4cc8-9fc1-03a55b47acf3" class="">생존을 위해 외주, 정부지원사업과제 많이 했음, 매출은 많이 발생했지만</p><p id="2625df4d-cc5c-4fd3-ad3b-cdff040c0b94" class="">메인프로덕트에선 매출이 나오지않았기때문에 아직 성공한 회사는 아니다.</p><p id="e3c334ce-91ca-4a4a-9865-41d31617b002" class="">
+</p><p id="c6c64d2f-0782-48ca-9b66-b5e53d04832d" class="">그래서 보통의 사람들이라고 했다</p><p id="daae1477-a0a7-4758-8e60-417ec5d67882" class="">
+</p><p id="6846721d-3e7e-423d-a038-142657015618" class="">외주가 3 정부지원사업이 3 차명으로 서비스한 게임이 나머지 3 정도</p><p id="5d155406-91dd-4994-b63c-99be55ce6d99" class="">
+</p><p id="a4da5efc-7b93-49bf-81eb-5fc6c349e3a9" class="">
+</p><p id="9a5aa9dd-7dbf-4b88-99e1-7c0dd1d70494" class="">급하다 상황이, 생존 불투명 = 신입개발자에게 바라는게 정말 많을거고 바로실전 일 원할 것</p><p id="dcfae2f6-7cea-444b-a1a5-258fd23f8c9f" class="">
+</p><p id="107e841d-9a14-4e01-80cb-dabd27f01d98" class="">반대로 안정, 큰 기업일땐 바라는게 없을거다 / 눈에 보이는 게임을 만드는거라</p><p id="a1be1908-4f14-4bec-ba5d-00061c7000cb" class="">
+</p><p id="dab0a918-a8bd-4ded-9a9a-44be82a15b88" class="">기술적인 스킬보다는 이 사람이 겪었던 시각이나 센스를 바랐다</p><p id="4a9fc717-fae4-456d-b35f-0b96971cbda1" class="">
+</p><p id="fbbb911b-56ab-48c2-9b0d-9ed2060bded3" class="">단순히 달리는걸 봐도 프로그래머가 만들면</p><p id="5d012652-0e0f-48ac-9242-5532420fab89" class="">
+</p><p id="10c28a26-c112-428d-b7a0-1ff26d838add" class="">똑같은 기획서를 보고 달리기를 만들어도</p><p id="03446c4a-ca76-4203-aa72-1cccdb591342" class="">
+</p><p id="a7e79928-0735-40f7-b708-a22a5dbfed51" class="">달리는 느낌을 살리는 개발자가 있었고, 아닌 개발자도있었음</p><p id="e4605919-2bb7-4b8d-9772-5153cd1e03e3" class="">
+</p><p id="27ea3ec6-91fd-4ecc-b1d5-001413c02759" class="">이건 게임 경험이 있는 사람이 어떻게 해야할지 알고있기때문에 이런걸 봤음</p><p id="9e740da8-d2b6-4eec-a9a3-7d1fe85645fe" class="">
+</p><p id="e5f1da7a-5b47-46a9-bba7-730868d3d7a5" class="">이런걸 기대안했는데 보이면 좋았고 반대는 안좋았다</p><p id="51b7df63-7a74-40d7-b36d-bf09c113e161" class="">
+</p><p id="8634f1e2-415f-41bf-83be-15056ce7f6bc" class="">대표중심 회사, 지분 씨티오 5~15%</p><p id="e4296452-71f4-444f-aa93-247590c29a47" class="">초기창업멤버부터 초기관여 다했으면 5:5</p><p id="ddd9a1aa-955f-4b7a-9d41-16ee9169245d" class="">나중에 씨레벨로 들어오면 스톡옵션이나 구주인수신주발행식으로하기도하고 기업마다 다름</p><p id="0b2bbace-570a-4c2a-ad89-070ec23692b4" class="">
+</p><p id="af3b493e-6d32-4612-bd97-989cf84010b0" class="">
+</p><p id="7e4e90ad-663b-4b9a-b3a0-549014968387" class="">아이티에 문외한인 회사가 아니라면,</p><p id="00425501-5e00-44cd-a788-b07efb1402bb" class="">
+</p><p id="5b58db38-85d4-4b9f-aecf-557b564a7427" class="">신입한테 기대하는건 1인분만 할 수 있을 정도, 무리한 기능을 어차피 안할거고</p><p id="0b6c3e75-ebb9-41d6-a1b9-f59b8e74b764" class="">
+</p><p id="84a442ae-6234-4a89-bb08-c68424d5f28a" class="">시켰을때 찾아서 할 수 있을 정도 기대, 특히 게임쪽은 그렇다</p><p id="e5be4602-bec0-44a3-9c0f-c79d5df99cbc" class="">
+</p><p id="4ffd3ec3-1dee-4915-ad69-5720a553b726" class="">다음 게임은 구상만하고 있고, 프로그래머직군항시모집, 게임돌아올거면 지원해봐라</p><p id="45236f96-9f6d-4b52-83a9-542e9d5a8997" class="">
+</p><p id="8cf98b9e-dd0d-4ed2-b897-71c916d1f3e9" class="">
+</p><p id="c348b141-4a66-4f1a-adec-2122fd8fdd19" class="">[토스 개발자와 연결]</p><p id="a8579707-1d1b-44d5-93cb-b7ac014940f3" class="">
+</p><p id="0e379325-08fd-4f3d-aff9-0b687f93d911" class="">
+</p><p id="ccd9917e-b63a-4545-b8c9-4b2ee557f1dc" class="">
+</p><p id="d6796baf-9032-496c-b762-a2172a5d28cf" class="">
+</p><p id="35a1c21d-9908-41c8-a971-90323b89e3cb" class="">
+</p><p id="2ef7b641-0833-4ddb-9266-922fac12b6b0" class="">
+</p><p id="3a3ec137-274f-481d-85b3-5e36d6b55ea2" class="">
+</p><p id="57012e51-7ebb-47c4-94de-61d10bb9f115" class="">
+</p><p id="1db880a5-7f8f-49f1-9efc-be562d22a076" class="">
+</p><p id="de20158e-5211-400e-b6f1-2470185552e9" class="">
+</p><p id="b03cb022-f1e8-4cf7-8968-2681283e1b5b" class="">
+</p><p id="5a2564b4-4cc5-48e1-87bb-9631118799a2" class="">
+</p><p id="3ceb2bfb-1f39-4ad2-8ec3-6cad0a816533" class="">
+</p><p id="26b76fc2-5707-404c-b20f-5adfe088836f" class="">
+</p><p id="e9345700-99c3-4f80-b201-84199cc4d248" class="">
+</p><p id="5ca7a827-3acf-499a-9300-bcc768609245" class="">
+</p><p id="40431b0a-7ae8-427a-9bd6-1767098d23d4" class="">
+</p><p id="650858ac-4dbc-4c61-80ad-ead73e31c4bf" class="">
+</p><p id="5b64b5c7-a828-48ec-8113-5bab82cde4bf" class="">
+</p><p id="5c297699-fb4e-4be7-aa89-41fe5c24be21" class="">
+</p><p id="fc2ff465-ef18-4e54-b690-1c3192395b8d" class="">
+</p><p id="6e17f402-48c7-41d8-8f9d-d7895a2d6573" class="">
+</p><p id="cd722eef-75d7-41ed-9439-9f78161e6fac" class="">
+</p><p id="6665c623-d73f-416e-8824-57fa80a8d7d7" class="">
+</p><p id="f02ff28d-7417-4b5a-846d-2d4bca7d1db8" class="">
+</p><p id="47e3b0cb-35fe-4ac9-a144-53a85e4371cc" class="">
+</p><p id="3fa8c91c-a4e3-40f7-bcd8-3800f58d1fe1" class="">
+</p><p id="2acf931a-ef59-4e05-b538-c4740a7846b8" class="">
+</p></div></article></body></html>

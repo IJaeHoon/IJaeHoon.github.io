@@ -1,0 +1,809 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>[머신러닝 압축] 8/30</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="4d51c721-8098-49fc-948c-783a8313aa93" class="page sans"><header><h1 class="page-title">[머신러닝 압축] 8/30</h1><p class="page-description"></p></header><div class="page-body"><p id="c96f9a90-234a-4cf5-a822-5d5eac2061c0" class="">
+</p><p id="97830b94-3b32-492e-b314-9d97fc0be8ed" class="">
+</p><p id="cc7d7291-fa3a-431b-8fa5-b086aaeaeb7c" class="">
+</p><p id="b78f1ef6-6595-4c7e-a574-153eeeb52334" class="">AUTODESK 사이트 (공룡)</p><p id="df56fdd6-7a42-4392-885f-a77dbad3526c" class="">
+</p><p id="b127f5df-6ba2-4728-a3fb-0ce278e6bfc4" class="">이미지</p><p id="5b5ba7f0-c35c-4247-b325-006cbb46589b" class="">
+</p><p id="978fb329-14dd-45c0-9a85-643c1266dbb5" class="">이미지쪽에서 저걸만들면 굉장히 수월한작업가능 소득</p><p id="02609b90-f258-405e-baf8-3e7d4e94c6c4" class="">
+</p><p id="cb922b56-f2f0-4c53-9b5c-b213365118df" class="">이미지 전처리할때 활용하면됨</p><p id="943866ad-d359-4d7c-9485-3edc447e064c" class="">
+</p><p id="8dc07805-316a-46f0-8083-daa40c069bb5" class="">
+</p><p id="3e8053ea-66e2-4ff1-a1f6-486598ec6e9b" class="">군집 알고리즘 &lt; 아웃라이어 찾아낼때 기가막히게 찾아낸다</p><p id="919eab27-ee1e-407f-aae1-38db22ae90ac" class="">=이상치를 걸러내는걸 목표로 삼아야하면, 이상치를 집어넣고 군집으로 돌려보고 넣고</p><p id="f18d093e-574e-4796-bd5d-eb9e85892f3e" class="">=이상치가 별상관없으면 그냥 돌려보고</p><p id="3a7245b9-3c08-49ad-984d-3690b975e6ce" class="">
+</p><p id="cf6f76e4-ad0f-44a0-958a-0534020a0e39" class="">분류학습 전처리할때 군집알고리즘 쓰는 경우 늘어났음</p><p id="f86992d7-94d4-476e-a68d-143295418127" class="">
+</p><p id="077e24bb-ddd3-4dee-a575-5414c90569e2" class="">얘는 애초에 분류를 목적으로 쓰는 모델이 아님</p><p id="7a382ae0-8692-4f52-9300-e6e5707d7dc5" class="">
+</p><p id="728de466-a825-4613-8807-dd556f6935cc" class="">
+</p><p id="b6fea595-4d69-4152-9f34-adcd608cef98" class="">
+</p><p id="fb35ef8a-8afc-4235-95ab-51d7906efac5" class="">넷플릭스 추천시스템 등 K-means로 복잡하게 설계된 것,</p><p id="8b3f1b6f-9819-4775-a2a8-2e5a4e54c48d" class="">추천시스템 기능 = K-means</p><p id="9a9bdcfb-d5c3-4951-9bc8-bfafb97fb7ef" class="">
+</p><p id="148e7685-8102-4dd4-b075-1446667f9fb2" class="">현업에선 레이블이 없는 데이터를 다루는 경우가 많다, 시중에는 책 한권 있음 스스로 공부해야함, </p><p id="99d8c415-fa06-4de1-ada7-a42716fd30d4" class="">비지도학습은 짧게 만들기 어려움 단기강좌 만들기힘듦</p><p id="7a1b7ad0-130c-4547-894e-24103ef0278d" class="">
+</p><p id="bb4e1118-684b-48e2-b4bc-6e424206e436" class="">
+</p><p id="18040d6b-7676-478f-8299-ac667a036086" class="">PCA 데이터를 줄여서 키 몸무게 2개일때보다,</p><p id="ce222d1e-bb45-4d4b-ad62-a0400e2a6143" class="">bmi지수로 만들면 결과예측이 더 정확하지않을까?</p><p id="45a231bd-81e8-4d78-a89f-b74176b54bd9" class="">
+</p><p id="b7639c82-7c52-4991-a5c5-d11859a7e637" class="">
+</p><p id="63e636b0-7a24-495b-a9ea-f865c01b605f" class="">카드사기 card fraud 정형데이터</p><p id="34f65c67-27c9-4c5d-81cd-fc34394d1b8f" class="">
+</p><p id="05c21836-a1f9-4314-ac7f-0640951d8499" class="">원본데이터 1000개 중 500개로 압축하면, 99%는 일치,</p><p id="21009f44-d5ae-4030-8dd2-127d8ac904bf" class="">10000개를 50개로 PCA를 해도 잘 복원된 예시</p><p id="67a93158-7711-443b-948d-90709a6c493e" class="">
+</p><p id="08a97439-a7df-4558-8148-a6c9ec1bda21" class="">
+</p><p id="914b3f87-4f5e-4922-a28d-a0faf2e421ab" class="">★정형데이터 속성이 30개인데, PCA로 50개 만들고 오히려 속성을 늘인 뒤 사용하는 경우도 있음</p><p id="9ba3e1d5-a3ac-40df-aae6-c04dbd034a5b" class="">    PCA가 공통된 속성을 뽑아내데 탁월하다보니, 연산속도를 포기하더라도 속성을 늘리는 경우이다.</p><p id="921e87d0-3985-4bc5-9012-f1a5f965c34b" class="">
+</p><p id="b08f45b7-7340-44b7-87b6-a6c385cc51b3" class="">
+</p><p id="3adc191b-9e3f-484a-bca4-fc4fe88b5aa7" class="">시각장애인들 이미지가 크겠지 저 컴퍼넌트 처리하는걸</p><p id="1201e936-bc6a-447d-9068-da7b10c575ce" class="">피시에이처리해버리고 모델로 집어넣으면</p><p id="e6fde007-54de-4240-84aa-ee0cb3db7770" class="">굉장히 가벼운 모델을 써도 생각보다 빨리 처리할 수 있음</p><p id="207994e5-b960-4e76-a13f-d4e83dffdb46" class="">
+</p><p id="ddcad7c3-72af-4f58-9ea6-c771da5a1ef6" class="">특징을 잘 추출한다, ← 정형데이터 특징 추출된거같았지만 PCA쓴다</p><p id="57abe05d-a90d-4eeb-86c8-5fddda5874eb" class="">
+</p><p id="53a2f58c-b513-4590-9040-f0d387e3de42" class="">MNIST      Modified National Institute of Standards and Technology Databast</p><p id="f646def0-7dc6-44b9-936e-77ba98d83fd7" class="">
+</p><h1 id="2e5451a2-3c7a-4980-a82c-b422b5946a78" class="">서비스할만하다 싶으면 출시하는거다</h1><p id="68ed52b7-f821-4916-ae8c-1350d938be50" class="">이미 선점해두면 사람들은 바꾸기 어려워진다</p><p id="6abf83fd-b62b-4e4b-9c4c-46faf4f8bdb3" class="">
+</p><p id="6633aef0-24e8-4637-90c3-0fc411aa00e7" class="">구글 → 텐서플로 / 텐서 앤 테라스 라이브러리</p><p id="5eade43e-fe62-4333-a508-c20c77e94417" class="">페이스북 → 파이토치 라이브러리</p><p id="d952495b-8b5e-4c70-8d00-10cb7911a733" class="">
+</p><p id="3a389b0b-b460-4bac-a5e3-ed32f3e25d8b" class="">영어와 일본어 정도의 차이는 아니고.. 공부는 해야함 한달정도 걸릴 것,</p><p id="89e0b561-c297-4532-afda-cf6fb78f5420" class="">
+</p><p id="d3012e4c-0861-4fef-adbb-69f60e25c108" class="">아마존 → Builders? 빌더즈</p><p id="a7c39b6a-2aa4-4837-9999-ccaff3888f99" class="">아파치 → Mx?Net</p><p id="3bfbee44-bc17-4c03-a7d0-deba9af3f43c" class="">마이크로소프트 → CNDK</p><p id="381cc487-0ad8-4b21-950e-711602dde0ed" class="">
+</p><p id="f2ea2b52-7451-4615-bb1c-cf21819061e1" class="">각자의 라이브러리가 있음</p><p id="067b4d59-0f94-47b3-837a-807086ce4618" class="">
+</p><p id="1e75e67d-feda-4d6a-bab9-b6bc685ba7cf" class="">
+</p><p id="296661a4-3c15-4f27-925e-55f1fe55eafd" class="">
+</p><p id="e9437114-d510-4104-a05c-537194eb711c" class="">
+</p><p id="872053b7-5605-4267-b9e9-0777f4b86a39" class="">
+</p><p id="485ee6c2-e1f1-4a51-a69f-f285417a03cf" class="">회귀일 경우에는 알스퀘어값을 던져줌</p><p id="88ded1b8-99d1-4e74-ae8d-9d2d77b1f871" class="">분류일 경우에는 애큐러시값을 던져줌</p><p id="a3718bf8-d3a0-4682-b45d-f4259108ad19" class="">
+</p><p id="c1133642-b910-49a1-88d8-a991c6b7af02" class="">
+</p><h1 id="33b62c3c-7f10-4081-a215-e485a598718b" class="">★</h1><h1 id="093555a2-a856-40f6-bca6-66b9e13c5b2d" class="">★ 인공신경망</h1><p id="9e192373-66cc-483b-8b42-f4b22ec9a171" class="">
+</p><p id="d3cb4c00-76b0-4d77-b4fd-9a085f1cf578" class="">
+</p><p id="d5fbc0bb-ea4b-4355-8c1f-eb97b3dd0103" class="">프랭크 로젠블럿 → 인간의 신경세포 Human Neuron  ⇒ perceptron</p><p id="f867c428-5208-48f4-b391-f9a4826e2a67" class="">
+</p><p id="93c936fe-f3bf-4b8c-96d7-6588b04bcfc4" class="">액티베이션펑션</p><p id="20bd2481-d2e1-4938-adbf-203f1c2d29ac" class="">퍼셉트론</p><p id="f13b8139-100c-4b5e-b0d4-789fe7e757fc" class="">
+</p><p id="e31e2803-1b73-4bd9-884f-e458abd1f699" class="">입력받는건다같고가중합구하는거도같은데</p><p id="b1d847c6-3b7d-4c61-9cda-bc8266cdeacc" class="">f가머냐에따라서뱉는게다달라짐</p><p id="6f9061f8-36ba-4ed8-8911-08aa9b401793" class="">
+</p><p id="5c4875a7-d878-4c89-b097-c2d5918504c6" class="">퍼셉트론 → 숫자 여러개 받아서 하나의 숫자를 뱉는다, 그냥 뱉는건 아니고 숫자 사이에서 그 숫자들 각각의 중요도를 찾는 것이다</p><p id="ed4920bd-9c2c-4395-992b-fc0d7c882959" class="">중요한걸 찾아야함, 3개 정보를 처리해서 다음 놈에게 뱉어줘야하는데 다음 놈이 야 그거 별로야하면 잘못처리된거,</p><p id="f8c36eb2-e196-4f64-910b-585cb6b66598" class="">비선형회귀랑 똑같은거 로지스틱회귀랑 똑같은거</p><p id="b0955b1b-4dbd-4e06-a755-a2f7195d47f0" class="">
+</p><p id="ee7995fe-95ec-438c-bc1f-2260c3e809c7" class="">
+</p><p id="fc8aee68-53d0-446e-aea9-2d911035f485" class="">퍼셉트론이 리니어리그레이션이랑 같은 기능하려면?</p><p id="44db832a-5c87-4b34-99c8-1d809f9b0317" class="">소프트맥스&lt;분류</p><p id="84bafdd4-046f-40a6-9ec7-f4390cf1a23a" class="">시그모이드&lt;분류</p><p id="7a1d904f-c47b-4bf1-b451-d035e4dce830" class="">
+</p><p id="a7526694-d349-48ad-9de0-34f533ae4610" class="">
+</p><p id="0fe03178-ab31-4117-8d68-7e70c570f0bd" class="">액티베이션함수</p><p id="ecf0a2fa-d368-43c9-9cfc-fe50491f7f1f" class="">
+</p><p id="e96ee8ac-f3f8-4271-ba99-6c9d83b920ca" class="">도형이 그려지는데 도형을 맞춤  O X △</p><p id="b9d56f43-584a-4a68-8018-340f85702918" class="">뉴욕타임즈 대서특필</p><p id="3c527552-88a0-4097-8fec-40adac6b5f14" class="">퍼셉트론 최초 성공 사례</p><p id="fe82844c-e693-4568-84aa-17934d2bea73" class="">
+</p><p id="73d7b58a-c45a-4573-8741-4931a43ebb61" class="">액티베이션함수</p><p id="cd4fdd92-6169-46c1-b9c9-27e4331da795" class="">
+</p><p id="4c20bc55-de83-4385-bd30-4acb8851383a" class="">perceptron -저서, 가장 수학적으로 엄밀하게 설명한 책, 근데 번역서가 없음</p><p id="266843cb-74d7-4679-ba99-e297f09f4c80" class="">마빈 민스키</p><p id="7b81a955-3d6c-4bdf-ad94-793e149ded74" class="">
+</p><p id="85f35972-df8e-400c-b31d-4b16e1722353" class="">퍼셉트론을 가장 완벽하게 설명한 책이지만, 처음부터 끝까지 수학적으로 까는 것이다, 기호주의자 마빈 민스키</p><p id="33f75697-33c3-43fe-88f8-c1cd7b04227a" class="">x or 입력이 다르게 들어가야 출력이 1이 나옴 퍼셉트론은 x or을 해결못한다.</p><p id="599fa23e-25d5-4958-8944-ce2f0f3f2f4f" class="">
+</p><p id="8352562b-f3ad-479e-814d-c5b19561358a" class="">
+</p><p id="c01e066f-2f97-47f7-93cb-7ac2862f0ce6" class="">
+</p><h1 id="37fc4f33-41a9-4f6b-a35c-7e2ce5fbb781" class="">기호주의자 vs 연결주의자</h1><p id="e39551f1-7bc9-47bc-a5f7-34dd6620e86d" class="">
+</p><p id="98cc6b47-5599-44cd-9aa6-17c3e00e62b8" class=""># 기호주의자: 인공지능은 죽었다 깨어나도 사람이 될 수 없다</p><p id="6b76c37f-cb84-4523-83aa-400f7f24a674" class="">
+</p><p id="75ef75b9-2fcd-4589-9ebe-dd7951aad96a" class="">둘이 섞어야한다 주장, 요슈아 벤주어</p><p id="3ad56790-146e-4d8b-abb0-ee645a7c284f" class="">
+</p><p id="a17de0d9-1f6b-4376-af8a-caf93794dcdf" class="">퍼셉트론을 가장 완벽하게 설명한 책이지만, 처음부터 끝까지 수학적으로 까는 것이다, 기호주의자 마빈 민스키</p><p id="50759843-7c15-4f97-8818-0121c8842ee7" class="">x or 입력이 다르게 들어가야 출력이 1이 나온다</p><p id="75b37de0-cf69-4a25-968e-bce7ae6ae565" class="">
+</p><p id="ee499092-4a05-42cd-b851-7d75afdd7eb6" class="">x or도 안된다</p><p id="b313daa7-9ae7-46c8-ab5e-94cef0c9e3a1" class="">
+</p><p id="c4a771d9-d7c8-467d-bb48-0546e68ad532" class="">그렇지만 마빈 민스키도 ‘나는 관대하다</p><p id="779980f2-3b69-47ac-9253-ffffe8f92f5e" class="">다음 다음 조금 복잡하게 만들면 x or 처리 가능해 향후 50년동안 이 방법을 수학적으로 가능하나, 연결해서 가능하나,</p><p id="deff2238-f622-479b-8b5b-01b93230f298" class="">엄격하고 체계적으로 수학적으로 모델링하는건 향후 50년동안 안나올거다’ 라고 했음 → 20년 후 재프리 힌튼이 증명해냈다</p><p id="b3d90987-b128-4602-b29f-c76ebf244b53" class="">
+</p><p id="2be598c1-9244-4adf-8e88-6b466f1e76d1" class="">마빈 민스키</p><p id="f282b8e2-5094-4cbe-aa6b-4c7f4fa409a0" class="">퍼셉트론을 수학적으로 너무 완벽하게 분석하고, 프랭크 로젠 블럿이 충격받고, 이후 기호주의자들한테 밀리기 시작</p><p id="bce9b705-d857-4195-9be8-2d8ef1781c83" class="">향후 40년동안 디질거임&lt; 제자 데리고 노력했지만 4년 후 1968년 죽음 태양은 가득히처럼 죽음 실족사했지만, 스트레스받아 자살한것으로 추정</p><p id="744b41a0-e4d9-4458-8a17-af350557397a" class="">
+</p><p id="facece44-d13c-4fa9-87a1-9d5ad6885fe1" class="">20년동안 칼을 갈고 재프리 힌튼이 해결했음</p><p id="8800a58f-1869-498a-a4d5-35362560db3e" class="">
+</p><p id="14e6aeec-25be-4581-a711-7555c54f862a" class="">
+</p><p id="0c0f8278-2616-43ce-b239-79cebb2a6b79" class="">개 고양이 // 마빈 민스키 曰 연결주의자들, 개 고양이 하나 구분못하잖아 네모세모밖에 구분 못해 라고해서</p><p id="31536309-b5a1-4161-8684-def459d0289c" class="">그래서 개 고양이 해결한 얀 르쿤, 손글씨 넣으면서 개 고양이 해결한거 보여줌</p><p id="4a2d0c37-4c51-4e4c-aa10-ed0b5ea35570" class="">
+</p><p id="73f8fa92-c8fa-46b5-9f47-1ee470c2b152" class="">재프리힌튼이 자동화도 가르쳐주고 컴퓨터도 발전, 현재는 연결주의자가 득세</p><p id="6173ce43-c7a5-4069-9ea8-c5e1701190d2" class="">
+</p><p id="6240092f-1b8d-4385-9b2a-1b2db94f9005" class="">ㄴ알쓸신잡기술</p><p id="c3018182-d6ee-4ff8-a3e0-faa48b237ea0" class="">
+</p><p id="6cfce3b5-c9fa-4ab0-aa62-f20725a931f0" class="">퍼셉트론이 회귀식이랑 똑같이 생김, ★액티베이션 펑션이 없으면 똑같은거,</p><p id="60eab914-df8f-4298-a6b3-ce62096daed3" class="">
+</p><p id="aba6dddd-240f-461f-9780-f02d7c6e6ca2" class="">
+</p><p id="04452ba5-2562-4ca3-929c-2947f07c11fe" class="">
+</p><p id="3847683e-bda1-45ed-9f66-e0129e316149" class="">딥러닝은 기본적으로 직선, 직선을 이용하긴해, 근데 오차를 줄이기위해서 직선을 계단식으로 한다 /-/—/</p><p id="706bac14-c03b-4b13-b118-c90a421e723c" class="">이게 딥러닝의 수학저인 펀더멘탈임, 멀리서보면 직선인데, 가까이서보면 직선이 아니다.</p><p id="a47488a5-ff06-4492-8994-21f2f9949bad" class="">
+</p><p id="edd49cef-9c61-4439-9c90-0e9591948e2e" class="">퍼셉트론노드의출력음다음퍼셉트론에집어넣고, 집어넣고, 돋보기로보면 직선1개가아님, 다중직선, 다중의직선을 들음,</p><p id="167bd852-4f58-41ec-8d49-069cec9a6f2e" class="">집단지성 개념을 이용,  ←  니네 마빈 민스키가 여러개 연결하면 된다던데 &lt; 말 그대로 여러개 이용, 단 수학적으로</p><p id="63764587-b348-43e4-9268-14da4bbe4e2e" class="">
+</p><p id="9928ebac-8be4-4fe0-adba-3a079fee271e" class="">
+</p><p id="d4c1a2f3-537f-4d2c-8066-935081ed3d6c" class="">첫레이어인풋 = 허리둘~보고 = 대답</p><p id="3ae58a81-8ee6-442a-98e8-d1944747184f" class="">두번째 레이어는 첫번째보고  = 대답</p><p id="10221302-13da-4604-858e-13762fd2b20d" class="">그렇게 가중치를 줘야해, 이게 딥러닝의 구조임</p><p id="22fad028-5482-481c-a656-73c0c7a80a3f" class="">
+</p><p id="8681fc29-7450-479b-877f-d5cc1b137dd8" class="">첫레이어 고혈압확률 xx.xx%</p><p id="a0080bee-0bfe-4f36-a9a7-694c79f145fa" class="">2레이어, 원본몰겠고 1레이어 보고 믿고(신뢰도o 가중치x)</p><p id="c8959124-ecc0-44c1-be0b-51cdc122ee85" class="">딥 뉴럴 네트워크 ≠ 딥 빌리프 네트워크, 그 전 레이어를 얼마나 신뢰하느냐</p><p id="2e5bbe6d-5671-4c53-8ec9-a9565d65a01f" class="">
+</p><p id="f95afaa8-94cb-4057-90b4-64c16e2b9e27" class="">
+</p><p id="25919b05-5b5d-4a4d-9206-0dfe2fcda43d" class="">2레이어 오답이면 3레이어는 2레이어 신뢰도 낮추고, 맞다한레이어신뢰도 높임, 웨이트값조정해, 원본데이터</p><p id="aad7d991-8734-4567-bf71-54587c8c2e83" class="">백프로파게이션(역전파(Backpropagation) - 쵸코쿠키의 연습장) / 역전파 → W값이 계산될것 ← 마빈 민스키가 이게 안될거라고 한거 / 재프리힌튼이 이걸 해낸거, 체인을 이용해서 연쇄미분하면된다 다중미분으로 성공</p><p id="908b588c-3db7-48c4-98cd-592457c6160a" class="">
+</p><p id="89ff03d3-758d-45bd-95a8-0f171a247a4b" class="">가중치줄때 신뢰도를 측정하고~ 그전에 누군가가잘해준거고 그전전에누군가가 잘해준거고 f(x) = gx zx tx 내안에 너있다 그안에 너있다 &lt;이거 한방에 미분할수만 있으면 돼요</p><p id="83458fdf-310c-4dfd-bc69-8cf13a40f83f" class="">
+</p><p id="db8f9513-fb17-4a49-b4ed-e2c1cdba1da0" class="">장병철교수님 25년전, 교수님이 레이어3개 노드2~3개 손계산→ 6시간주고 하라했다함, 계산기는 써도된다했다함</p><p id="eca21b7c-a42a-4fb5-be14-b7e8de66808f" class="">
+</p><p id="b938fa3c-339c-42b7-a05a-aff4734c0727" class="">
+</p><p id="79a03d67-d551-412e-b6b9-0d0b0df4d146" class=""><code>dense </code><code><strong>=</strong></code><code> keras</code><code><strong>.</strong></code><code>layers</code><code><strong>.</strong></code><code>Dense(10, activation</code><code><strong>=</strong></code><code>&#x27;softmax&#x27;, input_shape</code><code><strong>=</strong></code><code>(784,))</code></p><p id="3542b0cb-d5de-4517-9ddd-5a8919acd554" class="">
+</p><p id="9990357b-30cb-40d8-837f-2637907440fd" class="">하나의 레이어에 퍼셉트 10개 밖에 없다</p><p id="e3cba52a-62b7-4a9d-b6ae-cc8b597cf37b" class="">
+</p><p id="7eb70dd0-56ed-43a5-b809-92585c04c6f6" class="">f = softmax</p><p id="b6ad2e2d-adaf-4c92-bcfe-de1821a625fa" class="">⇒ logistic Function</p><p id="ae87f097-d62e-4c8b-9393-e99c664747d1" class="">
+</p><p id="b14deaa4-0480-43f6-b403-390902b8c026" class="">종류, 클래스 10개라 10</p><p id="8dac1cd2-dff9-44d3-bc85-7c8ef8fb5b31" class="">
+</p><p id="5c57bfa5-ca75-4077-9c8c-f4e05607f2f6" class="">softmax = 모든 더한 값을 분모에 넣고 / 각각 분자값을 한게 소프트맥스, 전체가 1이된다 </p><p id="21c4f115-5aed-458a-b973-58599839ee97" class="">그래서 사실 이건 딥러닝이 아님, 뉴럴 네트워크 구조, 레이어 1개밖에없다, 인풋이자 아웃풋 </p><p id="32ceca17-0101-4410-8e66-85898d6d2b39" class="">스칼라 값 하나, 퍼셉트가 아냐 , 이게 들어간 첫번째 인풋이 1번째 레이어라고함 원칙,</p><p id="4e35a260-565e-440c-9f54-73c57f52ba38" class="">그 다음부터가 히든 레이어, 마지막 출력을 담당하는 레이어가 아웃풋 레이어 아웃풋레이어는 몇개던, 아웃풋 레이어</p><p id="ee1c2c18-5b91-4f5d-864a-776fa314e856" class="">
+</p><p id="37b2e048-c811-405a-8f14-7bff304ac895" class="">댄스는 모든 노드가 연결되는게 댄스라그래, 댄스가 다 안들어가는 노드도 있는데 2일 뒤 등장할거</p><p id="c011240a-6ccf-4cee-94ca-e4a9d7f8b580" class="">
+</p><p id="31108c2e-0a58-4f1d-b4f7-de509f1ca2f6" class="">
+</p><p id="0ba21ad4-a3bd-49f8-b086-da64c506f2ed" class="">
+</p><p id="682badc4-07a7-467a-b60e-e185eebc0194" class="">모든 딥러닝 훈련을 해서 찾으려하는 것은 = 가중치</p><p id="231a7e83-b7bf-4fb6-aeec-9b8eaac01678" class="">가중치 찾는게 훈련, 맞는 답을 뱉는 ‘w’</p><p id="3c127f13-3db1-4bbd-a024-af574f1512e1" class="">
+</p><p id="52bf720e-84ed-4b93-8edc-56107f359bed" class="">지피티도 저 구조임,  GPT는 한번 훈련해서 찾아야할 w갯수가 7천억개 들어감, </p><p id="546fee72-a774-44a2-bbbe-467e9dc1da97" class="">내가 원하는 답이 안나오면 고쳐야하는데, 7천억개를 미분해서 고쳐야함 문장으로 치면 몇조개가 될것,</p><p id="b23dc399-59d2-4f7d-88d7-fb2515c2198c" class="">웨이트 6천억번하면 1핫돌아간거</p><p id="7b28a596-5f4c-4b93-a17d-617c33374765" class="">
+</p><p id="fe41deee-61ac-4db7-aec9-1ab1ac46ac76" class="">
+</p><p id="78ad39de-c503-44a6-b9b0-e81f2013ac5b" class="">선형회귀에서의 루스펑션이름이 MSE &lt;로지스틱리그레이션에선 로그루스, &lt; 사이킥런에서</p><p id="5633a9a3-66bb-4af2-8d74-ca8f3b31c922" class="">
+</p><p id="04c44a9e-7456-41f4-baa1-9e56853dd594" class="">로그루스 == 카테고리컬 크로스엔트로피</p><p id="7daffe3d-8240-4052-bb5a-03cd6c9d2936" class="">
+</p><p id="1febfcae-8d0c-46de-969c-961596571237" class="">
+</p><p id="01f4909b-d5ff-484a-8d4f-69adfd1e7bef" class="">P log p - 1-p log 1- asd</p><p id="1d709f61-e606-462e-9a9e-3b06dd40710c" class="">
+</p><p id="8257b585-abe3-4cfb-a990-2d8e24741448" class="">원핫인코딩</p><p id="192ebb98-e8f3-4a05-91da-60735a8dea74" class="">
+</p><p id="a5a3ef75-de29-410f-9a37-70e5b3005fa4" class="">
+</p><p id="0aed5145-6b8d-4f2b-87d0-b0ec9ca8f606" class="">
+</p><p id="17bf38f9-3619-4a71-ba6d-88bafba1fc66" class="">
+</p><p id="05caada4-c1b6-468f-b737-826407d52ac7" class="">
+</p><p id="47cc63dd-52fc-49a1-ba32-153dce63c11b" class="">
+</p><p id="42448751-8036-4726-ab1f-d4571a3ea389" class="">
+</p><p id="e73fb931-4e07-40b7-8c31-1c1386a10d6a" class="">
+</p><p id="a9e1c9c4-640e-4602-80dc-533b5eaefa39" class="">
+</p><p id="e5125547-84ff-4091-bd8a-bb4d70f457f1" class="">
+</p><p id="970a0830-0283-4255-9a7c-407a63f1b327" class="">
+</p><p id="ded1a601-4833-4628-ae00-a928a6d9301e" class="">
+</p><p id="18e6e32d-095f-40d3-94e1-e2bf40169724" class="">
+</p><p id="80f4dd84-32af-4568-9f00-ab94a03a8d5e" class="">
+</p><p id="e22f73b9-8a6f-4450-87a7-3bf6bafe3c94" class="">
+</p><p id="e4e04774-6f07-47c4-8064-8cfd4ce35f96" class="">
+</p><p id="fb184b70-aadb-4e59-888f-d8697be97bd5" class="">
+</p><p id="4596226f-b3e9-4f8e-9c91-ae13a2627198" class="">
+</p><p id="07715aa5-306b-417a-bfc4-59229703e6f3" class="">
+</p><p id="330afb57-530e-4fb5-91a8-2b0f10893cb2" class="">
+</p><p id="526fc772-147a-4ce9-a2b6-d9499117f7b5" class="">
+</p><p id="4051cf03-f607-4b40-9f41-fdbdfe64ba1f" class="">
+</p><p id="3d58ddb6-c0c8-46fc-a01f-37024aa9b601" class="">
+</p><p id="f3c1ce5e-f855-499e-a0ba-549726882684" class="">
+</p><p id="aa805156-772f-4cb4-8794-1e9dcc2aab9e" class="">
+</p><p id="f08b3ac1-8a55-4afa-a1e9-85c53672576c" class="">
+</p><p id="5a17f3ed-7e19-4770-abec-04d651023ac2" class="">
+</p><p id="c59866c4-7bd6-40b6-a87d-3854cdf28674" class="">
+</p><p id="98acf2eb-2a7a-4bba-b0be-8ee19fabbebe" class="">
+</p><p id="82a95f4e-0b0c-40d7-886d-1b2ba169d2ef" class="">
+</p><p id="417bde32-70c7-4211-b545-50729d20f6a7" class="">
+</p><p id="286832c3-5a6d-449d-a778-0692e6d2fe56" class="">
+</p><p id="0bbc7fd2-63ca-4acd-84a6-2e6841dbedf1" class="">
+</p><p id="8682ea49-546c-4af7-b9be-ba3b2eba0a76" class="">
+</p><p id="9dbbc45b-1611-4565-8754-4c7802d71c6c" class="">
+</p><p id="649ae49b-ed91-478a-a22a-69e682f512fc" class="">
+</p><p id="de152b63-974e-4bad-96cb-5d6b6a125dee" class="">
+</p><p id="377e5901-c077-44e6-8dba-0cb8248193ac" class="">
+</p><p id="6eaef0a9-960b-4a1b-8424-97fb55191e17" class="">
+</p><p id="401b9607-a227-4c01-a587-55d695539286" class="">
+</p></div></article></body></html>

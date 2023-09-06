@@ -1,0 +1,907 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>SeSAC AI</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="58ed79d9-ce7c-4089-8323-792150dfd37c" class="page sans"><header><h1 class="page-title">SeSAC AI</h1><p class="page-description"></p></header><div class="page-body"><p id="0e23df4a-73a8-46d1-b08c-fb331d236dc9" class=""><a href="https://github.com/kimbap918/TIL/tree/5b064165709a9638521a843211df8efb413ae568/SeSAC%20AI">https://github.com/kimbap918/TIL/tree/5b064165709a9638521a843211df8efb413ae568/SeSAC AI</a></p><p id="c91a870c-9518-4fef-9521-6763faf5aec3" class="">
+</p><p id="7912241a-652f-4f7c-8e46-e821364d1305" class="">
+</p><h3 id="f285a5d4-c53e-4c3f-b816-19636435749f" class="">openpylx로 엑셀 파일 조작하기</h3><p id="49edcc4d-873d-41eb-a2d7-2e4e0001f3e8" class=""><a href="https://openpyxl.readthedocs.io/en/stable/">https://openpyxl.readthedocs.io/en/stable/</a></p><ul id="ba42e4f5-fd9f-44a6-9811-602a7b1b5110" class="bulleted-list"><li style="list-style-type:disc">쓰기</li></ul><pre id="37f1c767-f498-4d97-b2b1-9cea8f0c3c9c" class="code code-wrap"><code>from openpyxl import Workbook
+
+wb = Workbook()
+ws = wb.active
+
+for row in range(10):
+    ws.append([row, f&quot;{row}-data&quot;])
+
+# A1 셀에 Test-data 삽입
+ws[&quot;A1&quot;] = &quot;Test-data&quot;
+wb.save(&quot;result.xlsx&quot;)</code></pre><ul id="4fbedb17-9612-4c9c-8928-7858174081ff" class="bulleted-list"><li style="list-style-type:disc">읽기</li></ul><pre id="d966e997-a6c4-46bd-9a8d-ab18414badbf" class="code code-wrap"><code>from openpyxl import load_workbook
+
+wb = load_workbook(&quot;result.xlsx&quot;)
+ws = wb.active
+
+for row in ws.iter_rows():
+    print(row[0].value, row[1].value)</code></pre><h3 id="c03a11eb-50c8-4a48-8e05-506b1e7e6810" class="">실습 - 뉴스 기사 엑셀 파일로 저장하기</h3><pre id="bdb84029-0cd2-455c-8b54-2fd59bc3f8b4" class="code code-wrap"><code># DB관련 내용 삭제후 result.xlsx에 동일한 내용을 저장하도록 변경하기
+
+import requests
+from fake_useragent import UserAgent
+from bs4 import BeautifulSoup
+from openpyxl import Workbook
+
+wb = Workbook()
+ws = wb.active
+
+ua = UserAgent()
+headers = {
+    &quot;User-Agent&quot; : ua.random
+}
+
+url = &quot;https://search.naver.com/search.naver?where=news&amp;sm=tab_pge&amp;query=%ED%8C%8C%EC%9D%B4%EC%8D%AC&amp;sort=0&amp;photo=0&amp;field=0&amp;pd=0&amp;ds=&amp;de=&amp;cluster_rank=62&amp;mynews=0&amp;office_type=0&amp;office_section_code=0&amp;news_office_checked=&amp;nso=so:r,p:all,a:all&quot;
+
+for page in range(2):
+    request_url = f&quot;{url}&amp;start={(page*10)+1}&quot;
+    res = requests.get(request_url, headers=headers)
+    bs = BeautifulSoup(res.text, &#x27;html.parser&#x27;)
+
+    area = bs.select_one(&quot;.list_news&quot;)
+    elem = area.select(&quot;.news_area&quot;)
+
+    for e in elem:
+
+        title = e.select_one(&quot;.news_tit&quot;).text.replace(&quot;&#x27;&quot;, &#x27;&quot;&#x27;)
+        link = e.select_one(&quot;.news_tit&quot;).attrs[&quot;href&quot;]
+        keyword = &quot;파이썬&quot;
+
+        # 링크 안에 있는 내용을 읽어오기
+        res2 = requests.get(link, headers=headers)
+        content = res2.text
+        cnt = content.count(keyword)
+
+        # 제목, 링크, 키워드, 내용, 카운트
+        ws.append([title, link, keyword, content, cnt])
+
+# result.xlsx로 저장
+wb.save(&quot;result.xlsx&quot;)
+</code></pre><h3 id="0ed6f706-8858-48db-b47a-217c499865be" class="">실습 - 멜론 데이터 가져와서 DB에 삽입, Excel에 저장하기</h3><ul id="f6150207-167a-46b9-93a4-aeca5b9b832a" class="bulleted-list"><li style="list-style-type:disc">순위, 제목, 가수, 앨범, 좋아요, 변동 넣어보기</li></ul><p id="a36a5b25-5877-408f-a979-562f71144719" class="">테스트 데이터 DB에 넣어보기</p><pre id="2f2cd999-a182-47bd-9eb5-655fe5e52dee" class="code code-wrap"><code># 순위, 제목, 가수, 앨범, 좋아요
+
+import pymysql
+
+# 테스트 데이터 넣어보기
+db = pymysql.connect(host=&quot;localhost&quot;, port=3306, user=&quot;root&quot;, password=&quot;jen401018&amp;&quot;, db=&quot;sba&quot;)
+cursor = db.cursor()
+
+sql = &quot;&quot;&quot;
+insert into melon
+values(NULL, 101, &quot;바보&quot;, &quot;최준혁&quot;, &quot;최준혁2집&quot;, -1, -100);
+&quot;&quot;&quot;
+
+cursor.execute(sql)
+
+db.commit()
+db.close()</code></pre><ul id="4bc20892-3c3d-4b4e-8b08-b264e30a4acc" class="bulleted-list"><li style="list-style-type:disc">크롤링 및 DB삽입</li></ul><pre id="d7ed100b-8086-45d9-a425-2e8570777742" class="code code-wrap"><code># 순위, 제목, 가수, 앨범, 좋아요
+# rank, title, singer, album, like, diff
+import requests
+from fake_useragent import UserAgent
+from bs4 import BeautifulSoup
+from openpyxl import Workbook
+import pymysql
+
+# 5. DB 연결 설정
+db = pymysql.connect(host=&quot;localhost&quot;, port=3306, user=&quot;root&quot;, password=&quot;jen401018&amp;&quot;, db=&quot;sba&quot;)
+cursor = db.cursor()
+
+# 8. workbook
+wb = Workbook()
+ws = wb.active
+
+# 1. userAgent
+ua = UserAgent()
+headers = {
+    &quot;User-Agent&quot; : ua.random
+}
+
+# 2. 가져올 url
+url = &quot;https://www.melon.com/chart/index.htm&quot;
+res = requests.get(url, headers=headers)
+bs = BeautifulSoup(res.text, &#x27;html.parser&#x27;)
+
+# 3. 가져올 정보 클래스
+area = bs.select_one(&quot;.service_list_song&quot;)
+elem = area.select(&quot;div &gt; table &gt; tbody &gt; tr&quot;)
+
+# 4. 순위, 제목, 가수, 앨범, 좋아요
+for e in elem:
+    rank = e.select_one(&quot;.rank&quot;).text
+    title = e.select_one(&quot;.ellipsis.rank01 &gt; span &gt; a&quot;).text.replace(&quot;&#x27;&quot;, &#x27;&quot;&#x27;) # replace는 DB insert 시 작은따옴표 처리를 위해 사용
+    singer = e.select_one(&quot;.ellipsis.rank02 &gt; a&quot;).text.replace(&quot;&#x27;&quot;, &#x27;&quot;&#x27;)
+    album = e.select_one(&quot;.ellipsis.rank03 &gt; a&quot;).text.replace(&quot;&#x27;&quot;, &#x27;&quot;&#x27;)
+    diff = e.select_one(&quot;.rank_wrap&quot;).text.replace(&quot;&#x27;&quot;, &#x27;&quot;&#x27;)
+
+    # 6. DB에 저장
+    sql = f&quot;&quot;&quot;
+    insert into melon
+    values(NULL, {rank}, &#x27;{title}&#x27;, &#x27;{singer}&#x27;, &#x27;{album}&#x27;, 0, &#x27;{diff}&#x27;);
+    &quot;&quot;&quot;
+    cursor.execute(sql)
+
+    # 9. Excel에 저장
+    ws.append([rank, title, singer, album, 0, diff])
+
+# 7. DB commit
+db.commit()
+db.close()
+
+# 10. excel 저장
+wb.save(&quot;melon.xlsx&quot;)
+
+    # print(&quot;순위 : &quot;, rank)
+    # print(&quot;제목 : &quot;, title)
+    # print(&quot;가수 : &quot;, singer)
+    # print(&quot;앨범 : &quot;, album)
+    # print(&quot;변동 : &quot;, diff)</code></pre><h3 id="d5b2131e-dc05-4e2a-810a-10c2f3e8be82" class="">실습2 - 순위 변동 표시하기</h3><pre id="4430c5cc-c65e-49cd-add5-3dce16ac6e8a" class="code code-wrap"><code># 순위 변동 추가 변동없음, - +2 -3 형태
+# python 안에서 쿼리 짜서 출력
+# 각 가수별로 top100에 올라간 곡 수, 가수명을 출력하고 순서대로 정렬해서 출력
+
+import requests
+from fake_useragent import UserAgent
+from bs4 import BeautifulSoup
+from openpyxl import Workbook
+import pymysql
+
+# DB
+db = pymysql.connect(host=&quot;localhost&quot;, port=3306, user=&quot;root&quot;, password=&quot;jen401018&amp;&quot;, db=&quot;sba&quot;)
+cursor = db.cursor()
+
+# workbook
+wb = Workbook()
+ws = wb.active
+
+# userAgent
+ua = UserAgent()
+headers = {
+    &quot;User-Agent&quot; : ua.random
+}
+
+# 가져올 url
+url = &quot;https://www.melon.com/chart/index.htm&quot;
+res = requests.get(url, headers=headers)
+bs = BeautifulSoup(res.text, &#x27;html.parser&#x27;)
+
+# 가져올 정보 클래스
+area = bs.select_one(&quot;.service_list_song&quot;)
+elem = area.select(&quot;div &gt; table &gt; tbody &gt; tr&quot;)
+
+# 순위, 제목, 가수, 앨범, 좋아요
+for e in elem:
+    rank = e.select_one(&quot;.rank&quot;).text
+    title = e.select_one(&quot;.ellipsis.rank01 &gt; span &gt; a&quot;).text.replace(&quot;&#x27;&quot;, &#x27;&quot;&#x27;)
+    singer = e.select_one(&quot;.ellipsis.rank02 &gt; a&quot;).text.replace(&quot;&#x27;&quot;, &#x27;&quot;&#x27;)
+    album = e.select_one(&quot;.ellipsis.rank03 &gt; a&quot;).text.replace(&quot;&#x27;&quot;, &#x27;&quot;&#x27;)
+    # 슬라이싱
+    diff_icon = e.select_one(&quot;.rank_wrap&quot;).text[:6]
+    diff = e.select_one(&quot;.rank_wrap&quot;).text[7]
+
+    # 순위가 동일하면 -, 단계 상승이면 +n, 단계 하락이면 -n
+    if &quot;순위 동일&quot; in diff_icon:
+        diff = &quot;-&quot;
+    elif &quot;단계 상승&quot; in diff_icon:
+        diff = &quot;+&quot; + diff
+    elif &quot;단계 하락&quot; in diff_icon:
+        diff = &quot;-&quot; + diff
+    else:
+        diff = &quot;new&quot;</code></pre><h3 id="63c8a9f0-67a7-4356-a4ae-6d59ff4b1af7" class="">실습3 - python에서 쿼리 실행하기</h3><p id="77fd2b4b-c790-4c38-9021-8da80b837ed5" class=""><code>sql = &quot;&quot;&quot;
+SELECT count(singer) 곡수, singer 
+FROM melon
+GROUP BY singer 
+ORDER BY 곡수 DESC;
+&quot;&quot;&quot;
+
+cursor.execute(sql)
+result = cursor.fetchmany(size=100) # fetchone = 하나만, fetchmany = 여러개
+for data in result:
+    print(data)</code></p><p id="ffdf3a81-ed7d-4e04-94b7-e1c253613264" class="">
+</p><p id="c3aba1ff-3c7e-4103-9f40-bf4b98135f8a" class="">
+</p><p id="f7c77752-8e17-41c2-8ea5-e38ae228236d" class="">
+</p><p id="513efa55-bb28-402c-a432-8fa3dbc922ba" class="">
+</p><h1 id="83ba035f-c184-425b-98fe-1dd42b5c1ab4" class="">파이썬 뉴스 5페이지까지 수집</h1><h1 id="73161ea1-1e76-41f3-8838-cf2d9ac1ad7c" class="">title = 뉴스 제목, link = 뉴스의 링크, keyword = 검색어, 파이썬, content = 요약내용, count = 요약 내에서 키워드가 들어간 횟수</h1><h1 id="3bae0a3b-edda-4647-861b-f3b6ba486b84" class="">date = 안넣어도됨, timestamp =</h1><p id="a08ca497-b86d-4760-a238-d1c00fc7560f" class="">import requests
+import time</p><p id="96146420-5389-4a8f-9554-df52d7f93f84" class="">from fake_useragent import UserAgent
+from bs4 import BeautifulSoup</p><p id="cf988f29-7046-4b62-8fd6-60be2bbeedb6" class="">import pymysql</p><p id="bedd6d82-d2d9-4a55-9157-220206c8dc6c" class="">db = pymysql.connect(host=&quot;localhost&quot;, port=3306, user=&quot;root&quot;, password=&quot;0000&quot;, db=&quot;sba&quot;)
+cursor = db.cursor()</p><p id="f3963845-5cb6-4985-8fdc-b84f56204b6d" class="">ua = UserAgent()
+headers = {
+&quot;User-Agent&quot; : ua.random
+}</p><p id="c3e0fff6-e354-4e9d-bfc8-0059bfb059bf" class="">url = &quot;<a href="https://search.naver.com/search.naver?where=news&amp;sm=tab_pge&amp;query=%ED%8C%8C%EC%9D%B4%EC%8D%AC&amp;sort=0&amp;photo=0&amp;field=0&amp;pd=0&amp;ds=&amp;de=&amp;cluster_rank=62&amp;mynews=0&amp;office_type=0&amp;office_section_code=0&amp;news_office_checked=&amp;nso=so:r,p:all,a:all">https://search.naver.com/search.naver?where=news&amp;sm=tab_pge&amp;query=파이썬&amp;sort=0&amp;photo=0&amp;field=0&amp;pd=0&amp;ds=&amp;de=&amp;cluster_rank=62&amp;mynews=0&amp;office_type=0&amp;office_section_code=0&amp;news_office_checked=&amp;nso=so:r,p:all,a:all</a>&quot;</p><p id="ca9a7228-79b8-4224-ac02-0aec71b273e1" class="">for page in range(5):
+request_url = f&quot;{url}&amp;start={(page*10)+1}&quot;
+res = requests.get(request_url, headers=headers)
+bs = BeautifulSoup(res.text, &#x27;html.parser&#x27;)</p><pre id="c1f8f0f1-109a-4a4c-938a-a07a4b4c1273" class="code code-wrap"><code>area = bs.select_one(&quot;.list_news&quot;)
+elem = area.select(&quot;.news_area&quot;)
+
+for e in elem:
+
+    title = e.select_one(&quot;.news_tit&quot;).text.replace(&quot;&#x27;&quot;, &#x27;&quot;&#x27;)
+    link = e.select_one(&quot;.news_tit&quot;).attrs[&quot;href&quot;]
+    keyword = &quot;파이썬&quot;
+
+    # 링크 안에 있는 내용을 읽어오기
+    res2 = requests.get(link, headers=headers)
+    content = res2.text
+    cnt = content.count(keyword)
+
+    sql = f&quot;&quot;&quot;
+    insert into link
+    values(NULL, &#x27;{title}&#x27;, &#x27;{link}&#x27;, &#x27;{keyword}&#x27;, &#x27;{content}&#x27;, {cnt}, NULL, now());
+    &quot;&quot;&quot;
+    cursor.execute(sql)
+    time.sleep(0.1)
+    break
+</code></pre><p id="1eacc488-0d55-4bf0-bfe5-3cac284c18df" class="">db.commit()
+db.close()</p></div></article></body></html>

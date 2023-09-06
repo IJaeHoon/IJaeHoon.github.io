@@ -11,24 +11,15 @@
             "id": "cee62569ef260620",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
-            }
-          },
-          {
-            "id": "0aba208cb13fa3d7",
-            "type": "leaf",
-            "state": {
               "type": "markdown",
               "state": {
-                "file": "test.md",
+                "file": "HTML import/[AI] 8 14 755020d4c3454d3a831b0090e5f14e69.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -94,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "test.md",
+                "file": "HTML import/[AI] 8 14 755020d4c3454d3a831b0090e5f14e69.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "test.md",
+                "file": "HTML import/[AI] 8 14 755020d4c3454d3a831b0090e5f14e69.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -134,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "test.md"
+                "file": "HTML import/[AI] 8 14 755020d4c3454d3a831b0090e5f14e69.md"
               }
             }
           }
@@ -153,14 +144,57 @@
       "daily-notes:오늘의 데일리 노트 열기": false,
       "templates:템플릿 삽입": false,
       "command-palette:명령어 팔레트 열기": false,
-      "table-editor-obsidian:Advanced Tables Toolbar": false
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "obsidian-importer:Open Importer": false
     }
   },
-  "active": "0aba208cb13fa3d7",
+  "active": "cee62569ef260620",
   "lastOpenFiles": [
-    "README.md",
-    "test.md",
-    "test 수정.md",
-    "Untitled 1.png"
+    "HTML import/[AI] CJ 흥망예측 a35c2bec54054551af89f209b7374282.md",
+    "HTML import/[파이썬] 9 1 bdd1901591dc417889f733e76c754951.md",
+    "HTML import/[취업 특강] F1 0c5f24b62e304c35a8d5d58384b7b421.md",
+    "HTML import/[머신러닝 압축] 9 4 825c5cb4e9c64ba0932191c410b5e54a.md",
+    "HTML import/[머신러닝 압축] 8 24 a3b7a92cabab45d6be6b994e601277bf.md",
+    "HTML import/[기업] ESG ecf2888dff924515bc1aba234e02e9b0.md",
+    "HTML import/제목 없음 e45b64d9216043ea98c2ea0232a7754b.md",
+    "HTML import/음성인식 46628c9f00804d408559661752dc0139.md",
+    "HTML import/새싹 AI 전문인력과정 5938be0c97144cebb17b0f49bd01411a.md",
+    "HTML import/데이터 링크 89f8a37486d345c99fac73ef4cf0aa6a.md",
+    "HTML import/Attachments/Untitled 73.png",
+    "HTML import/Attachments/Untitled 72.png",
+    "HTML import/Attachments/Untitled 71.png",
+    "HTML import/개발 메모 e2d4693807ae4d7b8b619e75b79fffab.md",
+    "HTML import/[파이썬] 8-30 cd6aaf66320d4a59acb77024ad8f061d.md",
+    "HTML import/Attachments/image.png",
+    "HTML import/[파이썬] 8-28 ece1c884ba0f47ab9bed582216948dcc.md",
+    "HTML import/[토스] 취업 Q&A cf8b8e27bd8f47f489771a24a8fd348a.md",
+    "HTML import/[창업 특강] 주식회사 비펙스 96d04bcf6ce244c7821fc8138061ec57.md",
+    "HTML import/[머신러닝 압축] 9 5 9724fb56791848f08c0140928b1fb1c5.md",
+    "HTML import/Attachments/Untitled 66.png",
+    "HTML import/[머신러닝 압축] 9 1 51c510bd4100405082b2ea81a747537f.md",
+    "HTML import/Attachments/Untitled 64.png",
+    "HTML import/Attachments/Untitled 63.png",
+    "HTML import/[머신러닝 압축] 8 31 cfbfef9b94f044bfb6ec2bc34fd83ceb.md",
+    "HTML import/Attachments/Untitled 62.png",
+    "HTML import/Attachments/Untitled 61.png",
+    "HTML import/[머신러닝 압축] 8 30 4d51c721809849fc948c783a8313aa93.md",
+    "HTML import/[머신러닝 압축] 8 29 86d0d10247664721a1a214dbf9d2eb17.md",
+    "HTML import/[머신러닝 압축] 8 28 505044f98bdb43398679c21f3ab3df1a.md",
+    "HTML import/Attachments/Untitled 60.png",
+    "HTML import/[머신러닝 압축] 8 25 48dedbaa2d16479183cfa514f5967a41.md",
+    "HTML import/[머신러닝 압축] 8 18 6391a5f2998a4cfd9e427b8626cba70a.md",
+    "HTML import/[AI] 8-21 dd26446e669149e08ab0498620b85572.md",
+    "HTML import/[AI] 8 9 a0278c1b87124df880f34523954985e4.md",
+    "HTML import/[AI] 8 8 6985fb8dc5514d0eaff3f77390d23e8c.md",
+    "HTML import/Attachments",
+    "HTML import",
+    "Notion",
+    "Export-aff2ead6-a041-40c7-9176-a500a9a2de7c-Part-1/Export-aff2ead6-a041-40c7-9176-a500a9a2de7c/[창업 특강] 주식회사 비펙스 96d04bcf6ce244c7821fc8138061ec57.html",
+    "Export-aff2ead6-a041-40c7-9176-a500a9a2de7c-Part-1/Export-aff2ead6-a041-40c7-9176-a500a9a2de7c/[토스] 취업 Q&A cf8b8e27bd8f47f489771a24a8fd348a.html",
+    "Export-aff2ead6-a041-40c7-9176-a500a9a2de7c-Part-1/Export-aff2ead6-a041-40c7-9176-a500a9a2de7c/[머신러닝 압축] 9 5 9724fb56791848f08c0140928b1fb1c5.html",
+    "Export-aff2ead6-a041-40c7-9176-a500a9a2de7c-Part-1/Export-aff2ead6-a041-40c7-9176-a500a9a2de7c/제목 없음 e45b64d9216043ea98c2ea0232a7754b.html",
+    "Export-aff2ead6-a041-40c7-9176-a500a9a2de7c-Part-1/Export-aff2ead6-a041-40c7-9176-a500a9a2de7c/새싹 AI 전문인력과정 5938be0c97144cebb17b0f49bd01411a.html",
+    "Export-aff2ead6-a041-40c7-9176-a500a9a2de7c-Part-1/Export-aff2ead6-a041-40c7-9176-a500a9a2de7c/새싹 AI 전문인력과정 5938be0c97144cebb17b0f49bd01411a.csv",
+    "Export-aff2ead6-a041-40c7-9176-a500a9a2de7c-Part-1/Export-aff2ead6-a041-40c7-9176-a500a9a2de7c/개발 메모 e2d4693807ae4d7b8b619e75b79fffab.html"
   ]
 }

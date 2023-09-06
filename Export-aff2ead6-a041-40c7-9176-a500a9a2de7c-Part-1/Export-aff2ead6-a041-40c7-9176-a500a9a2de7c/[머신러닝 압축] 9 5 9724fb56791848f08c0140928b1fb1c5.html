@@ -1,0 +1,774 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>[머신러닝 압축] 9/5</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="9724fb56-7918-48f0-8c01-40928b1fb1c5" class="page sans"><header><h1 class="page-title">[머신러닝 압축] 9/5</h1><p class="page-description"></p></header><div class="page-body"><p id="91ead2d2-be22-4eda-b842-04c42ec52899" class="">
+</p><p id="4c57ee31-76ce-4313-94ed-9d1ea06bff1b" class="">
+</p><p id="3b3db708-2d32-42bf-b607-463d9beecaf4" class="">순환 신경망</p><p id="f6e5b392-c38c-4a4d-916d-9a419f0983f7" class="">
+</p><pre id="17a9ba46-c5ae-474d-8bc4-1e4abfe81e5b" class="code"><code>from tensorflow.keras.datasets import imdb
+
+(train_input, train_target), (test_input, test_target) = imdb.load_data(
+    num_w
+
+
+ords=300)</code></pre><h1 id="eb6f92f1-054f-4b1b-b811-8bc4b2d93abb" class="">num_words=300은, 문장 단어가 300개가 아니라, 어휘가 300개</h1><p id="11a2eb15-bdb0-46d3-b33c-215a5a0f88f6" class="">
+</p><p id="41777b62-6939-4297-b01f-edecc423c6f0" class="">단어를 스칼라 값으로 숫자로 변환하여 표현한다,</p><p id="b888df9d-d6a3-4e51-b1c2-2f2df745e23a" class="">
+</p><p id="b8daacd2-a4d1-44ae-91e9-cdf5991f0ca1" class="">딥러닝 모델에 들어갈땐 벡터로 바꿔야한다</p><p id="cd40d49b-52a6-45c2-a441-d94264b9e000" class="">
+</p><figure id="596026e8-5a65-4853-901f-11f55e5c8b05" class="image" style="text-align:left"><a href="Untitled%2066.png"><img style="width:434px" src="Untitled%2066.png"/></a></figure><p id="37c131af-0d1d-44db-9687-1076bbdfea94" class="">
+</p><p id="7f6d342c-36ea-4df7-a5c1-c4324b187370" class="">각 단어의 리뷰의 갯수</p><p id="f9be31a8-42d6-4d27-bfa4-6c4ced553108" class="">
+</p><p id="c6d2aed8-4ba2-4a08-86a8-7b6d69daca03" class="">
+</p><p id="39d404e3-a6f7-4cd1-825d-23b326cb22fa" class="">히스토그램 ← 구간의 도수를 구하는거</p><p id="bd248898-1e76-4bd7-8574-4759fe54b5ba" class="">막대그래프 ← 값을 찍는거고</p><p id="059c8b76-8d7b-4cb0-a9f8-5e9f0f873a6f" class="">
+</p><p id="1d09ad2f-9bbf-44e6-ae99-0c70293e72de" class="">시각적인 차이, </p><p id="f39bbcf2-588e-4aa0-b951-b99142f5ce30" class="">간격이 없다  →  히스토그램</p><p id="59ccbed7-3bdf-4beb-a635-94306fcd3796" class="">막대그래프는  →  간격이 있어야한다</p><p id="0b7279a7-b0d4-47af-9e63-f3f581515ff6" class="">
+</p><p id="9f4a096f-1ffc-4f38-b266-7e98f0825c1b" class="">
+</p><p id="fe938cb1-db80-420c-a0a4-36a48c092b6e" class="">긍정 부정을 자연어처리하는게 아직도 힘들다</p><p id="02ff7a34-408c-4b85-be2f-b9587e923d68" class="">
+</p><p id="557dde36-8fde-40be-a771-b904f4c1e0f3" class="">
+</p><figure id="443a0e82-0e46-45ff-a43a-b15c682a8c99" class="image" style="text-align:left"><a href="Untitled%2067.png"><img style="width:426px" src="Untitled%2067.png"/></a></figure><p id="7c4d2592-11db-4bfb-a83c-76d70eb37d31" class="">ㄴ100개보다 길면 끊어버리고 100개가 안되면 이후 문장은 다 0으로 처리한다</p><p id="db2122b6-8d74-4a36-adfb-496b144c9955" class="">
+</p><p id="a60aac2c-fac5-449e-857d-598d68149076" class="">원래 RNN은 자연어 처리하는데 부적합해 &gt; I hate you</p><p id="ba8cb5a6-b880-4a4f-b120-2d43576d85b4" class="">
+</p><p id="0df88d3f-2add-4086-8a63-81c813ebd1a6" class="">
+</p><p id="75e23a03-a6e9-409c-9532-b7a7fb767248" class="">RNN ⇒   벡터 = 숫자열</p><p id="eedb0bad-978d-4b57-a200-2793470cdf5d" class="">
+</p><p id="5a016d0c-a78f-49d1-bbbb-013833129a1b" class=""># 벡터입니다 - 숫자 1개가 아닌 숫자 여러개로 되어있다</p><p id="2fec7b83-e7bf-477b-b115-32cc8e015276" class="">
+</p><p id="beb62411-e608-468e-964a-242c9a72ea95" class="">
+</p><p id="40f0406c-b04b-4910-bc14-d31c1d02e1ed" class="">I = 숫자 여러개, 스펠링은 여러개라도 다 300개, I도 You도 Love도 다 300개</p><p id="c5882395-18ea-42fa-b99f-0be2a9c82aa2" class="">
+</p><p id="6b063f55-add0-401c-b406-37d0f0c512bd" class="">웨이티드썸  →  웨이트를 곱한 합</p><p id="7aa05ad9-04c7-46a5-975c-19a2f8911f53" class="">입력값에 가중치 곱해서 더한 것 → 그리고나서 액티베이션펑션에 통과시키는 것 액티베이션펑션이 뭐냐에 따라 회귀/분류</p><p id="1eb4d027-f9d8-40d0-9c64-70e8edba4062" class="">
+</p><p id="86609c43-06bf-4e94-806a-7007ec15c204" class="">렐루 액티베이션함수 비슷한거 → 리키렐루, 셀루</p><p id="cb262e63-296b-4340-902a-014531fea2ac" class="">리키렐루 → 조금 새는 렐루</p><p id="5609c57b-4aa5-40a0-81d9-9ebf511b61ea" class="">렐루의 가장 큰 단점 = 미분이 안됨, → 꺾이는 부분 사인함수로 바꿔서 사인함수+렐루 = 미분되는 렐루</p><p id="f45b07ba-4ef8-48fa-9d36-4bc77d556b7b" class="">
+</p><p id="6e75876c-2c66-402e-9fc0-f5fe7a9c684a" class="">모든 공학은 그렇지만 특히 컴퓨터공학은 물리학이 신이 만든거라면 컴퓨터공학은 인간이 만든 것, 이해가 잘 안됨 이해안돼도 성능이 잘 나옴</p><p id="a3500d1c-ca1c-4823-afbc-b9d1bcbe9617" class="">
+</p><p id="0ff724d3-404e-4d89-b1dd-7d5e6fbd3895" class="">
+</p><p id="d225f343-4115-4880-bb03-fc24dfeec05b" class="">미분했을때 최대의 값 1/4 = 0.25</p><p id="7718b617-f338-46a6-a041-71c09bf92d88" class="">
+</p><p id="8b66effc-a25d-486c-ba6e-7ce027556a3a" class="">위드임베딩 = 벡터쓰긴하는데 1이 여러개인 구조로</p><p id="1214e897-32aa-4546-93b9-a5ac062cd6b5" class="">
+</p><p id="17be9bca-714d-47b0-880e-e3580b650151" class="">
+</p><p id="e7009aee-0af6-4d44-aca5-8c3693f27542" class="">
+</p><p id="4979864b-b301-4b72-98d9-b9f874ebde61" class="">시간적 순서에 대한 웨이트</p><p id="564b9dd8-f1ce-41d9-ac10-345c9f0a8da4" class="">
+</p><p id="bf015aa4-e4bb-4cb7-8c39-3b84940a42f4" class="">
+</p><p id="5fad3918-dd0c-4ae3-8b05-4e4ab5b4130d" class="">부정은 -값 / 애매하면 0에 가깝게 / 긍정은 +값 / 그래서 마이너스 값이 존재하는 탄젠트를 쓰는거</p><p id="a82b15fa-f229-4822-b20e-37af01144602" class="">
+</p><p id="2196faad-eee1-4c2e-9942-363ade2320a4" class="">입력 벡터 &gt; 들어간 값 &gt; 웨이티드 썸 &gt; 웨이티드썸에다가 뺑돌아 다시 들어오는 구조 순서보정값하나 준거,</p><p id="b3df78d6-ea3f-4f2a-90a3-cb0c328646b4" class="">
+</p><p id="70950d61-0fa7-41df-84d3-8a44937702e2" class="">RNN 출력의 형태 여러개, 그걸 후처리로 코딩하는거</p><p id="ee2d2289-c9c6-4a98-b25b-40737150477b" class="">
+</p><p id="fc18d7b5-af94-45fb-a3ad-3b8994f6cb52" class="">이 구조를 다대일 구조라한다</p><p id="6112970b-f24b-4064-b894-79e02de8a803" class="">
+</p><p id="eb20ef03-0b35-4662-a1b3-bae6851b8def" class="">
+</p><p id="8b2466b8-c65b-44cc-ba60-794cbd21a6a2" class="">입력은 여러개인데 출력이 1개다, RNN은 CNN과 다르게, 출력적 특성이 여러개가 있다.</p><p id="931882c4-64ce-4f33-bcd0-5be537ad3ef2" class="">번역 → 오토인코더 → 얘도 퍼셉트론 구조</p><p id="516abbb9-4b08-47a8-8f76-c49e2ff4fa9e" class="">지금의 모든 번역은 트랜스포머 모델을 쓴다 → 어텐션 쓴다</p><p id="4a99fe61-b93f-4d29-b068-f7d59616332d" class="">
+</p><p id="24948878-3723-4b97-9fed-aea7cd8441cb" class="">벡터 단순하게 말하면, 하나의 정보를 숫자 여러개로 표현한거</p><p id="fea98b4b-1c5d-4fa1-9272-43420297a91c" class="">
+</p><p id="1cdcf9de-8a14-4d07-ab69-733b18653b3a" class="">p498</p><p id="4360d8ef-9541-405c-ba2e-47b9b3987654" class="">
+</p><p id="f226e10d-ff90-4560-8b2c-a8221dd77ad2" class="">dlalwl32 wkdusdj 64 128</p><p id="5d38a31a-8310-4e12-9585-756a786f7670" class="">
+</p><p id="dde4d3e2-336e-45eb-9683-1f9b52b86bea" class="">모든 퍼셉트론은 어차피 웨이티드썸하는것</p><p id="649a8a04-e4af-4f76-b12f-cdfcd227fb65" class="">
+</p><p id="5c58f9ba-c78c-47bd-a604-17502fe22888" class="">단어임베딩</p><p id="4d1d8878-d908-4bc0-a711-e1f68a1ea184" class="">
+</p><h1 id="05a88b99-b1dc-4732-837f-6a872ce98ed7" class="">한국어 임베딩 - 이기창 저자</h1><p id="ce9661b6-4bf4-4777-a6b7-0750a10ce7f7" class="">한국어 임베딩에 대해 공부하기 좋은 책</p><p id="82ef7676-97f9-4d63-9f29-8df57f6a33c4" class="">
+</p><p id="3f20dd80-6001-41f2-a35d-a91ed03a49e5" class="">word2vec.kr</p><p id="69237381-c61b-42ef-809b-1b64cd5c9963" class="">
+</p><p id="5d09bbd1-642c-4c0d-85fe-4187f057d12d" class="">#원핫인코딩의 단점 </p><p id="cb7c10ad-3e27-41a4-b830-37fbe4c26f2c" class="">- 너무 많아, 이번엔 단어 1개를 위해 300개 사전은 40만개 필요할 것, 메모리낭비</p><p id="e3ccd1a7-9172-4d7b-aa9d-e1641bcce9a1" class="">- 아무 의미없이 표현됨, 유사하지않은데 유사하다고 기계는 생각하기도 캣을보고 큐티라고함</p><p id="5f48c96e-6f9b-4475-8dc4-5a24512b5009" class="">
+</p><p id="fa401f9a-b328-41a4-801c-109d68f7c2a5" class="">
+</p><p id="7f238af8-14f7-405c-96f8-72a1d9520ea2" class="">#워드인베딩</p><p id="c0c15e21-d396-4199-b84d-872416257192" class="">값을 조정하기때문에 실수값을씀, 1만쓰지않음, 해당 벡터와 비슷한 벡터라면 비슷한 값이 구성됨</p><p id="8c0509c6-5d5c-4ff6-8257-a7ea0cd639b7" class="">
+</p><p id="b6511778-3031-4b16-a269-4ee95535f7ae" class="">
+</p><p id="11fcfda3-3c83-4d17-a9a3-3a20e3ff7317" class="">
+</p><p id="82f91e0f-23cc-498f-80bd-58819561227f" class="">입력과 출력</p><p id="029e5774-e77f-4b4d-9130-76ba55306eb7" class="">
+</p><p id="52cf198d-4358-4af2-9c19-c77e1dd1bcda" class="">
+</p><p id="a5fca136-1786-42c0-b7f9-87a8cf9ee55f" class="">모든 퍼셉트론</p><p id="6eb02289-6c6f-49cf-ae66-8ac9758b91aa" class="">입력값 벡터 (1개가 아니라면)</p><p id="2d00188a-a379-4fef-bed8-30440c14017a" class="">
+</p><p id="644c481e-d93f-49da-b72c-bdf7dc309486" class="">출력값 숫자 출력 1개</p><p id="fe60fd51-439c-415a-a035-2d9a6ea6db8c" class="">
+</p><h1 id="2641c2f9-cca7-4a67-8e85-a368c2fc0220" class="">LSTM </h1><p id="50b3fbc9-9a46-400c-8b68-d3ed2663e501" class="">
+</p><p id="a660bccf-ae67-489f-8dd0-64d2f77080b7" class="">기억하고 싶은 단어를 좀 더 길게 기억하게 하는 것</p><p id="7b4978e2-9650-4f89-8e15-b741b20d014f" class="">
+</p><p id="4040f18a-f6bd-44e3-9a8b-0dee780ba7db" class="">특징을 찾기위한 숫자놀음</p><p id="5b7e636e-4cfd-44f0-baea-b56022270a1c" class="">
+</p><p id="7c25c8b4-ebb0-486b-849b-6253b8332b4f" class="">이미지는 밝기</p><p id="e06f64f5-e3a8-4928-973e-18ab2215a955" class="">
+</p><p id="d69a97cc-c840-4d76-859e-d2abb2945acd" class="">이건 텍스트 벡터의 숫자 강조</p><p id="e324dda6-b835-4e66-819b-88187bc72a39" class="">숫자키우려고 웨이트 곱해주고</p><p id="f901e461-5579-4515-9984-6a431a5c2b0e" class="">키운걸 뒤에 다른 숫자값을 넣어줘서</p><p id="932b76e2-7c79-4a72-acab-836016d674ed" class="">
+</p><h1 id="2710d9db-5455-482c-87a1-688c322a600d" class="">머신러닝 = 입력구조 / 출력구조</h1><p id="56464ba4-ad4e-448c-947a-2f569143a27f" class="">이 두개는 어떻게 되는지는 계속 생각을 해야한다</p><p id="04112ee1-cec9-41b7-945a-61881852fcd1" class="">
+</p><p id="1971b204-7e16-4e14-833d-e14a5a24c014" class=""># 임베딩은 딥러닝에 퍼셉트론 구조로 쓴게 아니다 ≠</p><p id="4e6bc9e9-b9af-4fda-8401-d58f403a10b2" class="">임베딩은 가장 잘 표현하는 16개의 숫자만 찾으면 된다</p><p id="cdde3a3e-43b6-47c0-bd73-a81daffeef8f" class="">
+</p><p id="cf614818-c172-4858-8913-f2400ae91637" class="">8개의 노드</p><p id="e7a98640-baa7-4713-8117-6fcff969f29b" class="">
+</p><p id="335f3b91-6036-451b-abeb-aea4e1f3292e" class="">오차함수 루스펑션 - 바이너리+ 크로스 엔트로피</p><p id="61f2ef39-4832-449b-89f4-27c0a81f2b99" class="">
+</p><p id="3e9b7b13-1599-4b56-84c8-db41269103b5" class="">
+</p><p id="d626c0a5-d733-40c2-94a1-c04cfe6934d1" class="">
+</p><p id="4dd0d98f-2991-46fe-8dba-cea230074b6c" class="">
+</p><p id="0acabcb7-c0e2-43f7-bd14-1e9b3de87bf6" class="">목표</p><p id="3ba599d7-dbb0-4e03-8a2c-46c3775cc672" class="">50살 넘어서 코딩하는건</p><p id="cfa78881-8832-484d-ac5d-6f31a21059aa" class="">나의 스타일로 해야지</p><p id="c233cd39-7897-4602-9ac1-2be52621249a" class="">남이 시키는건 하기 힘듦,</p><p id="1506d70d-9872-4150-befa-2a2480bf20bb" class="">
+</p><p id="683afb8e-933d-4a8f-af52-d156fecba065" class="">교수님 권고</p><p id="b34533c5-9944-4d48-8ee2-ce7b0339fc99" class="">
+</p><p id="31a3fdde-11ec-4df7-a581-f0cb921f121b" class="">[권고 1]</p><p id="592a74d1-7d46-4707-bc66-4db721e37278" class="">50세쯤되면 회사에 있어도코더보단 매니저 시켜, 힘들다 하기도 싫고</p><p id="f5bedb25-8bf9-44b0-983d-30c49faaf3ae" class="">그러므로 끝까지 남되, 45세 이전에 관둔 후</p><p id="bc72a240-b58d-4caf-b835-d93316c4b23c" class="">용역을 받아서 하던가 어느 하나 특출난 영역을</p><p id="6ed9c449-89c2-47f3-9aef-763a9d004006" class="">구축해서 놀면서 한단 마인드로 조기 파이어한다는 마인드도 좋다</p><p id="77f9dae7-009b-4e40-b4ab-ac56cb7370b4" class="">
+</p><p id="57039d58-8298-4a16-8e1c-57b6ef588efb" class="">[권고 2]</p><p id="0812bd40-38f8-4378-a8b3-e19e9dd42dc4" class="">아니면, 외국물도 먹어봐라 아마존에서 3년 일해봐라</p><p id="3c2825a8-bac1-40f9-a1ac-c13fb1c2acf9" class="">원격으로 코딩테스트 다 한다</p><p id="6c85096e-3b72-437b-8412-ef8dcc38183b" class="">
+</p><p id="e2754eec-bd23-4ee7-8459-8a2635fe580c" class="">오히려 외국은 뼈를 묻겠습니다, 안 받아줌,</p><p id="b5442b26-6c74-42d5-b79a-9384282275c2" class="">3년 일하고 창업할거에요&lt; 오히려 받아줌</p><p id="706b024f-1687-43da-ae8d-94cefd958f38" class="">
+</p><p id="d08c6f17-b0a9-4a9a-b744-b82ab7695b64" class="">창업&gt; 나만 할 수 있는 것 하는게 맞다</p><p id="c1b3eff0-9907-483b-a0df-e8a79868cd5d" class="">씨스코 ccna cccp 프로페셔널 </p><p id="e05e33ad-b87b-4359-a1a7-bb10c31c0048" class="">콜 부름 3시간 ~ 6시간 걸립니다</p><p id="17522a34-3b49-4ab4-a238-8f085cf33c03" class="">시간 당 60만원 ~ 100만원</p><p id="520b9390-9473-4760-93da-8b2031de5903" class="">처치해주고 180받는거 &lt; 요샌 많음</p><p id="96f06b48-e584-49e7-a3be-fa9577893bb2" class="">
+</p><p id="9feeb679-f567-4420-bf7b-d7003e1f90e4" class="">프로그래머도 ‘나만이 할 수 있는 것’ 있으면</p><p id="ab904efc-c332-4c8f-a2b7-ae5f20decbac" class="">20억 마련하고 45세에 관두고 놀면 됨</p><p id="27153e23-ef30-43d7-949c-d2aa1b951e89" class="">미래 디자인을 할 것, 당장 먹고 사는 것도 중요하지만</p><p id="7f780b18-4d96-49b4-93e6-04acffecfc94" class="">
+</p><p id="37f6660c-13bb-42b2-9f27-3ab133efc2a0" class="">보통은 45세 넘어서야 출구전략을 생각함, </p><p id="f052e976-987d-4771-9a44-8c1646b3ffd3" class="">30세에 미리 디자인 생각 해두는게</p><p id="47b4b570-a7a6-4c92-a805-5ac838880264" class="">수월하다 그게 아니면 평생 일하면서 살 것인지,</p><p id="2a8039db-f6fc-4dff-9527-8fa0fa496895" class="">
+</p><p id="632adbc9-1b2e-4d4d-b20a-8e2a0b4f2af8" class="">45세에 관둘 생각으로 연봉 2억 받으면 15년 일할듯</p><p id="de2294d1-1cc3-4201-97a9-f2199592af85" class="">
+</p><p id="edcb082e-7088-499f-ba72-a80bbc56374e" class="">레이어가 많으면 많을수록 성능이 안 나아질 수가 없다</p><p id="754dbfc2-0616-436f-8516-544928e9cd53" class="">
+</p><p id="5c7559e3-b811-4d32-a83e-2ddb8bdeda39" class="">
+</p><p id="7e27ec1a-f1ba-463c-a757-a8d173bf15a0" class="">RNN(Recurrent Neural Network)은 딥러닝 모델 중 하나로, 순차적인 데이터를 처리하기 위해 설계된 신경망입니다. RNN은 시간에 따른 데이터나 순서가 있는 데이터를 처리하는 데 강력한 도구로 사용됩니다.</p><p id="fd80c192-12ff-42cd-9383-13263efa1eef" class="">
+</p><p id="01ec3c15-5241-4e9c-a67d-09d13d875f45" class=""><strong>RNN(Recurrent Neural Network)</strong>:</p><ul id="e809327e-3182-458e-bb52-769a2b16c6d5" class="bulleted-list"><li style="list-style-type:disc">RNN은 순서가 있는 데이터를 처리할 때 사용됩니다. 예를 들어, 문장, 시계열 데이터, 음성 데이터 등을 처리하는 데 적합합니다.</li></ul><ul id="7e646072-b6d0-4872-a405-cfd03fbdadf9" class="bulleted-list"><li style="list-style-type:disc">RNN은 순차적으로 데이터를 입력받으며, 이전 단계의 출력을 현재 단계의 입력으로 사용합니다. 이러한 반복 구조를 통해 시퀀스 데이터의 패턴을 학습할 수 있습니다.</li></ul><ul id="2142dc00-9d51-4012-b0aa-634257fa165c" class="bulleted-list"><li style="list-style-type:disc">RNN은 각 단계에서 가중치와 상태(state)를 공유하여 이전 정보를 기억하고 새로운 정보와 결합하여 출력을 생성합니다.</li></ul><ul id="cfe6e969-93d5-445c-86b0-3b5559d2e1bc" class="bulleted-list"><li style="list-style-type:disc">하지만 RNN은 긴 시퀀스를 처리할 때 그래디언트 소실 문제(vanishing gradient problem)가 발생할 수 있어서, 긴 시퀀스를 처리하는 데 어려움이 있습니다.</li></ul><p id="3cb283e6-ec72-435c-a779-16c92147cf80" class="">
+</p><p id="fc334edf-e1f1-44fb-bc8b-f6c0e32ffd70" class=""><strong>LSTM(Long Short-Term Memory)</strong>:</p><ul id="8d7dc039-362e-47af-bf7b-cd92418cd847" class="bulleted-list"><li style="list-style-type:disc">LSTM은 RNN의 한 종류로, 장기 의존성(long-term dependency)을 효과적으로 다루기 위해 고안되었습니다.</li></ul><ul id="221899fc-9b3d-4b54-bf5c-48d4cf5a619d" class="bulleted-list"><li style="list-style-type:disc">LSTM은 기본 RNN과 달리, 게이트(gate) 메커니즘을 사용하여 정보를 저장하고 삭제하는 방법을 학습합니다.</li></ul><ul id="a86a552e-0ecb-434a-94eb-b80a7fdc7fd0" class="bulleted-list"><li style="list-style-type:disc">LSTM은 장기 의존성을 가진 시퀀스 데이터를 처리할 때 매우 효과적이며, 긴 시퀀스에 대한 정보를 오랫동안 기억할 수 있습니다.</li></ul><p id="ed978e65-ef06-41c5-81d2-9fe368acb531" class="">
+</p><p id="57c5f50a-ec01-4a96-84d4-b4c4ca9d8b8c" class=""><strong>GRU(Gated Recurrent Unit)</strong>:</p><ul id="dfa8d4c4-2a14-40de-a737-11c47c9d0dc5" class="bulleted-list"><li style="list-style-type:disc">GRU도 LSTM과 유사한 게이트 메커니즘을 사용하는 RNN의 변종입니다.</li></ul><ul id="2030b576-fec1-4e89-8c01-381f077cd471" class="bulleted-list"><li style="list-style-type:disc">LSTM보다 간단한 구조를 가지고 있으며, 더 적은 파라미터로 학습할 수 있습니다.</li></ul><ul id="d88b56a7-044f-4fd9-a262-52eb9269c372" class="bulleted-list"><li style="list-style-type:disc">GRU는 기본적인 시퀀스 모델링 작업을 수행하는 데 효과적이며, 상대적으로 더 빠르게 훈련될 수 있습니다.</li></ul><p id="5293f276-bc0e-4935-86cd-c7849cbef2e7" class="">
+</p><p id="8d45a33e-0363-47c2-8d8e-103da1290107" class="">간단히 말하면, RNN은 순차적인 데이터를 처리하기 위한 신경망 구조이며, LSTM과 GRU는 RNN의 향상된 버전으로, 장기 의존성 문제를 해결하고 시퀀스 데이터를 더 효과적으로 처리하기 위해 고안되었습니다. LSTM과 GRU는 다양한 자연어 처리 및 시계열 예측 작업에서 널리 사용되고 있습니다.</p><p id="e37b84ab-3f7f-4430-956b-b971f16d211d" class="">
+</p><p id="18ce9ffa-190b-4b5c-a483-e772650ab15e" class="">GRU는 LSTM의 아류다,</p><p id="7ce51926-6ea7-4a57-a40e-0bff36800582" class="">GRU는 해외논문 등에선 잘 설명되진않음, 국뽕인 부분이 있음</p><p id="17548392-d6cb-42bf-add0-b2bfea59f907" class="">
+</p><p id="54e054f9-34fc-439a-8f84-a7549f387063" class="">
+</p><p id="e7e4c7eb-9a9f-40d6-96d0-53120665921c" class="">이런 짓 하는 이유 = 왜 곱했고 왜 더했나 공부하면서 생각</p><p id="6fc733e4-03fc-4a48-acf5-1b232d778b61" class="">
+</p><p id="b1bb68ef-1395-4b6a-bc7a-924800050e05" class="">디시전트리 = 맥스렝스 왜하나 &lt; 과적합 피하려고</p><p id="a1f1da75-1ad4-41ed-a610-ad6ba09fbdd2" class="">
+</p><p id="c4243c94-1ac3-4320-b5d3-056f96195a82" class="">
+</p><p id="c6274604-aafe-4f15-a7d7-e2ae0c353013" class="">
+</p><p id="87d63d94-e5fa-4483-afb7-2b6d02916c02" class="">
+</p><p id="d9d061e9-675e-4e09-9888-0215d73877fe" class="">
+</p><p id="4f58d7a4-7ae3-4b31-b24a-33307897508c" class="">
+</p><p id="acac9ac9-f854-4655-a5cd-235b9fbf9a79" class="">
+</p><p id="90576d77-3fe9-4392-80fe-8ea29cac7966" class="">
+</p></div></article></body></html>
